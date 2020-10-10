@@ -1,0 +1,21 @@
+.add-user-body {
+    padding: 30px;
+}
+
+h3 {
+    color: #ffffff;
+}
+
+label {
+    color: #ffffff;
+    font-size: 18px;
+    margin-right: 1rem;
+}
+
+input {
+    width: 100%;
+}
+
+.form-item {
+    display: flex;
+}

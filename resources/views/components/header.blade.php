@@ -1,1 +1,2 @@
-<img src="{{ asset('img/artwork/logo.jpg') }}" class="img-logo">
+<link rel="stylesheet" href="{{ url('css/nav-bar.css') }}">
+<div class='header'><a class="navbar-brand" href="{{ url('/') }}"><img style="height:230px" class='img-fluid' src="{{ asset('img/artwork/header.jpg') }}"></a></div>
