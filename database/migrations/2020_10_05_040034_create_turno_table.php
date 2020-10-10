@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Combo extends Migration
+class CreateTurnoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,12 @@ class Combo extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('turnos', function (Blueprint $table) {
+            $table->id();
+            $table->timestamp('fechaHora')->useCurrent();
+            $table->integer('cantTurnos');
+            $table->integer('turnosDisponibles');
+        });
     }
 
     /**
@@ -23,6 +28,6 @@ class Combo extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('turnos');
     }
 }
