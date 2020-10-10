@@ -11,6 +11,26 @@ class PagesController extends Controller
     }
 
     public function iniciar_sesion(){
-        return view('auth.login');
+        return view('auth.main-login');
+    }
+
+    public function recover_password(){
+        return view('auth.main-recover-password');
+    }
+
+    public function add_user(){
+        return view('main-add-user');
+    }
+
+    public function change_password(){
+        return view('auth.main-change-password');
+    }
+
+    public function manage_social_area(){
+        return view('main-manage-social-area');
+    }
+
+    public function combo(){
+        return view('main-combo');
     }
 }

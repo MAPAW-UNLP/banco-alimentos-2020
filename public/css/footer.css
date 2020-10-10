@@ -1,0 +1,49 @@
+.footer {
+    width: 100%;
+    background-color: #333333;
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 1156px;
+}
+
+.footer-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 35px 15px 0;
+}
+
+.fa {
+    font-size: 25px;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    color: #333333;
+    text-decoration: none;
+    background-color: #fb4a1b;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.text-item {
+    padding-left: 15px;
+}
+
+.text-item:hover {
+    color: #ffffff;
+}
+
+a:hover {
+    text-decoration: none;
+}
