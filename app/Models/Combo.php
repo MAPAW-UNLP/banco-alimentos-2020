@@ -1,33 +1,30 @@
 <?php
-namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+namespace App;
+
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property integer $id
+ * @property string $nombre
+ * @property string $productos
+ * @property int $stock
+ * @property int $cantOrg
+ * @property int $contribucion
+ * @property int $estado
+ */
 class Combo extends Model
 {
-    use HasFactory;
     /**
-     * The primary key associated with the table.
-     *
-     * @var integer
+     * The "type" of the auto-incrementing ID.
+     * 
+     * @var string
      */
-    protected $primaryKey = 'flight_id';
+    protected $keyType = 'integer';
+
     /**
-     * Indicates if the IDs are auto-incrementing.
-     *
-     * @var bool
-     */
-    public $incrementing = true;
-    /**
-     * The attributes that are mass assignable.
-     *
      * @var array
      */
-    protected $fillable = [
-        'name',
-        'productos',
-        'stock',
-        'cant_org'
-    ];
+    protected $fillable = ['nombre', 'productos', 'stock', 'cantOrg', 'contribucion', 'estado'];
+
 }
