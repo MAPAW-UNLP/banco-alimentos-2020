@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\ComboController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,5 +27,5 @@ Route::get('/changePassword', [PagesController::class, 'change_password']);
 
 Route::get('/manageSocialArea', [PagesController::class, 'manage_social_area']);
 
-Route::get('/combo', [PagesController::class, 'combo']);
+Route::get('/combos', [ComboController::class, 'index']);
 

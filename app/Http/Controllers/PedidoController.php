@@ -15,6 +15,8 @@ class PedidoController extends Controller
     public function index()
     {
         //
+        $datos['pedidos']=Pedido::paginate();
+        return view('pedido_index',$datos);
     }
 
     /**
@@ -35,7 +37,9 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datos=request()->all();
+        Pedido::insert($datos);
+        $this->index();
     }
 
     /**

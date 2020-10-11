@@ -15,6 +15,8 @@ class TurnoController extends Controller
     public function index()
     {
         //
+        $datos['roles']=Rol::paginate();
+        return view('rol_index',$datos);  
     }
 
     /**
@@ -24,7 +26,7 @@ class TurnoController extends Controller
      */
     public function create()
     {
-        //
+        return view('rol_new',$datos);  
     }
 
     /**
@@ -35,7 +37,9 @@ class TurnoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datos=request()->all();
+        Rol::insert($datos);
+        $this->index();
     }
 
     /**

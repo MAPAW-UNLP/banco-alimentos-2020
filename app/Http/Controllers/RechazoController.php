@@ -15,6 +15,8 @@ class RechazoController extends Controller
     public function index()
     {
         //
+        $datos['rechazos']=Rechazo::paginate();
+        return view('rechazo_index',$datos);
     }
 
     /**
@@ -24,7 +26,7 @@ class RechazoController extends Controller
      */
     public function create()
     {
-        //
+        return view('rechazo_new',$datos);
     }
 
     /**
@@ -35,7 +37,9 @@ class RechazoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datos=request()->all();
+        Rechazo::insert($datos);
+        $this->index();
     }
 
     /**

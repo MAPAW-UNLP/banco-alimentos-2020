@@ -15,6 +15,8 @@ class OrganizacioneController extends Controller
     public function index()
     {
         //
+        $datos['organizaciones']=Organizacione::paginate();
+        return view('organizacione_index',$datos);
     }
 
     /**
@@ -24,7 +26,7 @@ class OrganizacioneController extends Controller
      */
     public function create()
     {
-        //
+        return view('organizacione_new',$datos);
     }
 
     /**
@@ -35,7 +37,9 @@ class OrganizacioneController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datos=request()->all();
+        Organizacione::insert($datos);
+        $this->index();
     }
 
     /**
