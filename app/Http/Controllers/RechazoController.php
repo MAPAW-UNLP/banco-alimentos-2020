@@ -27,6 +27,8 @@ class RechazoController extends Controller
     public function create()
     {
         return view('rechazo_new',$datos);
+        //
+
     }
 
     /**
@@ -40,6 +42,7 @@ class RechazoController extends Controller
         $datos=request()->all();
         Rechazo::insert($datos);
         $this->index();
+        //
     }
 
     /**

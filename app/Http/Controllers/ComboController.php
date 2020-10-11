@@ -17,6 +17,7 @@ class ComboController extends Controller
         //
         $datos['combos']=Combo::paginate();
         return view('combo_index',$datos);
+
     }
 
     /**
@@ -26,8 +27,6 @@ class ComboController extends Controller
      */
     public function create()
     {
-        //
-        
         return view('combo_new',$datos);
     }
 
@@ -63,7 +62,6 @@ class ComboController extends Controller
      */
     public function edit(Combo $combo)
     {
-        
     }
 
     /**

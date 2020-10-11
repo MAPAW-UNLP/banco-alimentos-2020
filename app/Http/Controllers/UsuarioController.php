@@ -14,7 +14,7 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        //
+
         $datos['usuarios']=Usuario::paginate();
         return view('usuario_index',$datos); 
     }
@@ -27,6 +27,7 @@ class UsuarioController extends Controller
     public function create()
     {
         return view('usuario_new',$datos); 
+
     }
 
     /**
@@ -37,9 +38,11 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
+
         $datos=request()->all();
         Usuario::insert($datos);
         return view('usuario_new',$datos); 
+
     }
 
     /**

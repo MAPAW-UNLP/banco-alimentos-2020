@@ -14,7 +14,6 @@ class TurnoController extends Controller
      */
     public function index()
     {
-        //
         $datos['roles']=Rol::paginate();
         return view('rol_index',$datos);  
     }

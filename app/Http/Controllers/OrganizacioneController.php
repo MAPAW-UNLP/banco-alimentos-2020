@@ -15,6 +15,7 @@ class OrganizacioneController extends Controller
     public function index()
     {
         //
+
         $datos['organizaciones']=Organizacione::paginate();
         return view('organizacione_index',$datos);
     }
