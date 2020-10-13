@@ -27,7 +27,7 @@ class ComboController extends Controller
      */
     public function create()
     {
-        return view('combo_new',$datos);
+        return view('combo_new');
     }
 
     /**
@@ -38,9 +38,9 @@ class ComboController extends Controller
      */
     public function store(Request $request)
     {
-        $datos=request()->all();
+        $datos=request()->except('_token');
         Combo::insert($datos);
-        $this->index();
+        return redirect('combos');
     }
 
     /**
@@ -49,9 +49,9 @@ class ComboController extends Controller
      * @param  \App\Models\Combo  $combo
      * @return \Illuminate\Http\Response
      */
-    public function show(Combo $combo)
+    public function show($id)
     {
-        //
+        return view('combo_show', ['combo' => Combo::findOrFail($id)]);
     }
 
     /**
@@ -60,8 +60,9 @@ class ComboController extends Controller
      * @param  \App\Models\Combo  $combo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Combo $combo)
+    public function edit($id)
     {
+        return view('combo_edit', ['combo' => Combo::findOrFail($id)]);
     }
 
     /**
@@ -71,9 +72,12 @@ class ComboController extends Controller
      * @param  \App\Models\Combo  $combo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Combo $combo)
+    public function update(Request $request, $id)
     {
-        //
+        $datos=request()->except(['_token','_method']);
+        Combo::where('id','=',$id)->update($datos);
+
+        return redirect('combos');
     }
 
     /**
@@ -82,8 +86,9 @@ class ComboController extends Controller
      * @param  \App\Models\Combo  $combo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Combo $combo)
+    public function destroy($id)
     {
-        //
+        Combo::destroy($id);
+        return redirect('combos');
     }
 }
