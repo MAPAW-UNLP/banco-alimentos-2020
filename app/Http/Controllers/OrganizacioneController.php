@@ -15,6 +15,9 @@ class OrganizacioneController extends Controller
     public function index()
     {
         //
+        $datos['organizaciones']=organizacione::paginate();
+        return view('organizacione_index',$datos);
+
     }
 
     /**
@@ -24,7 +27,7 @@ class OrganizacioneController extends Controller
      */
     public function create()
     {
-        //
+        return view('organizacione_new');
     }
 
     /**
@@ -35,7 +38,9 @@ class OrganizacioneController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datos=request()->except('_token');
+        organizacione::insert($datos);
+        return redirect('organizaciones');
     }
 
     /**
@@ -44,9 +49,9 @@ class OrganizacioneController extends Controller
      * @param  \App\Models\organizacione  $organizacione
      * @return \Illuminate\Http\Response
      */
-    public function show(organizacione $organizacione)
+    public function show($id)
     {
-        //
+        return view('organizacione_show', ['organizacione' => organizacione::findOrFail($id)]);
     }
 
     /**
@@ -55,9 +60,9 @@ class OrganizacioneController extends Controller
      * @param  \App\Models\organizacione  $organizacione
      * @return \Illuminate\Http\Response
      */
-    public function edit(organizacione $organizacione)
+    public function edit($id)
     {
-        //
+        return view('organizacione_edit', ['organizacione' => organizacione::findOrFail($id)]);
     }
 
     /**
@@ -67,9 +72,12 @@ class OrganizacioneController extends Controller
      * @param  \App\Models\organizacione  $organizacione
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, organizacione $organizacione)
+    public function update(Request $request, $id)
     {
-        //
+        $datos=request()->except(['_token','_method']);
+        organizacione::where('id','=',$id)->update($datos);
+
+        return redirect('organizaciones');
     }
 
     /**
@@ -78,8 +86,9 @@ class OrganizacioneController extends Controller
      * @param  \App\Models\organizacione  $organizacione
      * @return \Illuminate\Http\Response
      */
-    public function destroy(organizacione $organizacione)
+    public function destroy($id)
     {
-        //
+        organizacione::destroy($id);
+        return redirect('organizaciones');
     }
 }

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class RechazoController extends Controller
 {
-    /**
+      /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -15,6 +15,9 @@ class RechazoController extends Controller
     public function index()
     {
         //
+        $datos['rechazos']=Rechazo::paginate();
+        return view('rechazo_index',$datos);
+
     }
 
     /**
@@ -24,7 +27,7 @@ class RechazoController extends Controller
      */
     public function create()
     {
-        //
+        return view('rechazo_new');
     }
 
     /**
@@ -35,51 +38,57 @@ class RechazoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datos=request()->except('_token');
+        rechazo::insert($datos);
+        return redirect('rechazos');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Rechazo  $rechazo
+     * @param  \App\Models\rechazo  $rechazo
      * @return \Illuminate\Http\Response
      */
-    public function show(Rechazo $rechazo)
+    public function show($id)
     {
-        //
+        return view('rechazo_show', ['rechazo' => Rechazo::findOrFail($id)]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Rechazo  $rechazo
+     * @param  \App\Models\rechazo  $rechazo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Rechazo $rechazo)
+    public function edit($id)
     {
-        //
+        return view('rechazo_edit', ['rechazo' => Rechazo::findOrFail($id)]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Rechazo  $rechazo
+     * @param  \App\Models\rechazo  $rechazo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Rechazo $rechazo)
+    public function update(Request $request, $id)
     {
-        //
+        $datos=request()->except(['_token','_method']);
+        rechazo::where('id','=',$id)->update($datos);
+
+        return redirect('rechazos');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Rechazo  $rechazo
+     * @param  \App\Models\rechazo  $rechazo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Rechazo $rechazo)
+    public function destroy($id)
     {
-        //
+        rechazo::destroy($id);
+        return redirect('rechazos');
     }
 }

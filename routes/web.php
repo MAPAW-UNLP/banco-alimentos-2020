@@ -2,6 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\ComboController;
+use App\Http\Controllers\OrganizacioneController;
+use App\Http\Controllers\PedidoController;
+use App\Http\Controllers\RechazoController;
+use App\Http\Controllers\RolController;
+use App\Http\Controllers\TurnoController;
+use App\Http\Controllers\UsuariosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,5 +33,13 @@ Route::get('/changePassword', [PagesController::class, 'change_password']);
 
 Route::get('/manageSocialArea', [PagesController::class, 'manage_social_area']);
 
-Route::get('/combo', [PagesController::class, 'combo']);
+Route::resource('combos', 'ComboController');
+Route::resource('organizaciones', 'OrganizacioneController');
+Route::resource('pedidos', 'PedidoController');
+Route::resource('rechazos', 'RechazoController');
+Route::resource('rols', 'RolController');
+Route::resource('turnos', 'TurnoController');
+Route::resource('usuarios', 'UsuariosController');
+
+
 

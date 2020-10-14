@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -20,6 +20,7 @@ class Combo extends Model
      * 
      * @var string
      */
+    const UPDATED_AT = null;
     protected $keyType = 'integer';
 
     /**

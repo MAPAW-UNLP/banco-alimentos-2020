@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class UsuarioController extends Controller
 {
-    /**
+      /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -15,6 +15,9 @@ class UsuarioController extends Controller
     public function index()
     {
         //
+        $datos['usuarios']=Usuario::paginate();
+        return view('usuario_index',$datos);
+
     }
 
     /**
@@ -24,7 +27,7 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        //
+        return view('usuario_new');
     }
 
     /**
@@ -35,51 +38,57 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datos=request()->except('_token');
+        usuario::insert($datos);
+        return redirect('usuarios');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Usuario  $usuario
+     * @param  \App\Models\usuario  $usuario
      * @return \Illuminate\Http\Response
      */
-    public function show(Usuario $usuario)
+    public function show($id)
     {
-        //
+        return view('usuario_show', ['usuario' => Usuario::findOrFail($id)]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Usuario  $usuario
+     * @param  \App\Models\usuario  $usuario
      * @return \Illuminate\Http\Response
      */
-    public function edit(Usuario $usuario)
+    public function edit($id)
     {
-        //
+        return view('usuario_edit', ['usuario' => Usuario::findOrFail($id)]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Usuario  $usuario
+     * @param  \App\Models\usuario  $usuario
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Usuario $usuario)
+    public function update(Request $request, $id)
     {
-        //
+        $datos=request()->except(['_token','_method']);
+        usuario::where('id','=',$id)->update($datos);
+
+        return redirect('usuarios');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Usuario  $usuario
+     * @param  \App\Models\usuario  $usuario
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Usuario $usuario)
+    public function destroy($id)
     {
-        //
+        usuario::destroy($id);
+        return redirect('usuarios');
     }
 }

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class PedidoController extends Controller
 {
-    /**
+      /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -15,6 +15,9 @@ class PedidoController extends Controller
     public function index()
     {
         //
+        $datos['pedidos']=Pedido::paginate();
+        return view('pedido_index',$datos);
+
     }
 
     /**
@@ -24,7 +27,7 @@ class PedidoController extends Controller
      */
     public function create()
     {
-        //
+        return view('pedido_new');
     }
 
     /**
@@ -35,51 +38,57 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datos=request()->except('_token');
+        pedido::insert($datos);
+        return redirect('pedidos');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Pedido  $pedido
+     * @param  \App\Models\pedido  $pedido
      * @return \Illuminate\Http\Response
      */
-    public function show(Pedido $pedido)
+    public function show($id)
     {
-        //
+        return view('pedido_show', ['pedido' => Pedido::findOrFail($id)]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Pedido  $pedido
+     * @param  \App\Models\pedido  $pedido
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pedido $pedido)
+    public function edit($id)
     {
-        //
+        return view('pedido_edit', ['pedido' => Pedido::findOrFail($id)]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Pedido  $pedido
+     * @param  \App\Models\pedido  $pedido
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pedido $pedido)
+    public function update(Request $request, $id)
     {
-        //
+        $datos=request()->except(['_token','_method']);
+        pedido::where('id','=',$id)->update($datos);
+
+        return redirect('pedidos');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Pedido  $pedido
+     * @param  \App\Models\pedido  $pedido
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pedido $pedido)
+    public function destroy($id)
     {
-        //
+        pedido::destroy($id);
+        return redirect('pedidos');
     }
 }
