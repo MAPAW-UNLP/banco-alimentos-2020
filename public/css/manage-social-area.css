@@ -1,0 +1,48 @@
+h3 {
+    color: #ffffff;
+}
+
+button {
+    border-style: none;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+}
+
+.buttons-section {
+    display: flex;
+    justify-content: end;
+    padding-right: 10px;
+    flex-basis: 0;
+    flex-grow: 1;
+}
+
+.reject-button {
+    margin-right: 10px;
+}
+
+.request-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.request-section-text {
+    background-color: #e8e8e8;
+    flex-basis: 0;
+    flex-grow: 2;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.request-section-text p {
+    margin: 0;
+}
+
+.body-request {
+    padding: 30px;
+}

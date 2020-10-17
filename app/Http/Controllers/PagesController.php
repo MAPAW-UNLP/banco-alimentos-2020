@@ -30,6 +30,10 @@ class PagesController extends Controller
         return view('main-manage-social-area');
     }
 
+    public function manage_social_area_organization_data(){
+        return view('main-manage-social-area-organization-data');
+    }
+
     public function combo(){
         return view('main-combo');
     }

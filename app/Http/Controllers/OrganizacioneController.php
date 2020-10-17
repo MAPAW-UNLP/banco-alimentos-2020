@@ -15,8 +15,8 @@ class OrganizacioneController extends Controller
     public function index()
     {
         //
-        $datos['organizaciones']=organizacione::paginate();
-        return view('organizacione_index',$datos);
+        $datos['organizaciones']=Organizacione::paginate();
+        return view('main-manage-social-area-organization-data',$datos);
 
     }
 
@@ -39,43 +39,43 @@ class OrganizacioneController extends Controller
     public function store(Request $request)
     {
         $datos=request()->except('_token');
-        organizacione::insert($datos);
+        Organizacione::insert($datos);
         return redirect('organizaciones');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\organizacione  $organizacione
+     * @param  \App\Models\Organizacione  $organizacione
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        return view('organizacione_show', ['organizacione' => organizacione::findOrFail($id)]);
+        return view('organizacione_show', ['organizacione' => Organizacione::findOrFail($id)]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\organizacione  $organizacione
+     * @param  \App\Models\Organizacione  $organizacione
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        return view('organizacione_edit', ['organizacione' => organizacione::findOrFail($id)]);
+        return view('organizacione_edit', ['organizacione' => Organizacione::findOrFail($id)]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\organizacione  $organizacione
+     * @param  \App\Models\Organizacione  $organizacione
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $datos=request()->except(['_token','_method']);
-        organizacione::where('id','=',$id)->update($datos);
+        Organizacione::where('id','=',$id)->update($datos);
 
         return redirect('organizaciones');
     }
@@ -83,12 +83,12 @@ class OrganizacioneController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\organizacione  $organizacione
+     * @param  \App\Models\Organizacione  $organizacione
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        organizacione::destroy($id);
+        Organizacione::destroy($id);
         return redirect('organizaciones');
     }
     /**
