@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Rechazo;
 use Illuminate\Http\Request;
-
+use SolicitudController;
 class RechazoController extends Controller
 {
       /**
@@ -38,8 +38,9 @@ class RechazoController extends Controller
      */
     public function store(Request $request)
     {
-        $datos=request()->except('_token');
+        $datos=request()->except('_token','solicitud_id');
         rechazo::insert($datos);
+        app('App\Http\Controllers\PrintReportController')->rechazar();
         return redirect('rechazos');
     }
 

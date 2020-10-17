@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\organizacione;
+use App\Models\Organizacione;
 use Illuminate\Http\Request;
 
 class OrganizacioneController extends Controller
@@ -90,5 +90,18 @@ class OrganizacioneController extends Controller
     {
         organizacione::destroy($id);
         return redirect('organizaciones');
+    }
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\organizacione  $organizacione
+     * @return \Illuminate\Http\Response
+     */
+    public function aceptar($id)
+    {
+        $organizacion=organizacione::findOrFail($id);
+        $organizacion['estado']=1;
+        organizacione::where('id','=',$id)->update($organizacion->toArray());
+        return response()->json($organizacion);
     }
 }

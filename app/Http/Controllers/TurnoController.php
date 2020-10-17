@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Contturnolers;
+namespace App\Http\Controllers;
 
 use App\Models\Turno;
 use Illuminate\Http\Request;
 
-class TurnoContturnoler extends Contturnoler
+class TurnoController extends Controller
 {
       /**
      * Display a listing of the resource.
