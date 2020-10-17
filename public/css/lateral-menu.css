@@ -9,11 +9,11 @@
 
 .lateral-menu {
     background-color: #fb4a1b;
-    height: 450px;
     width: 270px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-right: 50px;
 }
 
 .lateral-menu-item {
@@ -24,14 +24,12 @@
     justify-content: center;
     align-items: center;
     margin: 15px;
+    border-radius: 8px;
 }
 
 .lateral-menu-item:hover {
     background-color: #f2994a;
-}
-
-.lateral-menu-item:hover p {
-    font-weight: bold;
+    border-radius: 8px;
 }
 
 .lateral-menu-item-color {
@@ -42,6 +40,7 @@
     justify-content: center;
     align-items: center;
     margin: 15px;
+    border-radius: 8px;
 }
 
 .lateral-menu-text-item {
@@ -52,8 +51,7 @@
 }
 
 .body {
-    width: 700px;
-    height: 450px;
+    width: 100%;
     background-color: #fb4a1b;
     box-shadow: 0 5px 5px #888888;
 }

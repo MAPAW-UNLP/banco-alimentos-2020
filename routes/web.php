@@ -23,15 +23,10 @@ use App\Http\Controllers\SolicitudController;
 */
 
 Route::get('/', [PagesController::class, 'inicio']);
-
 Route::get('/login', [PagesController::class, 'iniciar_sesion']);
-
 Route::get('/recover', [PagesController::class, 'recover_password']);
-
 Route::get('/addUser', [PagesController::class, 'add_user']);
-
 Route::get('/changePassword', [PagesController::class, 'change_password']);
-
 Route::get('/manageSocialArea', [PagesController::class, 'manage_social_area']);
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles','RoleController');
@@ -47,9 +42,6 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/activarCombo/{id}', [ComboController::class, 'activar']);
     Route::get('/desactivarCombo/{id}', [ComboController::class, 'desactivar']);
 });
-
-
-
 
 
 Auth::routes();

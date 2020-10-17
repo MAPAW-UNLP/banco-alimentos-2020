@@ -1,5 +1,5 @@
 @include('main')
 @include('components.header')
 @include('components.nav')
-@include('components.change-password')
+@include('components.manage-social-area-organization-data')
 @include('components.footer')
