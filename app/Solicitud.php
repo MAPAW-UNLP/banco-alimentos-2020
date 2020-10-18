@@ -1,19 +1,20 @@
 <?php
 
-namespace App\Models;
+namespace App;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+class Solicitud extends Model
 /**
  * @property integer $id
  * @property integer $organizacion_id
  * @property string $fecha
- * @property string $motivo
  * @property Organizacione $organizacione
  */
-class Rechazo extends Model
 {
-    /**
+    use HasFactory;
+        /**
      * The "type" of the auto-incrementing ID.
      * 
      * @var string
@@ -23,7 +24,7 @@ class Rechazo extends Model
     /**
      * @var array
      */
-    protected $fillable = ['organizacion_id', 'fecha', 'motivo'];
+    protected $fillable = ['organizacion_id', 'fecha'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

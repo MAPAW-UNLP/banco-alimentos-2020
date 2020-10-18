@@ -15,19 +15,46 @@ class CreateAdminUserSeeder extends Seeder
         */
         public function run()
         {
-        $user = User::create([
-        'name' => 'Rahul Shukla',
-        'email' => 'admin@admin.com',
-        'apellido' => 'admin',
+        $user1 = User::create([
+        'name' => 'Sebastian',
+        'email' => 'sebastianesg@gmail.com',
+        'apellido' => 'Sanchez',
+        'dni' => 12345678,
+        'telefono' => 12345678,
+        'password' => bcrypt('123456')
+        ]);
+        $user2 = User::create([
+        'name' => 'Ejemplo Organizacion',
+        'email' => 'ejemplo@organizacion.com',
+        'apellido' => 'Org',
         'dni' => 31785,
         'telefono' => 31785,
         'password' => bcrypt('123456')
         ]);
-        Role::create(['name' => 'Empleado']);
-        Role::create(['name' => 'Organizacion']);
+        $user3 = User::create([
+            'name' => 'Ejemplo Empleado',
+            'email' => 'ejemplo@empleado.com',
+            'apellido' => 'empleado',
+            'dni' => 31785,
+            'telefono' => 31785,
+            'password' => bcrypt('123456')
+        ]);  
+        $user4 = User::create([
+            'name' => 'Ejemplo2 Organizacion',
+            'email' => 'ejemplo2@organizacion.com',
+            'apellido' => 'Org',
+            'dni' => 31785,
+            'telefono' => 31785,
+            'password' => bcrypt('123456')
+        ]);
+        $role=Role::create(['name' => 'Empleado']);
+        $user3->assignRole([$role->id]);
+        $role=Role::create(['name' => 'Organizacion']);
+        $user2->assignRole([$role->id]);
+        $user4->assignRole([$role->id]);
         $role = Role::create(['name' => 'Admin']);
         $permissions = Permission::pluck('id','id')->all();
         $role->syncPermissions($permissions);
-        $user->assignRole([$role->id]);
+        $user3->assignRole([$role->id]);
     }
 }

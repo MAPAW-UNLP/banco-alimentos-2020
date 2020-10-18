@@ -10,6 +10,7 @@ use App\Http\Controllers\RolController;
 use App\Http\Controllers\TurnoController;
 use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\SolicitudController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,13 +22,10 @@ use App\Http\Controllers\SolicitudController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Auth::routes();
 Route::get('/', [PagesController::class, 'inicio']);
 Route::get('/login', [PagesController::class, 'iniciar_sesion']);
 Route::get('/recover', [PagesController::class, 'recover_password']);
-Route::get('/addUser', [PagesController::class, 'add_user']);
-Route::get('/changePassword', [PagesController::class, 'change_password']);
-Route::get('/manageSocialArea', [PagesController::class, 'manage_social_area']);
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles','RoleController');
     Route::resource('users','UserController');
@@ -36,11 +34,14 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('pedidos', 'PedidoController');
     Route::resource('rols', 'RolController');
     Route::resource('turnos', 'TurnoController');
-    Route::resource('turnos', 'SolicitudController');
+    Route::resource('solicitudes', 'SolicitudController');
     Route::get('/aceptarOrg/{id}', [OrganizacioneController::class, 'aceptar']);
     Route::get('/rechazar/{id}', [RechazoController::class, 'create']);
     Route::get('/activarCombo/{id}', [ComboController::class, 'activar']);
     Route::get('/desactivarCombo/{id}', [ComboController::class, 'desactivar']);
+    Route::get('/addUser', [PagesController::class, 'add_user']);
+    Route::get('/changePassword', [PagesController::class, 'change_password']);
+    Route::post('/changePassword', [UserController::class, 'updatePassword']);
 });
 
 

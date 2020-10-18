@@ -16,7 +16,7 @@
             </a>
         </div>
         <div>
-            <a href="{{ url('/manageSocialArea') }}" class='lateral-menu-item-color'>           
+            <a href="{{ url('/solicitudes') }}" class='lateral-menu-item-color'>           
                 <p class='lateral-menu-text-item'><b>Gestion área social</b></p>
             </a>
         </div>
@@ -50,31 +50,20 @@
                     <h3>Organizaciones</h3>
                     <p>Inactivo / Activo</p>
                 </div>
+                @foreach($organizaciones as $organizacione)
                 <div class='request-section'>
                     <div class='request-section-text'>
-                        <p><b>Nombre institución:</b> xxxxxxx</p>
+                        <p><b>Nombre institución:</b> {{$organizacione->nombre}}</p>
                     </div>
                     <div class='switch-section'>
                         <label class="switch">
-                            <input type="checkbox">
+                            <input type="checkbox" value="true">
                             <span class="slider round"></span>
                         </label>                       
                     </div>
                 </div>
+                @endforeach
             </div>
         </div>
-        <table>
-        <tr>
-            <th>email</th>
-        </tr>
-         <tr>
-            @foreach($organizaciones as $organizacion)
-            <td>{{$loop->iteration}}</td>
-            <td>{{$organizacion->email}}<td>
-            <td>{{$organizacion->nombre}}<td>
-                
-        </tr>
-@endforeach
-</table>
     </div>
 </div>

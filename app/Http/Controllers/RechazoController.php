@@ -16,7 +16,7 @@ class RechazoController extends Controller
     {
         //
         $datos['rechazos']=Rechazo::paginate();
-        return view('rechazo_index',$datos);
+        return view('rechazo.index',$datos);
 
     }
 
