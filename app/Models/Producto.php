@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property integer $id
- * @property integer $organizacion_id
- * @property string $fecha
- * @property string $motivo
- * @property Organizacione $organizacione
+ * @property integer $combo_id
+ * @property string $producto
+ * @property int $cantidad
+ * @property Combo $combo
  */
-class Rechazo extends Model
+class Producto extends Model
 {
     /**
      * The "type" of the auto-incrementing ID.
@@ -23,13 +23,13 @@ class Rechazo extends Model
     /**
      * @var array
      */
-    protected $fillable = ['organizacion_id', 'fecha', 'motivo'];
+    protected $fillable = ['combo_id', 'producto', 'cantidad'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function organizacione()
+    public function combo()
     {
-        return $this->belongsTo('App\Organizacione', 'organizacion_id');
+        return $this->belongsTo('App\Combo');
     }
 }

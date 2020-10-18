@@ -10,7 +10,6 @@
     </tr>
     <tr>
 @foreach($organizaciones as $organizacion)
-    <td>{{$loop->iteration}}</td>
     <td>{{$organizacion->nombre}}</td>
 
 

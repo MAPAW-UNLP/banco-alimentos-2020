@@ -27,19 +27,21 @@
     <div class='body'>
         <div class='add-user-body'>
             <h3>Cambiar contraseña</h3>
-            <form>
+            <form action="{{ url('/changePassword') }}" method="POST">
+            {{method_field('Post')}}
+            {{csrf_field()}}
                 <div class='input-section'>
                     <div class='form-item'>
                         <label>Ingresar contraseña actual *</label>
-                        <input type="passsword" id="currentPassword" required>
+                        <input type="passsword" id="password" name="password" required>
                     </div>
                     <div class='form-item'>
                         <label>Ingresar nueva contraseña *</label>
-                        <input type="passsword" id="newPassword" required>
+                        <input type="passsword" id="newPassword" name="newPassword" required>
                     </div>
                     <div class='form-item'>
                         <label>Repetir nueva contraseña *</label>
-                        <input type="passsword" id="repeatNewPassword" required>
+                        <input type="passsword" id="repeatNewPassword" name="repeatNewPassword" required>
                     </div>                    
                     <div class='buttons-section'>
                         <button type="cancel" class='cancel-button'>Cancelar</button>

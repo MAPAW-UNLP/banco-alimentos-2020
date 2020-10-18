@@ -34,7 +34,7 @@ $this->middleware('permission:combo-delete', ['only' => ['destroy']]);
      */
     public function create()
     {
-        return view('combo_new');
+        return view('combo.create');
     }
 
     /**
@@ -58,7 +58,7 @@ $this->middleware('permission:combo-delete', ['only' => ['destroy']]);
      */
     public function show($id)
     {
-        return view('combo_show', ['combo' => Combo::findOrFail($id)]);
+        return view('combo.show', ['combo' => Combo::findOrFail($id)]);
     }
 
     /**
@@ -69,7 +69,7 @@ $this->middleware('permission:combo-delete', ['only' => ['destroy']]);
      */
     public function edit($id)
     {
-        return view('combo_edit', ['combo' => Combo::findOrFail($id)]);
+        return view('combo.edit', ['combo' => Combo::findOrFail($id)]);
     }
 
     /**
@@ -97,5 +97,20 @@ $this->middleware('permission:combo-delete', ['only' => ['destroy']]);
     {
         Combo::destroy($id);
         return redirect('combos');
+    }
+
+    public function activar($id)
+    {
+        $combo=Combo::findOrFail($id);
+        $combo['estado']=1;
+        Combo::where('id','=',$id)->update($combo->toArray());
+        return response()->json($combo);
+    }
+    public function desactivar($id)
+    {
+        $combo=Combo::findOrFail($id);
+        $combo['estado']=0;
+        Combo::where('id','=',$id)->update($combo->toArray());
+        return response()->json($combo);
     }
 }

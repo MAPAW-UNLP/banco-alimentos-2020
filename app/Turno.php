@@ -1,14 +1,17 @@
 <?php
 
-namespace App\Models;
+namespace App;
+
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property integer $id
- * @property string $nombre
- * @property Usuario[] $usuarios
+ * @property string $fechaHora
+ * @property int $cantTurnos
+ * @property int $turnosDisponibles
+ * @property Pedido[] $pedidos
  */
-class Rol extends Model
+class Turno extends Model
 {
     /**
      * The "type" of the auto-incrementing ID.
@@ -20,13 +23,13 @@ class Rol extends Model
     /**
      * @var array
      */
-    protected $fillable = ['nombre'];
+    protected $fillable = ['fechaHora', 'cantTurnos', 'turnosDisponibles'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function usuarios()
+    public function pedidos()
     {
-        return $this->hasMany('App\Usuario');
+        return $this->hasMany('App\Pedido');
     }
 }

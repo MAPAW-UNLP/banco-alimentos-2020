@@ -46,43 +46,28 @@
         <div class='body'>
             <div class='body-request'>
                 <h3>Solicitudes de empadronamiento</h3>
+                @foreach($solicitudes as $solicitude)
                 <div class='request-section'>
+                
                     <div class='request-section-text'>
-                        <p><b>Nombre institución:</b> xxxxxxx</p>
-                        <p><b>Nombre del referente:</b> xxxxxx</p>
-                        <p><b>Domicilio (barrio):</b> xxxxx</p>
-                        <p><b>¿Personería jurídica?:</b> xx</p>
-                        <p><b>En caso negativo, ¿tiene algún aval?:</b> xxxx</p>
-                        <p><b>Cantidad de personas:</b> xxx</p>
-                        <p><b>Edad por rango:</b> xx</p>
+                        <p><b>Nombre institución:</b> {{$solicitude->organizacione->id}}</p>
+                        <p><b>Nombre del referente:</b> {{$solicitude->organizacione->user->name}}</p>
+                        <p><b>Domicilio (barrio):</b> {{$solicitude->organizacione->barrio}}</p>
+                        <p><b>¿Personería jurídica?:</b> XX</p>
+                        <p><b>En caso negativo, ¿tiene algún aval?:</b> XX</p>
+                        <p><b>Cantidad de personas:</b> {{$solicitude->organizacione->cantPers}}</p>
+                        <p><b>Edad por rango:</b> XX</p>
                         <p><b>Tipos de servicio por día:</b> tabla</p>
-                        <p><b>¿Tiene ayuda alimentaria?:</b> xxxxxx</p>
-                        <p><b>¿Recibe ayuda financiera?:</b> xxxxxx</p>
-                        <p><b>Tarea que realizan:</b> xxxxxxxxxxxxxxxxxxxx</p>
+                        <p><b>¿Tiene ayuda alimentaria?:</b> XX</p>
+                        <p><b>¿Recibe ayuda financiera?:</b> XX</p>
+                        <p><b>Tarea que realizan:</b> XX</p>
                     </div>
                     <div class='buttons-section'>
                         <button type="cancel" class='reject-button'>Rechazar</button>
                         <button type="submit">Aceptar</button>                        
                     </div>
                 </div>
-                <div class='request-section'>
-                    <div class='request-section-text'>
-                        <p><b>Nombre institución:</b> xxxxxxx</p>
-                        <p><b>Nombre del referente:</b> xxxxxx</p>
-                        <p><b>Domicilio (barrio):</b> xxxxx</p>
-                        <p><b>¿Personería jurídica?:</b> xx</p>
-                        <p><b>En caso negativo, ¿tiene algún aval?:</b> xxxx</p>
-                        <p><b>Cantidad de personas:</b> xxx</p>
-                        <p><b>Edad por rango:</b> xx</p>
-                        <p><b>Tipos de servicio por día:</b> tabla</p>
-                        <p><b>¿Tiene ayuda alimentaria?:</b> xxxxxx</p>
-                        <p><b>¿Recibe ayuda financiera?:</b> xxxxxx</p>
-                        <p><b>Tarea que realizan:</b> xxxxxxxxxxxxxxxxxxxx</p>
-                    </div>
-                    <div class='buttons-section'>
-                        <button type="cancel" class='reject-button'>Rechazar</button>
-                        <button type="submit">Aceptar</button>                        
-                    </div>
+                @endforeach
                 </div>
             </div>
         </div>

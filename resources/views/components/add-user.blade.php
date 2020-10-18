@@ -27,33 +27,36 @@
     <div class='body'>
         <div class='add-user-body'>
             <h3>Agregar Usuario</h3>
-            <form>
+            <form action="{{url('/users')}}" method="post">
+            {{method_field('POST')}}
+            {{csrf_field()}}
                 <div>
                     <div class='form-item'>
                         <label>Nombre*</label>
-                        <input type="text" id="inputName" placeholder="Nombre" required>
+                        <input type="text" id="name" name ="name" placeholder="name" required>
                     </div>
                     <div class='form-item'>
                         <label>Apellido*</label>
-                        <input type="text" id="inputLastName" placeholder="Apellido" required>
+                        <input type="text" id="apellido"  name ="apellido" placeholder="Apellido" required>
                     </div>
                     <div class='form-item'>
                         <label>Email*</label>
-                        <input type="email" id="email" placeholder="Email" required>
+                        <input type="email" id="email" name ="email" placeholder="Email" required>
                     </div>
                     <div class='form-item'>
                         <label>DNI*</label>
-                        <input type="text" id="dni" placeholder="DNI" required>
+                        <input type="text" id="dni" name="dni" placeholder="DNI" required>
                     </div>
                     <div class='form-item'>
                         <label>Teléfono*</label>
-                        <input type="text" id="telephone" placeholder="Teléfono" required>
+                        <input type="text" id="telefono" name="telefono" placeholder="Teléfono" required>
                     </div>
                     <div class='form-select-item'>
                         <label>Seleccione un rol</label>
-                        <select>                            
-                            <option value='1'>Empleado</option>
-                            <option value='2'>Administrador</option>
+                        <select id="rol_id" name="rol_id">                            
+                            <option value='3'>Empleado</option>
+                            <option value='4'>Organizacion</option>
+                            <option value='5'>Administrador</option>
                         </select>
                     </div>
                     <div class='buttons-section'>

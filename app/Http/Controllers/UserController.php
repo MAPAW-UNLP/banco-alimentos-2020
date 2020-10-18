@@ -6,6 +6,7 @@ use App\Models\User;
 use Spatie\Permission\Models\Role;
 use DB;
 use Hash;
+use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
 /**
@@ -25,7 +26,7 @@ public function index(Request $request){
 */
 public function create(){
     $roles = Role::pluck('name','name')->all();
-    return view('users.create',compact('roles'));
+    return view('main-add-user',compact('roles'));
 }
 /**
 * Store a newly created resource in storage.
@@ -34,17 +35,20 @@ public function create(){
 * @return \Illuminate\Http\Response
 */
 public function store(Request $request){
-    $this->validate($request, [
-        'name' => 'required',
-        'email' => 'required|email|unique:users,email',
-        'password' => 'required|same:confirm-password',
-        'roles' => 'required'
-    ]);
-    $input = $request->all();
-    $input['password'] = Hash::make($input['password']);
+    //$this->validate($request, [
+    //    'name' => 'required',
+    //    'email' => 'required|email|unique:users,email'
+        //'password' => 'required|same:confirm-password',
+        //'roles' => 'required'
+    //]);
+    $input = $request->except('_token','_method','rol_id');
+    //$input['password'] = Hash::make($input['password']);
+    $input['password'] = Hash::make('123456789');
+    echo response()->json($input);
     $user = User::create($input);
-    $user->assignRole($request->input('roles'));
-    return redirect()->route('users.index')
+    $user->assignRole($request->input('rol_id'));
+    
+    return redirect('users')
     ->with('success','User created successfully');
 }
 /**
@@ -85,9 +89,9 @@ public function update(Request $request, $id){
     ]);
     $input = $request->all();
     if(!empty($input['password'])){
-    $input['password'] = Hash::make($input['password']);
+        $input['password'] = Hash::make($input['password']);
     }else{
-    $input = array_except($input,array('password'));
+        $input = array_except($input,array('password'));
     }
     $user = User::find($id);
     $user->update($input);
@@ -108,4 +112,36 @@ public function destroy($id)
     return redirect()->route('users.index')
     ->with('success','User deleted successfully');
 }
+<<<<<<< HEAD
+public function updatePassword(Request $request){
+    $input = $request->all();
+    $oldPassword=User::find(Auth::id())->password;
+    $pass=Hash::make($input['password']);
+    if ($pass=$oldPassword){
+        if($input['newPassword'] = $input['repeatNewPassword']){
+            User::find(Auth::id())->update(['password' => Hash::make($input['newPassword'])]);
+            return redirect()->route('users.index')
+            ->with('succes','Password actualizada');
+        }else{
+            return redirect()->route('users.index')
+            ->with('error','Password no coinciden');
+        }
+    }else{
+        return redirect()->route('users.index')
+        ->with('error','Password no coinciden');
+    }
+    return response()->json($oldPassword);
+    /*if ($input['password'] = $input['passwordConf']){
+        $user = User::find($id);
+        $input2 = $request->except('passwordConf');
+        $user->update($input2);
+    }else{
+        return redirect()->route('users.index')
+        ->with('error','Password no coinciden');
+    }
+    return redirect()->route('users.index')
+    ->with('succes','Password actualizada');*/
+}
+=======
+>>>>>>> 37c143744ccbe163881da994478743baf9f50f8f
 }

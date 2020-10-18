@@ -1,5 +1,5 @@
 <?php
-namespace App\Models;
+namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -14,7 +14,7 @@ use HasRoles;
 * @var array
 */
 protected $fillable = [
-'name', 'email', 'password','apellido','dni','telefono',
+'name', 'email', 'password',
 ];
 /**
 * The attributes that should be hidden for arrays.
