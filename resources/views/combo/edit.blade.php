@@ -8,9 +8,6 @@
   <label for="nombre">nombre</label><br>
   <input type="text" id="nombre" name="nombre" value="{{$combo->nombre}}"><br>
 
-  <label for="productos"></label><br>
-  <input type="text" id="productos" name="productos" value="{{$combo->productos}}"><br>
-
     <label for="stock"></label><br>
   <input type="number" id="stock" name="stock" value="{{$combo->stock}}"><br>
 
@@ -22,7 +19,14 @@
 
       <label for="estado"></label><br>
   <input type="number" id="estado" name="estado" value="{{$combo->estado}}"><br>
-
+  <table>
+  @foreach($combo->productos as $producto)
+  <tr>
+    <td><input type="text" name="producto[]" value="{{$producto->producto}}"/>  </td>
+    <td><input type="number" name="cant[]" value="{{$producto->cantidad}}"/></td>
+  </tr>
+  @endforeach
+<table>
   <input type="submit" value="Editar">
 </form>
 

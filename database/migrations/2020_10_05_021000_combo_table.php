@@ -16,7 +16,6 @@ class ComboTable extends Migration
         Schema::create('combos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre')->unique();
-            $table->string('productos');
             $table->integer('stock');
             $table->integer('cantOrg');
             $table->integer('contribucion');
