@@ -14,7 +14,7 @@
             </a>
         </div>
         <div>
-            <a href="{{ url('/manageSocialArea') }}" class='lateral-menu-item'>           
+            <a href="{{ url('/solicitudes') }}" class='lateral-menu-item'>           
                 <p class='lateral-menu-text-item'>Gestion área social</p>
             </a>
         </div>

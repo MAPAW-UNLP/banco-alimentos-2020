@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property integer $id
  * @property string $nombre
- * @property string $productos
  * @property int $stock
  * @property int $cantOrg
  * @property int $contribucion
@@ -22,12 +21,14 @@ class Combo extends Model
      * 
      * @var string
      */
+    const UPDATED_AT = null;
+    const CREATED_AT = null;
     protected $keyType = 'integer';
 
     /**
      * @var array
      */
-    protected $fillable = ['nombre', 'productos', 'stock', 'cantOrg', 'contribucion', 'estado'];
+    protected $fillable = ['nombre', 'stock', 'cantOrg', 'contribucion', 'estado'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

@@ -29,7 +29,7 @@
     <div>
         <nav class='top-menu'>
             <div>
-                <a href="{{ url('/manageSocialArea') }}" class='top-menu-item'>
+                <a href="{{ url('/solicitudes') }}" class='top-menu-item'>
                     <p class='top-menu-text-item'>Empadronamientos</p>
                 </a>
             </div>

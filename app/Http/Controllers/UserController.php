@@ -112,7 +112,6 @@ public function destroy($id)
     return redirect()->route('users.index')
     ->with('success','User deleted successfully');
 }
-<<<<<<< HEAD
 public function updatePassword(Request $request){
     $input = $request->all();
     $oldPassword=User::find(Auth::id())->password;
@@ -142,6 +141,4 @@ public function updatePassword(Request $request){
     return redirect()->route('users.index')
     ->with('succes','Password actualizada');*/
 }
-=======
->>>>>>> 37c143744ccbe163881da994478743baf9f50f8f
 }

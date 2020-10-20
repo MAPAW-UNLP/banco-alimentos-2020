@@ -46,25 +46,25 @@
         <div class='body'>
             <div class='body-request'>
                 <h3>Solicitudes de empadronamiento</h3>
-                @foreach($solicitudes as $solicitude)
+                @foreach($modificaciones as $modificacione)
                 <div class='request-section'>
                 
                     <div class='request-section-text'>
-                        <p><b>Nombre institución:</b> {{$solicitude->organizacione->id}}</p>
-                        <p><b>Nombre del referente:</b> {{$solicitude->organizacione->user->name}}</p>
-                        <p><b>Domicilio (barrio):</b> {{$solicitude->organizacione->barrio}}</p>
-                        <p><b>¿Personería jurídica?:</b> {{$solicitude->organizacione->personeria_juridica}}</p>
-                        <p><b>En caso negativo, ¿tiene algún aval?:</b> {{$solicitude->organizacione->aval}}</p>
-                        <p><b>Cantidad de personas:</b> {{$solicitude->organizacione->cantPers}}</p>
-                        <p><b>Edad por rango:</b> {{$solicitude->organizacione->edad}}</p>
-                        <p><b>Tipos de servicio por día:</b> {{$solicitude->organizacione->tarea}}</p>
-                        <p><b>¿Tiene ayuda alimentaria?:</b> {{$solicitude->organizacione->ayuda_alimentaria}}</p>
-                        <p><b>¿Recibe ayuda financiera?:</b> {{$solicitude->organizacione->ayuda_financiera}}</p>
-                        <p><b>Tarea que realizan:</b> {{$solicitude->organizacione->tipo_servicio}}</p>
+                        <p><b>Nombre institución:</b> {{$modificacione->nombre}}</p>
+                        <p><b>Nombre del referente:</b> {{$modificacione->organizacione->user->name}}</p>
+                        <p><b>Domicilio (barrio):</b> {{$modificacione->barrio}}</p>
+                        <p><b>¿Personería jurídica?:</b> {{$modificacione->personeria_juridica}}</p>
+                        <p><b>En caso negativo, ¿tiene algún aval?:</b> {{$modificacione->aval}}</p>
+                        <p><b>Cantidad de personas:</b> {{$modificacione->cantPers}}</p>
+                        <p><b>Edad por rango:</b> {{$modificacione->edad}}</p>
+                        <p><b>Tipos de servicio por día:</b> {{$modificacione->tarea}}</p>
+                        <p><b>¿Tiene ayuda alimentaria?:</b> {{$modificacione->ayuda_alimentaria}}</p>
+                        <p><b>¿Recibe ayuda financiera?:</b> {{$modificacione->ayuda_financiera}}</p>
+                        <p><b>Tarea que realizan:</b> {{$modificacione->tipo_servicio}}</p>
                     </div>
                     <div class='buttons-section'>
                         <button type="cancel" class='reject-button'>Rechazar</button>
-                        <button type="submit">Aceptar</button>                        
+                        <a href="{{ url('/aceptarModificacion/'.$modificacione->id) }}" class='top-menu-item'>Aceptar</a>                        
                     </div>
                 </div>
                 @endforeach

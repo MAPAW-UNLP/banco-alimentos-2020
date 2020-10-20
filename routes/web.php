@@ -11,6 +11,7 @@ use App\Http\Controllers\TurnoController;
 use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\SolicitudController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ModificacioneController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('rols', 'RolController');
     Route::resource('turnos', 'TurnoController');
     Route::resource('solicitudes', 'SolicitudController');
+    Route::resource('modificaciones', 'ModificacioneController');
     Route::get('/aceptarOrg/{id}', [OrganizacioneController::class, 'aceptar']);
     Route::get('/rechazar/{id}', [RechazoController::class, 'create']);
     Route::get('/activarCombo/{id}', [ComboController::class, 'activar']);
@@ -42,6 +44,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/addUser', [PagesController::class, 'add_user']);
     Route::get('/changePassword', [PagesController::class, 'change_password']);
     Route::post('/changePassword', [UserController::class, 'updatePassword']);
+    Route::get('/aceptarModificacion/{id}', [ModificacioneController::class, 'aceptar']);
+    
 });
 
 

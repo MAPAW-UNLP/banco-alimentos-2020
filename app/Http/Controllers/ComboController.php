@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Combo;
+use App\Models\Producto;
 use Illuminate\Http\Request;
 
 class ComboController extends Controller
@@ -21,8 +22,8 @@ $this->middleware('permission:combo-delete', ['only' => ['destroy']]);
      */
     public function index()
     {
-        //
-        $datos['combos']=Combo::paginate();
+        //Organizacione::where('estado','<>',0)->paginate(5)
+        $datos['combos']=Combo::where('estado','<>',0)->paginate(5);
         return view('combo.index',$datos);
 
     }
@@ -45,9 +46,21 @@ $this->middleware('permission:combo-delete', ['only' => ['destroy']]);
      */
     public function store(Request $request)
     {
-        $datos=request()->except('_token');
-        Combo::insert($datos);
-        return redirect('combos');
+        $prod=request()->input('producto');
+        $cant=request()->input('cant');
+        $datos=request()->except('cant','producto','_token');
+        $combo=Combo::create($datos);
+        $i=0;
+        foreach ($prod as &$valor) {
+            $p=[
+                'combo_id'=>$combo->id,
+                'producto'=>$prod[$i],
+                'cantidad'=>$cant[$i]
+            ];
+            Producto::insert($p);
+            $i=$i+1;
+        }
+        return response()->json($combo);
     }
 
     /**
@@ -68,7 +81,8 @@ $this->middleware('permission:combo-delete', ['only' => ['destroy']]);
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
+    {$combo = Combo::findOrFail($id);
+        //return response()->json($combo);
         return view('combo.edit', ['combo' => Combo::findOrFail($id)]);
     }
 
@@ -81,9 +95,22 @@ $this->middleware('permission:combo-delete', ['only' => ['destroy']]);
      */
     public function update(Request $request, $id)
     {
-        $datos=request()->except(['_token','_method']);
-        Combo::where('id','=',$id)->update($datos);
 
+        $prod=request()->input('producto');
+        $cant=request()->input('cant');
+        $datos=request()->except('cant','producto','_token','_method');
+        Producto::where('combo_id', '=', $id)->delete();
+        Combo::where('id','=',$id)->update($datos);
+        $i=0;
+        foreach ($prod as &$valor) {
+            $p=[
+                'combo_id'=>$id,
+                'producto'=>$prod[$i],
+                'cantidad'=>$cant[$i]
+            ];
+            Producto::insert($p);
+            $i=$i+1;
+        }
         return redirect('combos');
     }
 
