@@ -1,5 +1,12 @@
 <link rel="stylesheet" href="{{ url('css/lateral-menu.css') }}">
 <link rel="stylesheet" href="{{ url('css/combos.css') }}">
+<link rel="stylesheet" href="{{ url('css/manage-social-area-organization-data.css') }}">
+<script>
+    function changeStatus() {
+        alert("Agregar llamar back para cambiar el estado");
+    }
+    
+</script>
 @include('main')
 @include('components.header')
 @include('components.nav')
@@ -27,29 +34,58 @@
             </div>
         </div>
         <div class='body'>
-            <div class='body-list'> 
-                <h3>Listado de combos</h3>
-                @foreach($combos as $combo)
-                <div class='products'>
-                    <h5>{{$combo->nombre}}</h5>
-                    <p>{{$combo->productos}}</p>
+            <h3>Listado de combos</h3>
+            <div class='body-combos'>
+                <div class='combo-titles'>
+                    <div class='combo-title-first'></div>
+                    <div class='combo-title'>Inactivo/Activo</div>
+                    <div class='combo-title'>Estado</div>
+                    <div class='combo-title'></div>
                 </div>
-                <p>{{$combo->stock}}</p>
-                <p>{{$combo->cantOrg}}</p>
-                <p>{{$combo->contribucion}}</p>
-                <p>{{$combo->estado}}</p>
-                <div>
-                    <a href="{{url('/combos/'.$combo->id.'/edit')}}">Editar</a>
-                    <form method="post" action="{{url('/combos/'.$combo->id)}}">
-                    {{csrf_field()}}
-                    {{method_field('DELETE')}}
-                    <button type="submit">borrar</button>
-                    </form>
+                @foreach($combos as $combo)
+                <div class='combo-container'>
+                    <div class='combo-item'>               
+                        <div class='combo'>
+                            <h5>{{$combo->nombre}}</h5>
+                                @foreach($combo->productos as $product)
+                                    <p>{{$product->cantidad}} {{$product->producto}}</p>
+                                @endforeach
+                        </div>
                     </div>
-
+                    <div class='combo-item'>
+                        <div class='combo-item-prop'>
+                            <div class='switch-section'>
+                                <label class="switch">
+                                <input type="checkbox" id="check" onclick="changeStatus()" value="{{ $combo->estado }}" checked >
+                                <span class="slider round"></span>
+                                </label>                       
+                            </div>
+                        </div>
+                    </div>
+                    <div class='combo-item'>
+                        <div class='combo-item-prop-estado'>
+                            @if(($combo->stock) == 1)
+                            <p>En stock</p>
+                            @endif
+                            @if(($combo->stock) == 0)
+                            <p>Agotado</p>
+                            @endif
+                        </div>
+                    </div>
+                    <div class='combo-item'>
+                        <a href="{{url('/combos/'.$combo->id.'/edit')}}">Ver más</a>
+                    </div>
+                    <div class='combo-item'>
+                        <form method="post" action="{{url('/combos/'.$combo->id)}}">
+                            {{csrf_field()}}
+                            {{method_field('DELETE')}}
+                            <button type="submit">Eliminar</button>
+                        </form>
+                    </div>
                 </div>
                 @endforeach
             </div>
+        </div>
     </div>
 </div>
 @include('components.footer')
