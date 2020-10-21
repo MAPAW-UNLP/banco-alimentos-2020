@@ -1,0 +1,127 @@
+.body-combos {
+    padding: 0 30px 0 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.combo-item {
+    padding: 10px 0;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h3 {
+    color: #ffffff;
+    width: 100%;
+    padding: 30px 0 0 30px;
+}
+
+.combo {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    max-height: 120px;
+    width: 266px;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.combo p {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    border-style: none;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+}
+
+.combo-item a {
+    border-style: none;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+}
+
+.combo-item form {
+    padding: 0;
+    margin: 0;
+}
+
+.combo-item form button {
+    border-style: none;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+}
+
+.buttons-section {
+    display: flex;
+    justify-content: end;
+    padding-right: 10px;
+}
+
+.cancel-button {
+    margin-right: 10px;
+}
+
+.combo-titles {
+    display: flex;
+}
+
+.combo-title-first {
+    width: 266px;
+    color: #ffffff;
+}
+
+.combo-title {
+    color: #ffffff;
+    width: 150px;
+    text-align: center;
+}
+
+.combo-container {
+    width: 100%;
+    display: flex;
+}
+
+.combo-item-prop {
+    width: 150px;
+    text-align: center;
+}
+
+.combo-item-prop-estado {
+    width: 100px;
+    padding-left: 20px;
+    background-color: #ffffff;
+}
+
+.combo-item-prop-estado p,
+.edit-combo-title {
+    margin: 0;
+    padding: 0;
+}
+
+.body-show-combo {
+    padding: 30px;
+}
+
+.body-show-combo form label {
+    color: #ffffff;
+}
