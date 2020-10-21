@@ -46,7 +46,7 @@
                 </a>
             </div>
             <div>
-                <a href="{{ url('/solicitudes/pendingModification') }}" class='top-menu-item'>
+                <a href="{{ url('/modificaciones') }}" class='top-menu-item'>
                     <p class='top-menu-text-item'>Modificaciones pendientes</p>
                 </a> 
             </div>   

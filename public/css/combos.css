@@ -2,6 +2,7 @@
     padding: 0 30px 0 30px;
     display: flex;
     flex-direction: column;
+    min-height: 250px;
 }
 
 .combo-item {
@@ -124,4 +125,27 @@ button {
 
 .body-show-combo form label {
     color: #ffffff;
+}
+
+.body-form {
+    padding: 10px 30px 30px 30px;
+}
+
+.body-form-combo {
+    background-color: #f2994a;
+    border-radius: 24px;
+    padding: 20px;
+}
+
+.item-contribucion {
+    background-color: #f2994a;
+    width: 80%;
+    padding: 20px;
+    border-radius: 24px;
+    margin-top: 20px;
+    display: flex;
+}
+
+.item-contribucion label {
+    display: inline;
 }
