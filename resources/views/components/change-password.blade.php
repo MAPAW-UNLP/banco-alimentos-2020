@@ -33,19 +33,19 @@
                 <div class='input-section'>
                     <div class='form-item'>
                         <label>Ingresar contraseña actual *</label>
-                        <input type="passsword" id="password" name="password" required>
+                        <input type="password" id="password" name="password" required>
                     </div>
                     <div class='form-item'>
                         <label>Ingresar nueva contraseña *</label>
-                        <input type="passsword" id="newPassword" name="newPassword" required>
+                        <input type="password" id="newPassword" name="newPassword" required>
                     </div>
                     <div class='form-item'>
                         <label>Repetir nueva contraseña *</label>
-                        <input type="passsword" id="repeatNewPassword" name="repeatNewPassword" required>
+                        <input type="password" id="repeatNewPassword" name="repeatNewPassword" required>
                     </div>                    
                     <div class='buttons-section'>
-                        <button type="cancel" class='cancel-button'>Cancelar</button>
-                        <button type="submit" >Aceptar</button>                        
+                        <button type="reset" class='cancel-button'>Cancelar</button>
+                        <button type="submit" >Guardar</button>                        
                     </div>  
                 </div>                                                                    
             </form>

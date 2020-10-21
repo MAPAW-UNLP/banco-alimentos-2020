@@ -5,7 +5,7 @@
   <div class='navbar-link'><a href="{{ url('/') }}">Home</a></div>
   @guest
     <div class='navbar-link'><a href="{{ url('/') }}">Registrarse</a></div>
-    <div class='navbar-link'><a href="{{ url('/login') }}">Iniciar Sesión</a></div>
+    <div class='navbar-link'><a href="{{ url('/login') }}">Iniciar sesión</a></div>
     @else
     <div class='navbar-link'>
       <a href="{{ url('/addUser') }}">Agregar usuario</a>

@@ -33,7 +33,7 @@
                 <div>
                     <div class='form-item'>
                         <label>Nombre*</label>
-                        <input type="text" id="name" name ="name" placeholder="name" required>
+                        <input type="text" id="name" name ="name" placeholder="Nombre" required>
                     </div>
                     <div class='form-item'>
                         <label>Apellido*</label>
@@ -60,7 +60,7 @@
                         </select>
                     </div>
                     <div class='buttons-section'>
-                        <button type="cancel" class='cancel-button'>Cancelar</button>
+                        <button type="reset" class='cancel-button'>Cancelar</button>
                         <button type="submit" >Aceptar</button>                        
                     </div>  
                 </div>                                                                       
