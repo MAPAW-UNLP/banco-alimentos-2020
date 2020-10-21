@@ -3,6 +3,13 @@
 <link rel="stylesheet" href="{{ url('css/manage-social-area.css') }}">
 <link rel="stylesheet" href="{{ url('css/manage-social-area-organization-data.css') }}">
 
+<script>
+    function changeStatus() {
+        alert("Agregar llamar back para cambiar el estado");
+    }
+    
+</script>
+
 <div class='general-container'>
     <div class='lateral-menu'>
         <div>
@@ -34,12 +41,12 @@
                 </a>
             </div>
             <div>
-                <a href="{{ url('/manageSocialArea/organizationData') }}" class='top-menu-item-color'>
+                <a href="{{ url('/solicitudes/organizationData') }}" class='top-menu-item-color'>
                     <p class='top-menu-text-item'><b>Datos de Organizaciones</b></p>
                 </a>
             </div>
             <div>
-                <a href="{{ url('/manageSocialArea/pendingModification') }}" class='top-menu-item'>
+                <a href="{{ url('/solicitudes/pendingModification') }}" class='top-menu-item'>
                     <p class='top-menu-text-item'>Modificaciones pendientes</p>
                 </a> 
             </div>   
@@ -57,7 +64,7 @@
                     </div>
                     <div class='switch-section'>
                         <label class="switch">
-                            <input type="checkbox" value="true">
+                            <input type="checkbox" id="check" onclick="changeStatus()" value="{{ $organizacione->estado }}" checked >
                             <span class="slider round"></span>
                         </label>                       
                     </div>
