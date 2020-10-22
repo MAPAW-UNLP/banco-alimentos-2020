@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Rechazo;
 use Illuminate\Http\Request;
+use App\Models\Organizacione;
+use App\Models\Solicitud;
 use SolicitudController;
 class RechazoController extends Controller
 {
@@ -36,12 +38,17 @@ class RechazoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        $datos=request()->except('_token','solicitud_id');
-        rechazo::insert($datos);
-        app('App\Http\Controllers\PrintReportController')->rechazar();
-        return redirect('rechazos');
+    public function store(Request $request){
+        $datos=request()->except('_token');
+        Rechazo::insert($datos);
+        $orga=Organizacione::findOrFail($datos['organizacion_id']);
+        $orga['estado']=2;
+        Organizacione::where('id','=',$datos['organizacion_id'])->update($orga->toArray());
+        $sol = Solicitud::findOrFail($orga['id']);
+        $sol['estado']=2;
+        Solicitud::where('id','=',$sol['id'])->update($sol->toArray());
+
+        return redirect('solicitudes');
     }
 
     /**

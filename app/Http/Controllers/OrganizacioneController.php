@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Organizacione;
+use App\Models\Solicitud;
 use Illuminate\Http\Request;
 
 class OrganizacioneController extends Controller
@@ -99,9 +100,12 @@ class OrganizacioneController extends Controller
      */
     public function aceptar($id)
     {
-        $organizacion=organizacione::findOrFail($id);
+        $sol=Solicitud::findOrFail($id);
+        $sol['estado']=1;
+        Solicitud::where('id','=',$id)->update($sol->toArray());
+        $organizacion=organizacione::findOrFail($sol->organizacione->id);
         $organizacion['estado']=1;
         organizacione::where('id','=',$id)->update($organizacion->toArray());
-        return response()->json($organizacion);
+        return redirect('solicitudes');
     }
 }
