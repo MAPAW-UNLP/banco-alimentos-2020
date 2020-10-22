@@ -38,4 +38,11 @@ class PagesController extends Controller
         return view('main-combo');
     }
 
+    public function calendar(){
+        return view('main-calendar');
+    }
+
+    public function notificaciones(){
+        return view('main-notificaciones');
+    }
 }

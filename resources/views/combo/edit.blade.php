@@ -36,12 +36,12 @@
         </a>
       </div>
       <div>
-        <a href="{{ url('/organizaciones') }}" class='top-menu-item'>
+        <a href="{{ url('/calendar') }}" class='top-menu-item'>
           <p class='top-menu-text-item'>Calendario</p>
         </a>
       </div>
       <div>
-        <a href="{{ url('/modificaciones') }}" class='top-menu-item'>
+        <a href="{{ url('/notificaciones') }}" class='top-menu-item'>
           <p class='top-menu-text-item'>Notificaciones</p>
         </a> 
       </div>   
