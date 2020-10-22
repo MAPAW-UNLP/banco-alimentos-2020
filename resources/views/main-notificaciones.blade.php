@@ -1,0 +1,5 @@
+@include('main')
+@include('components.header')
+@include('components.nav')
+@include('components.notificaciones')
+@include('components.footer')

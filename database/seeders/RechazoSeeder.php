@@ -16,20 +16,14 @@ class RechazoSeeder extends Seeder
     {
         $rechazo = Rechazo::create([
             'id'=>1,
-            'id_organizacion'=>1,
-            'fecha'=>2020-10-05,
+            'organizacion_id'=>1,
+            'fecha'=>date('2020-10-22 00:03:45'),
             'motivo'=>'No cumple con los requisitos'
         ]);
         $rechazo = Rechazo::create([
             'id'=>2,
-            'id_organizacion'=>2,
-            'fecha'=>2020-10-03,
-            'motivo'=>'No cumple con los requisitos'
-        ]);
-        $rechazo = Rechazo::create([
-            'id'=>3,
-            'id_organizacion'=>3,
-            'fecha'=>2020-08-05,
+            'organizacion_id'=>2,
+            'fecha'=>date('2020-10-22 00:03:45'),
             'motivo'=>'No cumple con los requisitos'
         ]);
     }

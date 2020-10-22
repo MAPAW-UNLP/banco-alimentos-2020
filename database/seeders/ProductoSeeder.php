@@ -14,19 +14,19 @@ class ProductoSeeder extends Seeder
      */
     public function run()
     {
-        $producto = Pedido::create([
+        $producto = Producto::create([
             'id'=>1,
             'combo_id'=>1,
             'producto'=>'Harina',
             'cantidad'=>1000,
         ]);
-        $producto = Pedido::create([
+        $producto = Producto::create([
             'id'=>2,
             'combo_id'=>2,
             'producto'=>'Fideos',
             'cantidad'=>500,
         ]);
-        $producto = Pedido::create([
+        $producto = Producto::create([
             'id'=>3,
             'combo_id'=>3,
             'producto'=>'Salsa de tomate',

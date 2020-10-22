@@ -48,6 +48,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/changePassword', [UserController::class, 'updatePassword']);
     Route::get('/aceptarModificacion/{id}', [ModificacioneController::class, 'aceptar']);
     Route::get('/cambiarEstado/{id}', [ComboController::class, 'cambiarEstado']);
+    Route::get('/calendar', [PagesController::class, 'calendar']);
+    Route::get('/notificaciones', [PagesController::class, 'notificaciones']);
 });
 
 
