@@ -31,21 +31,21 @@
   <div>
     <nav class='top-menu'>
       <div>
-        <a href="{{ url('/solicitudes') }}" class='top-menu-item-color'>
-          <p class='top-menu-text-item'><b>Empadronamientos</b></p>
+        <a href="{{ url('/combos') }}" class='top-menu-item-color'>
+          <p class='top-menu-text-item'><b>Listado</b></p>
         </a>
       </div>
       <div>
         <a href="{{ url('/organizaciones') }}" class='top-menu-item'>
-          <p class='top-menu-text-item'>Datos de Organizaciones</p>
+          <p class='top-menu-text-item'>Calendario</p>
         </a>
       </div>
       <div>
         <a href="{{ url('/modificaciones') }}" class='top-menu-item'>
-          <p class='top-menu-text-item'>Modificaciones pendientes</p>
+          <p class='top-menu-text-item'>Notificaciones</p>
         </a> 
       </div>   
-    </nav> 
+    </nav>  
     <div class='body'>
     <h3>Combos</h3>
     <div class='body-form'>
@@ -53,7 +53,7 @@
         <h4>Productos del combo</h4>
         <p>Productos</>
         <form action="{{url('/combos/'.$combo->id)}}" method="post">
-          {{method_field('PATCH')}}
+        {{method_field('PATCH')}}
             {{csrf_field()}}
             @foreach($combo->productos as $producto)
             <div>
@@ -63,22 +63,18 @@
             @endforeach
           </div>
           <div class='item-contribucion'> 
-            <label for="contribucion">Contribución simbólica</label>
+            <label for="contribucion"><b>Contribución simbólica $</b></label>
             <input type="number" id="contribucion" name="contribucion" value="{{$combo->contribucion}}"><br>
           </div>
-          <div class='form-select-item'>
-            <label for="stock">Stock</label>
-            <select id="rol_id" name="rol_id">                            
-              <option value='3'>Stock</option>
-              <option value='4'>Agotado</option>
-            </select>
+          <div class='item-contribucion'>
+            <label for="cantOrg"><b>Cantidad de combos por Organización</b></label><br>
+            <input type="number" id="cantOrg" name="cantOrg" value="{{$combo->cantOrg}}"><br>
           </div>
-          <label for="cantOrg"></label><br>
-          <input type="number" id="cantOrg" name="cantOrg" value="{{$combo->cantOrg}}"><br>
-
-              <label for="estado"></label><br>
-          <input type="number" id="estado" name="estado" value="{{$combo->estado}}"><br>
-          <input type="submit" value="Guardar">
+          <div class='item-contribucion'>
+            <label for="cantOrg"><b>Cantidad máxima de combos</label></b><br>
+            <input type="number" id="cantOrg" name="cantOrg" value="{{$combo->cantOrg}}"><br>
+          </div>
+          <div class='guardar'><button type="submit">Guardar</button></div>
         </form>
       </div>
     </div>
