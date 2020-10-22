@@ -38,7 +38,7 @@
             <nav class='top-menu'>
                 <div>
                     <a href="{{ url('/combos') }}" class='top-menu-item-color'>
-                    <p class='top-menu-text-item'><b>Listado</b></p>
+                        <p class='top-menu-text-item'><b>Listado</b></p>
                     </a>
                 </div>
                 <div>
@@ -53,7 +53,10 @@
                 </div>   
             </nav> 
             <div class='body'>
-                <h3>Listado de combos</h3>
+                <div class='header-combo'>
+                    <h3>Listado de combos</h3>
+                    <div class='create-combo'><a href="{{ url('/combos/create') }}">Crear combo</a></div>
+                </div>
                 <div class='body-combos'>
                     <div class='combo-titles'>
                         <div class='combo-title-first'></div>

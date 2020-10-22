@@ -165,3 +165,22 @@ button {
     padding-top: 10px;
     text-align: right;
 }
+
+.header-combo {
+    display: flex;
+}
+
+.create-combo {
+    background-color: #007bff;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 20px;
+    width: 30%;
+    justify-content: center;
+}
+
+.create-combo a {
+    padding: 0;
+    margin: 0;
+}
