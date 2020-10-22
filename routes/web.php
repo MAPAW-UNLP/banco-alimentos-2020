@@ -40,7 +40,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('solicitudes', 'SolicitudController');
     Route::resource('modificaciones', 'ModificacioneController');
     Route::get('/aceptarOrg/{id}', [OrganizacioneController::class, 'aceptar']);
-    Route::get('/rechazar/{id}', [RechazoController::class, 'create']);
+    Route::post('/rechazar', [RechazoController::class, 'store']);
     Route::get('/activarCombo/{id}', [ComboController::class, 'activar']);
     Route::get('/desactivarCombo/{id}', [ComboController::class, 'desactivar']);
     Route::get('/addUser', [PagesController::class, 'add_user']);

@@ -22,8 +22,7 @@ $this->middleware('permission:solicitud-delete', ['only' => ['destroy','aceptar'
    */
   public function index()
   {
-      //
-      $datos['solicitudes']=Solicitud::paginate();
+      $datos['solicitudes']=Solicitud::where('estado','=',0)->paginate();
       return view('main-manage-social-area',$datos);
 
   }
@@ -104,14 +103,14 @@ $this->middleware('permission:solicitud-delete', ['only' => ['destroy','aceptar'
       $solicitud=Solicitud::findOrFail($id);
       $solicitud['estado']=1;
       solicitud::where('id','=',$id)->update($solicitud->toArray());
-      return response()->json($solicitud);
+      return redirect('solicitud');
   }
     public function rechazar($id)
   {
       $solicitud=Solicitud::findOrFail($id);
       $solicitud['estado']=2;
       solicitud::where('id','=',$id)->update($solicitud->toArray());
-      return response()->json($solicitud);
+      return redirect('solicitud');
   }
 }
 
