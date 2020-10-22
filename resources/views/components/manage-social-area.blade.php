@@ -3,13 +3,17 @@
 <link rel="stylesheet" href="{{ url('css/manage-social-area.css') }}">
 
 <script>
-    function rechazar() {
-        alert("Agregar llamar back para rechazar");        
-    }
-
-     function aceptar() {
-        alert("Agregar llamar back para aceptar");
-    }        
+    function rechazar($id) {
+        var txt;
+        var person = prompt("Motivo del rechazo:","");
+        if (person == null || person == "") {
+            txt = "User cancelled the prompt.";
+        } else {
+            document.getElementById("motivo").value = person;
+            document.getElementById("organizacion_id").value = $id;
+            document.getElementById("myForm").submit();
+            }
+    }      
 </script>
 
 <div class='general-container'>
@@ -63,13 +67,18 @@
                         <p><b>Id institución:</b> {{$solicitude->organizacione->id}}</p>
                     </div>
                     <div class='buttons-section'>
-                        <button type="cancel" class='reject-button' onclick="rechazar()">Rechazar</button>
-                        <button type="submit" onclick="aceptar()">Aceptar</button>                        
+                        <button type="cancel" class='reject-button' onclick="rechazar({{$solicitude->organizacione->id}})">Rechazar</button>
+                        <button type="submit"><a href="{{ url('/aceptarOrg/'.$solicitude->id) }}">Aceptar</a> </button>                        
                     </div>
                 </div>
                 @endforeach
                 </div>
             </div>
         </div>
+        <form id="myForm" action="{{ url('/rechazar') }}" method="post">
+            {{csrf_field()}}
+            <input type="hidden" id="motivo" name="motivo">
+            <input type="hidden" id="organizacion_id" name="organizacion_id">
+        </form>
     </div>
 </div>
