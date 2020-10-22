@@ -37,4 +37,5 @@ class PagesController extends Controller
     public function combo(){
         return view('main-combo');
     }
+
 }

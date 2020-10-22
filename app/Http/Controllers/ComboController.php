@@ -10,10 +10,7 @@ class ComboController extends Controller
 {
     function __construct()
 {
-$this->middleware('permission:combo-list|combo-create|combo-edit|combo-delete', ['only' => ['index','store']]);
-$this->middleware('permission:combo-create', ['only' => ['create','store']]);
-$this->middleware('permission:combo-edit', ['only' => ['edit','update']]);
-$this->middleware('permission:combo-delete', ['only' => ['destroy']]);
+
 }
     /**
      * Display a listing of the resource.

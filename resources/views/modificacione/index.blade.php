@@ -2,6 +2,9 @@
 <link rel="stylesheet" href="{{ url('css/top-menu.css') }}">
 <link rel="stylesheet" href="{{ url('css/manage-social-area.css') }}">
 
+@include('main')
+@include('components.header')
+@include('components.nav')
 <div class='general-container'>
     <div class='lateral-menu'>
         <div>
@@ -28,8 +31,8 @@
     <div>
         <nav class='top-menu'>
             <div>
-                <a href="{{ url('/solicitudes') }}" class='top-menu-item-color'>
-                    <p class='top-menu-text-item'><b>Empadronamientos</b></p>
+                <a href="{{ url('/solicitudes') }}" class='top-menu-item'>
+                    <p class='top-menu-text-item'>Empadronamientos</p>
                 </a>
             </div>
             <div>
@@ -38,17 +41,16 @@
                 </a>
             </div>
             <div>
-                <a href="{{ url('/manageSocialArea/pendingModification') }}" class='top-menu-item'>
-                    <p class='top-menu-text-item'>Modificaciones pendientes</p>
+                <a href="{{ url('/modificaciones') }}" class='top-menu-item-color'>
+                    <p class='top-menu-text-item'><b>Modificaciones pendientes</b></p>
                 </a> 
             </div>   
         </nav> 
         <div class='body'>
             <div class='body-request'>
-                <h3>Solicitudes de empadronamiento</h3>
+                <h3>Modificaciones Pendientes</h3>
                 @foreach($modificaciones as $modificacione)
-                <div class='request-section'>
-                
+                <div class='request-section'>                
                     <div class='request-section-text'>
                         <p><b>Nombre institución:</b> {{$modificacione->nombre}}</p>
                         <p><b>Nombre del referente:</b> {{$modificacione->organizacione->user->name}}</p>
@@ -73,3 +75,4 @@
         </div>
     </div>
 </div>
+@include('components.footer')

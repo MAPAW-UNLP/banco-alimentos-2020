@@ -10,7 +10,7 @@
             <form>
                 <div class='form-styled'>
                     <p>Ingrese su email para recuperar su contraseña</p>
-                    <input type="email" id="inputEmail" placeholder="Email">
+                    <input type="email" id="inputEmail" placeholder="Email" required>
                     <div class='button-container'>
                         <button type="submit" class='recover-button'>Aceptar</button>
                     </div>  
@@ -19,3 +19,5 @@
         </div>
     </div>    
 </div>
+
+

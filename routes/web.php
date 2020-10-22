@@ -12,6 +12,7 @@ use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\SolicitudController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ModificacioneController;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,7 @@ use App\Http\Controllers\ModificacioneController;
 Auth::routes();
 Route::get('/', [PagesController::class, 'inicio']);
 Route::get('/login', [PagesController::class, 'iniciar_sesion']);
+Route::get('/logout', [LoginController::class, 'logout']);
 Route::get('/recover', [PagesController::class, 'recover_password']);
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles','RoleController');

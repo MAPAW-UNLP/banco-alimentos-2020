@@ -9,7 +9,7 @@
     </div>
     <div class='right-container'>
         <div class="card-body">
-        <di<<h3>Iniciar sesión</h3>
+        <h3>Iniciar sesión</h3>
             <form method="POST" action="{{ route('login') }}">
             @csrf
                 <div class="form-group row">
