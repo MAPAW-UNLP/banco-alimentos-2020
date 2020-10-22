@@ -15,7 +15,7 @@ class OrganizacioneController extends Controller
     public function index()
     {
         //
-        $datos['organizaciones']=Organizacione::where('estado','<>',0)->paginate(5);
+        $datos['organizaciones']=Organizacione::paginate(5);
         return view('main-manage-social-area-organization-data',$datos);
 
     }

@@ -30,15 +30,15 @@ class OrganizacionSeeder extends Seeder
         'edad'=>8,
         'ayuda_alimentaria'=>0,
         'ayuda_financiera'=>0,
-        'tipo_servicio'=>'Ni idea',
-        'tarea'=>'Ni idea',
+        'tipo_servicio'=>'Cena',
+        'tarea'=>'-',
         'estado'=>1
     ]);
     $orga = Organizacione::create([
         'id'=>2,
         'user_id'=>4,
         'nombre'=>'el mercadito',
-        'barrio'=>'Los hornos',
+        'barrio'=>'Los Hornos',
         'localidad'=>'La Plata',
         'telefono'=>'42342342',
         'direccion'=>'4 y 7',
@@ -48,8 +48,8 @@ class OrganizacionSeeder extends Seeder
         'edad'=>8,
         'ayuda_alimentaria'=>0,
         'ayuda_financiera'=>0,
-        'tipo_servicio'=>'Ni idea',
-        'tarea'=>'Ni idea',
+        'tipo_servicio'=>'Almuerzo',
+        'tarea'=>'-',
         'estado'=>1
     ]);
     }

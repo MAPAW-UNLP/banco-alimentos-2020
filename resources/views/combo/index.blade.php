@@ -3,10 +3,9 @@
 <link rel="stylesheet" href="{{ url('css/manage-social-area-organization-data.css') }}">
 <link rel="stylesheet" href="{{ url('css/top-menu.css') }}">
 <script>
-    function changeStatus() {
-        alert("Agregar llamar back para cambiar el estado");
+    function changeStatus($path) {
+        window.location=$path;
     }
-    
 </script>
 @include('main')
 @include('components.header')
@@ -78,7 +77,12 @@
                             <div class='combo-item-prop'>
                                 <div class='switch-section'>
                                     <label class="switch">
-                                    <input type="checkbox" id="check" onclick="changeStatus()" value="{{ $combo->estado }}" checked >
+                                    @if(($combo->estado) == 1)
+                                    <input type="checkbox" id="check" onclick="changeStatus('{{ url('/cambiarEstado/'.$combo->id) }}')" value="{{ $combo->estado }}" checked >
+                                    @endif
+                                    @if(($combo->estado) == 0)
+                                    <input type="checkbox" id="check" onclick="changeStatus('{{ url('/cambiarEstado/'.$combo->id) }}')" value="{{ $combo->estado }}" >
+                                    @endif
                                     <span class="slider round"></span>
                                     </label>                       
                                 </div>
