@@ -60,7 +60,7 @@
                     <div class='combo-titles'>
                         <div class='combo-title-first'></div>
                         <div class='combo-title'>Inactivo/Activo</div>
-                        <div class='combo-title'>Estado</div>
+                        <div class='combo-title'>Stock</div>
                         <div class='combo-title'></div>
                     </div>
                     @foreach($combos as $combo)
@@ -90,12 +90,7 @@
                         </div>
                         <div class='combo-item'>
                             <div class='combo-item-prop-estado'>
-                                @if(($combo->stock) == 1)
-                                <p>En stock</p>
-                                @endif
-                                @if(($combo->stock) == 0)
-                                <p>Agotado</p>
-                                @endif
+                                <p>{{$combo->stock}}</p>
                             </div>
                         </div>
                         <div class='combo-item'>

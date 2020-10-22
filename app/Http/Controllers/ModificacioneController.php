@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Modificacione;
 use App\Models\Organizacione;
+use App\Models\Solicitud;
 use Illuminate\Http\Request;
 
 class ModificacioneController extends Controller
@@ -15,7 +16,7 @@ class ModificacioneController extends Controller
     public function index()
     {
         //
-        $datos['modificaciones']=Modificacione::paginate();
+        $datos['modificaciones']=Modificacione::where('estado','=',0)->paginate();
         return view('modificacione.index',$datos);
     }
 
@@ -87,24 +88,31 @@ class ModificacioneController extends Controller
 
     public function aceptar($id)
     {
-        $solicitud = Modificacione::findOrFail($id);
-        $solicitud['estado']=1;
-        Solicitude::where('id','=',$id)->update($solicitud->toArray());
-        $orga=Organizacione::findOrFail($solicitud->organizacion_id);
-        $orga['nombre']=$solicitud['nombre'];
-        $orga['barrio']=$solicitud['barrio'];
-        $orga['localidad']=$solicitud['localidad'];
-        $orga['telefono']=$solicitud['telefono'];
-        $orga['direccion']=$solicitud['direccion'];
-        $orga['personeria_juridica']=$solicitud['personeria_juridica'];
-        $orga['aval']=$solicitud['aval'];
-        $orga['cantPers']=$solicitud['cantPers'];
-        $orga['edad']=$solicitud['edad'];
-        $orga['ayuda_alimentaria']=$solicitud['ayuda_alimentaria'];
-        $orga['ayuda_financiera']=$solicitud['ayuda_financiera'];
-        $orga['tipo_servicio']=$solicitud['tipo_servicio'];
-        $orga['tarea']=$solicitud['tarea'];
-        Organizacione::where('id','=',$solicitud->organizacion_id)->update($orga->toArray());
-        return response()->json($orga);
+        $Modificacione = Modificacione::findOrFail($id);
+        $Modificacione['estado']=1;
+        Modificacione::where('id','=',$id)->update($Modificacione->toArray());
+        $orga=Organizacione::findOrFail($Modificacione->organizacion_id);
+        $orga['nombre']=$Modificacione['nombre'];
+        $orga['barrio']=$Modificacione['barrio'];
+        $orga['localidad']=$Modificacione['localidad'];
+        $orga['telefono']=$Modificacione['telefono'];
+        $orga['direccion']=$Modificacione['direccion'];
+        $orga['personeria_juridica']=$Modificacione['personeria_juridica'];
+        $orga['aval']=$Modificacione['aval'];
+        $orga['cantPers']=$Modificacione['cantPers'];
+        $orga['edad']=$Modificacione['edad'];
+        $orga['ayuda_alimentaria']=$Modificacione['ayuda_alimentaria'];
+        $orga['ayuda_financiera']=$Modificacione['ayuda_financiera'];
+        $orga['tipo_servicio']=$Modificacione['tipo_servicio'];
+        $orga['tarea']=$Modificacione['tarea'];
+        Organizacione::where('id','=',$Modificacione->organizacion_id)->update($orga->toArray());
+        return redirect('modificaciones');
+    }
+    public function cancelar($id)
+    {
+        $Modificacione = Modificacione::findOrFail($id);
+        $Modificacione['estado']=2;
+        Modificacione::where('id','=',$id)->update($Modificacione->toArray());
+        return redirect('modificaciones');
     }
 }

@@ -47,9 +47,7 @@ public function store(Request $request){
     echo response()->json($input);
     $user = User::create($input);
     $user->assignRole($request->input('rol_id'));
-    
-    return redirect('users')
-    ->with('success','User created successfully');
+    return redirect('addUser')->with('status', 'Profile updated!');
 }
 /**
 * Display the specified resource.
