@@ -64,7 +64,17 @@
                 <div class='request-section'>
                     
                     <div class='request-section-text'>
-                        <p><b>Id institución:</b> {{$solicitude->organizacione->id}}</p>
+                    <p><b>Nombre institución:</b> {{$solicitude->organizacione->nombre}}</p>
+                        <p><b>Nombre del referente:</b> {{$solicitude->organizacione->user->name}}</p>
+                        <p><b>Domicilio (barrio):</b> {{$solicitude->organizacione->barrio}}</p>
+                        <p><b>¿Personería jurídica?:</b> {{$solicitude->organizacione->personeria_juridica}}</p>
+                        <p><b>En caso negativo, ¿tiene algún aval?:</b> {{$solicitude->organizacione->aval}}</p>
+                        <p><b>Cantidad de personas:</b> {{$solicitude->organizacione->cantPers}}</p>
+                        <p><b>Edad por rango:</b> {{$solicitude->organizacione->edad}}</p>
+                        <p><b>Tipos de servicio por día:</b> {{$solicitude->organizacione->tarea}}</p>
+                        <p><b>¿Tiene ayuda alimentaria?:</b> {{$solicitude->organizacione->ayuda_alimentaria}}</p>
+                        <p><b>¿Recibe ayuda financiera?:</b> {{$solicitude->organizacione->ayuda_financiera}}</p>
+                        <p><b>Tarea que realizan:</b> {{$solicitude->organizacione->tipo_servicio}}</p>
                     </div>
                     <div class='buttons-section'>
                         <button type="cancel" class='reject-button' onclick="rechazar({{$solicitude->organizacione->id}})">Rechazar</button>

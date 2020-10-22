@@ -124,7 +124,7 @@ public function updatePassword(Request $request){
             ->with('error','Password no coinciden');
         }
     }else{
-        return redirect()->route('users.index')
+        return redirect()->route('addUser')
         ->with('error','Password no coinciden');
     }
     return response()->json($oldPassword);
