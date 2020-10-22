@@ -20,7 +20,7 @@ class ComboController extends Controller
     public function index()
     {
         //Organizacione::where('estado','<>',0)->paginate(5)
-        $datos['combos']=Combo::where('estado','<>',0)->paginate(5);
+        $datos['combos']=Combo::paginate(5);
         return view('combo.index',$datos);
 
     }
@@ -48,14 +48,16 @@ class ComboController extends Controller
         $datos=request()->except('cant','producto','_token');
         $combo=Combo::create($datos);
         $i=0;
-        foreach ($prod as &$valor) {
-            $p=[
-                'combo_id'=>$combo->id,
-                'producto'=>$prod[$i],
-                'cantidad'=>$cant[$i]
-            ];
-            Producto::insert($p);
-            $i=$i+1;
+        if (!is_null($prod)){            
+            foreach ($prod as &$valor) {
+                $p=[
+                    'combo_id'=>$combo->id,
+                    'producto'=>$prod[$i],
+                    'cantidad'=>$cant[$i]
+                ];
+                Producto::insert($p);
+                $i=$i+1;
+            }
         }
         return response()->json($combo);
     }
@@ -99,14 +101,16 @@ class ComboController extends Controller
         Producto::where('combo_id', '=', $id)->delete();
         Combo::where('id','=',$id)->update($datos);
         $i=0;
-        foreach ($prod as &$valor) {
-            $p=[
-                'combo_id'=>$id,
-                'producto'=>$prod[$i],
-                'cantidad'=>$cant[$i]
-            ];
-            Producto::insert($p);
-            $i=$i+1;
+        if (!is_null($prod)){
+            foreach ($prod as &$valor) {
+                $p=[
+                    'combo_id'=>$id,
+                    'producto'=>$prod[$i],
+                    'cantidad'=>$cant[$i]
+                ];
+                Producto::insert($p);
+                $i=$i+1;
+            }
         }
         return redirect('combos');
     }
@@ -119,22 +123,20 @@ class ComboController extends Controller
      */
     public function destroy($id)
     {
+        Producto::where('combo_id', '=', $id)->delete();
         Combo::destroy($id);
         return redirect('combos');
     }
 
-    public function activar($id)
+    public function cambiarEstado($id)
     {
         $combo=Combo::findOrFail($id);
-        $combo['estado']=1;
+        if ($combo['estado']==1){
+            $combo['estado']=0;
+        }else{
+            $combo['estado']=1;
+        }
         Combo::where('id','=',$id)->update($combo->toArray());
-        return response()->json($combo);
-    }
-    public function desactivar($id)
-    {
-        $combo=Combo::findOrFail($id);
-        $combo['estado']=0;
-        Combo::where('id','=',$id)->update($combo->toArray());
-        return response()->json($combo);
+        return redirect('combos');
     }
 }
