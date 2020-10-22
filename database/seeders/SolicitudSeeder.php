@@ -18,13 +18,13 @@ class SolicitudSeeder extends Seeder
             'id'=>1,
             'organizacion_id'=>1,
             'fecha'=>date('2020-10-05'),
-            'estado'=>1
+            'estado'=>0
         ]);
         $solicitud = Solicitud :: create([
             'id'=>2,
             'organizacion_id'=>2,
             'fecha'=>date('2020-10-03'),
-            'estado'=>1
+            'estado'=>0
         ]);        
     }
 }
