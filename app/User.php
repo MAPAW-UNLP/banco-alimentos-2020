@@ -13,6 +13,8 @@ use HasRoles;
 *
 * @var array
 */
+const UPDATED_AT = null;
+const CREATED_AT = null;
 protected $fillable = [
 'name', 'email', 'password',
 ];
