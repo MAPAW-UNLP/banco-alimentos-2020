@@ -2,12 +2,15 @@
 <link rel="stylesheet" href="{{ url('css/combos.css') }}">
 <link rel="stylesheet" href="{{ url('css/manage-social-area-organization-data.css') }}">
 <link rel="stylesheet" href="{{ url('css/top-menu.css') }}">
-<link rel="stylesheet" href="{{ url('css/calendar.css') }}">
 <link rel="stylesheet" href="{{ url('css/notificaciones.css') }}">
 <script>
     function changeStatus($path) {
         window.location=$path;
     }
+    function guardar() {
+        alert("Agregar llamar back para guardar");        
+    }
+
 </script>
 
 <div class='general-container'>
@@ -56,9 +59,13 @@
                     <h3>Modificar notificación</h3>
                     <div class='ingresar-contenido'>
                         <h5>Ingresar contenido de la organización</h5>
-                        <div class='recuerde'><p>Recuerde</p>
+                        <div class='recuerde'><p>Recuerde:</p>
                             <textarea></textarea>
-                        </div>
+                        </div>                     
+                    </div>  
+                    <div class='buttons-section'>
+                        <button type="submit" onclick="guardar()">Guardar</button>   
+                    </div>   
                     </div>
                 </div>               
             </div>
