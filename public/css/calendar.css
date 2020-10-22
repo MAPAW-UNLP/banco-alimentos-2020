@@ -1,5 +1,6 @@
 .body-calendar {
     padding: 20px;
+    min-height: 300px;
 }
 
 .body-calendar h3,

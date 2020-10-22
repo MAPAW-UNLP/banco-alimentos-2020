@@ -9,9 +9,7 @@
         window.location=$path;
     }
 </script>
-@include('main')
-@include('components.header')
-@include('components.nav')
+
 <div class='general-container'>
     <div class='lateral-menu'>
         <div>
@@ -67,4 +65,3 @@
         </div>
     </div>
 </div>
-@include('components.footer')
