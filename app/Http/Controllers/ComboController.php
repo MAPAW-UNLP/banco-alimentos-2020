@@ -20,7 +20,7 @@ class ComboController extends Controller
     public function index()
     {
         //Organizacione::where('estado','<>',0)->paginate(5)
-        $datos['combos']=Combo::paginate(5);
+        $datos['combos']=Combo::paginate();
         return view('combo.index',$datos);
 
     }
