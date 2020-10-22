@@ -50,6 +50,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/cambiarEstado/{id}', [ComboController::class, 'cambiarEstado']);
     Route::get('/calendar', [PagesController::class, 'calendar']);
     Route::get('/notificaciones', [PagesController::class, 'notificaciones']);
+    Route::get('/cambiarOrga/{id}', [OrganizacioneController::class, 'cambiarEstado']);
 });
 
 

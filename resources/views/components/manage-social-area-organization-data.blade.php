@@ -4,10 +4,9 @@
 <link rel="stylesheet" href="{{ url('css/manage-social-area-organization-data.css') }}">
 
 <script>
-    function changeStatus() {
-        alert("Agregar llamar back para cambiar el estado");
+    function changeStatus($path) {
+        window.location=$path;
     }
-    
 </script>
 
 <div class='general-container'>
@@ -64,7 +63,12 @@
                     </div>
                     <div class='switch-section'>
                         <label class="switch">
-                            <input type="checkbox" id="check" onclick="changeStatus()" value="{{ $organizacione->estado }}" checked >
+                        @if(($organizacione->estado) == 1)
+                            <input type="checkbox" id="check" onclick="changeStatus('{{ url('/cambiarOrga/'.$organizacione->id) }}')" value="{{ $organizacione->estado }}" checked >
+                        @endif
+                        @if(($organizacione->estado) == 0)
+                            <input type="checkbox" id="check" onclick="changeStatus('{{ url('/cambiarOrga/'.$organizacione->id) }}')" value="{{ $organizacione->estado }}" >
+                        @endif
                             <span class="slider round"></span>
                         </label>                       
                     </div>
