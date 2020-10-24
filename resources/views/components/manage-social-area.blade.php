@@ -77,8 +77,8 @@
                         <p><b>Tarea que realizan:</b> {{$solicitude->organizacione->tipo_servicio}}</p>
                     </div>
                     <div class='buttons-section'>
-                        <button type="cancel" class='reject-button' onclick="rechazar({{$solicitude->organizacione->id}})">Rechazar</button>
-                        <button type="submit"><a href="{{ url('/aceptarOrg/'.$solicitude->id) }}">Aceptar</a> </button>                        
+                        <button type="cancel" class='reject-button' onclick="rechazar({{$solicitude->organizacione->id}})" style="background-color: #ff0000;">Rechazar</button>
+                        <button type="submit" style="background-color: #137000;"><a href="{{ url('/aceptarOrg/'.$solicitude->id) }}" style="background-color: #137000;">Aceptar</a> </button>                        
                     </div>
                 </div>
                 @endforeach

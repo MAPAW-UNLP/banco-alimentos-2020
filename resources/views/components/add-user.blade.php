@@ -61,7 +61,7 @@
                     </div>
                     <div class='buttons-section'>
                         <button type="reset" class='cancel-button' title="Cancelar registro">Cancelar</button>
-                        <button type="submit" title="Aceptar registro">Aceptar</button>                        
+                        <button type="submit" class='button' title="Aceptar registro">Aceptar</button>                        
                     </div>  
                 </div>                                                                       
             </form>
