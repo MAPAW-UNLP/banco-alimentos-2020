@@ -1,3 +1,6 @@
+@include('main')
+@include('components.header')
+@include('components.nav')
 <link rel="stylesheet" href="{{ url('css/lateral-menu.css') }}">
 <link rel="stylesheet" href="{{ url('css/top-menu.css') }}">
 <link rel="stylesheet" href="{{ url('css/manage-social-area.css') }}">
@@ -60,17 +63,26 @@
         <div class='body'>
             <div class='body-request'>
                 <h3>Solicitudes de empadronamiento</h3>
-                @foreach($solicitudes as $solicitude)
+
                 <div class='request-section'>
-                    
                     <div class='request-section-text'>
-                        <p><b>Nombre institución:</b> {{$solicitude->organizacione->nombre}}</p>
+                    <p><b>Nombre institución:</b> {{$organizacione->nombre}}</p>
+                        <p><b>Nombre del referente:</b> {{$organizacione->user->name}}</p>
+                        <p><b>Domicilio (barrio):</b> {{$organizacione->barrio}}</p>
+                        <p><b>¿Personería jurídica?:</b> {{$organizacione->personeria_juridica}}</p>
+                        <p><b>En caso negativo, ¿tiene algún aval?:</b> {{$organizacione->aval}}</p>
+                        <p><b>Cantidad de personas:</b> {{$organizacione->cantPers}}</p>
+                        <p><b>Edad por rango:</b> {{$organizacione->edad}}</p>
+                        <p><b>Tipos de servicio por día:</b> {{$organizacione->tarea}}</p>
+                        <p><b>¿Tiene ayuda alimentaria?:</b> {{$organizacione->ayuda_alimentaria}}</p>
+                        <p><b>¿Recibe ayuda financiera?:</b> {{$organizacione->ayuda_financiera}}</p>
+                        <p><b>Tarea que realizan:</b> {{$organizacione->tipo_servicio}}</p>
                     </div>
                     <div class='buttons-section'>
-                        <button type="submit" style="background-color: #fbff0ece;"><a href="{{ url('/readDataOrg/'.$solicitude->id) }}">Ver mas</a></button>                     
+                        <button type="cancel" class='reject-button' onclick="rechazar({{$organizacione->id}})" style="background-color:#ff0000;">Rechazar</button>
+                        <button type="submit" style="background-color:#137000;"><a href="{{ url('/aceptarOrg/'.$organizacione->id) }}">Aceptar</a> </button>                        
                     </div>
                 </div>
-                @endforeach
                 </div>
             </div>
         </div>
