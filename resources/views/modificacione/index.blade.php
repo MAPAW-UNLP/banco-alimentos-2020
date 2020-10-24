@@ -65,8 +65,8 @@
                         <p><b>Tarea que realizan:</b> {{$modificacione->tipo_servicio}}</p>
                     </div>
                     <div class='buttons-section'>
-                    <a href="{{ url('/cancelarModificacion/'.$modificacione->id) }}" class='top-menu-item'>Rechazar</a>
-                    <a href="{{ url('/aceptarModificacion/'.$modificacione->id) }}" class='top-menu-item'>Aceptar</a>                
+                    <a href="{{ url('/cancelarModificacion/'.$modificacione->id) }}" class='top-menu-item' style="background-color: #ff0000;">Rechazar</a>
+                    <a href="{{ url('/aceptarModificacion/'.$modificacione->id) }}" class='top-menu-item' style="background-color: #137000;">Aceptar</a>                
                     </div>
                 </div>
                 @endforeach

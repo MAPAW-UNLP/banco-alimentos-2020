@@ -82,6 +82,12 @@ button {
     margin-right: 10px;
 }
 
+.delete-button {
+    margin-right: 10px;
+    background-color: #ff0000;
+    border-color: #ff0000;
+}
+
 .combo-titles {
     display: flex;
 }

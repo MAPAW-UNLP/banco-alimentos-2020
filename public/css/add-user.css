@@ -39,8 +39,8 @@ input {
 button {
     border-style: none;
     color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
+    background-color: #137000;
+    border-color: #137000;
     padding: 0.375rem 0.75rem;
     font-size: 1rem;
     line-height: 1.5;
@@ -55,4 +55,5 @@ button {
 
 .cancel-button {
     margin-right: 10px;
+    background-color: #ff0000;
 }
