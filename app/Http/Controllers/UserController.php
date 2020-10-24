@@ -7,6 +7,7 @@ use Spatie\Permission\Models\Role;
 use DB;
 use Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 class UserController extends Controller
 {
 /**
@@ -35,12 +36,12 @@ public function create(){
 * @return \Illuminate\Http\Response
 */
 public function store(Request $request){
-    //$this->validate($request, [
-    //    'name' => 'required',
-    //    'email' => 'required|email|unique:users,email'
-        //'password' => 'required|same:confirm-password',
-        //'roles' => 'required'
-    //]);
+    $this->validate($request, [
+        'name' => 'required',
+        'email' => 'required|email|unique:users,email',
+        'password' => 'required|same:confirm-password',
+        'roles' => 'required'
+    ]);
     $input = $request->except('_token','_method','rol_id');
     //$input['password'] = Hash::make($input['password']);
     $input['password'] = Hash::make('123456789');
@@ -117,10 +118,10 @@ public function updatePassword(Request $request){
     if ($pass=$oldPassword){
         if($input['newPassword'] = $input['repeatNewPassword']){
             User::find(Auth::id())->update(['password' => Hash::make($input['newPassword'])]);
-            return redirect()->route('users.index')
+            return redirect()->route('addUser')
             ->with('succes','Password actualizada');
         }else{
-            return redirect()->route('users.index')
+            return redirect()->route('addUser')
             ->with('error','Password no coinciden');
         }
     }else{
@@ -138,5 +139,11 @@ public function updatePassword(Request $request){
     }
     return redirect()->route('users.index')
     ->with('succes','Password actualizada');*/
+}
+public function rules()
+{
+    return [
+	    'email' => 'required|unique:users,email'
+    ];
 }
 }

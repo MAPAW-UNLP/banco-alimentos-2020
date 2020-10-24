@@ -59,7 +59,7 @@ class ComboController extends Controller
                 $i=$i+1;
             }
         }
-        return response()->json($combo);
+        return redirect('combos');
     }
 
     /**

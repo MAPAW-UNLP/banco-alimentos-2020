@@ -1,37 +1,41 @@
 <?php
+
 namespace App;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Spatie\Permission\Traits\HasRoles;
-class User extends Authenticatable
+
+use Illuminate\Database\Eloquent\Model;
+
+/**
+ * @property integer $id
+ * @property string $name
+ * @property string $apellido
+ * @property string $email
+ * @property string $dni
+ * @property string $telefono
+ * @property string $password
+ * @property string $remember_token
+ * @property string $created_at
+ * @property string $updated_at
+ * @property Organizacione[] $organizaciones
+ */
+class User extends Model
 {
-use Notifiable;
-use HasRoles;
-/**
-* The attributes that are mass assignable.
-*
-* @var array
-*/
-const UPDATED_AT = null;
-const CREATED_AT = null;
-protected $fillable = [
-'name', 'email', 'password',
-];
-/**
-* The attributes that should be hidden for arrays.
-*
-* @var array
-*/
-protected $hidden = [
-'password', 'remember_token',
-];
-/**
-* The attributes that should be cast to native types.
-*
-* @var array
-*/
-protected $casts = [
-'email_verified_at' => 'datetime',
-];
+    /**
+     * The "type" of the auto-incrementing ID.
+     * 
+     * @var string
+     */
+    protected $keyType = 'integer';
+
+    /**
+     * @var array
+     */
+    protected $fillable = ['name', 'apellido', 'email', 'dni', 'telefono', 'password', 'remember_token', 'created_at', 'updated_at'];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function organizaciones()
+    {
+        return $this->hasMany('App\Organizacione');
+    }
 }
