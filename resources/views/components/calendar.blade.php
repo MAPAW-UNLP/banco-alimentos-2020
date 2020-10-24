@@ -48,27 +48,54 @@
                     <p class='top-menu-text-item'>Notificaciones</p>
                     </a> 
                 </div>   
-            </nav> 
-            <div class='body'>
-                <div class='body-calendar'>
+            </nav>
+            <form>
+            <div class='conteiner body'>
+                <div class="row" align="center">
                     <h3>Calendario</h3>
-                    <h5>Seleccionar día y horario</h5>
+                    <div class="col">
+                        <h5>Seleccionar día</h5>
                         <div id="datepicker"></div>
+                    </div>
+                    <div class="col">
+                        <h5>Seleccionar horario</h5>
+                        <table class="table table-bordered" WIDTH="50" style="background-color: #FFFFFF; text-align:center;" >
+                            <thead>
+                                <tr>
+                                    <th scope="col">Horarios</th>
+                                    <th scope="col">Cantidad</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td scope="row" style=" text-align:left;">
+                                        @for ($i = 8; $i <= 16; $i++)
+                                            <input type="checkbox" value="" id="defaultCheck1">
+                                            <label class="form-check-label" for="defaultCheck1">
+                                                <b>{{$i}}:00 - {{$i}}:30</b> 
+                                            </label>
+                                            <br>
+                                        @endfor
+                                    </td>
+                                    <td>
+                                    @for ($j = 0; $j <= 8; $j++)
+                                        <select>
+                                            @for ($i = 0; $i <= 10; $i++)
+                                                <option value="{{ $i }}">{{ $i }}</option>
+                                            @endfor
+                                        </select>
+                                        <br>
+                                    @endfor     
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button type="reset" style="background-color: #ff0000;">Cancelar</button> 
+                        <button>Guardar</button>         
+                    </div>                   
                 </div>
-                <table class="table table-bordered" WIDTH="50">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                        </tr>
-                    </tbody>
-                </table>            
+            </form>
+            </div>
             </div>
         </div>
     </div>
@@ -90,3 +117,4 @@ firstDay: 1
 });
 });
 </script>
+
