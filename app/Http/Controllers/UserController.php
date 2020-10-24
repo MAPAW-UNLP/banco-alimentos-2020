@@ -118,17 +118,17 @@ public function updatePassword(Request $request){
     if ($pass=$oldPassword){
         if($input['newPassword'] = $input['repeatNewPassword']){
             User::find(Auth::id())->update(['password' => Hash::make($input['newPassword'])]);
-            return redirect()->route('addUser')
+            return redirect()->route('changePassword')
             ->with('succes','Password actualizada');
         }else{
-            return redirect()->route('addUser')
+            return redirect()->route('changePassword')
             ->with('error','Password no coinciden');
         }
     }else{
-        return redirect()->route('addUser')
+        return redirect()->route('changePassword')
         ->with('error','Password no coinciden');
     }
-    return response()->json($oldPassword);
+    return redirect()->route('changePassword');
     /*if ($input['password'] = $input['passwordConf']){
         $user = User::find($id);
         $input2 = $request->except('passwordConf');
