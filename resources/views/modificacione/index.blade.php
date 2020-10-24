@@ -53,16 +53,6 @@
                 <div class='request-section'>                
                     <div class='request-section-text'>
                         <p><b>Nombre institución:</b> {{$modificacione->nombre}}</p>
-                        <p><b>Nombre del referente:</b> {{$modificacione->organizacione->user->name}}</p>
-                        <p><b>Domicilio (barrio):</b> {{$modificacione->barrio}}</p>
-                        <p><b>¿Personería jurídica?:</b> {{$modificacione->personeria_juridica}}</p>
-                        <p><b>En caso negativo, ¿tiene algún aval?:</b> {{$modificacione->aval}}</p>
-                        <p><b>Cantidad de personas:</b> {{$modificacione->cantPers}}</p>
-                        <p><b>Edad por rango:</b> {{$modificacione->edad}}</p>
-                        <p><b>Tipos de servicio por día:</b> {{$modificacione->tarea}}</p>
-                        <p><b>¿Tiene ayuda alimentaria?:</b> {{$modificacione->ayuda_alimentaria}}</p>
-                        <p><b>¿Recibe ayuda financiera?:</b> {{$modificacione->ayuda_financiera}}</p>
-                        <p><b>Tarea que realizan:</b> {{$modificacione->tipo_servicio}}</p>
                     </div>
                     <div class='buttons-section'>
                     <a href="{{ url('/cancelarModificacion/'.$modificacione->id) }}" class='top-menu-item' style="background-color: #ff0000;">Rechazar</a>
