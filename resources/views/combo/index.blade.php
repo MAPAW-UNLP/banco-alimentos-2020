@@ -94,13 +94,13 @@
                             </div>
                         </div>
                         <div class='combo-item'>
-                            <a href="{{url('/combos/'.$combo->id.'/edit')}}">Ver más</a>
+                            <a href="{{url('/combos/'.$combo->id.'/edit')}}" style='background-color: #fbff0ece;'>Ver más</a>
                         </div>
                         <div class='combo-item'>
                             <form method="post" action="{{url('/combos/'.$combo->id)}}">
                                 {{csrf_field()}}
                                 {{method_field('DELETE')}}
-                                <button type="submit">Eliminar</button>
+                                <button type="submit" style='background-color: #ff0000;'>Eliminar</button>
                             </form>
                         </div>
                     </div>
