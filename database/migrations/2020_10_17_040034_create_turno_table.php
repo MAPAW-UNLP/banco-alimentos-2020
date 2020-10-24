@@ -15,7 +15,9 @@ class CreateTurnoTable extends Migration
     {
         Schema::create('turnos', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('fechaHora')->useCurrent();
+            $table->date('fechaHora');
+            $table->bigInteger('turno_id')->unsigned();            
+            $table->foreign('turno_id')->references('id')->on('turnos');
             $table->integer('cantTurnos');
             $table->integer('turnosDisponibles');
         });

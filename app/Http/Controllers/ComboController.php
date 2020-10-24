@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Combo;
+use App\Models\Pedido;
 use App\Models\Producto;
 use Illuminate\Http\Request;
 
@@ -20,7 +21,7 @@ class ComboController extends Controller
     public function index()
     {
         //Organizacione::where('estado','<>',0)->paginate(5)
-        $datos['combos']=Combo::paginate();
+        $datos['combos']=Combo::where('estado','<>',2)->paginate();
         return view('combo.index',$datos);
 
     }
@@ -123,9 +124,18 @@ class ComboController extends Controller
      */
     public function destroy($id)
     {
-        Producto::where('combo_id', '=', $id)->delete();
-        Combo::destroy($id);
+        $pedido=Pedido::where('combo_id', '=', 1)->first();
+        if (is_null($pedido)){
+            Combo::destroy($id);
+        }else{
+            $combo=Combo::findOrFail($id);
+            $combo['estado']=2;
+            Combo::where('id','=',$id)->update($combo->toArray());
+        }
         return redirect('combos');
+        //Producto::where('combo_id', '=', $id)->delete();
+        //Combo::destroy($id);
+        //return redirect('combos');
     }
 
     public function cambiarEstado($id)

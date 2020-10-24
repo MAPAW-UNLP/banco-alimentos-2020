@@ -57,15 +57,18 @@
             <div class='body'>
                 <div class='body-notificacion'>
                     <h3>Modificar notificación</h3>
+                    <form id="myForm" action="{{ url('/notificaciones') }}" method="post">
+                        {{csrf_field()}} 
                     <div class='ingresar-contenido'>
                         <h5>Ingresar contenido de la organización</h5>
                         <div class='recuerde'><p>Recuerde:</p>
-                            <textarea></textarea>
+                            <textarea id="notificacion" name="notificacion" >{{$notificacion->notificacion}}</textarea>
                         </div>                     
                     </div>  
                     <div class='buttons-section'>
-                        <button type="submit" onclick="guardar()">Guardar</button>   
+                        <button type="submit" >Guardar</button>   
                     </div>   
+                    </form>
                     </div>
                 </div>               
             </div>

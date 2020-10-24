@@ -49,13 +49,16 @@
                     </a> 
                 </div>   
             </nav>
-            <form>
+            <form action="{{url('/turnos')}}" method="POST">
+            {{method_field('POST')}}
+            {{csrf_field()}}
             <div class='conteiner body'>
                 <div class="row" align="center">
                     <h3>Calendario</h3>
                     <div class="col">
                         <h5>Seleccionar día</h5>
-                        <div id="datepicker"></div>
+                        <div id="datepicker" name="date"></div>
+                        <input type="date" id="fechaHora" name="fechaHora">
                     </div>
                     <div class="col">
                         <h5>Seleccionar horario</h5>
@@ -67,27 +70,27 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($horarios as $horario)
                                 <tr>
+                                
                                     <td scope="row" style=" text-align:left;">
-                                        @for ($i = 8; $i <= 16; $i++)
-                                            <input type="checkbox" value="" id="defaultCheck1">
+                                            <input type="checkbox" name="check[]" value="{{$horario->id}}" id="defaultCheck1">
                                             <label class="form-check-label" for="defaultCheck1">
-                                                <b>{{$i}}:00 - {{$i}}:30</b> 
+                                                <b>{{$horario->nombre}}</b> 
                                             </label>
                                             <br>
-                                        @endfor
                                     </td>
                                     <td>
-                                    @for ($j = 0; $j <= 8; $j++)
-                                        <select>
+                                        <select name="cant[]">
                                             @for ($i = 0; $i <= 10; $i++)
-                                                <option value="{{ $i }}">{{ $i }}</option>
+                                                <option value="{{ $i }}" >{{ $i }}</option>
                                             @endfor
                                         </select>
                                         <br>
-                                    @endfor     
                                     </td>
+                                
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                         <button type="reset" style="background-color: #ff0000;">Cancelar</button> 

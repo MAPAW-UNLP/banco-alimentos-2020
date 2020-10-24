@@ -12,6 +12,7 @@ use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\SolicitudController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ModificacioneController;
+use App\Http\Controllers\NotificacionController;
 use App\Http\Controllers\Auth\LoginController;
 
 /*
@@ -39,6 +40,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('turnos', 'TurnoController');
     Route::resource('solicitudes', 'SolicitudController');
     Route::resource('modificaciones', 'ModificacioneController');
+    Route::resource('notificaciones', 'NotificacionController');
     Route::get('/aceptarOrg/{id}', [OrganizacioneController::class, 'aceptar']);
     Route::get('/readDataOrg/{id}', [OrganizacioneController::class, 'show']);
     Route::post('/rechazar', [RechazoController::class, 'store']);
@@ -50,8 +52,6 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/aceptarModificacion/{id}', [ModificacioneController::class, 'aceptar']);
     Route::get('/cancelarModificacion/{id}', [ModificacioneController::class, 'cancelar']);
     Route::get('/cambiarEstado/{id}', [ComboController::class, 'cambiarEstado']);
-    Route::get('/calendar', [PagesController::class, 'calendar']);
-    Route::get('/notificaciones', [PagesController::class, 'notificaciones']);
     Route::get('/cambiarOrga/{id}', [OrganizacioneController::class, 'cambiarEstado']);
 });
 
