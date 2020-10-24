@@ -60,16 +60,6 @@
                 <div class='request-section'>
                     <div class='request-section-text'>
                         <p><b>Nombre institución:</b> {{$organizacione->nombre}}</p>
-                        <p><b>Nombre del referente:</b> {{$organizacione->user->name}}</p>
-                        <p><b>Domicilio (barrio):</b> {{$organizacione->barrio}}</p>
-                        <p><b>¿Personería jurídica?:</b> {{$organizacione->personeria_juridica}}</p>
-                        <p><b>En caso negativo, ¿tiene algún aval?:</b> {{$organizacione->aval}}</p>
-                        <p><b>Cantidad de personas:</b> {{$organizacione->cantPers}}</p>
-                        <p><b>Edad por rango:</b> {{$organizacione->edad}}</p>
-                        <p><b>Tipos de servicio por día:</b> {{$organizacione->tarea}}</p>
-                        <p><b>¿Tiene ayuda alimentaria?:</b> {{$organizacione->ayuda_alimentaria}}</p>
-                        <p><b>¿Recibe ayuda financiera?:</b> {{$organizacione->ayuda_financiera}}</p>
-                        <p><b>Tarea que realizan:</b> {{$organizacione->tipo_servicio}}</p>
                     </div>
                     <div class='switch-section'>
                         <label class="switch">
