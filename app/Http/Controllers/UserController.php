@@ -38,9 +38,9 @@ public function create(){
 public function store(Request $request){
     $this->validate($request, [
         'name' => 'required',
-        'email' => 'required|email|unique:users,email',
-        'password' => 'required|same:confirm-password',
-        'roles' => 'required'
+        'email' => 'required|email|unique:users,email'
+        //'password' => 'required|same:confirm-password',
+        //'roles' => 'required'
     ]);
     $input = $request->except('_token','_method','rol_id');
     //$input['password'] = Hash::make($input['password']);

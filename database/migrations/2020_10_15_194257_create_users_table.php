@@ -14,8 +14,8 @@ public function up()
 Schema::create('users', function (Blueprint $table) {
 $table->bigIncrements('id');
 $table->string('name');
-$table->string('apellido')->unique();
-$table->string('email');
+$table->string('apellido');
+$table->string('email')->unique();
 $table->string('dni');
 $table->string('telefono');
 $table->string('password');

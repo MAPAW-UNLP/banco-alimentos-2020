@@ -33,7 +33,7 @@ class CreateAdminUserSeeder extends Seeder
         ]);
         $user3 = User::create([
             'name' => 'Ejemplo Empleado',
-            'email' => 'ejemplo@empleado.com',
+            'email' => 'ejemplo2@empleado.com',
             'apellido' => 'empleado',
             'dni' => 31785,
             'telefono' => 31785,
@@ -41,7 +41,7 @@ class CreateAdminUserSeeder extends Seeder
         ]);  
         $user4 = User::create([
             'name' => 'Ejemplo2 Organizacion',
-            'email' => 'ejemplo2@organizacion.com',
+            'email' => 'ejemplo3@organizacion.com',
             'apellido' => 'Org',
             'dni' => 31785,
             'telefono' => 31785,
