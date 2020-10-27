@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
 use DB;
@@ -118,8 +119,8 @@ public function updatePassword(Request $request){
     if ($pass=$oldPassword){
         if($input['newPassword'] = $input['repeatNewPassword']){
             User::find(Auth::id())->update(['password' => Hash::make($input['newPassword'])]);
-            return redirect()->route('changePassword')
-            ->with('succes','Password actualizada');
+            Session::flash('success','Todo Piolita');
+            return redirect('changePassword');
         }else{
             return redirect()->route('changePassword')
             ->with('error','Password no coinciden');

@@ -43,7 +43,7 @@ class TurnoController extends Controller
         $datos=request()->except('_token');
         //turno::insert($datos);
         //return view('turno_index',$datos);
-        $fecha=request()->input('fechaHora');
+       /* $fecha=request()->input('fechaHora');
         $check=request()->input('check');
         $cant=request()->input('cant');
         $i=0;
@@ -59,7 +59,7 @@ class TurnoController extends Controller
                 $i=$i+1;
             }
         }
-        return redirect('turnos');
+        //return redirect('turnos');*/
         return response()->json($datos);
     }
 

@@ -1,6 +1,11 @@
 <link rel="stylesheet" href="{{ url('css/lateral-menu.css') }}">
 <link rel="stylesheet" href="{{ url('css/add-user.css') }}">
-
+<script>
+@if(Session::has('success'))
+    alert("{{ Session::get('success') }}");
+    toastr.success("{{ Session::get('success') }}",'',{timeOut: 4000});
+@endif;
+</script>
 <div class='general-container'>
 <div class='lateral-menu'>
         <div>
