@@ -42,14 +42,13 @@ class ComboController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request){
         $prod=request()->input('producto');
         $cant=request()->input('cant');
-        $datos=request()->except('cant','producto','_token');
-        $combo=Combo::create($datos);
+        $datos=request()->except('cant','producto','_token');    
         $i=0;
-        if (!is_null($prod)){            
+        if (!is_null($prod)){  
+            $combo=Combo::create($datos);          
             foreach ($prod as &$valor) {
                 $p=[
                     'combo_id'=>$combo->id,
