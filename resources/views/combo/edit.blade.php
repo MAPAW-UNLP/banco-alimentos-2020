@@ -72,7 +72,7 @@
           </div>
           <div class='item-contribucion'>
             <label for="cantOrg"><b>Cantidad máxima de combos</label></b><br>
-            <input type="number" id="cantOrg" name="cantOrg" value="{{$combo->cantOrg}}"><br>
+            <input type="number" id="stock" name="stock" value="{{$combo->stock}}"><br>
           </div>
           <div class='guardar'><button type="submit">Guardar</button></div>
         </form>

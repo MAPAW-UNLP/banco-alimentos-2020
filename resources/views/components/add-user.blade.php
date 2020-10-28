@@ -1,11 +1,21 @@
 <link rel="stylesheet" href="{{ url('css/lateral-menu.css') }}">
 <link rel="stylesheet" href="{{ url('css/add-user.css') }}">
-<script>
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script type="text/javascript">
 @if(Session::has('success'))
-    alert("{{ Session::get('success') }}");
-    toastr.success("{{ Session::get('success') }}",'',{timeOut: 4000});
+    $(document).ready(function() {
+        setTimeout(function() {
+            $(".content2").fadeIn(1500);fadeIn
+        },1000);
+    
+        setTimeout(function() {
+            $(".content2").fadeOut(1500);
+        },6000);
+    });
 @endif;
+
 </script>
+<div class="content2" style="display:none;">"{{ Session::get('success') }}"</div>
 <div class='general-container'>
 <div class='lateral-menu'>
         <div>

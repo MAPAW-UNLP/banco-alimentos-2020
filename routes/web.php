@@ -53,6 +53,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/cancelarModificacion/{id}', [ModificacioneController::class, 'cancelar']);
     Route::get('/cambiarEstado/{id}', [ComboController::class, 'cambiarEstado']);
     Route::get('/cambiarOrga/{id}', [OrganizacioneController::class, 'cambiarEstado']);
+    Route::get('/turnos/ver/{fecha}', [TurnoController::class, 'index']);
+    Route::get('/calendar', [TurnoController::class, 'index']);
 });
 
 

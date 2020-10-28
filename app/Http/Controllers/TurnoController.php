@@ -13,12 +13,22 @@ class TurnoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($fecha = null)
     {
         //
-        $datos['turnos']=Turno::paginate();
-        $datos['horarios']=Horario::paginate();
-        return view('main-calendar',$datos);
+        if(is_null($fecha)){
+            $datos['turnos']=Turno::paginate();
+            $datos['horarios']=Horario::paginate();
+            return view('main-calendar',$datos);
+        }else{
+            $datos['turnos']=Turno::where('fechaHora','=',$fecha)->get();
+            $datos['horarios']=Horario::paginate();
+            $datos['vAnio']=substr($fecha,0,4);
+            $datos['vMes']=substr($fecha,5,2);
+            $datos['vDia']=substr($fecha,8,2);
+            return view('main-calendar',$datos);
+        }
+
 
     }
 
@@ -43,24 +53,25 @@ class TurnoController extends Controller
         $datos=request()->except('_token');
         //turno::insert($datos);
         //return view('turno_index',$datos);
-       /* $fecha=request()->input('fechaHora');
+        $fecha=request()->input('fechaHora');
         $check=request()->input('check');
         $cant=request()->input('cant');
+        Turno::where('fechaHora', '=', $fecha)->delete();
         $i=0;
         if (!is_null($check)){            
             foreach ($check as &$valor) {
                 $p=[
                     'fechahora'=>$fecha,
-                    'turno_id'=>$check[$i],
-                    'cantTurnos'=>$cant[$check[$i]],
-                    'turnosDisponibles'=>$cant[$check[$i]]
+                    'horario_id'=>$check[$i],
+                    'cantTurnos'=>$cant[$check[$i]-1],
+                    'turnosDisponibles'=>$cant[$check[$i]-1]
                 ];
                 Turno::insert($p);
                 $i=$i+1;
             }
         }
-        //return redirect('turnos');*/
-        return response()->json($datos);
+        return redirect('turnos');
+        //return response()->json($datos);
     }
 
     /**
@@ -110,5 +121,9 @@ class TurnoController extends Controller
     {
         turno::destroy($id);
         return redirect('turnos');
+    }
+    public function ver($fecha)
+    {
+        return view('turno_show', ['turno' => Turno::where('fechaHora','=',$fecha)->first()]);
     }
 }

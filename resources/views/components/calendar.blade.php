@@ -3,10 +3,36 @@
 <link rel="stylesheet" href="{{ url('css/manage-social-area-organization-data.css') }}">
 <link rel="stylesheet" href="{{ url('css/top-menu.css') }}">
 <link rel="stylesheet" href="{{ url('css/calendar.css') }}">
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+<script src="jquery.ui.datepicker-es.js"></script>
 <script>
     function changeStatus($path) {
         window.location=$path;
     }
+</script>
+<script>
+$(function () {
+    @if(isset($vAnio))
+        var date = new Date({{$vAnio}}, {{$vMes}}-1, {{$vDia}});
+        var strDat= {{$vAnio}}+"-"+{{$vMes}}+"-"+{{$vDia}};
+        $("#fechaHora").val(strDat);
+    @else
+        var date = new Date();
+    @endif
+    
+    $.datepicker.setDefaults($.datepicker.regional["es"]);
+        $("#datepicker").datepicker({
+            defaultDate: date,
+            dateFormat: 'yy-mm-dd',
+            firstDay: 1,
+            onSelect: function (date) {
+            $("#fechaHora").val(date);
+            window.location="{{url('/turnos/ver')}}"+"/"+$("#fechaHora").val();
+        },
+    });
+});
 </script>
 <div class='general-container'>
     <div class='lateral-menu'>
@@ -53,12 +79,12 @@
             {{method_field('POST')}}
             {{csrf_field()}}
             <div class='conteiner body'>
-                <div class="row" align="center">
+                <div class="row" allign="center">
                     <h3>Calendario</h3>
                     <div class="col">
                         <h5>Seleccionar día</h5>
-                        <div id="datepicker" name="date"></div>
-                        <input type="date" id="fechaHora" name="fechaHora">
+                        <div id="datepicker" name="datepicker" slected="1"></div>
+                        <input type="date" id="fechaHora" name="fechaHora" style="display:none">
                     </div>
                     <div class="col">
                         <h5>Seleccionar horario</h5>
@@ -70,27 +96,62 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($horarios as $horario)
-                                <tr>
-                                
-                                    <td scope="row" style=" text-align:left;">
-                                            <input type="checkbox" name="check[]" value="{{$horario->id}}" id="defaultCheck1">
-                                            <label class="form-check-label" for="defaultCheck1">
-                                                <b>{{$horario->nombre}}</b> 
-                                            </label>
-                                            <br>
-                                    </td>
-                                    <td>
-                                        <select name="cant[]">
-                                            @for ($i = 0; $i <= 10; $i++)
-                                                <option value="{{ $i }}" >{{ $i }}</option>
-                                            @endfor
-                                        </select>
-                                        <br>
-                                    </td>
-                                
-                                </tr>
+                            @foreach($horarios as $horario)
+                                @php
+                                    $check = 0;
+                                @endphp
+                                @foreach($turnos as $turno)
+                                    @if($turno->horario_id==$horario->id)
+                                        @php
+                                            $check = 1;
+                                            $cantComb = $turno->cantTurnos;
+                                        @endphp
+                                    @endif
                                 @endforeach
+                                @if($check==1)
+                                    <tr>
+                                        <td scope="row" style=" text-align:left;">
+
+                                                <input type="checkbox" name="check[]" value="{{$horario->id}}" id="defaultCheck1" checked>
+                                                <label class="form-check-label" for="defaultCheck1">
+                                                    <b>{{$horario->nombre}}</b> 
+                                                </label>
+                                                <br>
+                                        </td>
+                                        <td>
+                                            <select name="cant[]">
+                                                @for ($i = 0; $i <= 4; $i++)
+                                                @if ($cantComb == $i)
+                                                        <option value="{{ $i }}"  selected>{{ $i }}</option>
+                                                    @else
+                                                        <option value="{{ $i }}">{{ $i }}</option>
+                                                    @endif
+                                                @endfor
+                                            </select>
+                                            <br>
+                                        </td>
+                                    </tr>
+                                @else                                <tr>
+                                        <td scope="row" style=" text-align:left;">
+
+                                                <input type="checkbox" name="check[]" value="{{$horario->id}}" id="defaultCheck1">
+                                                <label class="form-check-label" for="defaultCheck1">
+                                                    <b>{{$horario->nombre}}</b> 
+                                                </label>
+                                                <br>
+                                        </td>
+                                        <td>
+                                            <select name="cant[]">
+                                                @for ($i = 0; $i <= 4; $i++)
+                                                        <option value="{{ $i }}">{{ $i }}</option>
+
+                                                @endfor
+                                            </select>
+                                            <br>
+                                        </td>
+                                    </tr>
+                                @endif
+                            @endforeach
                             </tbody>
                         </table>
                         <button type="reset" style="background-color: #ff0000;">Cancelar</button> 
@@ -112,12 +173,4 @@
 <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
 <script src="jquery.ui.datepicker-es.js"></script>
 
-<script>
-$(function () {
-$.datepicker.setDefaults($.datepicker.regional["es"]);
-$("#datepicker").datepicker({
-firstDay: 1
-});
-});
-</script>
 
