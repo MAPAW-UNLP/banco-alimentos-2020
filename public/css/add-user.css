@@ -8,21 +8,21 @@ h3 {
 
 label {
     color: #ffffff;
-    font-size: 18px;
+    font-size: 18px !important;
     padding: 0;
     margin: 0;
-    width: 100px;
 }
 
+/*
 input {
-    width: 100%;
+    width: 50%;
     margin: 10px;
     padding: 5px;
 }
+*/
 
 .form-item {
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
@@ -53,7 +53,19 @@ button {
     padding-right: 10px;
 }
 
-.cancel-button {
+.cancel {
     margin-right: 10px;
-    background-color: #ff0000;
+    background-color: transparent;
+}
+
+.accept {
+    background-color: #f2994a;
+}
+
+button:hover {
+    color: #000000;
+}
+
+.font-white {
+    color: #ffffff !important;
 }

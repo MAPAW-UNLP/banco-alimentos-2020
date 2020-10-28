@@ -64,8 +64,7 @@ button {
 .combo-item form button {
     border-style: none;
     color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
+    background-color: #f2994a;
     padding: 0.375rem 0.75rem;
     font-size: 1rem;
     line-height: 1.5;
@@ -141,7 +140,6 @@ button {
     background-color: #f2994a;
     border-radius: 24px;
     padding: 20px;
-    width: 500px;
 }
 
 .item-contribucion {

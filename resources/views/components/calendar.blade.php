@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="{{ url('css/top-menu.css') }}">
 <link rel="stylesheet" href="{{ url('css/calendar.css') }}">
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+<link rel="stylesheet" href="{{ url('css/calendar.css') }}">
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
 <script src="jquery.ui.datepicker-es.js"></script>
@@ -78,7 +79,7 @@ $(function () {
             <form action="{{url('/turnos')}}" method="POST">
             {{method_field('POST')}}
             {{csrf_field()}}
-            <div class='conteiner body'>
+            <div class='conteiner body body-calendar'>
                 <div class="row" allign="center">
                     <h3>Calendario</h3>
                     <div class="col">
@@ -155,7 +156,7 @@ $(function () {
                             </tbody>
                         </table>
                         <button type="reset" style="background-color: #ff0000;">Cancelar</button> 
-                        <button>Guardar</button>         
+                        <button style="background-color:#f2994a;">Guardar</button>         
                     </div>                   
                 </div>
             </form>

@@ -94,7 +94,7 @@
                             </div>
                         </div>
                         <div class='combo-item'>
-                            <a href="{{url('/combos/'.$combo->id.'/edit')}}" style='background-color: #fbff0ece;'>Ver más</a>
+                            <a href="{{url('/combos/'.$combo->id.'/edit')}}" style="background-color:#f2994a;">Ver más</a>
                         </div>
                         <div class='combo-item'>
                             <form method="post" action="{{url('/combos/'.$combo->id)}}">

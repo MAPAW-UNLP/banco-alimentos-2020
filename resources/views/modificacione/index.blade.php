@@ -56,7 +56,7 @@
                     </div>
                     <div class='buttons-section'>
                     <a href="{{ url('/cancelarModificacion/'.$modificacione->id) }}" class='top-menu-item' style="background-color: #ff0000;">Rechazar</a>
-                    <a href="{{ url('/aceptarModificacion/'.$modificacione->id) }}" class='top-menu-item' style="background-color: #137000;">Aceptar</a>                
+                    <a href="{{ url('/aceptarModificacion/'.$modificacione->id) }}" class='top-menu-item' style="background-color:#f2994a;">Aceptar</a>                
                     </div>
                 </div>
                 @endforeach

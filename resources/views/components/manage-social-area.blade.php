@@ -67,7 +67,7 @@
                         <p><b>Nombre institución:</b> {{$solicitude->organizacione->nombre}}</p>
                     </div>
                     <div class='buttons-section'>
-                        <button type="submit" style="background-color: #fbff0ece;"><a href="{{ url('/readDataOrg/'.$solicitude->id) }}">Ver mas</a></button>                     
+                        <button type="submit" class='show-more'><a href="{{ url('/readDataOrg/'.$solicitude->id) }}">Ver mas</a></button>                     
                     </div>
                 </div>
                 @endforeach
