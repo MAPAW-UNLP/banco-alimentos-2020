@@ -4,7 +4,26 @@
 @include('main')
 @include('components.header')
 @include('components.nav')
+<script>
+    function agregarFila(){
+    var x =document.getElementById("tablaprueba").insertRow(-1).innerHTML = '<td><input type="text" name="producto[]" /></td><td><input type="number" name="cant[]" /></td><td><input type="button" class="borrar" value="Eliminar" /></td>';
+    }
 
+    function eliminarFila(){
+    var table = document.getElementById("tablaprueba");
+    var rowCount = table.rows.length;
+    
+    if(rowCount <= 1)
+        alert('No se puede eliminar el encabezado');
+    else
+        table.deleteRow(rowCount -1);
+    }
+
+    $(document).on('click', '.borrar', function (event) {
+    event.preventDefault();
+    $(this).closest('tr').remove();
+});
+</script>
 <div class='general-container'>
   <div class='lateral-menu'>
     <div>
@@ -55,12 +74,31 @@
         <form action="{{url('/combos/'.$combo->id)}}" method="post">
         {{method_field('PATCH')}}
             {{csrf_field()}}
-            @foreach($combo->productos as $producto)
-            <div>
-              <input type="text" name="producto[]" value="{{$producto->producto}}"/>
-              <input type="number" name="cant[]" value="{{$producto->cantidad}}"/>
-            </div>
-            @endforeach
+            <div class="container">
+              <div class="row">
+                  <table style="background-color: #F2994A; border-radius:10px" class="table table-borderless table-sm" id="tablaprueba">
+                      <thead>
+                          <tr>
+                          <th>Producto</th>
+                          <th>Cantidad</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                      @foreach($combo->productos as $producto)
+                      <tr>
+                        <td><input type="text" name="producto[]" value="{{$producto->producto}}"/></td>
+                        <td><input type="number" name="cant[]" value="{{$producto->cantidad}}"/></td>
+                        <td><input type="button" class="borrar" value="Eliminar" /></td>
+                      </tr>
+                      @endforeach
+                      </tbody>
+                  </table>
+                  <div class="form-group">
+                      <button type="button" onclick="agregarFila()">Agregar Fila</button>
+                      <button type="button" onclick="eliminarFila()" style="display:none">Eliminar Fila</button>
+                  </div>
+              </div>
+              </div> 
           </div>
           <div class='item-contribucion'> 
             <label for="contribucion"><b>Contribución simbólica $</b></label>

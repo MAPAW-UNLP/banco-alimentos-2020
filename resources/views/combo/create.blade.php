@@ -1,10 +1,13 @@
 <link rel="stylesheet" href="{{ url('css/lateral-menu.css') }}">
 <link rel="stylesheet" href="{{ url('css/top-menu.css') }}">
 <link rel="stylesheet" href="{{ url('css/combos.css') }}">
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+<script src="jquery.ui.datepicker-es.js"></script>
 
 <script>
     function agregarFila(){
-    document.getElementById("tablaprueba").insertRow(-1).innerHTML = '<td><input type="text" name="producto[]" /></td><td><input type="number" name="cant[]" /></td>';
+    var x =document.getElementById("tablaprueba").insertRow(-1).innerHTML = '<td><input type="text" name="producto[]" /></td><td><input type="number" name="cant[]" /></td><td><input type="button" class="borrar" value="Eliminar" /></td>';
     }
 
     function eliminarFila(){
@@ -16,6 +19,11 @@
     else
         table.deleteRow(rowCount -1);
     }
+
+    $(document).on('click', '.borrar', function (event) {
+    event.preventDefault();
+    $(this).closest('tr').remove();
+});
 </script>
 
 @include('main')
@@ -85,7 +93,7 @@
                             </table>
                             <div class="form-group">
                                 <button type="button" onclick="agregarFila()">Agregar Fila</button>
-                                <button type="button" onclick="eliminarFila()">Eliminar Fila</button>
+                                <button type="button" onclick="eliminarFila()" style="display:none">Eliminar Fila</button>
                             </div>
                         </div>
                         </div>                        
