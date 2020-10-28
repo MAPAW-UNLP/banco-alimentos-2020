@@ -1,5 +1,20 @@
 <link rel="stylesheet" href="{{ url('css/nav-bar.css') }}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+<style> 
+#panelsucces {
+  padding: 10px;
+  display: none;
+  text-align: center;
+  background-color: #76FE28;
+}
+#panelerror {
+  padding: 10px;
+  display: none;
+  text-align: center;
+  background-color: red;
+}
+</style>
 <div class='nav-container'>
   <nav class='nav-bar'>
   <div class='navbar-link'><a href="{{ url('/') }}" title="Inicio del sistema">Home</a></div>
@@ -23,5 +38,18 @@
     </div>
     @endguest
   </nav>
+  <div id="panelsucces">{{ session('success') }}</div>
+  <div id="panelerror">{{ session('error') }}</div>
 </div>
+<script>
+@if(Session::has('success'))
+
+    $("#panelsucces").show(1000).delay(3000);
+    $("#panelsucces").hide(2000);
+@endif;
+@if(Session::has('error'))
+    $("#panelerror").show(1000).delay(3000);
+    $("#panelerror").hide(2000);
+@endif;
+</script>
  

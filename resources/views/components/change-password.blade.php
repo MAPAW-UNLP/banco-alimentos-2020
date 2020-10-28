@@ -2,13 +2,10 @@
 <link rel="stylesheet" href="{{ url('css/change-password.css') }}">
 <link rel=”stylesheet” href=”https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <div class='general-container'>
 <div class='lateral-menu'>
-<script>
-@if(Session::has('success'))
-    alert("{{ Session::get('success') }}");
-@endif;
-</script>
+
         <div>
             <a href="{{ url('/addUser') }}" class='lateral-menu-item'>
                 <p class='lateral-menu-text-item'>Agregar usuario</p>
@@ -31,6 +28,9 @@
         </div>
     </div>
     <div class='body'>
+    <div id="feedback" style="display:none">
+        <h4>Cambiar contraseña</h4>
+    </div>
         <div class='add-user-body'>
             <h3>Cambiar contraseña</h3>
             <form action="{{ url('/changePassword') }}" method="POST">

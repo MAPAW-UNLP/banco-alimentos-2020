@@ -60,7 +60,7 @@ class ComboController extends Controller
                 $i=$i+1;
             }
         }
-        return redirect('combos');
+        return redirect('combos')->with('success', 'El combo se creo correctamente');
     }
 
     /**
@@ -113,7 +113,7 @@ class ComboController extends Controller
                 $i=$i+1;
             }
         }
-        return redirect('combos');
+        return redirect('combos')->with('success', 'El combo se modifico correctamente');;
     }
 
     /**
@@ -132,7 +132,7 @@ class ComboController extends Controller
             $combo['estado']=2;
             Combo::where('id','=',$id)->update($combo->toArray());
         }
-        return redirect('combos');
+        return redirect('combos')->with('success', 'El combo se elimino correctamente');;
         //Producto::where('combo_id', '=', $id)->delete();
         //Combo::destroy($id);
         //return redirect('combos');

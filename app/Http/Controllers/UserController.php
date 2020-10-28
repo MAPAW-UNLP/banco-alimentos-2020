@@ -49,8 +49,7 @@ public function store(Request $request){
     echo response()->json($input);
     $user = User::create($input);
     $user->assignRole($request->input('rol_id'));
-    Session::flash('success','todo piolita');
-    return redirect('addUser')->with('status', 'Profile updated!');
+    return redirect('addUser')->with('success', 'El usuario se creo correctamente');
 }
 /**
 * Display the specified resource.
@@ -120,17 +119,14 @@ public function updatePassword(Request $request){
     if ($pass=$oldPassword){
         if($input['newPassword'] = $input['repeatNewPassword']){
             User::find(Auth::id())->update(['password' => Hash::make($input['newPassword'])]);
-            Session::flash('success','Todo Piolita');
-            return redirect('changePassword');
+            return redirect('changePassword')->with('succes', 'Se modifico correctamente la contraseña');
         }else{
-            return redirect()->route('changePassword')
-            ->with('error','Password no coinciden');
+            return redirect()->route('changePassword')->with('error', 'Las contraseñas deben coincidir');;
         }
     }else{
-        return redirect()->route('changePassword')
-        ->with('error','Password no coinciden');
+        return redirect()->route('changePassword')->with('error', 'No ingreso la contraseña correcta');;
     }
-    return redirect()->route('changePassword');
+    return redirect()->route('changePassword')->with('error', 'No ingreso la contraseña correcta');;
     /*if ($input['password'] = $input['passwordConf']){
         $user = User::find($id);
         $input2 = $request->except('passwordConf');

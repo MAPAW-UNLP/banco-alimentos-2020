@@ -70,7 +70,7 @@ class TurnoController extends Controller
                 $i=$i+1;
             }
         }
-        return redirect('turnos');
+        return redirect('turnos')->with('success', 'El turno se creo correctamente');;
         //return response()->json($datos);
     }
 
@@ -108,7 +108,7 @@ class TurnoController extends Controller
         $datos=request()->except(['_token','_method']);
         turno::where('id','=',$id)->update($datos);
 
-        return redirect('turnos');
+        return redirect('turnos')->with('success', 'El turno se modifico correctamente');;
     }
 
     /**
@@ -120,7 +120,7 @@ class TurnoController extends Controller
     public function destroy($id)
     {
         turno::destroy($id);
-        return redirect('turnos');
+        return redirect('turnos')->with('success', 'El combo se creo correctamente');;
     }
     public function ver($fecha)
     {
