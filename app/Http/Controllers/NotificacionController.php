@@ -37,7 +37,7 @@ class NotificacionController extends Controller
     {
         $datos=request()->except('_token','_method');
         Notificacion::where('id','=',1)->update($datos);
-        return redirect('turnos');
+        return redirect('notificaciones')->with('success','Notificación actualizada');
     }
 
     /**

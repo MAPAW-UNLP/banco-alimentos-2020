@@ -117,6 +117,6 @@ class OrganizacioneController extends Controller
             $organizacione['estado']=1;
         }
         Organizacione::where('id','=',$id)->update($organizacione->toArray());
-        return redirect('organizaciones')->with('success', 'La organización fue aceptada correctamente');
+        return redirect('organizaciones');
     }
 }

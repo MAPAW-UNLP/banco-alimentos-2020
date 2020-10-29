@@ -113,6 +113,6 @@ class ModificacioneController extends Controller
         $Modificacione = Modificacione::findOrFail($id);
         $Modificacione['estado']=2;
         Modificacione::where('id','=',$id)->update($Modificacione->toArray());
-        return redirect('modificaciones')->with('success', 'La modificación fue cancelada correctamente');
+        return redirect('modificaciones')->with('success', 'La modificación fue rechazada correctamente');
     }
 }

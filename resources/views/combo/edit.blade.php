@@ -111,7 +111,10 @@
             <label for="cantOrg"><b>Cantidad máxima de combos</label></b><br>
             <input type="number" id="stock" name="stock" value="{{$combo->stock}}" required><br>
           </div>
-          <div class='guardar'><button type="submit">Guardar</button></div>
+          <div class='buttons-section'>
+            <button class='cancel' type="reset">Cancelar</button>
+              <button class='accept'>Guardar</button>                                 
+          </div>          
         </form>
       </div>
     </div>

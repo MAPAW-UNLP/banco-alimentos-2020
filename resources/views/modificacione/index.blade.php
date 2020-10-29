@@ -49,17 +49,21 @@
         <div class='body'>
             <div class='body-request'>
                 <h3>Modificaciones Pendientes</h3>
-                @foreach($modificaciones as $modificacione)
-                <div class='request-section'>                
-                    <div class='request-section-text'>
-                        <p><b>Nombre institución:</b> {{$modificacione->nombre}}</p>
+                @if(count($modificaciones) > 0)
+                    @foreach($modificaciones as $modificacione)
+                    <div class='request-section'>                
+                        <div class='request-section-text'>
+                            <p><b>Nombre institución:</b> {{$modificacione->nombre}}</p>
+                        </div>
+                        <div class='buttons-section'>
+                        <a href="{{ url('/cancelarModificacion/'.$modificacione->id) }}" class='top-menu-item' style="background-color: #ff0000;">Rechazar</a>
+                        <a href="{{ url('/aceptarModificacion/'.$modificacione->id) }}" class='top-menu-item' style="background-color:#f2994a;">Aceptar</a>                
+                        </div>
                     </div>
-                    <div class='buttons-section'>
-                    <a href="{{ url('/cancelarModificacion/'.$modificacione->id) }}" class='top-menu-item' style="background-color: #ff0000;">Rechazar</a>
-                    <a href="{{ url('/aceptarModificacion/'.$modificacione->id) }}" class='top-menu-item' style="background-color:#f2994a;">Aceptar</a>                
-                    </div>
-                </div>
-                @endforeach
+                    @endforeach
+                @else
+                    <div>No hay Modificaciones pendientes</div>
+                @endif
                 </div>
             </div>
         </div>
