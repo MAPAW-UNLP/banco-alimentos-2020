@@ -101,14 +101,16 @@ $(function () {
                                 @php
                                     $check = 0;
                                 @endphp
-                                @foreach($turnos as $turno)
-                                    @if($turno->horario_id==$horario->id)
-                                        @php
-                                            $check = 1;
-                                            $cantComb = $turno->cantTurnos;
-                                        @endphp
-                                    @endif
-                                @endforeach
+                                @if(isset($turnos))
+                                    @foreach($turnos as $turno)
+                                        @if($turno->horario_id==$horario->id)
+                                            @php
+                                                $check = 1;
+                                                $cantComb = $turno->cantTurnos;
+                                            @endphp
+                                        @endif
+                                    @endforeach
+                                @endif
                                 @if($check==1)
                                     <tr>
                                         <td scope="row" style=" text-align:left;">

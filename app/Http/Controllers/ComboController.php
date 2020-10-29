@@ -53,13 +53,14 @@ class ComboController extends Controller
                 $p=[
                     'combo_id'=>$combo->id,
                     'producto'=>$prod[$i],
-                    'cantidad'=>$cant[$i]
+                    'cantidad'=>$cant[$i],
                 ];
                 Producto::insert($p);
                 $i=$i+1;
             }
         }
-        return redirect('combos')->with('success', 'El combo se creo correctamente');
+        return response()->json($datos);
+        //return redirect('combos')->with('success', 'El combo se creo correctamente');
     }
 
     /**

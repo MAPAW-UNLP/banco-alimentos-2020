@@ -17,8 +17,13 @@ class TurnoController extends Controller
     {
         //
         if(is_null($fecha)){
-            $datos['turnos']=Turno::paginate();
+            $hoy = getdate();
+            $myFecha = strval($hoy['year'])."-".strval($hoy['mon'])."-".strval($hoy['mday']);
+            $datos['turnos']=Turno::where('fechaHora','=',$myFecha)->get();
             $datos['horarios']=Horario::paginate();
+            $datos['vAnio']=strval($hoy['year']);
+            $datos['vMes']=strval($hoy['mon']);
+            $datos['vDia']=strval($hoy['mday']);
             return view('main-calendar',$datos);
         }else{
             $datos['turnos']=Turno::where('fechaHora','=',$fecha)->get();
