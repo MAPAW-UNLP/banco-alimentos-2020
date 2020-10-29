@@ -24,6 +24,29 @@
     event.preventDefault();
     $(this).closest('tr').remove();
 });
+
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if(tablaprueba.rows.length == 1){
+            event.preventDefault();
+            event.stopPropagation();
+            alert('Agregue productos al combo');
+        }
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
 </script>
 
 @include('main')
@@ -74,7 +97,7 @@
             <div class='body-create-combo'>
                 <h3 class='titulo'>Agregar combo</h3>
                 <div class='combo-props'>
-                    <form action="{{url('/combos')}}" method="post">
+                    <form action="{{url('/combos')}}" method="post" class='needs-validation'> 
                         {{csrf_field()}}
                         <div class='item-name'>
                             <label for="nombre">Nombre</label>
@@ -112,8 +135,8 @@
                         <div class='item-estado'>
                             <label>Estado</label>
                             <select id="estado" name="estado">                            
-                                <option value='1'>Inactivo</option>
-                                <option value='0'>Activo</option>
+                                <option value='0'>Inactivo</option>
+                                <option value='1'>Activo</option>
                             </select>
                         </div>
                         <div class='button-section'>
