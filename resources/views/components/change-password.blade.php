@@ -86,7 +86,7 @@
                     </div>                    
                     <div class='buttons-section'>
                         <button type="reset" class='cancel-button'>Cancelar</button>
-                        <button type="submit" class='accept'>Guardar</button>                        
+                        <button class='accept' type="submit" class='accept'>Guardar</button>                        
                     </div>  
                 </div>                                                                    
             </form>

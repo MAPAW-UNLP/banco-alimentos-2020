@@ -155,8 +155,10 @@ $(function () {
                             @endforeach
                             </tbody>
                         </table>
-                        <button type="reset" style="background-color: #ff0000;">Cancelar</button> 
-                        <button style="background-color:#f2994a;">Guardar</button>         
+                        <div class='buttons-section'>
+                            <button class='cancel' type="reset">Cancelar</button>
+                            <button class='accept'>Guardar</button>                                 
+                            </div>
                     </div>                   
                 </div>
             </form>

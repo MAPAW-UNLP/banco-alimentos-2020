@@ -9,3 +9,23 @@ h5 {
     margin: 0;
     color: #ffffff;
 }
+
+.accept {
+    background-color: #f2994a;
+}
+
+.accept:hover {
+    color: black;
+}
+
+.cancel {
+    margin-right: 10px;
+}
+
+.cancel:hover {
+    color: black;
+}
+
+h5 {
+    padding: 20px 0;
+}

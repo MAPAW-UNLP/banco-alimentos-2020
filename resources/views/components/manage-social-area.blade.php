@@ -61,8 +61,7 @@
             <div class='body-request'>
                 <h3>Solicitudes de empadronamiento</h3>
                 @foreach($solicitudes as $solicitude)
-                <div class='request-section'>
-                    
+                <div class='request-section'>                    
                     <div class='request-section-text'>
                         <p><b>Nombre institución:</b> {{$solicitude->organizacione->nombre}}</p>
                     </div>
