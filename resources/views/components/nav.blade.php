@@ -6,13 +6,17 @@
   padding: 10px;
   display: none;
   text-align: center;
-  background-color: #76FE28;
+  background-color: #333333;
+  color:#ffffff;
+  font-size:20px;
 }
 #panelerror {
   padding: 10px;
   display: none;
   text-align: center;
   background-color: red;
+  color:#ffffff;
+  font-size:18px;
 }
 </style>
 <div class='nav-container'>

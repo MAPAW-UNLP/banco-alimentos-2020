@@ -54,7 +54,7 @@
             <div class='body'>
                 <div class='header-combo'>
                     <h3>Listado de combos</h3>
-                    <div class='create-combo'><a href="{{ url('/combos/create') }}">Crear combo</a></div>
+                    <div class='create-combo'><a href="{{ url('/combos/create') }}">Crear Combo</a></div>
                 </div>
                 <div class='body-combos'>
                     <div class='combo-titles'>
@@ -100,7 +100,7 @@
                             <form method="post" action="{{url('/combos/'.$combo->id)}}">
                                 {{csrf_field()}}
                                 {{method_field('DELETE')}}
-                                <button type="submit" style='background-color: #ff0000;'>Eliminar</button>
+                                <button class='delete' type="submit">Eliminar</button>
                             </form>
                         </div>
                     </div>

@@ -6,7 +6,7 @@
 @include('components.nav')
 <script>
     function agregarFila(){
-    var x =document.getElementById("tablaprueba").insertRow(-1).innerHTML = '<td><input type="text" name="producto[]" /></td><td><input type="number" name="cant[]" /></td><td><input type="button" class="borrar" value="Eliminar" /></td>';
+    var x =document.getElementById("tablaprueba").insertRow(-1).innerHTML = '<td><input type="text" name="producto[]" required /></td><td><input type="number" name="cant[]" required/></td><td><input type="button" class="borrar" value="Eliminar" /></td>';
     }
 
     function eliminarFila(){
@@ -69,8 +69,7 @@
     <h3>Combos</h3>
     <div class='body-form'>
         <div class='body-form-combo'>
-        <h4>Productos del combo</h4>
-        <p>Productos</>
+        <h4 class='list-combo-title'>Productos del combo</h4>
         <form action="{{url('/combos/'.$combo->id)}}" method="post">
         {{method_field('PATCH')}}
             {{csrf_field()}}
@@ -86,15 +85,15 @@
                       <tbody>
                       @foreach($combo->productos as $producto)
                       <tr>
-                        <td><input type="text" name="producto[]" value="{{$producto->producto}}"/></td>
-                        <td><input type="number" name="cant[]" value="{{$producto->cantidad}}"/></td>
+                        <td><input type="text" name="producto[]" value="{{$producto->producto}}" required/></td>
+                        <td><input type="number" name="cant[]" value="{{$producto->cantidad}}" required/></td>
                         <td><input type="button" class="borrar" value="Eliminar" /></td>
                       </tr>
                       @endforeach
                       </tbody>
                   </table>
                   <div class="form-group">
-                      <button type="button" onclick="agregarFila()">Agregar Fila</button>
+                      <button class='add-row' type="button" onclick="agregarFila()">Agregar Fila</button>
                       <button type="button" onclick="eliminarFila()" style="display:none">Eliminar Fila</button>
                   </div>
               </div>
@@ -102,15 +101,15 @@
           </div>
           <div class='item-contribucion'> 
             <label for="contribucion"><b>Contribución simbólica $</b></label>
-            <input type="number" id="contribucion" name="contribucion" value="{{$combo->contribucion}}"><br>
+            <input type="number" id="contribucion" name="contribucion" value="{{$combo->contribucion}}" required><br>
           </div>
           <div class='item-contribucion'>
             <label for="cantOrg"><b>Cantidad de combos por Organización</b></label><br>
-            <input type="number" id="cantOrg" name="cantOrg" value="{{$combo->cantOrg}}"><br>
+            <input type="number" id="cantOrg" name="cantOrg" value="{{$combo->cantOrg}}" required><br>
           </div>
           <div class='item-contribucion'>
             <label for="cantOrg"><b>Cantidad máxima de combos</label></b><br>
-            <input type="number" id="stock" name="stock" value="{{$combo->stock}}"><br>
+            <input type="number" id="stock" name="stock" value="{{$combo->stock}}" required><br>
           </div>
           <div class='guardar'><button type="submit">Guardar</button></div>
         </form>

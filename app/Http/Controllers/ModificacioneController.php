@@ -106,13 +106,13 @@ class ModificacioneController extends Controller
         $orga['tipo_servicio']=$Modificacione['tipo_servicio'];
         $orga['tarea']=$Modificacione['tarea'];
         Organizacione::where('id','=',$Modificacione->organizacion_id)->update($orga->toArray());
-        return redirect('modificaciones');
+        return redirect('modificaciones')->with('success', 'La modificación fue aceptada correctamente');
     }
     public function cancelar($id)
     {
         $Modificacione = Modificacione::findOrFail($id);
         $Modificacione['estado']=2;
         Modificacione::where('id','=',$id)->update($Modificacione->toArray());
-        return redirect('modificaciones');
+        return redirect('modificaciones')->with('success', 'La modificación fue cancelada correctamente');
     }
 }

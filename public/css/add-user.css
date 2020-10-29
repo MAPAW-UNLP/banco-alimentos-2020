@@ -58,6 +58,10 @@ button {
     background-color: transparent;
 }
 
+.cancel:hover {
+    color: #000000;
+}
+
 .accept {
     background-color: #f2994a;
 }

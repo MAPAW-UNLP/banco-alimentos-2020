@@ -103,14 +103,14 @@ $this->middleware('permission:solicitud-delete', ['only' => ['destroy','aceptar'
       $solicitud=Solicitud::findOrFail($id);
       $solicitud['estado']=1;
       solicitud::where('id','=',$id)->update($solicitud->toArray());
-      return redirect('solicitud');
+      return redirect('solicitud')->with('success', 'La solicitud fue aceptada correctamente');
   }
     public function rechazar($id)
   {
       $solicitud=Solicitud::findOrFail($id);
       $solicitud['estado']=2;
       solicitud::where('id','=',$id)->update($solicitud->toArray());
-      return redirect('solicitud');
+      return redirect('solicitud')->with('success', 'La solicitud fue rechazada correctamente');
   }
 }
 

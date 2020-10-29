@@ -7,7 +7,7 @@
 
 <script>
     function agregarFila(){
-    var x =document.getElementById("tablaprueba").insertRow(-1).innerHTML = '<td><input type="text" name="producto[]" /></td><td><input type="number" name="cant[]" /></td><td><input type="button" class="borrar" value="Eliminar" /></td>';
+    var x =document.getElementById("tablaprueba").insertRow(-1).innerHTML = '<td><input type="text" name="producto[]" required/></td><td><input type="number" name="cant[]" required/></td><td><input type="button" class="borrar" value="Eliminar" /></td>';
     }
 
     function eliminarFila(){
@@ -78,7 +78,7 @@
                         {{csrf_field()}}
                         <div class='item-name'>
                             <label for="nombre">Nombre</label>
-                            <input type="text" id="nombre" name="nombre"><br>
+                            <input type="text" id="nombre" name="nombre" required><br>
                         </div>
                         <div class="container">
                         <div class="row">
@@ -92,22 +92,22 @@
                                 <tbody></tbody>
                             </table>
                             <div class="form-group">
-                                <button type="button" onclick="agregarFila()">Agregar Fila</button>
+                                <button class='add-row' type="button" onclick="agregarFila()">Agregar Fila</button>
                                 <button type="button" onclick="eliminarFila()" style="display:none">Eliminar Fila</button>
                             </div>
                         </div>
                         </div>                        
                         <div class='item-contribucion'>
                             <label for="contribucion"><b>Contribución simbólica</b></label>
-                            <input type="number" id="contribucion" name="contribucion"><br>
+                            <input type="number" id="contribucion" name="contribucion" required><br>
                         </div>
                         <div class='item-contribucion'>
                             <label for="cantOrg"><b>Cantidad de combos por organización</b></label>
-                            <input type="number" id="cantOrg" name="cantOrg"><br>
+                            <input type="number" id="cantOrg" name="cantOrg" required><br>
                         </div>
                         <div class='item-contribucion'>
                             <label for="stock"><b>Cantidad máxima de combos</b></label>
-                            <input type="number" id="stock" name="stock"><br>
+                            <input type="number" id="stock" name="stock" required><br>
                         </div>
                         <div class='item-estado'>
                             <label>Estado</label>
@@ -117,8 +117,8 @@
                             </select>
                         </div>
                         <div class='button-section'>
-                            <button type="submit">Guardar</button>
-                            <button type="submit">Cancelar</button>
+                            <button class='cancel' type="submit">Cancelar</button>
+                            <button class='create-save' type="submit">Guardar</button>
                         </div>
                     </form>
                 </div>

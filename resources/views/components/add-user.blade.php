@@ -39,6 +39,19 @@
             form.email.classList.add('is-invalid')
         }*/
 
+        var numberformat = /^[0-9]*$/;
+        if (!numberformat.test(form.telefono.value)) {
+            event.preventDefault();
+            event.stopPropagation();
+            form.telefono.classList.add('is-invalid')
+         }
+
+         if (!numberformat.test(form.dni.value)) {
+            event.preventDefault();
+            event.stopPropagation();
+            form.dni.classList.add('is-invalid')
+         }
+
         if (form.checkValidity() === false) {
           event.preventDefault();
           event.stopPropagation();
@@ -119,7 +132,7 @@
                         </div>
                     </div>
                     <div class="form-group row"> 
-                        <label type='tel' class="col-sm-3 col-form-label" title="Teléfono del usuario">Teléfono*</label>
+                        <label type='text' class="col-sm-3 col-form-label" title="Teléfono del usuario" name='telefono'>Teléfono*</label>
                         <div class="col-sm-7">
                             <input class="form-control" type="text" id="validationCustom05" name="telefono" placeholder="221 578 9696 " required title="Teléfono del usuario">
                             <div class="font-white invalid-feedback">
