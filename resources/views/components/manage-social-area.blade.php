@@ -18,11 +18,13 @@
 
 <div class='general-container'>
     <div class='lateral-menu'>
+    @can('role-create')
         <div>
             <a href="{{ url('/addUser') }}" class='lateral-menu-item'>
                 <p class='lateral-menu-text-item'>Agregar usuario</p>
             </a>
         </div>
+    @endcan
         <div>
             <a href="{{ url('/changePassword') }}" class='lateral-menu-item'>         
                 <p class='lateral-menu-text-item'>Cambiar contraseña</p>
@@ -60,16 +62,20 @@
         <div class='body'>
             <div class='body-request'>
                 <h3>Solicitudes de empadronamiento</h3>
-                @foreach($solicitudes as $solicitude)
-                <div class='request-section'>                    
-                    <div class='request-section-text'>
-                        <p><b>Nombre institución:</b> {{$solicitude->organizacione->nombre}}</p>
+                @if(count($solicitudes)>0)
+                    @foreach($solicitudes as $solicitude)
+                    <div class='request-section'>                    
+                        <div class='request-section-text'>
+                            <p><b>Nombre institución:</b> {{$solicitude->organizacione->nombre}}</p>
+                        </div>
+                        <div class='buttons-section'>
+                            <button type="submit" class='show-more'><a href="{{ url('/readDataOrg/'.$solicitude->id) }}">Ver mas</a></button>                     
+                        </div>
                     </div>
-                    <div class='buttons-section'>
-                        <button type="submit" class='show-more'><a href="{{ url('/readDataOrg/'.$solicitude->id) }}">Ver mas</a></button>                     
-                    </div>
-                </div>
-                @endforeach
+                    @endforeach
+                @else
+                    <h2> No dispone de solicitudes para aprobar</h2>
+                @endif
                 </div>
             </div>
         </div>

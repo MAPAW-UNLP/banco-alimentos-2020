@@ -67,11 +67,13 @@
 <div class="content2" style="display:none;">"{{ Session::get('success') }}"</div>
 <div class='general-container'>
 <div class='lateral-menu'>
+        @can('role-create')
         <div>
             <a href="{{ url('/addUser') }}" class='lateral-menu-item-color' title="Agregar usuario">
                 <p class='lateral-menu-text-item'><b>Agregar usuario</b></p>
             </a>
         </div>
+        @endcan
         <div>
             <a href="{{ url('/changePassword') }}" class='lateral-menu-item' title="Cambiar contraseña">         
                 <p class='lateral-menu-text-item'>Cambiar contraseña</p>

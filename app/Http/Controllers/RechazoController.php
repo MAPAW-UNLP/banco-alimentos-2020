@@ -48,7 +48,7 @@ class RechazoController extends Controller
         $sol['estado']=2;
         Solicitud::where('id','=',$sol['id'])->update($sol->toArray());
 
-        return redirect('solicitudes');
+        return redirect('solicitudes')->with('success', 'La solicitud fue rechazada correctamente');;
     }
 
     /**

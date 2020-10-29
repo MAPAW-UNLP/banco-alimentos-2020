@@ -21,11 +21,13 @@
 
 <div class='general-container'>
     <div class='lateral-menu'>
+    @can('role-create')
         <div>
             <a href="{{ url('/addUser') }}" class='lateral-menu-item'>
                 <p class='lateral-menu-text-item'>Agregar usuario</p>
             </a>
         </div>
+    @endcan
         <div>
             <a href="{{ url('/changePassword') }}" class='lateral-menu-item'>         
                 <p class='lateral-menu-text-item'>Cambiar contraseña</p>

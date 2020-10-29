@@ -106,7 +106,7 @@ class OrganizacioneController extends Controller
         $organizacion=organizacione::findOrFail($sol->organizacione->id);
         $organizacion['estado']=1;
         organizacione::where('id','=',$id)->update($organizacion->toArray());
-        return redirect('solicitudes');
+        return redirect('solicitudes')->with('success', 'La solicitud fue aceptada correctamente');
     }
         public function cambiarEstado($id)
     {

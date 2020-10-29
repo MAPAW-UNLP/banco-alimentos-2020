@@ -27,7 +27,7 @@
     <div class='navbar-link'><a href="{{ url('/login') }}" title="Inciar sesión en el sistema">Iniciar sesión</a></div>
     @else
     <div class='navbar-link'>
-      <a href="{{ url('/addUser') }}" title="Agregar usuario en el sistema">Agregar usuario</a>
+      <a href="{{ url('/solicitudes') }}" title="Agregar usuario en el sistema">Solicitudes</a>
       </div>
       <div class='navbar-link'>
         <a 
@@ -47,7 +47,6 @@
 </div>
 <script>
 @if(Session::has('success'))
-
     $("#panelsucces").show(1000).delay(3000);
     $("#panelsucces").hide(2000);
 @endif;
