@@ -142,7 +142,7 @@
                             </select>
                         </div>
                         <div class='button-section'>
-                            <button class='cancel' type="submit">Cancelar</button>
+                            <button class='cancel' onclick="window.location='{{ url("combos") }}'">Cancelar</button>
                             <button class='create-save' type="submit">Guardar</button>
                         </div>
                     </form>

@@ -7,6 +7,7 @@ use App\Models\User;
 use Spatie\Permission\Models\Role;
 use DB;
 use Hash;
+use Mail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 class UserController extends Controller
@@ -143,5 +144,18 @@ public function rules()
     return [
 	    'email' => 'required|unique:users,email'
     ];
+}
+public function recuperarPass(){
+    $for="sebastianesg@gmail.com";
+    $subject = "Recuperar contraseña banco de alimentos";
+    $datos=[
+        'name'=>"algo"
+    ];
+    Mail::send('email',$datos, function($msj) use($subject,$for){
+        $msj->from("mapaw2020@gmail.com","NombreQueApareceráComoEmisor");
+        $msj->subject($subject);
+        $msj->to($for);
+    });
+    return redirect()->back();
 }
 }

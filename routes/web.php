@@ -55,6 +55,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/cambiarOrga/{id}', [OrganizacioneController::class, 'cambiarEstado']);
     Route::get('/turnos/ver/{fecha}', [TurnoController::class, 'index']);
     Route::get('/calendar', [TurnoController::class, 'index']);
+    Route::get('/restarPass', [UserController::class, 'recuperarPass']);
 });
 
 

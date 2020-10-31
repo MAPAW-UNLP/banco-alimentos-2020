@@ -114,7 +114,7 @@
             <input type="number" id="stock" name="stock" value="{{$combo->stock}}" required><br>
           </div>
           <div class='buttons-section'>
-            <button class='cancel' type="reset">Cancelar</button>
+          <button class='cancel' onclick="window.location='{{ url("combos") }}'">Cancelar</button>
               <button class='accept'>Guardar</button>                                 
           </div>          
         </form>
