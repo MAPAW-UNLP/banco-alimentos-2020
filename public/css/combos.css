@@ -156,10 +156,14 @@ button {
     margin: 0;
 }
 
+
+/**
 .item-contribucion input {
     height: 15px;
     width: 80px;
 }
+
+**/
 
 .guardar {
     padding-top: 10px;
@@ -249,4 +253,32 @@ button {
 
 .cancel:hover {
     color: black;
+}
+
+
+
+/**  estilos creados por lucas **/
+/** inputs y button responsivos **/
+
+
+
+.item-contribucion mini-input {
+    height: 15px;
+    width: 80px;
+}
+
+
+.mini-input{
+    
+    width:15%;
+    text-align: right;
+}
+
+.input-text-style{
+    height: 30px;
+        
+}
+
+@media screen and (max-width:800px){
+    
 }
