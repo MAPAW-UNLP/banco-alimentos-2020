@@ -6,7 +6,7 @@
 @include('components.nav')
 <script>
     function agregarFila(){
-    var x =document.getElementById("tablaprueba").insertRow(-1).innerHTML = '<td><input type="text" name="producto[]" required /></td><td><input type="number" name="cant[]" required/></td><td><input type="button" class="borrar" value="Eliminar" /></td>';
+    var x =document.getElementById("tablaprueba").insertRow(-1).innerHTML = '<td><input type="text" name="producto[]" required /></td><td><input class="mini-input" style="width:22%;height: 30px;" type="number" name="cant[]" required/></td><td><input type="button" class="borrar" value="Eliminar" /></td>';
     }
 
     function eliminarFila(){
@@ -88,7 +88,7 @@
                       @foreach($combo->productos as $producto)
                       <tr>
                         <td><input type="text" name="producto[]" value="{{$producto->producto}}" required/></td>
-                        <td><input type="number" name="cant[]" value="{{$producto->cantidad}}" required/></td>
+                        <td><input min=0 style="width:20%;height:22px" type="number" name="cant[]" value="{{$producto->cantidad}}" required/></td>
                         <td><input type="button" class="borrar" value="Eliminar" /></td>
                       </tr>
                       @endforeach
@@ -103,15 +103,15 @@
           </div>
           <div class='item-contribucion'> 
             <label for="contribucion"><b>Contribución simbólica $</b></label>
-            <input type="number" id="contribucion" name="contribucion" value="{{$combo->contribucion}}" required><br>
+            <input min=0 class="mini-input" type="number" id="contribucion" name="contribucion" value="{{$combo->contribucion}}" required><br>
           </div>
           <div class='item-contribucion'>
             <label for="cantOrg"><b>Cantidad de combos por Organización</b></label><br>
-            <input type="number" id="cantOrg" name="cantOrg" value="{{$combo->cantOrg}}" required><br>
+            <input min=0 class="mini-input" type="number" id="cantOrg" name="cantOrg" value="{{$combo->cantOrg}}" required><br>
           </div>
           <div class='item-contribucion'>
             <label for="cantOrg"><b>Cantidad máxima de combos</label></b><br>
-            <input type="number" id="stock" name="stock" value="{{$combo->stock}}" required><br>
+            <input min=0 class="mini-input" type="number" id="stock" name="stock" value="{{$combo->stock}}" required><br>
           </div>
           <div class='buttons-section'>
           <button class='cancel' onclick="window.location='{{ url("combos") }}'">Cancelar</button>
