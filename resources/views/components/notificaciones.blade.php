@@ -68,7 +68,7 @@
                         </div>                     
                     </div>  
                     <div class='buttons-section'>
-                        <button type="submit" >Guardar</button>   
+                        <button class="create-save" type="submit" >Guardar</button>   
                     </div>   
                     </form>
                     </div>
