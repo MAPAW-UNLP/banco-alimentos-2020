@@ -7,6 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
+
 class RestartPassword extends Mailable
 {
     use Queueable, SerializesModels;
@@ -27,7 +28,10 @@ class RestartPassword extends Mailable
      * @return $this
      */
     public function build()
-    {
-        return $this->view('emails.envio-mail');
+    {  
+    }
+
+    public function parametro($param){
+        return $this->view('emails.envioMail',$param);
     }
 }
