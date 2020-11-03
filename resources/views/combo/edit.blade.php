@@ -6,7 +6,7 @@
 @include('components.nav')
 <script>
     function agregarFila(){
-    var x =document.getElementById("tablaprueba").insertRow(-1).innerHTML = '<td><input type="text" name="producto[]" required /></td><td><input class="mini-input" style="width:22%;height: 30px;" type="number" name="cant[]" required/></td><td><input type="button" class="borrar" value="Eliminar" /></td>';
+    var x =document.getElementById("tablaprueba").insertRow(-1).innerHTML = '<td><input type="text" name="producto[]" required /></td><td><input class="mini-input" style="width:22%;height: 30px;" type="number" name="cant[]" required/></td><td><input  type="button" class="borrar" value="Eliminar" /></td>';
     }
 
     function eliminarFila(){
@@ -113,9 +113,17 @@
             <label for="cantOrg"><b>Cantidad máxima de combos</label></b><br>
             <input min=0 class="mini-input" type="number" id="stock" name="stock" value="{{$combo->stock}}" required><br>
           </div>
+          <br>
+          <br>
           <div class='buttons-section'>
+<<<<<<< HEAD
           <button class='cancel' onclick="window.location='{{ url("combos") }}'">Cancelar</button>
               <button class='accept'>Guardar</button>                                 
+=======
+            <button   class='cancel' type="reset">Cancelar</button>
+            
+            <button class='accept'>Guardar</button>                                 
+>>>>>>> feature-csschanges
           </div>          
         </form>
       </div>
