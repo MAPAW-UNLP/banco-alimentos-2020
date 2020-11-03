@@ -16,8 +16,13 @@
 <script>
 $(function () {
     @if(isset($vAnio))
+        var dia={{$vDia}};
         var date = new Date({{$vAnio}}, {{$vMes}}-1, {{$vDia}});
-        var strDat= {{$vAnio}}+"-"+{{$vMes}}+"-"+{{$vDia}};
+        if (dia.length = 1){
+            var strDat= {{$vAnio}}+"-"+{{$vMes}}+"-0"+{{$vDia}};
+        }else{
+            var strDat= {{$vAnio}}+"-"+{{$vMes}}+"-"+{{$vDia}};
+        }
         $("#fechaHora").val(strDat);
     @else
         var date = new Date();
@@ -87,7 +92,7 @@ $(function () {
                     <div class="col">
                         <h5>Seleccionar día</h5>
                         <div id="datepicker" name="datepicker" slected="1"></div>
-                        <input type="date" id="fechaHora" name="fechaHora" style="display:none">
+                        <input type="date" id="fechaHora" name="fechaHora" style='display:none'>
                     </div>
                     <div class="col">
                         <h5>Seleccionar horario</h5>
