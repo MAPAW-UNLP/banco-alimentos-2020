@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use App\Models\User;
+use App\Mail\RestartPass;
 use Spatie\Permission\Models\Role;
 use DB;
 use Hash;
@@ -139,23 +140,10 @@ public function updatePassword(Request $request){
     return redirect()->route('users.index')
     ->with('succes','Password actualizada');*/
 }
-public function rules()
-{
-    return [
-	    'email' => 'required|unique:users,email'
-    ];
-}
-public function recuperarPass(){
-    $for="sebastianesg@gmail.com";
-    $subject = "Recuperar contraseña banco de alimentos";
-    $datos=[
-        'name'=>"algo"
-    ];
-    Mail::send('email',$datos, function($msj) use($subject,$for){
-        $msj->from("mapaw2020@gmail.com","NombreQueApareceráComoEmisor");
-        $msj->subject($subject);
-        $msj->to($for);
-    });
-    return redirect()->back();
-}
+    public function rules()
+    {
+        return [
+            'email' => 'required|unique:users,email'
+        ];
+    }
 }

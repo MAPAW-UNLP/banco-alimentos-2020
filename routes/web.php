@@ -14,6 +14,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ModificacioneController;
 use App\Http\Controllers\NotificacionController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\MailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,9 +56,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/cambiarOrga/{id}', [OrganizacioneController::class, 'cambiarEstado']);
     Route::get('/turnos/ver/{fecha}', [TurnoController::class, 'index']);
     Route::get('/calendar', [TurnoController::class, 'index']);
-    Route::get('/restarPass', [UserController::class, 'recuperarPass']);
 });
-
+Route::post('/resetPass', [MailController::class, 'resetPass']);
 
 Auth::routes();
 

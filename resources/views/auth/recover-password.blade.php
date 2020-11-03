@@ -7,10 +7,11 @@
     <div class="right-container">
         <div class='right'>
             <h3>Recuperar contraseña</h3>
-            <form>
+            <form action="{{ url('/resetPass') }}" method="post">
+            @csrf
                 <div class='form-styled'>
                     <p>Ingrese su email para recuperar su contraseña</p>
-                    <input type="email" id="inputEmail" placeholder="Email" required>
+                    <input type="email" id="email" name="email" placeholder="Email" required>
                     <div class='button-container'>
                         <button type="submit" class='recover-button'>Aceptar</button>
                     </div>  
