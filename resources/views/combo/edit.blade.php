@@ -88,7 +88,7 @@
                       @foreach($combo->productos as $producto)
                       <tr>
                         <td><input type="text" name="producto[]" value="{{$producto->producto}}" required/></td>
-                        <td><input min=0 style="width:20%;height:22px" type="number" name="cant[]" value="{{$producto->cantidad}}" required/></td>
+                        <td><input min=0 style="width:25%;height:27px" type="number" name="cant[]" value="{{$producto->cantidad}}" required/></td>
                         <td><input type="button" class="borrar" value="Eliminar" /></td>
                       </tr>
                       @endforeach
@@ -116,14 +116,8 @@
           <br>
           <br>
           <div class='buttons-section'>
-<<<<<<< HEAD
-          <button class='cancel' onclick="window.location='{{ url("combos") }}'">Cancelar</button>
-              <button class='accept'>Guardar</button>                                 
-=======
-            <button   class='cancel' type="reset">Cancelar</button>
-            
+            <button class='cancel' onclick="window.location='{{ url("combos") }}'">Cancelar</button>
             <button class='accept'>Guardar</button>                                 
->>>>>>> feature-csschanges
           </div>          
         </form>
       </div>
