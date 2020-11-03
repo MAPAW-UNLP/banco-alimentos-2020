@@ -102,7 +102,7 @@
                             <form method="post" action="{{url('/combos/'.$combo->id)}}">
                                 {{csrf_field()}}
                                 {{method_field('DELETE')}}
-                                <button class='delete' type="submit">Eliminar</button>
+                                <button class='delete' style="background-color: #dc3545;" type="submit">Eliminar</button>
                             </form>
                         </div>
                     </div>
