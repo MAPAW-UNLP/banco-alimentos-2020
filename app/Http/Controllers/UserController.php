@@ -8,9 +8,10 @@ use App\Mail\RestartPass;
 use Spatie\Permission\Models\Role;
 use DB;
 use Hash;
-use Mail;
+use App\Mail\NuevoUsuario;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Mail;
 class UserController extends Controller
 {
 /**
@@ -48,9 +49,14 @@ public function store(Request $request){
     $input = $request->except('_token','_method','rol_id');
     //$input['password'] = Hash::make($input['password']);
     $input['password'] = Hash::make('123456789');
-    echo response()->json($input);
+    //echo response()->json($input);
     $user = User::create($input);
     $user->assignRole($request->input('rol_id'));
+    $obj = new NuevoUsuario();
+    $param['name'] = $user->name;
+    $param['pass'] = '123456789';
+    $param['email'] = $user->email;
+    Mail::to($user->email)->send($obj->parametro($param));
     return redirect('addUser')->with('success', 'El usuario se creo correctamente');
 }
 /**
