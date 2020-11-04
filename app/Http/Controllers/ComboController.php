@@ -59,8 +59,8 @@ class ComboController extends Controller
                 $i=$i+1;
             }
         }
-        return response()->json($datos);
-        //return redirect('combos')->with('success', 'El combo se creo correctamente');
+        //return response()->json($datos);
+        return redirect('combos')->with('success', 'El combo se creo correctamente');
     }
 
     /**

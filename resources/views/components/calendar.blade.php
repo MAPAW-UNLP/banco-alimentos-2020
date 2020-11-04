@@ -16,8 +16,13 @@
 <script>
 $(function () {
     @if(isset($vAnio))
+        var dia={{$vDia}};
         var date = new Date({{$vAnio}}, {{$vMes}}-1, {{$vDia}});
-        var strDat= {{$vAnio}}+"-"+{{$vMes}}+"-"+{{$vDia}};
+        if (dia.length = 1){
+            var strDat= {{$vAnio}}+"-"+{{$vMes}}+"-0"+{{$vDia}};
+        }else{
+            var strDat= {{$vAnio}}+"-"+{{$vMes}}+"-"+{{$vDia}};
+        }
         $("#fechaHora").val(strDat);
     @else
         var date = new Date();
@@ -87,78 +92,82 @@ $(function () {
                     <div class="col">
                         <h5>Seleccionar día</h5>
                         <div id="datepicker" name="datepicker" slected="1"></div>
-                        <input type="date" id="fechaHora" name="fechaHora" style="display:none">
+                        <input type="date" id="fechaHora" name="fechaHora" style='display:none'>
                     </div>
                     <div class="col">
                         <h5>Seleccionar horario</h5>
-                        <table class="table table-bordered" WIDTH="50" style="background-color: #FFFFFF; text-align:center;" >
-                            <thead>
-                                <tr>
-                                    <th scope="col">Horarios</th>
-                                    <th scope="col">Cantidad</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($horarios as $horario)
-                                @php
-                                    $check = 0;
-                                @endphp
-                                @if(isset($turnos))
-                                    @foreach($turnos as $turno)
-                                        @if($turno->horario_id==$horario->id)
-                                            @php
-                                                $check = 1;
-                                                $cantComb = $turno->cantTurnos;
-                                            @endphp
-                                        @endif
-                                    @endforeach
-                                @endif
-                                @if($check==1)
-                                    <tr>
-                                        <td scope="row" style=" text-align:left;">
+                        <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                        <table class="table table-bordered table-striped mb-0" style="background-color: #FFFFFF; text-align:center;">
+                          <thead>
+                              <tr>
+                                  <th scope="col">Horarios</th>
+                                  <th scope="col">Cantidad</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                          @foreach($horarios as $horario)
+                              @php
+                                  $check = 0;
+                              @endphp
+                              @if(isset($turnos))
+                                  @foreach($turnos as $turno)
+                                      @if($turno->horario_id==$horario->id)
+                                          @php
+                                              $check = 1;
+                                              $cantComb = $turno->cantTurnos;
+                                          @endphp
+                                      @endif
+                                  @endforeach
+                              @endif
+                              @if($check==1)
+                                  <tr>
+                                      <td scope="row" style=" text-align:left;">
 
-                                                <input type="checkbox" name="check[]" value="{{$horario->id}}" id="defaultCheck1" checked>
-                                                <label class="form-check-label" for="defaultCheck1">
-                                                    <b>{{$horario->nombre}}</b> 
-                                                </label>
-                                                <br>
-                                        </td>
-                                        <td>
-                                            <select name="cant[]">
-                                                @for ($i = 0; $i <= 4; $i++)
-                                                @if ($cantComb == $i)
-                                                        <option value="{{ $i }}"  selected>{{ $i }}</option>
-                                                    @else
-                                                        <option value="{{ $i }}">{{ $i }}</option>
-                                                    @endif
-                                                @endfor
-                                            </select>
-                                            <br>
-                                        </td>
-                                    </tr>
-                                @else                                <tr>
-                                        <td scope="row" style=" text-align:left;">
+                                              <input type="checkbox" name="check[]" value="{{$horario->id}}" id="defaultCheck1" checked>
+                                              <label class="form-check-label" for="defaultCheck1">
+                                                  <b>{{$horario->nombre}}</b> 
+                                              </label>
+                                              <br>
+                                      </td>
+                                      <td>
+                                          <select name="cant[]">
+                                              @for ($i = 0; $i <= 4; $i++)
+                                              @if ($cantComb == $i)
+                                                      <option value="{{ $i }}"  selected>{{ $i }}</option>
+                                                  @else
+                                                      <option value="{{ $i }}">{{ $i }}</option>
+                                                  @endif
+                                              @endfor
+                                          </select>
+                                          <br>
+                                      </td>
+                                  </tr>
+                              @else                                <tr>
+                                      <td scope="row" style=" text-align:left;">
 
-                                                <input type="checkbox" name="check[]" value="{{$horario->id}}" id="defaultCheck1">
-                                                <label class="form-check-label" for="defaultCheck1">
-                                                    <b>{{$horario->nombre}}</b> 
-                                                </label>
-                                                <br>
-                                        </td>
-                                        <td>
-                                            <select name="cant[]">
-                                                @for ($i = 0; $i <= 4; $i++)
-                                                        <option value="{{ $i }}">{{ $i }}</option>
+                                              <input type="checkbox" name="check[]" value="{{$horario->id}}" id="defaultCheck1">
+                                              <label class="form-check-label" for="defaultCheck1">
+                                                  <b>{{$horario->nombre}}</b> 
+                                              </label>
+                                              <br>
+                                      </td>
+                                      <td>
+                                          <select name="cant[]">
+                                              @for ($i = 0; $i <= 4; $i++)
+                                                      <option value="{{ $i }}">{{ $i }}</option>
 
-                                                @endfor
-                                            </select>
-                                            <br>
-                                        </td>
-                                    </tr>
-                                @endif
-                            @endforeach
-                            </tbody>
-                        </table>
+                                              @endfor
+                                          </select>
+                                          <br>
+                                      </td>
+                                  </tr>
+                              @endif
+                          @endforeach
+                          </tbody>
+                      </table>
+</div>
+<br>
+<br>
                         <div class='buttons-section'>
                             <button class='cancel' type="reset">Cancelar</button>
                             <button class='accept'>Guardar</button>                                 
@@ -181,3 +190,13 @@ $(function () {
 <script src="jquery.ui.datepicker-es.js"></script>
 
 
+<style>
+.my-custom-scrollbar {
+position: relative;
+height: 200px;
+overflow: auto;
+}
+.table-wrapper-scroll-y {
+display: block;
+}
+</style>

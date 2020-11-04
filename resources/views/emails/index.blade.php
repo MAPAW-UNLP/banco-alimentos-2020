@@ -1,5 +1,4 @@
 <link rel="stylesheet" href="{{ url('css/login.css') }}">
-
 @include('main')
 @include('components.header')
 @include('components.nav')
