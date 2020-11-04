@@ -100,7 +100,7 @@
                     <div class="form-group row">                       
                         <label class="col-sm-3 col-form-label" title="Nombre de usuario">Nombre*</label>
                         <div class="col-sm-7">
-                            <input pattern="[A-Za-z]{3,12}" class="form-control" id="validationCustom01" type="text" name="name" placeholder="Juan Carlos" required title="Nombre de usuario">
+                            <input pattern="[A-Za-z]{3,20}" class="form-control" id="validationCustom01" type="text" name="name" placeholder="Juan Carlos" required title="Nombre de usuario">
                             <div class="font-white invalid-feedback">
                                 Ingrese al menos 3 letras
                             </div>
@@ -109,7 +109,7 @@
                     <div class="form-group row"> 
                         <label class="col-sm-3 col-form-label" title="Email del usuario">Apellido*</label>
                         <div class="col-sm-7">
-                            <input pattern="[A-Za-z]{3,12}" class="form-control" type="text" id="validationCustom02"  name ="apellido" placeholder="García" required title="Apellido del usuario">
+                            <input pattern="[A-Za-z]{3,20}" class="form-control" type="text" id="validationCustom02"  name ="apellido" placeholder="García" required title="Apellido del usuario">
                             <div class="font-white invalid-feedback">
                                 Ingrese al menos 3 letras
                             </div>
