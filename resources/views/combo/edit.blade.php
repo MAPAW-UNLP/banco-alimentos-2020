@@ -118,8 +118,8 @@
           </div>
           <br>
           <br>
-          <div class='buttons-section'>
-          <input type='button' class='cancel' onclick="window.location='{{ url("combos") }}'" value="Cancelar" style="color:white; border-color:#dc3545;">
+          <div class='combo-edit-buttons-section'>
+            <input type='button' class='cancel' onclick="window.location='{{ url("combos") }}'" value="Cancelar" style="color:white; border-color:#dc3545;">
             <button class='accept'>Guardar</button>                                 
           </div>          
         </form>
