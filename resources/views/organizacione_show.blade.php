@@ -81,8 +81,8 @@
                         <p><b>Tarea que realizan:</b> {{$organizacione->tipo_servicio}}</p>
                     </div>
                     <div class='buttons-section'>
-                        <button type="cancel" class='reject-button' onclick="rechazar({{$organizacione->id}})" style="background-color:#ff0000;">Rechazar</button>
-                        <button type="submit" style="background-color:#f2994a;"><a href="{{ url('/aceptarOrg/'.$organizacione->id) }}">Aceptar</a> </button>                        
+                        <button type="cancel" class='reject-button' onclick="rechazar({{$organizacione->id}})" style="background-color: #dc3545;">Rechazar</button>
+                        <button type="submit" style="background-color: #103965"><a href="{{ url('/aceptarOrg/'.$organizacione->id) }}">Aceptar</a> </button>                        
                     </div>
                 </div>
                 </div>

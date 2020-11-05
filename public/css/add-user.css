@@ -48,14 +48,12 @@ button {
 }
 
 .buttons-section {
-    display: flex;
-    justify-content: end;
-    padding-right: 10px;
+    text-align: right;
 }
 
 .cancel {
     margin-right: 10px;
-    background-color: transparent;
+    background-color: #dc3545;
 }
 
 .cancel:hover {
@@ -63,7 +61,7 @@ button {
 }
 
 .accept {
-    background-color: #f2994a;
+    background-color: #103965;
 }
 
 button:hover {

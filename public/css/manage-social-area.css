@@ -14,8 +14,7 @@ button {
 }
 
 .buttons-section {
-    display: flex;
-    justify-content: end;
+    text-align: center;
     padding-right: 10px;
     flex-basis: 0;
     flex-grow: 1;
@@ -50,4 +49,9 @@ button {
 
 .show-more {
     background-color: #f2994a;
+}
+
+.modificaciones-buttons-section {
+    display: flex;
+    max-width: 50%;
 }
