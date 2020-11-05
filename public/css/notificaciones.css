@@ -24,3 +24,8 @@ textarea {
 .body-notificacion h3 {
     padding: 20px 0 0 20px;
 }
+
+.button-section {
+    text-align: right;
+    margin-right: 20px;
+}

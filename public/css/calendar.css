@@ -11,9 +11,6 @@ h5 {
 }
 
 .accept {
-    /*
-    background-color: #f2994a;
-    */
     background-color: #103965 !important;
 }
 
@@ -31,4 +28,8 @@ h5 {
 
 h5 {
     padding: 20px 0;
+}
+
+.calendar-buttons-section {
+    text-align: right;
 }

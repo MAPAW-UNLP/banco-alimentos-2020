@@ -168,7 +168,7 @@ $(function () {
 </div>
 <br>
 <br>
-                        <div class='buttons-section'>
+                        <div class='calendar-buttons-section'>
                             <button class='cancel' type="reset">Cancelar</button>
                             <button class='accept'>Guardar</button>                                 
                             </div>
