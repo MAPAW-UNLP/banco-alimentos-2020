@@ -127,14 +127,14 @@ public function updatePassword(Request $request){
     if ($pass=$oldPassword){
         if($input['newPassword'] = $input['repeatNewPassword']){
             User::find(Auth::id())->update(['password' => Hash::make($input['newPassword'])]);
-            return redirect('changePassword')->with('succes', 'Se modifico correctamente la contraseña');
+            return redirect('changePassword')->with('success', 'Se modifico correctamente la contraseña');
         }else{
-            return redirect()->route('changePassword')->with('error', 'Las contraseñas deben coincidir');;
+            return redirect('changePassword')->with('error', 'Las contraseñas deben coincidir');
         }
     }else{
-        return redirect()->route('changePassword')->with('error', 'No ingreso la contraseña correcta');;
+        return redirect('changePassword')->with('error', 'No ingreso la contraseña correcta');
     }
-    return redirect()->route('changePassword')->with('error', 'No ingreso la contraseña correcta');;
+    return redirect('changePassword')->with('error', 'No ingreso la contraseña correcta');
     /*if ($input['password'] = $input['passwordConf']){
         $user = User::find($id);
         $input2 = $request->except('passwordConf');
