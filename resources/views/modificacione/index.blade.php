@@ -57,9 +57,9 @@
                         <div class='request-section-text'>
                             <p><b>Nombre institución:</b> {{$modificacione->nombre}}</p>
                         </div>
-                        <div class='buttons-section'>
-                        <a href="{{ url('/cancelarModificacion/'.$modificacione->id) }}" class='top-menu-item' style="background-color: #ff0000;">Rechazar</a>
-                        <a href="{{ url('/aceptarModificacion/'.$modificacione->id) }}" class='top-menu-item' style="background-color:#f2994a;">Aceptar</a>                
+                        <div class='modificaciones-buttons-section'>
+                        <a href="{{ url('/cancelarModificacion/'.$modificacione->id) }}" class='top-menu-item' style="background-color: #dc3545;">Rechazar</a>
+                        <a href="{{ url('/aceptarModificacion/'.$modificacione->id) }}" class='top-menu-item' style="background-color: #103965">Aceptar</a>                
                         </div>
                     </div>
                     @endforeach
