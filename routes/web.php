@@ -59,6 +59,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/calendar', [TurnoController::class, 'index']);
 });
 Route::post('/resetPass', [MailController::class, 'resetPass']);
+Route::get('/terminos', [OrganizacioneController::class, 'terminos']);
 
 Auth::routes();
 
