@@ -2,7 +2,6 @@
 @include('components.header')
 @include('components.nav')
 
-
 <link rel="stylesheet" href="{{ url('css/lateral-menu.css') }}">
 <link rel="stylesheet" href="{{ url('css/top-menu.css') }}">
 <link rel="stylesheet" href="{{ url('css/terminos.css') }}">
@@ -30,7 +29,9 @@
                     <div class='buttons-section'>
                     <form name="formulario" id="terminos" action="{{ url('/registro') }}">
                         {{csrf_field()}}
-                        <button type="submit" onclick="javascript:check_terminos();">Continuar</button>
+                        <button type="submit" class="btn " title="Continuar" onclick="javascript:check_terminos();" style="background-color: #103965; color:#ffffff">
+                            Continuar
+                        </button>
                     </form>                  
                     </div>
                 </div>
