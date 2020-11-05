@@ -1,0 +1,21 @@
+.body {
+    width: 100%;
+    max-width: 1156px;
+    margin: 20px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fb4a1b;
+}
+
+.title {
+    color: white;
+}
+
+.div-row {
+    display: flex;
+}
+
+.encabezado {
+    padding: 10px 0 50px 0;
+}

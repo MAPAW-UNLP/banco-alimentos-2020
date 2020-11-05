@@ -31,6 +31,7 @@ Route::get('/', [PagesController::class, 'inicio']);
 Route::get('/login', [PagesController::class, 'iniciar_sesion']);
 Route::get('/logout', [LoginController::class, 'logout']);
 Route::get('/recover', [PagesController::class, 'recover_password']);
+Route::get('/encuestaOrganizacion', [PagesController::class, 'encuesta_organizacion']);
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles','RoleController');
     Route::resource('users','UserController');
