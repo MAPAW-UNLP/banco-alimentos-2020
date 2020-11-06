@@ -53,6 +53,7 @@ button {
 
 .cancel {
     margin-right: 10px;
+<<<<<<< Updated upstream
     background-color: #dc3545;
 }
 
@@ -62,12 +63,24 @@ button {
 
 .accept {
     background-color: #103965;
+=======
+    background-color: transparent;
+}
+
+.accept {
+    background-color: #f2994a;
+>>>>>>> Stashed changes
 }
 
 button:hover {
     color: #000000;
 }
 
+<<<<<<< Updated upstream
 .font-white {
     color: #ffffff !important;
+=======
+.font-blue {
+    color: #007bff !important;
+>>>>>>> Stashed changes
 }

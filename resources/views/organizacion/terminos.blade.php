@@ -18,25 +18,19 @@
 
 <div class='body-terminos'>
             <div class='body-request'>
-                <h3 style="color:white" aling="center">Terminos y condiciones para la solicitud de ingreso</h3>
-                <h4 style="color:white"> <input type="checkbox"> IMPORTANTE: DECLARO QUE LOS DATOS INGRESADOS A 
+                <h3 aling="center">Terminos y condiciones para la solicitud de ingreso</h3>
+                <h4><input type="checkbox"> IMPORTANTE: DECLARO QUE LOS DATOS INGRESADOS A 
                 CONTINUACIÓN CONSTITUYEN INFORMACIÓN VERDADERA Y COMPLETA, Y TIENEN CARÁCTER DE DECLARACIÓN JURADA</h4>
-                <div class='request-section'>
-                    <div class='request-section-text'>
-                    </div>
-                    <div class='buttons-section'>
+                <div class='request-section'>                    
                     <form id="myForm" action="{{ url('/') }}" method="post">
                         {{csrf_field()}}
-                        <button type="submit" onclick="javascript:check();">Continuar</button>
-                    </form>                  
-                    </div>
-                </div>
+                        <div class='buttons-section'><button type="submit" onclick="javascript:check();">Continuar</button></div>
+                    </form>                   
                 </div>
             </div>
         </div>
     </div>
 </div>
-
+</div>
 <br>
-
 @include('components.footer')
