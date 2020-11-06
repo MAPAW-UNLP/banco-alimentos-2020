@@ -11,7 +11,7 @@
     function check_terminos(){ 
    	if(document.getElementById("terminos").checked == false){
         event.preventDefault();
-        alert('Debe aceptar los terminos y condiciones para continuar')
+        alert('Debe aceptar los terminos y condiciones para continuar');
        }
 }
 </script>
@@ -29,7 +29,7 @@
                     <div class='buttons-section'>
                     <form name="formulario" id="terminos" action="{{ url('/registro') }}">
                         {{csrf_field()}}
-                        <button type="submit" class="btn " title="Continuar" onclick="javascript:check_terminos();" style="background-color: #103965; color:#ffffff">
+                        <button type="submit" class="btn" onclick="javascript:check_terminos();" title="Continuar" style="background-color: #103965; color:#ffffff">
                             Continuar
                         </button>
                     </form>                  
