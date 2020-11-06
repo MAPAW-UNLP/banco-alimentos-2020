@@ -67,7 +67,7 @@
                             <textarea id="notificacion" name="notificacion" >{{$notificacion->notificacion}}</textarea>
                         </div>                     
                     </div>  
-                    <div class='buttons-section'>
+                    <div class='button-section'>
                         <button class="create-save" type="submit" >Guardar</button>   
                     </div>   
                     </form>

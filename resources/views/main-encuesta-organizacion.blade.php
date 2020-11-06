@@ -1,0 +1,5 @@
+@include('main')
+@include('components.header')
+@include('components.nav')
+@include('encuesta-organizacion.index')
+@include('components.footer')

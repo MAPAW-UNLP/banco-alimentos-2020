@@ -77,18 +77,16 @@ button {
 }
 
 .cancel-button {
+    border: 0;
     margin-right: 10px;
 }
 
 .delete-button {
     margin-right: 10px;
-    /* background-color: #ff0000;
-    border-color: #ff0000; */
     background-color: #dc3545;
 }
 
-
-.delete{
+.delete {
     background-color: #dc3545;
 }
 
@@ -163,7 +161,6 @@ button {
     margin: 0;
 }
 
-
 /**
 .item-contribucion input {
     height: 15px;
@@ -236,6 +233,10 @@ button {
     text-align: right;
 }
 
+.combo-edit-buttons-section {
+    text-align: right;
+}
+
 .add-row {
     color: black;
     background-color: #ffffff;
@@ -265,38 +266,30 @@ button {
     color: black;
 }
 
-
-.accept{
+.accept {
     background-color: #103965 !important;
 }
 
-.cancel{
+.cancel {
     background-color: #dc3545 !important;
 }
 
-
 /**  estilos creados por lucas **/
 /** inputs y button responsivos **/
-
-
 
 .item-contribucion mini-input {
     height: 15px;
     width: 80px;
 }
 
-
-.mini-input{
-    
-    width:15%;
+.mini-input {
+    width: 15%;
     text-align: left;
 }
 
-.input-text-style{
+.input-text-style {
     height: 30px;
-        
 }
 
-@media screen and (max-width:800px){
-    
+@media screen and (max-width: 800px) {
 }

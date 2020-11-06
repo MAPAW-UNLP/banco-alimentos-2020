@@ -119,4 +119,9 @@ class OrganizacioneController extends Controller
         Organizacione::where('id','=',$id)->update($organizacione->toArray());
         return redirect('organizaciones');
     }
+
+    public function terminos()
+    {
+        return view('organizacion.terminos');
+    }
 }

@@ -45,4 +45,8 @@ class PagesController extends Controller
     public function notificaciones(){
         return view('main-notificaciones');
     }
+
+    public function encuesta_organizacion(){
+        return view('main-encuesta-organizacion');
+    }
 }
