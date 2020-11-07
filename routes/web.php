@@ -58,6 +58,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/turnos/ver/{fecha}', [TurnoController::class, 'index']);
     Route::get('/calendar', [TurnoController::class, 'index']);
 });
+Route::post('/aceptarTerminos', [MailController::class, 'aceptarTerminos']);
 Route::post('/resetPass', [MailController::class, 'resetPass']);
 Route::get('/terminos', [OrganizacioneController::class, 'terminos']);
 Route::get('/registro', [OrganizacioneController::class, 'registro']);

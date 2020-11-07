@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Mail\RestartPassword;
+use App\Mail\SolicitudIngresada;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\UserController;
 use App\Models\User;
@@ -22,6 +23,13 @@ class MailController extends Controller
         $obj = new RestartPassword();
         Mail::to($to)->send($obj->parametro($datos));
         return view('emails.index');
+    }
+
+    public function aceptarTerminos(Request $request){
+        $to = "estersosaa@gmail.com";
+        $obj = new SolicitudIngresada();
+        Mail::to($to)->send($obj->parametro());
+        return view('home');
     }
 }
 

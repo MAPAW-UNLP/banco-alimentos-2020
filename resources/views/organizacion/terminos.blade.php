@@ -26,7 +26,6 @@
         </h4>
         <div class='request-section'>                    
             <form id="myForm" action="{{ url('/registro')}}" method="GET">
-                {{csrf_field()}}
                 <button type="submit" class="btn" onclick="javascript:check_terminos();" title="Continuar" style="background-color: #103965; color:#ffffff">
                     Continuar
                 </button>
