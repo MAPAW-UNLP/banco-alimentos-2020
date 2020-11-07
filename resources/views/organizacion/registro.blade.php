@@ -19,13 +19,40 @@ function calcular(){
   document.getElementsByName("resultado")[0].value = parseInt(uno) + parseInt(dos) + parseInt(tres) + parseInt(cuatro) + parseInt(cinco) + parseInt(seis);
 }
 
+function servicio(){
+  var uno = document.getElementsByName("desayuno")[0].value;
+  var dos = document.getElementsByName("almuerzo")[0].value;
+  var tres = document.getElementsByName("merienda")[0].value;
+  var cuatro = document.getElementsByName("cena")[0].value;
+  var cinco = document.getElementsByName("bolson")[0].value;
+  document.getElementsByName("total_servicio")[0].value = parseInt(uno) + parseInt(dos) + parseInt(tres) + parseInt(cuatro) + parseInt(cinco);
+}
+
+function desbloquear(){
+  var uno = document.form.gridRadios.value;
+  if (uno == 'no'){
+    document.form.ong.disabled=false;
+    document.form.estados.disabled = false;
+    document.form.movimiento.disabled = false;
+    document.form.otro.disabled = false;
+  }
+  if (uno == 'si'){
+    document.form.ong.disabled=true;
+    document.form.estados.disabled = true;
+    document.form.movimiento.disabled = true;
+    document.form.otro.disabled = true;
+  }
+
+  //document.getElementsByName("total_servicio")[0].value = parseInt(uno) + parseInt(dos) + parseInt(tres) + parseInt(cuatro) + parseInt(cinco);
+}
+
 
 </script>
 
 <div class='body-registro'>
   <div class='body-request'>
     <h3 class="letra"> Solicitud de ingreso </h3>
-    <form action="{{ url('/aceptarTerminos')}}" method='post' class="was-validated">
+    <form action="{{ url('/aceptarTerminos')}}" method='post' class="was-validated" name="form">
       {{csrf_field()}}
       <div class="form-group row">
         <label for="validationServer03" class="col-sm-3 col-form-label letra">*Nombre de la institución:</label>
@@ -37,6 +64,12 @@ function calcular(){
         <label for="validationServer03" class="col-sm-3 col-form-label letra">*Nombre del referente:</label>
         <div class="col-sm-4">
           <input type="text" class="form-control" id="referente" required>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="validationServer03" class="col-sm-3 col-form-label letra">*Email inicio sesión:</label>
+        <div class="col-sm-4">
+          <input type="email" class="form-control" id="referente" required>
         </div>
       </div>
       <div class="form-group row">
@@ -63,13 +96,13 @@ function calcular(){
           <legend class="col-form-label col-sm-2 pt-0 letra">*¿Personería jurídica?</legend>
           <div class="col-sm-10">
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" required>
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" onclick="javascript:desbloquear();" value="si" required>
               <label class="form-check-label" for="gridRadios1">
                 Si
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2" required>
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" onclick="javascript:desbloquear();" value="no" required>
               <label class="form-check-label" for="gridRadios2">
                 No
               </label>
@@ -83,34 +116,34 @@ function calcular(){
         <br>
         <br>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" name="ong" id="ong" disabled="true">
             <label class="form-check-label" for="gridCheck1">
               ONG
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" name="estados" id="estados" disabled="true"> 
             <label class="form-check-label" for="gridCheck1">
               Estado ¿cuál?
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" name="movimiento" id="movimiento" disabled="true">
             <label class="form-check-label" for="gridCheck1">
               Movimiento social
             </label>
           </div>
           <div class="form-group row">
             <label for="inputEmail3" class="col-sm-1 col-form-label">*Otro:</label>
-            <div class="col-sm-4">
-              <input type="text" class="form-control" id="nombre_institucion" required>
+            <div class="col-sm-5">
+              <input type="text" class="form-control" id="nombre_institucion" required name="otro" id="otro" disabled="true">
             </div>
           </div>
         </div>
       </div>
       <h3 class="letra">* Tipos de servicio por día:</h3>
       <h5 class="letra">¿A qué cantidad de personas se les brinda el servicio?</h5>
-      <table class="table table-bordered">
+      <table class="table table-bordered" style="background-color:grey;">
       <thead>
         <tr>
           <th class='center-item' scope="col">Desayuno</th>
@@ -118,31 +151,47 @@ function calcular(){
           <th class='center-item' scope="col">Merienda</th>
           <th class='center-item' scope="col">Cena</th>
           <th class='center-item' scope="col">Bolsón</th>
+          <th class='center-item' scope="col">Total</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">&nbsp;
-          </div></td>
-          <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
-          </div></td>
-          <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
-          </div></td>
-          <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
-          </div></td>
-          <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
-          </div></td>
+          <td class='center-item'>
+            <div class="form-group col-md-2">
+              <input type="number" style="width:60px; height:30px;" value="0" class="form" min="0" pattern="^[0-9]+" onchange="javascript:servicio();" id="desayuno" name="desayuno">
+            </div>
+          </td>
+          <td class='center-item'>
+            <div class="form-group col-md-2">
+              <input type="number" style="width:60px; height:30px;" value="0" class="form"  min="0" pattern="^[0-9]+" onchange="javascript:servicio();" id="almuerzo" name="almuerzo">
+            </div>
+          </td>
+          <td class='center-item'>
+            <div class="form-group col-md-2">
+              <input type="number" style="width:60px; height:30px;" value="0" class="form"  min="0" pattern="^[0-9]+" onchange="javascript:servicio();" id="merienda" name="merienda">
+            </div>
+          </td>
+          <td class='center-item'>
+            <div class="form-group col-md-2">
+              <input type="number" style="width:60px; height:30px;" value="0" class="form"  min="0" pattern="^[0-9]+" onchange="javascript:servicio();" id="cena" name="cena">
+            </div>
+          </td>
+          <td class='center-item'>
+            <div class="form-group col-md-2">
+              <input type="number" style="width:60px; height:30px;" value="0" class="form"  min="0" pattern="^[0-9]+" onchange="javascript:servicio();" id="bolson" name="bolson">
+            </div>
+          </td>
+          <td class='center-item'>
+            <div class="form-group col-md-2">
+              <input type="text" style="width:60px; height:30px;" value="0" class="form" id="total_servicio" name="total_servicio" readonly="readonly">
+            </div>
+          </td>
         </tr>
       </tbody>
     </table>
     <br>
     <h5 class="letra">Edad de los beneficiarios</h5>
-      <table class="table table-bordered">
+      <table class="table table-bordered" style="background-color:grey;">
       <thead>
         <tr>
           <th class='center-item' scope="col">0-2</th>
@@ -158,37 +207,37 @@ function calcular(){
       <tr>
           <td>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" value="0" class="form" onchange="javascript:calcular();" id="uno" name="uno">
+              <input type="number" style="width:60px; height:30px;" value="0"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="uno" name="uno">
             </div>
           </td>
           <td>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" value="0" class="form" onchange="javascript:calcular();" id="dos" name="dos">
+              <input type="number" style="width:60px; height:30px;" value="0"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="dos" name="dos">
             </div>
           </td>
           <td>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" value="0" class="form" onchange="javascript:calcular();" id="tres" name="tres">
+              <input type="number" style="width:60px; height:30px;" value="0"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="tres" name="tres">
             </div>
           </td>
           <td>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" value="0" class="form" onchange="javascript:calcular();" id="cuatro" name="cuatro">
+              <input type="number" style="width:60px; height:30px;" value="0"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="cuatro" name="cuatro">
             </div>
           </td>
           <td>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" value="0" class="form" onchange="javascript:calcular();" id="cinco" name="cinco">
+              <input type="number" style="width:60px; height:30px;" value="0"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="cinco" name="cinco">
             </div>
           </td>
           <td>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" value="0" class="form" onchange="javascript:calcular();" id="seis" name="seis">
+              <input type="number" style="width:60px; height:30px;" value="0"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="seis" name="seis">
             </div>
           </td>
           <td>
           <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" value="0" class="form" onchange="javascript:calcular();" id="resultado" name="resultado">
+              <input type="text" style="width:60px; height:30px;" value="0" class="form" id="resultado" name="resultado" readonly="true">
           </div>
           </td>
         </tr>
@@ -196,7 +245,7 @@ function calcular(){
     </table>
     <br>
     <h5 class="letra">Raciones por día del servicio</h5>
-      <table class="table table-bordered">
+      <table class="table table-bordered" style="background-color:grey;">
       <thead>
         <tr>
           <th class='center-item' scope="col"></th>
@@ -340,17 +389,25 @@ function calcular(){
         <div class="col-sm-10">
         <br>
         <br>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
-            <label class="form-check-label" for="gridCheck1">
-              ONG
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
-            <label class="form-check-label" for="gridCheck1">
-              Estado ¿cuál?
-            </label>
+        <div class="col-sm-10">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" required>
+              <label class="form-check-label" for="gridRadios1">
+                Publica
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2" required>
+              <label class="form-check-label" for="gridRadios2">
+                Privada
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2" required>
+              <label class="form-check-label" for="gridRadios2">
+                No recibo ayuda
+              </label>
+            </div>
           </div>
         </div>
     </div>
@@ -359,17 +416,25 @@ function calcular(){
         <div class="col-sm-10">
         <br>
         <br>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
-            <label class="form-check-label" for="gridCheck1">
-              ONG
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
-            <label class="form-check-label" for="gridCheck1">
-              Estado ¿cuál?
-            </label>
+        <div class="col-sm-10">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="financiera" id="financiera" value="option1" required>
+              <label class="form-check-label" for="gridRadios1">
+                Publica
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="financiera" id="financiera" value="option2" required>
+              <label class="form-check-label" for="gridRadios2">
+                Privada
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="financiera" id="financiera" value="option2" required>
+              <label class="form-check-label" for="gridRadios2">
+                No recibo ayuda
+              </label>
+            </div>
           </div>
         </div>
     </div>
