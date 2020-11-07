@@ -49,7 +49,7 @@ class ModificacioneController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('modificacione.show', ['modificacione' => Modificacione::findOrFail($id)]);
     }
 
     /**

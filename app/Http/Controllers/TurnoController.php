@@ -74,8 +74,10 @@ class TurnoController extends Controller
                 Turno::insert($p);
                 $i=$i+1;
             }
+        }else{
+            return redirect('turnos')->with('error', 'No selecciono un horario');
         }
-        return redirect('turnos')->with('success', 'El turno se creo correctamente');;
+        return redirect('turnos')->with('success', 'El turno se creo correctamente');
         //return response()->json($datos);
     }
 

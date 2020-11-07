@@ -23,6 +23,14 @@ class CreateAdminUserSeeder extends Seeder
         'telefono' => 12345678,
         'password' => bcrypt('123456')
         ]);
+        $userAdmin = User::create([
+            'name' => 'administrador',
+            'email' => 'admin@gmail.com',
+            'apellido' => 'admin',
+            'dni' => 12345678,
+            'telefono' => 12345678,
+            'password' => bcrypt('123456')
+        ]);
         $user2 = User::create([
         'name' => 'Ejemplo Organizacion',
         'email' => 'ejemplo@organizacion.com',
@@ -56,5 +64,6 @@ class CreateAdminUserSeeder extends Seeder
         $permissions = Permission::pluck('id','id')->all();
         $role->syncPermissions($permissions);
         $user1->assignRole([$role->id]);
+        $userAdmin->assignRole([$role->id]);
     }
 }
