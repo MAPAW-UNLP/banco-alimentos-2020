@@ -25,34 +25,35 @@ function calcular(){
 <div class='body-registro'>
   <div class='body-request'>
     <h3 class="letra"> Solicitud de ingreso </h3>
-    <form class="was-validated">
+    <form action="{{ url('/aceptarTerminos')}}" method='post' class="was-validated">
+      {{csrf_field()}}
       <div class="form-group row">
-        <label for="validationServer03" class="col-sm col-form-label letra">*Nombre de la institución:</label>
-        <div class="col-sm-9">
+        <label for="validationServer03" class="col-sm-3 col-form-label letra">*Nombre de la institución:</label>
+        <div class="col-sm-4">
           <input type="text" class="form-control" id="nombre_institucion" required>
         </div>
       </div>
       <div class="form-group row">
-        <label for="validationServer03" class="col-sm col-form-label letra">*Nombre del referente:</label>
-        <div class="col-sm-9">
+        <label for="validationServer03" class="col-sm-3 col-form-label letra">*Nombre del referente:</label>
+        <div class="col-sm-4">
           <input type="text" class="form-control" id="referente" required>
         </div>
       </div>
       <div class="form-group row">
-        <label for="validationServer03" class="col-sm col-form-label letra">*Teléfono / Celular</label>
-        <div class="col-sm-9">
+        <label for="validationServer03" class="col-sm-3 col-form-label letra">*Teléfono / Celular</label>
+        <div class="col-sm-4">
           <input type="text" class="form-control" id="inputPassword3" required>
         </div>
       </div>
       <div class="form-group row">
-        <label for="validationServer03" class="col-sm col-form-label letra">*Domicilio (barrio):</label>
-        <div class="col-sm-9">
+        <label for="validationServer03" class="col-sm-3 col-form-label letra">*Domicilio (barrio):</label>
+        <div class="col-sm-4">
           <input type="text" class="form-control" id="inputPassword3" required>
         </div>
       </div>
       <div class="form-group row">
-        <label for="validationServer03" class="col-sm col-form-label letra">*Localidad:</label>
-        <div class="col-sm-9">
+        <label for="validationServer03" class="col-sm-3 col-form-label letra">*Localidad:</label>
+        <div class="col-sm-4">
           <input type="text" class="form-control" id="inputPassword3" required>
         </div>
       </div>
@@ -100,8 +101,8 @@ function calcular(){
             </label>
           </div>
           <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">*Otro:</label>
-            <div class="col-sm-10">
+            <label for="inputEmail3" class="col-sm-1 col-form-label">*Otro:</label>
+            <div class="col-sm-4">
               <input type="text" class="form-control" id="nombre_institucion" required>
             </div>
           </div>
@@ -112,28 +113,28 @@ function calcular(){
       <table class="table table-bordered">
       <thead>
         <tr>
-          <th scope="col">Desayuno</th>
-          <th scope="col">Almuerzo</th>
-          <th scope="col">Merienda</th>
-          <th scope="col">Cena</th>
-          <th scope="col">Bolsón</th>
+          <th class='center-item' scope="col">Desayuno</th>
+          <th class='center-item' scope="col">Almuerzo</th>
+          <th class='center-item' scope="col">Merienda</th>
+          <th class='center-item' scope="col">Cena</th>
+          <th class='center-item' scope="col">Bolsón</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><div class="form-check">
+          <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">&nbsp;
           </div></td>
-          <td><div class="form-check">
+          <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">
           </div></td>
-          <td><div class="form-check">
+          <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">
           </div></td>
-          <td><div class="form-check">
+          <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">
           </div></td>
-          <td><div class="form-check">
+          <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">
           </div></td>
         </tr>
@@ -144,13 +145,13 @@ function calcular(){
       <table class="table table-bordered">
       <thead>
         <tr>
-          <th scope="col">0-2</th>
-          <th scope="col">3-5</th>
-          <th scope="col">6-12</th>
-          <th scope="col">13-18</th>
-          <th scope="col">19-65</th>
-          <th scope="col">+65</th>
-          <th scope="col">Total</th>
+          <th class='center-item' scope="col">0-2</th>
+          <th class='center-item' scope="col">3-5</th>
+          <th class='center-item' scope="col">6-12</th>
+          <th class='center-item' scope="col">13-18</th>
+          <th class='center-item' scope="col">19-65</th>
+          <th class='center-item' scope="col">+65</th>
+          <th class='center-item' scope="col">Total</th>
         </tr>
       </thead>
       <tbody>
@@ -198,131 +199,131 @@ function calcular(){
       <table class="table table-bordered">
       <thead>
         <tr>
-          <th scope="col"></th>
-          <th scope="col">Lunes</th>
-          <th scope="col">Martes</th>
-          <th scope="col">Miercoles</th>
-          <th scope="col">Jueves</th>
-          <th scope="col">Viernes</th>
-          <th scope="col">Sabado</th>
-          <th scope="col">Domingo</th>
-          <th scope="col">Franja horaria</th>
+          <th class='center-item' scope="col"></th>
+          <th class='center-item' scope="col">Lunes</th>
+          <th class='center-item' scope="col">Martes</th>
+          <th class='center-item' scope="col">Miercoles</th>
+          <th class='center-item' scope="col">Jueves</th>
+          <th class='center-item' scope="col">Viernes</th>
+          <th class='center-item' scope="col">Sabado</th>
+          <th class='center-item' scope="col">Domingo</th>
+          <th class='center-item' scope="col">Franja horaria</th>
         </tr>
       </thead>
       <tbody>
       <tr>
           <td>Desayuno</td>
-          <td><div class="form-check">
+          <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">&nbsp;
           </div></td>
-          <td><div class="form-check">
+          <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">
           </div></td>
-          <td><div class="form-check">
+          <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">
           </div></td>
-          <td><div class="form-check">
+          <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">
           </div></td>
-          <td><div class="form-check">
+          <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">
           </div></td>
-          <td><div class="form-check">
+          <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">
           </div></td>
-          <td><div class="form-check">
+          <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">
           </div></td>
-          <td><div class="form-check">
+          <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">
           </div></td>
         </tr>
         <tr>
           <td>Almuerzo</td>
-          <td><div class="form-check">
+          <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">&nbsp;
           </div></td>
-          <td><div class="form-check">
+          <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">
           </div></td>
-          <td><div class="form-check">
+          <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">
           </div></td>
-          <td><div class="form-check">
+          <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">
           </div></td>
-          <td><div class="form-check">
+          <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">
           </div></td>
-          <td><div class="form-check">
+          <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">
           </div></td>
-          <td><div class="form-check">
+          <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">
           </div></td>
-          <td><div class="form-check">
+          <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">
           </div></td>
         </tr>
         <tr>
           <td>Merienda</td>
-          <td><div class="form-check">
+          <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">&nbsp;
           </div></td>
-          <td><div class="form-check">
+          <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">
           </div></td>
-          <td><div class="form-check">
+          <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">
           </div></td>
-          <td><div class="form-check">
+          <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">
           </div></td>
-          <td><div class="form-check">
+          <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">
           </div></td>
-          <td><div class="form-check">
+          <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">
           </div></td>
-          <td><div class="form-check">
+          <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">
           </div></td>
-          <td><div class="form-check">
+          <tdclass='center-item' ><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">
           </div></td>
         </tr>
         <tr>
-          <td>Cena</td>
-          <td><div class="form-check">
+          <td class='center-item'>Cena</td>
+          <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">&nbsp;
           </div></td>
-          <td><div class="form-check">
+          <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">
           </div></td>
-          <td><div class="form-check">
+          <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">
           </div></td>
-          <td><div class="form-check">
+          <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">
           </div></td>
-          <td><div class="form-check">
+          <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">
           </div></td>
-          <td><div class="form-check">
+          <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">
           </div></td>
-          <td><div class="form-check">
+          <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">
           </div></td>
-          <td><div class="form-check">
+          <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">
           </div></td>
         </tr>
       </tbody>
     </table>
     <div class="form-group row">
-        <label for="inputEmail3" class="col-sm-2 col-form-label letra">*Cantidad de personas:</label>
-        <div class="col-sm-10">
+        <label for="inputEmail3" class="col-sm-3 col-form-label letra">*Cantidad de personas:</label>
+        <div class="col-sm-4">
           <input type="text" class="form-control" id="nombre_institucion" required>
         </div>
     </div> 
@@ -379,7 +380,7 @@ function calcular(){
         </div>
       </div>
       <div class="form-group row">
-        <div class="col-sm-10">
+        <div class="col-sm-12 text-right">
           <button type="submit" class="btn btn-primary">Enviar</button>
         </div>
       </div>
