@@ -288,12 +288,12 @@ function calcular(){
           <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">
           </div></td>
-          <tdclass='center-item' ><div class="form-check">
+          <td class='center-item' ><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">
           </div></td>
         </tr>
         <tr>
-          <td class='center-item'>Cena</td>
+          <td>Cena</td>
           <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">&nbsp;
           </div></td>
@@ -322,8 +322,8 @@ function calcular(){
       </tbody>
     </table>
     <div class="form-group row">
-        <label for="inputEmail3" class="col-sm-3 col-form-label letra">*Cantidad de personas:</label>
-        <div class="col-sm-4">
+        <label for="inputEmail3" class="col-sm-2 col-form-label letra">*Cantidad de personas:</label>
+        <div class="col-sm-2">
           <input type="text" class="form-control" id="nombre_institucion" required>
         </div>
     </div> 
