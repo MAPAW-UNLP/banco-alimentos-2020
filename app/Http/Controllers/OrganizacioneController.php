@@ -124,4 +124,9 @@ class OrganizacioneController extends Controller
     {
         return view('organizacion.terminos');
     }
+
+    public function registro()
+    {
+        return view('organizacion.registro');
+    }
 }

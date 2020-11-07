@@ -2,16 +2,18 @@
 @include('components.header')
 @include('components.nav')
 
-
 <link rel="stylesheet" href="{{ url('css/lateral-menu.css') }}">
 <link rel="stylesheet" href="{{ url('css/top-menu.css') }}">
 <link rel="stylesheet" href="{{ url('css/terminos.css') }}">
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
 
 <script>
-    function check(){
-        alert("Para continuar tenes que aceptar los terminos y condiciones");
-    }
+    function check_terminos(){ 
+   	if(document.getElementById("terminos").checked == false){
+        event.preventDefault();
+        alert('Debe aceptar los terminos y condiciones para continuar')
+       }
+}
 </script>
 
 <br>

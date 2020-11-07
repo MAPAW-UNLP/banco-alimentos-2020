@@ -60,6 +60,7 @@ Route::group(['middleware' => ['auth']], function() {
 });
 Route::post('/resetPass', [MailController::class, 'resetPass']);
 Route::get('/terminos', [OrganizacioneController::class, 'terminos']);
+Route::get('/registro', [OrganizacioneController::class, 'registro']);
 
 Auth::routes();
 

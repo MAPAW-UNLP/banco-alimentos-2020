@@ -1,0 +1,11 @@
+.body-registro{
+    height: 300px;
+}
+.body-request{
+    padding: 20px;
+    max-width: 1156px;
+    margin: 0 auto;
+    background-color: #fb4a1b;
+    
+}
+.letra { color: white; }
