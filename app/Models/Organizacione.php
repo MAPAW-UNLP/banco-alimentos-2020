@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -34,6 +34,8 @@ class Organizacione extends Model
      * 
      * @var string
      */
+    const UPDATED_AT = null;
+    const CREATED_AT = null;
     protected $keyType = 'integer';
 
     /**

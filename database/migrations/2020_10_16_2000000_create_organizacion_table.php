@@ -28,6 +28,7 @@ class CreateOrganizacionTable extends Migration
             $table->integer('ayuda_alimentaria')->nullable();
             $table->integer('ayuda_financiera')->nullable();
             $table->text('tarea')->nullable();
+            $table->integer('estado')->nullable();
         });
     }
 

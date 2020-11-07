@@ -14,6 +14,27 @@
     }
 </script>
 <script>
+function myFunction(param) {
+  var checkBox = document.getElementById("defaultCheck"+String(param));
+  var id="cant"+String(checkBox.value);
+  var cant = document.getElementById(id);
+  if (checkBox.checked == true){
+    cant.value=2;
+  } else {
+    cant.value=0;
+  }
+}
+function cambio(param) {
+  var cant = document.getElementById("cant"+String(param));
+  var checkBox = document.getElementById("defaultCheck"+String(param));
+  if (cant.value==0){
+    checkBox.checked=false;
+  }else{
+    checkBox.checked=true;
+  }
+}
+</script>
+<script>
 $(function () {
     @if(isset($vAnio))
         var dia={{$vDia}};
@@ -123,14 +144,14 @@ $(function () {
                                   <tr>
                                       <td scope="row" style=" text-align:left;">
 
-                                              <input type="checkbox" name="check[]" value="{{$horario->id}}" id="defaultCheck1" checked>
+                                              <input type="checkbox" name="check[]" value="{{$horario->id}}" id="defaultCheck{{$horario->id}}" onclick="myFunction({{$horario->id}})" checked>
                                               <label class="form-check-label" for="defaultCheck1">
                                                   <b>{{$horario->nombre}}</b> 
                                               </label>
                                               <br>
                                       </td>
                                       <td>
-                                          <select name="cant[]">
+                                          <select name="cant[]" id="cant{{$horario->id}}" onchange="cambio({{$horario->id}})">
                                               @for ($i = 0; $i <= 4; $i++)
                                               @if ($cantComb == $i)
                                                       <option value="{{ $i }}"  selected>{{ $i }}</option>
@@ -144,18 +165,16 @@ $(function () {
                                   </tr>
                               @else                                <tr>
                                       <td scope="row" style=" text-align:left;">
-
-                                              <input type="checkbox" name="check[]" value="{{$horario->id}}" id="defaultCheck1">
+                                              <input type="checkbox" name="check[]" value="{{$horario->id}}" id="defaultCheck{{$horario->id}}" onclick="myFunction({{$horario->id}})">
                                               <label class="form-check-label" for="defaultCheck1">
                                                   <b>{{$horario->nombre}}</b> 
                                               </label>
                                               <br>
                                       </td>
                                       <td>
-                                          <select name="cant[]">
+                                          <select name="cant[]" id="cant{{$horario->id}}" onchange="cambio({{$horario->id}})">
                                               @for ($i = 0; $i <= 4; $i++)
                                                       <option value="{{ $i }}">{{ $i }}</option>
-
                                               @endfor
                                           </select>
                                           <br>
