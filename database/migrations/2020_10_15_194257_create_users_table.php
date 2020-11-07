@@ -16,7 +16,7 @@ $table->bigIncrements('id');
 $table->string('name');
 $table->string('apellido');
 $table->string('email')->unique();
-$table->string('dni');
+$table->string('dni')->nullable();
 $table->string('telefono');
 $table->string('password');
 $table->rememberToken();
