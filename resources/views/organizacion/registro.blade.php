@@ -8,6 +8,20 @@
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
 <br>
 
+<script>
+function calcular(){
+  var uno = document.getElementsByName("uno")[0].value;
+  var dos = document.getElementsByName("dos")[0].value;
+  var tres = document.getElementsByName("tres")[0].value;
+  var cuatro = document.getElementsByName("cuatro")[0].value;
+  var cinco = document.getElementsByName("cinco")[0].value;
+  var seis = document.getElementsByName("seis")[0].value;
+  document.getElementsByName("resultado")[0].value = parseInt(uno) + parseInt(dos) + parseInt(tres) + parseInt(cuatro) + parseInt(cinco) + parseInt(seis);
+}
+
+
+</script>
+
 <div class='body-registro'>
   <div class='body-request'>
     <h3 class="letra"> Solicitud de ingreso </h3>
@@ -130,7 +144,6 @@
       <table class="table table-bordered">
       <thead>
         <tr>
-          <th scope="col"></th>
           <th scope="col">0-2</th>
           <th scope="col">3-5</th>
           <th scope="col">6-12</th>
@@ -142,21 +155,41 @@
       </thead>
       <tbody>
       <tr>
-          <td><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">&nbsp;
-          </div></td>
-          <td><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
-          </div></td>
-          <td><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
-          </div></td>
-          <td><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
-          </div></td>
-          <td><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
-          </div></td>
+          <td>
+            <div class="form-group col-md-2">
+              <input type="number" style="width:60px; height:30px;" value="0" class="form" onchange="javascript:calcular();" id="uno" name="uno">
+            </div>
+          </td>
+          <td>
+            <div class="form-group col-md-2">
+              <input type="number" style="width:60px; height:30px;" value="0" class="form" onchange="javascript:calcular();" id="dos" name="dos">
+            </div>
+          </td>
+          <td>
+            <div class="form-group col-md-2">
+              <input type="number" style="width:60px; height:30px;" value="0" class="form" onchange="javascript:calcular();" id="tres" name="tres">
+            </div>
+          </td>
+          <td>
+            <div class="form-group col-md-2">
+              <input type="number" style="width:60px; height:30px;" value="0" class="form" onchange="javascript:calcular();" id="cuatro" name="cuatro">
+            </div>
+          </td>
+          <td>
+            <div class="form-group col-md-2">
+              <input type="number" style="width:60px; height:30px;" value="0" class="form" onchange="javascript:calcular();" id="cinco" name="cinco">
+            </div>
+          </td>
+          <td>
+            <div class="form-group col-md-2">
+              <input type="number" style="width:60px; height:30px;" value="0" class="form" onchange="javascript:calcular();" id="seis" name="seis">
+            </div>
+          </td>
+          <td>
+          <div class="form-group col-md-2">
+              <input type="number" style="width:60px; height:30px;" value="0" class="form" onchange="javascript:calcular();" id="resultado" name="resultado">
+          </div>
+          </td>
         </tr>
       </tbody>
     </table>
