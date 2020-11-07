@@ -58,8 +58,7 @@
                             <p><b>Nombre institución:</b> {{$modificacione->nombre}}</p>
                         </div>
                         <div class='modificaciones-buttons-section'>
-                        <a href="{{ url('/cancelarModificacion/'.$modificacione->id) }}" class='top-menu-item' style="background-color: #dc3545;">Rechazar</a>
-                        <a href="{{ url('/aceptarModificacion/'.$modificacione->id) }}" class='top-menu-item' style="background-color: #103965">Aceptar</a>                
+                        <button type="submit" class='show-more'><a href="{{ url('/modificaciones/'.$modificacione->id) }}">Ver mas</a></button>                 
                         </div>
                     </div>
                     @endforeach
