@@ -4,7 +4,10 @@
 <div class="general-container">
     <div class='right-container'>
         <div class="card-body">
-            <h3>Su solicitud está siendo procesada</h3>
+            <h3>
+                Se ha realizado una preinscripción de su solicitud de ingreso al Banco de Alimentos. <br/>
+                Queda pendiente la visita para terminar el trámite.
+            </h3>
         </div>
     </div>
 </div>
