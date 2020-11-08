@@ -262,30 +262,46 @@ function desbloquear(){
       <tbody>
       <tr>
           <td>Desayuno</td>
-          <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">&nbsp;
-          </div></td>
-          <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
-          </div></td>
-          <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
-          </div></td>
-          <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
-          </div></td>
-          <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
-          </div></td>
-          <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
-          </div></td>
-          <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
-          </div></td>
-          <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
-          </div></td>
+          <td class='center-item'>
+            <div class="form-group col-md-2">
+              <input type="number" style="width:60px; height:30px;" value="0"  min="0" pattern="^[0-9]+" class="form" id="" name="">
+            </div>
+          </td>
+          <td class='center-item'>
+            <div class="form-group col-md-2">
+              <input type="number" style="width:60px; height:30px;" value="0"  min="0" pattern="^[0-9]+" class="form" id="" name="">
+            </div>
+          </td>
+          <td class='center-item'>
+            <div class="form-group col-md-2">
+              <input type="number" style="width:60px; height:30px;" value="0"  min="0" pattern="^[0-9]+" class="form" id="" name="">
+            </div>
+          </td>
+          <td class='center-item'>
+            <div class="form-group col-md-2">
+              <input type="number" style="width:60px; height:30px;" value="0"  min="0" pattern="^[0-9]+" class="form" id="" name="">
+            </div>
+          </td>
+          <td class='center-item'>
+            <div class="form-group col-md-2">
+              <input type="number" style="width:60px; height:30px;" value="0"  min="0" pattern="^[0-9]+" class="form" id="" name="">
+            </div>
+          </td>
+          <td class='center-item'>
+            <div class="form-group col-md-2">
+              <input type="number" style="width:60px; height:30px;" value="0"  min="0" pattern="^[0-9]+" class="form" id="" name="">
+            </div>
+          </td>
+          <td class='center-item'>
+            <div class="form-group col-md-2">
+              <input type="number" style="width:60px; height:30px;" value="0"  min="0" pattern="^[0-9]+" class="form" id="" name="">
+            </div>
+          </td>
+          <td class='center-item'>
+            <div class="form-group col-md-2">
+              <input type="time" style="width:60px; height:30px;" value="0"  min="0" pattern="^[0-9]+" class="form" id="" name="">
+            </div>
+          </td>
         </tr>
         <tr>
           <td>Almuerzo</td>
