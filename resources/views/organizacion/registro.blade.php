@@ -52,12 +52,12 @@ function desbloquear(){
 <div class='body-registro'>
   <div class='body-request'>
     <h3 class="letra"> Solicitud de ingreso </h3>
-    <form action="{{ url('/aceptarTerminos')}}" method='post' class="was-validated" name="form">
+    <form action="{{ url('/organizaciones')}}" method='post' class="was-validated" name="form">
       {{csrf_field()}}
       <div class="form-group row">
         <label for="validationServer03" class="col-sm-3 col-form-label letra">*Nombre de la institución:</label>
         <div class="col-sm-4">
-          <input type="text" class="form-control" id="nombre_institucion" required>
+          <input type="text" class="form-control"  id="nombre_institucion" required>
         </div>
       </div>
       <div class="form-group row">

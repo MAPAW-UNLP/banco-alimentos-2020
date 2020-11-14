@@ -40,8 +40,9 @@ class OrganizacioneController extends Controller
     public function store(Request $request)
     {
         $datos=request()->except('_token');
-        Organizacione::insert($datos);
-        return redirect('organizaciones');
+        //Organizacione::insert($datos);
+        return response()->json($datos);
+        //return redirect('organizaciones');
     }
 
     /**
@@ -108,7 +109,8 @@ class OrganizacioneController extends Controller
         organizacione::where('id','=',$id)->update($organizacion->toArray());
         return redirect('solicitudes')->with('success', 'La solicitud fue aceptada correctamente');
     }
-        public function cambiarEstado($id)
+
+    public function cambiarEstado($id)
     {
         $organizacione=Organizacione::findOrFail($id);
         if ($organizacione['estado']==1){
