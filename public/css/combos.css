@@ -5,6 +5,20 @@
     min-height: 250px;
 }
 
+
+.table-sm td, .table-sm th {
+    padding: .0rem !important;
+}
+
+
+
+table td, .table th {
+    
+    vertical-align: text-top !important;
+    
+}
+
+
 .combo-item {
     padding: 10px 0;
     flex-grow: 1;
@@ -245,7 +259,7 @@ button {
 
 .list-combo-title {
     padding: 20px 0;
-}
+    }
 
 .delete:hover {
     color: black;

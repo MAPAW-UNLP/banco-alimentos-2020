@@ -54,6 +54,9 @@
         </nav> 
         <div class='body'>
             <div class='body-organization-data'>
+                <div class="request-section" style="position:absolute;left:20%"  >
+                    <input type="text"><button><a href="{{ url('/#') }}">Buscar</a></button>
+                </div>
                 <div class='header-section'>
                     <h3>Organizaciones</h3>
                     <p>Inactivo / Activo</p>
