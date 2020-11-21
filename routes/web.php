@@ -57,6 +57,9 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/cambiarOrga/{id}', [OrganizacioneController::class, 'cambiarEstado']);
     Route::get('/turnos/ver/{fecha}', [TurnoController::class, 'index']);
     Route::get('/calendar', [TurnoController::class, 'index']);
+    Route::get('/estadoSolicitud', [PagesController::class, 'estado_solicitud']);
+    Route::get('/estadoSolicitud/solicitudDatos/', [PagesController::class, 'estado_solicitud_datos']);
+    Route::get('/estadoSolicitud/solicitudCombos/', [PagesController::class, 'estado_solicitud_combos']);
 });
 Route::post('/aceptarTerminos', [MailController::class, 'aceptarTerminos']);
 Route::post('/resetPass', [MailController::class, 'resetPass']);

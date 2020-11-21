@@ -18,6 +18,7 @@ class CreateOrganizacionTable extends Migration
             $table->bigInteger('user_id')->unsigned()->nullable();            
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('nombre');
+            $table->string('email')->nullable();
             $table->string('telefono')->nullable();
             $table->string('domicilio')->nullable();
             $table->string('localidad')->nullable();

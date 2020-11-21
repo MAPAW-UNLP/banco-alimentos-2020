@@ -1,0 +1,57 @@
+.solicitudes-body {
+    display: flex;
+}
+
+/*
+.datos-body {
+    display: flex;
+}
+*/
+
+.datos-body,
+.combos-body {
+    width: 50%;
+    padding-top: 20px;
+}
+
+.font-white {
+    color: white;
+}
+
+.solicitudes-tabla {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.request-section-text {
+    background-color: #e8e8e8;
+    flex-basis: 0;
+    flex-grow: 2;
+    margin: 0;
+    padding: 15px;
+}
+
+.request-section-text p {
+    margin: 0;
+    padding: 0;
+}
+
+.buttons-section {
+    text-align: center;
+    padding-right: 10px;
+    flex-basis: 0;
+    flex-grow: 1;
+}
+
+.estado-solicitud-combo-body {
+    width: 50%;
+    background-color: white;
+    padding: 20px;
+}
+
+.estado-solicitud-solicitud-body {
+    width: 70%;
+    background-color: white;
+    padding: 20px;
+}
