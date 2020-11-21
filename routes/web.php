@@ -36,6 +36,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles','RoleController');
     Route::resource('users','UserController');
     Route::resource('combos', 'ComboController');
+    Route::get('/combos/ver/{id}', [ComboController::class, 'ver']);
+    Route::get('/combos/solicitar/{userid}', [ComboController::class, 'solicitar']);
     Route::resource('organizaciones', 'OrganizacioneController');
     Route::resource('pedidos', 'PedidoController');
     Route::resource('rols', 'RolController');

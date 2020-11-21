@@ -34,6 +34,12 @@
                 <p class='lateral-menu-text-item'><b>Combos</b></p>              
             </a>
         </div>
+
+        <div>
+            <a href="{{ url('/combos/solicitarcombo') }}" class='lateral-menu-item-color'>                          
+                <p class='lateral-menu-text-item'><b>Solicitar Combo</b></p>              
+            </a>
+        </div>
     </div>
         <div>
             <nav class='top-menu'>
