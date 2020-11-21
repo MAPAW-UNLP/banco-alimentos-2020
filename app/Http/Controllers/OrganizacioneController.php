@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\OrganizacionDeshabilitada;
 use App\Mail\OrganizacionHabilitada;
+use App\Mail\ModificacionDeDatos;
 
 class OrganizacioneController extends Controller
 {
@@ -67,7 +68,7 @@ class OrganizacioneController extends Controller
      */
     public function edit($id)
     {
-        return view('organizacione_edit', ['organizacione' => Organizacione::findOrFail($id)]);
+        return view('organizacion.edit', ['organizacione' => Organizacione::findOrFail($id)]);
     }
 
     /**
@@ -81,7 +82,11 @@ class OrganizacioneController extends Controller
     {
         $datos=request()->except(['_token','_method']);
         Organizacione::where('id','=',$id)->update($datos);
-
+        #DESCOMENTAR PARA MANDAR EL MAIL CUANDO ESTE LA VISTA
+        #$param['id'] = $id;
+        #$obj = new ModificacionDeDatos();
+        #$to = 'mapaw2020@gmail.com';
+        #Mail::to($to)->send($obj->parametro($param));
         return redirect('organizaciones');
     }
 
