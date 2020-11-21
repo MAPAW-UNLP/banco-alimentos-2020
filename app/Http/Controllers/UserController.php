@@ -125,15 +125,20 @@ public function updatePassword(Request $request){
     $oldPassword=User::find(Auth::id())->password;
     $pass=Hash::make($input['password']);
     if ($pass=$oldPassword){
-        if($input['newPassword'] = $input['repeatNewPassword']){
-            User::find(Auth::id())->update(['password' => Hash::make($input['newPassword'])]);
-            return redirect('changePassword')->with('success', 'Se modifico correctamente la contraseña');
+        $nPass=$input['newPassword'];
+        if(strlen($nPass)>5){
+            if($input['newPassword'] = $input['repeatNewPassword']){
+                User::find(Auth::id())->update(['password' => Hash::make($input['newPassword'])]);
+                return redirect('changePassword')->with('success', 'Se modifico correctamente la contraseña');
+            }else{
+                return redirect('changePassword')->with('error', 'Las contraseñas deben coincidir');
+            }
         }else{
-            return redirect('changePassword')->with('error', 'Las contraseñas deben coincidir');
+            return redirect('changePassword')->with('error', 'La contraseña debe tener al menos 6 carcateres');
         }
     }else{
-        return redirect('changePassword')->with('error', 'No ingreso la contraseña correcta');
-    }
+            return redirect('changePassword')->with('error', 'No ingreso la contraseña correcta');
+        }
     return redirect('changePassword')->with('error', 'No ingreso la contraseña correcta');
     /*if ($input['password'] = $input['passwordConf']){
         $user = User::find($id);

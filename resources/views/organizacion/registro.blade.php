@@ -19,25 +19,16 @@ function calcular(){
   document.getElementsByName("resultado")[0].value = parseInt(uno) + parseInt(dos) + parseInt(tres) + parseInt(cuatro) + parseInt(cinco) + parseInt(seis);
 }
 
-function servicio(){
-  var uno = document.getElementsByName("desayuno")[0].value;
-  var dos = document.getElementsByName("almuerzo")[0].value;
-  var tres = document.getElementsByName("merienda")[0].value;
-  var cuatro = document.getElementsByName("cena")[0].value;
-  var cinco = document.getElementsByName("bolson")[0].value;
-  document.getElementsByName("total_servicio")[0].value = parseInt(uno) + parseInt(dos) + parseInt(tres) + parseInt(cuatro) + parseInt(cinco);
-}
-
 function desbloquear(){
   var uno = document.form.gridRadios.value;
   if (uno == 'no'){
-    document.form.ong.disabled=false;
+    document.form.municipio.disabled=false;
     document.form.estados.disabled = false;
     document.form.movimiento.disabled = false;
     document.form.otro.disabled = false;
   }
   if (uno == 'si'){
-    document.form.ong.disabled=true;
+    document.form.municipio.disabled=true;
     document.form.estados.disabled = true;
     document.form.movimiento.disabled = true;
     document.form.otro.disabled = true;
@@ -57,7 +48,7 @@ function desbloquear(){
       <div class="form-group row">
         <label for="validationServer03" class="col-sm-3 col-form-label letra">*Nombre de la institución:</label>
         <div class="col-sm-4">
-          <input type="text" class="form-control"  id="nombre_institucion" required>
+          <input type="text" class="form-control" id="nombre_institucion" required>
         </div>
       </div>
       <div class="form-group row">
@@ -116,9 +107,9 @@ function desbloquear(){
         <br>
         <br>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1" name="ong" id="ong" disabled="true">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" name="municipio" id="municipio" disabled="true">
             <label class="form-check-label" for="gridCheck1">
-              ONG
+              Municipio
             </label>
           </div>
           <div class="form-check">
@@ -151,39 +142,33 @@ function desbloquear(){
           <th class='center-item' scope="col">Merienda</th>
           <th class='center-item' scope="col">Cena</th>
           <th class='center-item' scope="col">Bolsón</th>
-          <th class='center-item' scope="col">Total</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td class='center-item'>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" value="0" class="form" min="0" pattern="^[0-9]+" onchange="javascript:servicio();" id="desayuno" name="desayuno">
+              <input type="number" style="width:60px; height:30px;" value="0" class="form" min="0" pattern="^[0-9]+" id="desayuno" name="desayuno">
             </div>
           </td>
           <td class='center-item'>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" value="0" class="form"  min="0" pattern="^[0-9]+" onchange="javascript:servicio();" id="almuerzo" name="almuerzo">
+              <input type="number" style="width:60px; height:30px;" value="0" class="form"  min="0" pattern="^[0-9]+" id="almuerzo" name="almuerzo">
             </div>
           </td>
           <td class='center-item'>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" value="0" class="form"  min="0" pattern="^[0-9]+" onchange="javascript:servicio();" id="merienda" name="merienda">
+              <input type="number" style="width:60px; height:30px;" value="0" class="form"  min="0" pattern="^[0-9]+" id="merienda" name="merienda">
             </div>
           </td>
           <td class='center-item'>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" value="0" class="form"  min="0" pattern="^[0-9]+" onchange="javascript:servicio();" id="cena" name="cena">
+              <input type="number" style="width:60px; height:30px;" value="0" class="form"  min="0" pattern="^[0-9]+" id="cena" name="cena">
             </div>
           </td>
           <td class='center-item'>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" value="0" class="form"  min="0" pattern="^[0-9]+" onchange="javascript:servicio();" id="bolson" name="bolson">
-            </div>
-          </td>
-          <td class='center-item'>
-            <div class="form-group col-md-2">
-              <input type="text" style="width:60px; height:30px;" value="0" class="form" id="total_servicio" name="total_servicio" readonly="readonly">
+              <input type="number" style="width:60px; height:30px;" value="0" class="form"  min="0" pattern="^[0-9]+" id="bolson" name="bolson">
             </div>
           </td>
         </tr>
