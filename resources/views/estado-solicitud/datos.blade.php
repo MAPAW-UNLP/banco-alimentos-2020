@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="{{ url('css/lateral-menu.css') }}">
-<link rel="stylesheet" href="{{ url('css/top-menu.css') }}">
 <link rel="stylesheet" href="{{ url('css/manage-social-area.css') }}">
 <link rel="stylesheet" href="{{ url('css/solicitudes-organizacion.css') }}">
+<link rel="stylesheet" href="{{ url('css/estado-solicitud.css') }}">
 
 @include('main')
 @include('components.header')
@@ -29,6 +29,19 @@
             </a>
         </div>
     </div>
+    <div class='general-body'>
+      <nav class='top-menu'>
+        <div>
+            <a href="{{ url('/estadoSolicitud') }}" class='top-menu-item'>
+                <p class='top-menu-text-item'>Solicitud de Combos</p>
+            </a>
+        </div>
+        <div>
+            <a href="{{ url('/estadoSolicitud/indexDatos') }}" class='top-menu-item-color'>
+                <p class='top-menu-text-item'><b>Solicitud de Datos</b></p>
+            </a>
+        </div>  
+      </nav> 
     <div class='body'>
         <div class='body-request'>
         <h3>Datos</h3>
@@ -45,7 +58,13 @@
             <p><b>¿Recibe ayuda financiera?:</b>$organizacione->ayuda_financiera</p>
             <p><b>Tarea que realizan:</b>$organizacione->tipo_servicio</p>
         </div>
+        <div class='volver-listado'>
+                <a href="{{ url('/estadoSolicitud') }}">
+                    Volver al listado de solicitudes de datos
+                </a>
+            </div> 
     </div>
+</div>
 </div>
 </div>
 @include('components.footer')

@@ -50,8 +50,12 @@ class PagesController extends Controller
         return view('main-encuesta-organizacion');
     }
 
-    public function estado_solicitud(){
+    public function estado_solicitud_indexCombo(){
         return view('estado-solicitud.index');
+    }
+
+    public function estado_solicitud_indexDatos(){
+        return view('estado-solicitud.indexDatos');
     }
 
     public function estado_solicitud_datos(){
