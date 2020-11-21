@@ -356,20 +356,6 @@ function desbloquear(){
       </tbody>
     </table>
     <div class="form-group row">
-        <label for="inputEmail3" class="col-sm-2 col-form-label letra">*Cantidad de personas:</label>
-        <div class="col-sm-2">
-          <input type="text" class="form-control" id="nombre_institucion" required>
-        </div>
-    </div> 
-    <div class=" form-inline">
-    <label class="my-1 mr-2 letra" for="inlineFormCustomSelectPref">*Edad por rango:</label>
-      <select class="custom-select is-invalid" id="validationServer04" aria-describedby="validationServer04Feedback" required>
-        <option value="">Edad por rango</option>
-        <option value="">10-20</option>
-      </select>
-    </div>
-    <br>
-    <div class="form-group row">
         <div class="col-sm-2 letra">*¿Tiene ayuda alimentaria?</div>
         <div class="col-sm-10">
         <br>
