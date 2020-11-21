@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Organizacione;
 use App\Models\Solicitud;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\OrganizacionDeshabilitada;
+use App\Mail\OrganizacionHabilitada;
 
 class OrganizacioneController extends Controller
 {
@@ -115,8 +118,14 @@ class OrganizacioneController extends Controller
         $organizacione=Organizacione::findOrFail($id);
         if ($organizacione['estado']==1){
             $organizacione['estado']=0;
+            $to = $organizacione['email'];
+            $obj = new OrganizacionDeshabilitada();
+            Mail::to($to)->send($obj->parametro());
         }else{
             $organizacione['estado']=1;
+            $to = $organizacione['email'];
+            $obj = new OrganizacionHabilitada();
+            Mail::to($to)->send($obj->parametro());
         }
         Organizacione::where('id','=',$id)->update($organizacione->toArray());
         return redirect('organizaciones');
