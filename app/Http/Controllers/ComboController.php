@@ -6,6 +6,8 @@ use App\Models\Combo;
 use App\Models\Pedido;
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class ComboController extends Controller
 {
@@ -20,8 +22,18 @@ class ComboController extends Controller
      */
     public function index()
     {
+
+        $userlogged = Auth::User();
+
         //Organizacione::where('estado','<>',0)->paginate(5)
         $datos['combos']=Combo::where('estado','<>',2)->paginate();
+        $datos['role']= "empleado";
+        //$datos['role']= "admin";
+
+
+        // dd($datos);
+
+
         return view('combo.index',$datos);
 
     }
@@ -71,8 +83,32 @@ class ComboController extends Controller
      */
     public function show($id)
     {
+        // return view('combo.show', ['combo' => Combo::findOrFail($id)]);
         return view('combo.show', ['combo' => Combo::findOrFail($id)]);
     }
+
+
+    public function solicitar($user)
+    {
+
+        // buscar los combos de ese usuario o todos los combos 
+        $combos = Combo::where('id','>',0)->with("productos")->get();
+        
+
+        return view('combo.solicitar', ['combos' => $combos]);
+    }
+
+
+    public function ver($id)
+    {
+        // return view('combo.show', ['combo' => Combo::findOrFail($id)]);
+       
+        dd($id);
+
+        return view('combo.edit', ['combo' => 1]);
+    }
+
+
 
     /**
      * Show the form for editing the specified resource.
