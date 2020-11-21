@@ -14,7 +14,7 @@
             </a>
         </div>
         <div>
-            <a href="{{ url('/') }}" class='lateral-menu-item'>         
+            <a href="{{ url('/edit/1') }}" class='lateral-menu-item'>         
                 <p class='lateral-menu-text-item'>Modificar mis datos</p>
             </a>
         </div>
