@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Solicitud;
 use RechazoController;
+use Illuminate\Support\Facades\Auth;
 class SolicitudController extends Controller
 {
  /*   function __construct()
@@ -105,12 +106,22 @@ $this->middleware('permission:solicitud-delete', ['only' => ['destroy','aceptar'
       solicitud::where('id','=',$id)->update($solicitud->toArray());
       return redirect('solicitudes')->with('success', 'La solicitud fue aceptada correctamente');
   }
-    public function rechazar($id)
+  public function rechazar($id)
   {
       $solicitud=Solicitud::findOrFail($id);
       $solicitud['estado']=2;
       solicitud::where('id','=',$id)->update($solicitud->toArray());
       return redirect('solicitudes')->with('success', 'La solicitud fue rechazada correctamente');
+  }
+  public function solicitudOrganizacion(){
+    $solicitud=solicitud::where('organizacion_id','=',Auth::id())->where('estado','=',0)->first();
+    if (is_null($solicitud)){
+        $datos['tengoDatos']=0;
+    }else{
+        $datos['tengoDatos']=1;
+        $datos['solicitud']=$solicitud;
+    }
+    return view('estado-solicitud.indexDatos',$datos);
   }
 }
 

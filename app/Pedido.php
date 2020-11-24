@@ -28,7 +28,7 @@ class Pedido extends Model
     /**
      * @var array
      */
-    protected $fillable = ['combo_id', 'organizacion_id', 'turno_id', 'cantCombos'];
+    protected $fillable = ['combo_id', 'organizacion_id', 'turno_id', 'cantCombos','estado'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

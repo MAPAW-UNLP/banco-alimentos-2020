@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pedido;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PedidoController extends Controller
 {
@@ -90,5 +91,21 @@ class PedidoController extends Controller
     {
         pedido::destroy($id);
         return redirect('pedidos');
+    }
+
+    public function pedidosEmpresa($id)
+    {
+        $datos['pedidos']=pedido::where('organizacion_id','=',$id)->paginate();
+        return redirect('pedidos');
+    }
+    public function estado_solicitud_indexCombo(){
+        $pedidos=pedido::where('organizacion_id','=',Auth::id())->paginate();
+        if (is_null($solicitud)){
+            $datos['tengoDatos']=0;
+        }else{
+            $datos['tengoDatos']=1;
+            $datos['pedidos']=$pedidos;
+        }
+        return view('estado-solicitud.index',$datos);
     }
 }

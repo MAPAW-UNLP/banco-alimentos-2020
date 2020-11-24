@@ -22,6 +22,7 @@ class CreatePedidoTable extends Migration
             $table->bigInteger('turno_id')->unsigned();            
             $table->foreign('turno_id')->references('id')->on('turnos');
             $table->integer('cantCombos');
+            $table->integer('estado');
         });
     }
 
