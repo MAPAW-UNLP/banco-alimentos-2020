@@ -92,7 +92,7 @@
             </div>
         </div>
         <div class='volver-listado'>
-                <a href="{{ url('/estadoSolicitud') }}">
+                <a href="{{ url('/estadoSolicitud/indexDatos') }}">
                     Volver al listado de solicitudes de datos
                 </a>
             </div> 
