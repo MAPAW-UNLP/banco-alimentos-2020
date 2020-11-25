@@ -25,6 +25,22 @@ class OrganizacioneController extends Controller
 
     }
 
+
+    public function busqueda(Request $request){
+        $stringbusqueda = $request->get('stringbusqueda');
+    
+        // busca si ese string es un id y si existe en la base de datos
+        // busca si ese string es un nombre y si existe en la base de datos
+        $datos['organizaciones']=Organizacione::where('estado','<>',2)->where('id','=',intval($stringbusqueda))->orWhere('nombre','LIKE',"%{$stringbusqueda}%")->paginate(5);
+        
+        return view('main-manage-social-area-organization-data',$datos);
+    
+
+    }
+
+
+
+
     /**
      * Show the form for creating a new resource.
      *
