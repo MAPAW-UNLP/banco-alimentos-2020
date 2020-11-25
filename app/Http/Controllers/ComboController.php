@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Combo;
 use App\Models\Pedido;
 use App\Models\Producto;
+use App\Models\Turno;
+use App\Models\Horario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -97,6 +99,34 @@ class ComboController extends Controller
 
         return view('combo.solicitar', ['combos' => $combos]);
     }
+
+
+    public function calendar($idcombo,$fecha = NULL){
+
+        if(is_null($fecha)){
+            $hoy = getdate();
+            $myFecha = strval($hoy['year'])."-".strval($hoy['mon'])."-".strval($hoy['mday']);
+            $datos['turnos']=Turno::where('fechaHora','=',$myFecha)->get();
+            $datos['horarios']=Horario::paginate();
+            $datos['vAnio']=strval($hoy['year']);
+            $datos['vMes']=strval($hoy['mon']);
+            $datos['vDia']=strval($hoy['mday']);
+            $datos['idcombo'] = $idcombo;
+            return view('combo.calendar',$datos);
+        }else{
+            $datos['turnos']=Turno::where('fechaHora','=',$fecha)->get();
+            $datos['horarios']=Horario::paginate();
+            $datos['vAnio']=substr($fecha,0,4);
+            $datos['vMes']=substr($fecha,5,2);
+            $datos['vDia']=substr($fecha,8,2);
+            $datos['idcombo'] = $idcombo;
+            return view('combo.calendar',$datos);
+        }
+
+
+
+    }
+
 
 
     public function ver($id)
