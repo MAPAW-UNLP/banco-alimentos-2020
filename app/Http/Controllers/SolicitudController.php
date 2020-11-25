@@ -278,11 +278,11 @@ $this->middleware('permission:solicitud-delete', ['only' => ['destroy','aceptar'
   }
   public function solicitudOrganizacion(){
     $solicitud=solicitud::where('organizacion_id','=',Auth::id())->where('estado','=',0)->first();
+    $datos['solicitud']=$solicitud;
     if (is_null($solicitud)){
         $datos['tengoDatos']=0;
     }else{
         $datos['tengoDatos']=1;
-        $datos['solicitud']=$solicitud;
     }
     return view('estado-solicitud.indexDatos',$datos);
   }

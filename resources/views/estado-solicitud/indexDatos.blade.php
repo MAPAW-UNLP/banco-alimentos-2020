@@ -47,15 +47,19 @@
           <h3>Solicitudes de Datos</h3>
             <div class='solicitudes-body'>
               <div class='datos-body'>
+              @if($solicitud)
                 <h4 class='font-white'>Datos</h4>
-                <div class='solicitudes-tabla'>
-                  <div class='request-section-text'>  
-                    <p><b>Nombre institución: {{$solicitud->organizacione->nombre}}</b></p> 
+                  <div class='solicitudes-tabla'>
+                    <div class='request-section-text'>  
+                      <p><b>Nombre institución: {{$solicitud->organizacione->nombre}}</b></p> 
+                    </div>
+                    <div class='buttons-section'>
+                      <button type="submit" class='show-more'><a href="{{ url('/estadoSolicitud/solicitudDatos/'.$solicitud->id) }}">Ver mas</a></button>                     
+                    </div>
                   </div>
-                  <div class='buttons-section'>
-                    <button type="submit" class='show-more'><a href="{{ url('/estadoSolicitud/solicitudDatos/'.$solicitud->id) }}">Ver mas</a></button>                     
-                  </div>
-                </div>              
+                  @else
+                  <h5>No hay solicitudes cargadas</h5>
+                  @endif              
               </div>
             </div>
         </div>
