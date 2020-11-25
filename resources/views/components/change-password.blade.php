@@ -62,7 +62,7 @@
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label" title='Contraseña actual'>Ingresar contraseña actual *</label>
                         <div class="col-sm-4">
-                            <input type="password" class="form-control" id="validationCustom01" name="password" required>
+                            <input type="password" maxlength="15"  minlength="6" class="form-control" id="validationCustom01" name="password" required>
                             <div class="font-white invalid-feedback">
                                 La contraseña ingresada no corresponde a su contraseña actual
                             </div>
@@ -71,7 +71,7 @@
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label" title='Nueva contraseña'>Ingresar nueva contraseña *</label>
                         <div class="col-sm-4">
-                            <input type="password" class="form-control" id="validationCustom02" name="newPassword" required>
+                            <input type="password" maxlength="15"  minlength="6" class="form-control" id="validationCustom02" name="newPassword" required>
                             <div class="font-white invalid-feedback">
                                 La nueva contraseña debe ser diferente a la actual
                             </div>
@@ -80,7 +80,7 @@
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label" title='Repetir nueva contraseña'>Repetir nueva contraseña *</label>
                         <div class="col-sm-4">
-                            <input type="password" class="form-control" id="validationCustom03" name="repeatNewPassword" required>
+                            <input type="password" maxlength="15"  minlength="6" class="form-control" id="validationCustom03" name="repeatNewPassword" required>
                         </div>
                         <div class="font-white invalid-feedback">
                                 Debe ser igual a la nueva contraseña
