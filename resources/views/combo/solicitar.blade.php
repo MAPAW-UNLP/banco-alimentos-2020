@@ -1,6 +1,8 @@
 <link rel="stylesheet" href="{{ url('css/lateral-menu.css') }}">
 <link rel="stylesheet" href="{{ url('css/top-menu.css') }}">
 <link rel="stylesheet" href="{{ url('css/combos.css') }}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 @include('main')
 @include('components.header')
 @include('components.nav')
@@ -104,15 +106,43 @@
           <br>
           <br>
           <div class='combo-edit-buttons-section'>
-            <button class='accept'>Aceptar</button> 
-            <input type='button' class='cancel' onclick="window.location='{{ url("combos") }}'" value="Cancelar" style="color:white; border-color:#dc3545;">
+            <input type="button" class='accept-combo'  onclick="run()" value="Aceptar"> 
+            <input type='button' class='cancel-combo' onclick="window.location='{{ url("combos") }}'" value="Cancelar" style="color:white; border-color:#dc3545;">
                                             
           </div>          
         </form>
       </div>
     </div>
 
+
+    
+
+    <!-- modal -->
+    <script>
+      function run(){
+        alert("Hizo click");
+
+        
+
+
+
+      }
+    </script>
+
     <!-- --> 
+      <!-- <h1>Modal</h1>
+
+  <div class="overlay"></div>
+
+  <div class="modal">
+    <h2>Modal</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <button class="close">Close</button>    
+  </div>
+  <button class="open">Open</button>     -->
+
+
+
   </div>
 </div>
 @include('components.footer')
