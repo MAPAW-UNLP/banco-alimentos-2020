@@ -33,7 +33,7 @@
         <a 
           href="{{ url('/logout') }}" 
           onclick="event.preventDefault();
-          document.getElementById('logout-form').submit();" title="Cerrar sesión en el sistema">Logout
+          document.getElementById('logout-form').submit();" title="Cerrar sesión en el sistema">Cerrar sesión
         </a>
       </div>
       <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
