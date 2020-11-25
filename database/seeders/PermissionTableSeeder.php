@@ -14,6 +14,9 @@ class PermissionTableSeeder extends Seeder
         public function run()
         {
         $permissions = [
+        'orga-solicitar-combo',
+        'orga-modificar-datos',
+        'orga-mis-solicitudes',
         'role-list',
         'role-create',
         'role-edit',

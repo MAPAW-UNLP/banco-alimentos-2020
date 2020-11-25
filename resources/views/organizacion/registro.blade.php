@@ -57,13 +57,21 @@ function desbloquear(){
       <div class="form-group row">
         <label for="validationServer03" class="col-sm-3 col-form-label letra">*Email inicio sesión:</label>
         <div class="col-sm-4">
+<<<<<<< HEAD
           <input type="email" class="form-control" id="referente" name="referente" value="mail@mail"  required>
+=======
+          <input type="email" class="form-control" id="referente" id="referente" value="mail@mail"  required>
+>>>>>>> e60abb4... organizacion temporal
         </div>
       </div>
       <div class="form-group row">
         <label for="validationServer03" class="col-sm-3 col-form-label letra">*Teléfono / Celular</label>
         <div class="col-sm-4">
+<<<<<<< HEAD
           <input type="text" class="form-control" id="inputPassword3" name="telefono" value="2215498512" required>
+=======
+          <input type="text" class="form-control" id="inputPassword3" id="telefono" value="2215498512" required>
+>>>>>>> e60abb4... organizacion temporal
         </div>
       </div>
       <div class="form-group row">
