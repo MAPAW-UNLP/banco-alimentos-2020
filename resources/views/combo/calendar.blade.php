@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="{{ url('css/calendar.css') }}">
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
 <link rel="stylesheet" href="{{ url('css/calendar.css') }}">
+<link rel="stylesheet" href="{{ url('css/modal.css') }}">
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
 <script src="jquery.ui.datepicker-es.js"></script>
@@ -191,13 +192,83 @@ left: 50%;">
 <br>
                         <div class='calendar-buttons-section'>
                             <button class='cancel' type="reset">Cancelar</button>
-                            <button class='accept'>Guardar</button>                                 
+                            <input type="button" onclick="run()" class='accept' style="color:white;height:35px" value="Guardar"/>                                 
                             </div>
                     </div>                   
                 </div>
             </form>
             </div>
             </div>
+
+            <!-- modulo modal -->
+                <!-- modal -->
+    <div id="modalalerta" class="modalcss" style="display:none" style="position:relative !important;right:100%"> 
+
+<!-- Modal content -->
+<div class="modal-content-calendar">
+  <!-- <span class="close">&times;</span> -->
+  <div class="body-text-modal">
+      Su turno se guardo correctamente.Recibira en su correcto
+      las instrucciones para retirarlo.
+  </div>
+  
+  <button style="
+position: relative;
+top: 20%;
+width: 70px;
+left: 70%;
+font-size: 15px" class="close-modal   btn-modal-style">Aceptar</button>
+    
+</div>
+
+</div>
+
+
+<!-- modal -->
+<script>
+
+
+
+var button = document.getElementsByClassName("close-modal")[0];
+
+
+button.onclick = function() {
+  var modalcss = document.getElementById("modalalerta");
+  modalcss.style.display = "none";
+}
+
+
+window.onclick = function(event) {
+  if (event.target == modalcss) {
+    modalcss.style.display = "none";
+  }
+}   
+
+
+function run(){
+
+  var modalcss = document.getElementById("modalalerta");
+  modalcss.style.display = "block";
+
+  // redireccionamiento a url 
+
+
+}
+</script>
+
+
+
+<!-- modulo modal -->
+
+
+
+
+            <!-- modulo modal -->
+
+        
+
+
+
         </div>
     </div>
 </div>

@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="{{ url('css/lateral-menu.css') }}">
 <link rel="stylesheet" href="{{ url('css/top-menu.css') }}">
 <link rel="stylesheet" href="{{ url('css/combos.css') }}">
+<link rel="stylesheet" href="{{ url('css/modal.css') }}">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 @include('main')
@@ -106,7 +107,7 @@
           <br>
           <br>
           <div class='combo-edit-buttons-section'>
-            <input type="button" class='accept-combo'  onclick="run()" value="Aceptar"> 
+            <input type="button" class='accept-combo  button-open-modal'  onclick="run()" value="Aceptar"> 
             <input type='button' class='cancel-combo' onclick="window.location='{{ url("combos") }}'" value="Cancelar" style="color:white; border-color:#dc3545;">
                                             
           </div>          
@@ -114,34 +115,66 @@
       </div>
     </div>
 
+    <!-- modal -->
+    <div id="modalalerta" class="modalcss" style="display:none">
 
-    
+      <!-- Modal content -->
+      <div class="modal-content">
+        <!-- <span class="close">&times;</span> -->
+        <div class="body-text-modal">
+            Solicitud realizada con exito, a continuacion debe 
+            seleccionar un turno
+        </div>
+        
+        <button style="
+position: relative;
+top: 20%;
+width: 70px;
+left: 70%;
+font-size: 15px" class="close-modal   btn-modal-style">Aceptar</button>
+          
+      </div>
+
+    </div>
+
 
     <!-- modal -->
     <script>
+
+      
+
+      var button = document.getElementsByClassName("close-modal")[0];
+
+     
+      button.onclick = function() {
+        var modalcss = document.getElementById("modalalerta");
+        modalcss.style.display = "none";
+      }
+
+      
+      window.onclick = function(event) {
+        if (event.target == modalcss) {
+          modalcss.style.display = "none";
+        }
+      }   
+
+
       function run(){
-        alert("Hizo click");
 
-        
+        var modalcss = document.getElementById("modalalerta");
+        modalcss.style.display = "block";
 
+        // redireccionamiento a url 
 
 
       }
     </script>
 
-    <!-- --> 
-      <!-- <h1>Modal</h1>
-
-  <div class="overlay"></div>
-
-  <div class="modal">
-    <h2>Modal</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    <button class="close">Close</button>    
-  </div>
-  <button class="open">Open</button>     -->
 
 
+    <!-- modulo modal --> 
+    
+</div>
 
   </div>
 </div>

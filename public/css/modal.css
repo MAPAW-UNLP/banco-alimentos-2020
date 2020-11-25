@@ -1,0 +1,67 @@
+ /* Modal Header */
+ .modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+  }
+  
+  /* Modal Body */
+  .modal-body {padding: 2px 16px;}
+  
+  /* Modal Footer */
+  .modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    position: absolute !important;
+background-color: #333 !important;
+margin: auto !important;
+padding: 0 !important;
+border: 1px solid #888 !important;
+width: 550px !important;
+box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
+animation-name: animatetop;
+animation-duration: 0.4s;
+height: 200px !important;
+color: white !important;
+bottom: 100px;
+  }
+
+  .btn-modal-style{
+      color:white !important;
+      background-color: #00aee8 !important;
+      width:200px;
+      text-align:right;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size:10px;  
+      
+  }
+  .body-text-modal{
+    text-align: left;
+    position: relative;
+    font-size: 20px;
+    padding: 20px !important;
+  }
+  
+
+  .modal-content-calendar {
+    position: relative !important;
+    background-color: #333 !important;
+    margin: auto !important;
+    padding: 0 !important;
+    border: 1px solid #888 !important;
+    width: 550px !important;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    height: 200px !important;
+    color: white !important;
+    right:100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:15px;
+  }
+  
