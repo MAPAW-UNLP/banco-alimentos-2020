@@ -71,7 +71,7 @@
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label" title='Nueva contraseña'>Ingresar nueva contraseña *</label>
                         <div class="col-sm-4">
-                            <input type="password" maxlength="15"  minlength="6" class="form-control" id="validationCustom02" name="newPassword" required>
+                            <input type="password"  maxlength="15"  minlength="6" class="form-control" id="validationCustom02" name="newPassword" required>
                             <div class="font-white invalid-feedback">
                                 La nueva contraseña debe ser diferente a la actual
                             </div>
@@ -80,7 +80,7 @@
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label" title='Repetir nueva contraseña'>Repetir nueva contraseña *</label>
                         <div class="col-sm-4">
-                            <input type="password" maxlength="15"  minlength="6" class="form-control" id="validationCustom03" name="repeatNewPassword" required>
+                            <input type="password" onfocusout="checking()" maxlength="15"  minlength="6" class="form-control" id="validationCustom03" name="repeatNewPassword" required>
                         </div>
                         <div class="font-white invalid-feedback">
                                 Debe ser igual a la nueva contraseña
@@ -89,7 +89,28 @@
                     <div class='buttons-section'>
                         <button type="reset" class='cancel-button'>Cancelar</button>
                         <button class='accept' type="submit" class='accept'>Guardar</button>                        
-                    </div>  
+                    </div>
+                    <script>
+                        function checking(){
+                            var password = document.getElementById("validationCustom03").value;
+                            var password_confirm = document.getElementById("validationCustom02").value;
+
+                            if(password == password_confirm){
+                                  console.log("All right");  
+                            }
+                            else{
+                                alert('No coinciden las contraseñas,por favor ingreselas nuevamente');
+                                console.log(password);
+                                console.log(password_confirm);
+                            }
+
+
+
+                            
+                        }
+                    </script>
+
+
                 </div>                                                                    
             </form>
         </div>
