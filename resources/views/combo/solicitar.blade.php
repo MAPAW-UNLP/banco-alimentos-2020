@@ -1,6 +1,9 @@
 <link rel="stylesheet" href="{{ url('css/lateral-menu.css') }}">
 <link rel="stylesheet" href="{{ url('css/top-menu.css') }}">
 <link rel="stylesheet" href="{{ url('css/combos.css') }}">
+<link rel="stylesheet" href="{{ url('css/modal.css') }}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 @include('main')
 @include('components.header')
 @include('components.nav')
@@ -104,15 +107,75 @@
           <br>
           <br>
           <div class='combo-edit-buttons-section'>
-            <button class='accept'>Aceptar</button> 
-            <input type='button' class='cancel' onclick="window.location='{{ url("combos") }}'" value="Cancelar" style="color:white; border-color:#dc3545;">
+            <input type="button" class='accept-combo  button-open-modal'  onclick="run()" value="Aceptar"> 
+            <input type='button' class='cancel-combo' onclick="window.location='{{ url("combos") }}'" value="Cancelar" style="color:white; border-color:#dc3545;">
                                             
           </div>          
         </form>
       </div>
     </div>
 
-    <!-- --> 
+    <!-- modal -->
+    <div id="modalalerta" class="modalcss" style="display:none">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <!-- <span class="close">&times;</span> -->
+        <div class="body-text-modal">
+            Solicitud realizada con exito, a continuacion debe 
+            seleccionar un turno
+        </div>
+        
+        <button style="
+position: relative;
+top: 20%;
+width: 70px;
+left: 70%;
+font-size: 15px" class="close-modal   btn-modal-style">Aceptar</button>
+          
+      </div>
+
+    </div>
+
+
+    <!-- modal -->
+    <script>
+
+      
+
+      var button = document.getElementsByClassName("close-modal")[0];
+
+     
+      button.onclick = function() {
+        var modalcss = document.getElementById("modalalerta");
+        modalcss.style.display = "none";
+      }
+
+      
+      window.onclick = function(event) {
+        if (event.target == modalcss) {
+          modalcss.style.display = "none";
+        }
+      }   
+
+
+      function run(){
+
+        var modalcss = document.getElementById("modalalerta");
+        modalcss.style.display = "block";
+
+        // redireccionamiento a url 
+
+
+      }
+    </script>
+
+
+
+    <!-- modulo modal --> 
+    
+</div>
+
   </div>
 </div>
 @include('components.footer')
