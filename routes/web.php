@@ -63,8 +63,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/calendar', [TurnoController::class, 'index']);
     Route::get('/estadoSolicitud', [PedidoController::class, 'estado_solicitud_indexCombo']);
     Route::get('/estadoSolicitud/indexDatos', [SolicitudController::class, 'solicitudOrganizacion']);
-    Route::get('/estadoSolicitud/solicitudDatos/', [PagesController::class, 'estado_solicitud_datos']);
-    Route::get('/estadoSolicitud/solicitudCombos/', [PagesController::class, 'estado_solicitud_combos']);
+    Route::get('/estadoSolicitud/solicitudDatos/{id}', [SolicitudController::class, 'estado_solicitud_datos']);
+    Route::get('/estadoSolicitud/solicitudCombos/{id}', [ComboController::class, 'estado_solicitud_combos']);
     Route::get('organizacione/edit/{id}', [OrganizacioneController::class, 'edit']);
     Route::get('organizacione/edit-short/{id}', [OrganizacioneController::class, 'edit_short']);
     Route::get('organizacione/show/{id}', [OrganizacioneController::class, 'show']);

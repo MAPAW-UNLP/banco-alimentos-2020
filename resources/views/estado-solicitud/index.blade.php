@@ -54,12 +54,12 @@
                 <p><b>{{$pedido->combo->nombre}}</b></p>
               </div> 
               <div class='buttons-section'>
-                <button type="submit" class='show-more'><a href="{{ url('/estadoSolicitud/solicitudCombos')}}">Ver mas</a></button>                     
+                <button type="submit" class='show-more'><a href="{{ url('/estadoSolicitud/solicitudCombos/'.$pedido->combo->id)}}">Ver mas</a></button>                     
               </div>
             </div>
             @endforeach
             @else
-              <h2> No dispone de solicitudes de combos</h2>
+              <h5> No dispone de solicitudes de combos</h5>
             @endif              
           </div>
         </div>

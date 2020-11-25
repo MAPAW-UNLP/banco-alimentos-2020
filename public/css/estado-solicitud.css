@@ -47,3 +47,15 @@
     padding-left: 0;
     color: #000000;
 }
+
+.body-datos {
+    display: flex;
+    align-items: center;
+}
+
+.estado {
+    margin-left: 20px;
+    background-color: white;
+    width: 100px;
+    text-align: center;
+}

@@ -64,7 +64,7 @@
                     <thead>
                         <tr class="color-white">
                             <th style="width:10%;">ID</th>
-                            <th style="width:25%;">Nombre de la organización</th>
+                            <th style="width:25%;">Nombre</th>
                             <th style="width:15%;">&nbsp;</th>
                             <th style="width:15%;">&nbsp;</th>
                             <th style="width:15%;">&nbsp;</th>

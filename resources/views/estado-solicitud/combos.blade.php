@@ -44,10 +44,15 @@
       </nav> 
         <div class='body'>
             <div class='body-request'>
-                <h3>Productos del combo</h3>
+                <h3>Productos del combo: {{$combo->nombre}}</h3>
                 <div class='estado-solicitud-combo-body'>
-                    <label for="nombre">$combo->nombre</label><br>
-                    <label for="productos">$combo->productos</label><br>
+                    @if(count($combo->productos)> 0)
+                        @foreach($combo->productos as $product)
+                            <p>{{$product->cantidad}} {{$product->producto}}</p><br>
+                        @endforeach
+                    @else
+                    <p>No hay productos en el combo</p><br>
+                    @endif
                 </div>
             </div>
             <div class='volver-listado'>

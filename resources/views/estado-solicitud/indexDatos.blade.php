@@ -50,10 +50,10 @@
                 <h4 class='font-white'>Datos</h4>
                 <div class='solicitudes-tabla'>
                   <div class='request-section-text'>  
-                    <p><b>Nombre institución: Caritas</b></p> 
+                    <p><b>Nombre institución: {{$solicitud->organizacione->nombre}}</b></p> 
                   </div>
                   <div class='buttons-section'>
-                    <button type="submit" class='show-more'><a href="{{ url('/estadoSolicitud/solicitudDatos') }}">Ver mas</a></button>                     
+                    <button type="submit" class='show-more'><a href="{{ url('/estadoSolicitud/solicitudDatos/'.$solicitud->id) }}">Ver mas</a></button>                     
                   </div>
                 </div>              
               </div>

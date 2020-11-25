@@ -127,7 +127,7 @@ class TurnoController extends Controller
     public function destroy($id)
     {
         turno::destroy($id);
-        return redirect('turnos')->with('success', 'El combo se creo correctamente');;
+        return redirect('turnos')->with('success', 'El combo se creó correctamente');;
     }
     public function ver($fecha)
     {

@@ -45,18 +45,51 @@
     <div class='body'>
         <div class='body-request'>
         <h3>Datos</h3>
-        <div class='estado-solicitud-solicitud-body'>
-            <p><b>Nombre institución:</b> $organizacione->nombre</p>
-            <p><b>Nombre del referente:</b> $organizacione->user->name</p>
-            <p><b>Domicilio (barrio):</b> $organizacione->barrio</p>
-            <p><b>¿Personería jurídica?:</b> $organizacione->personeria_juridica</p>
-            <p><b>En caso negativo, ¿tiene algún aval?:</b> $organizacione->aval</p>
-            <p><b>Cantidad de personas:</b> $organizacione->cantPers</p>
-            <p><b>Edad por rango:</b>$organizacione->edad</p>
-            <p><b>Tipos de servicio por día:</b>$organizacione->tarea</p>
-            <p><b>¿Tiene ayuda alimentaria?:</b>$organizacione->ayuda_alimentaria</p>
-            <p><b>¿Recibe ayuda financiera?:</b>$organizacione->ayuda_financiera</p>
-            <p><b>Tarea que realizan:</b>$organizacione->tipo_servicio</p>
+        <div class='body-datos'>
+            <div class='estado-solicitud-solicitud-body'>
+                <p><b>Nombre institución:</b> {{$solicitud->organizacione->nombre}}</p>
+                <p><b>Nombre del referente:</b> {{$solicitud->organizacione->user->name}}</p>
+                <p><b>Domicilio (barrio):</b> {{$solicitud->organizacione->domicilio}}</p>
+                <p><b>¿Personería jurídica?:</b> 
+                    @if(($solicitud->organizacione->personeria_juridica) == 1)
+                        Si
+                    @else
+                        No
+                    @endif
+                </p>
+                <p><b>En caso negativo, ¿tiene algún aval?:</b>
+                    @if(($solicitud->organizacione->aval) == 1)
+                        Si
+                    @else
+                        No
+                    @endif
+                </p>
+                <p><b>Cantidad de personas:</b> {{$solicitud->organizacione->cantPers}}</p>
+                <p><b>Edad por rango:</b> {{$solicitud->organizacione->edad}}</p>
+                <p><b>Tipos de servicio por día:</b> {{$solicitud->organizacione->tarea}}</p>
+                <p><b>¿Tiene ayuda alimentaria?:</b>
+                    @if(($solicitud->organizacione->ayuda_alimentaria) == 1)
+                        Si
+                    @else
+                        No
+                    @endif
+                </p>
+                <p><b>¿Recibe ayuda financiera?:</b>
+                    @if(($solicitud->organizacione->ayuda_financiera) == 1)
+                        Si
+                    @else
+                        No
+                    @endif
+                </p>
+                <p><b>Tarea que realizan:</b> {{$solicitud->organizacione->tipo_servicio}}</p>
+            </div>
+            <div class='estado'>
+                @if(($solicitud->estado) == 0)
+                    Pendiente
+                @else
+                    Aprobada
+                @endif
+            </div>
         </div>
         <div class='volver-listado'>
                 <a href="{{ url('/estadoSolicitud') }}">

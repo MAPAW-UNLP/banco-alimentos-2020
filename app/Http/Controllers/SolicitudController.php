@@ -213,5 +213,10 @@ $this->middleware('permission:solicitud-delete', ['only' => ['destroy','aceptar'
     }
     return view('estado-solicitud.indexDatos',$datos);
   }
+
+  public function estado_solicitud_datos($id)
+  {
+      return view('estado-solicitud.datos', ['solicitud' => Solicitud::findOrFail($id)]);
+  }
 }
 

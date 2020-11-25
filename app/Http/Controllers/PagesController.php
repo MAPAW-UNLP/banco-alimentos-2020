@@ -57,12 +57,4 @@ class PagesController extends Controller
     public function estado_solicitud_indexDatos(){
         return view('estado-solicitud.indexDatos');
     }
-
-    public function estado_solicitud_datos(){
-        return view('estado-solicitud.datos');
-    }
-
-    public function estado_solicitud_combos(){
-        return view('estado-solicitud.combos');
-    }
 }

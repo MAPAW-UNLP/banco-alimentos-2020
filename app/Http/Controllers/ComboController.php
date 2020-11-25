@@ -74,7 +74,7 @@ class ComboController extends Controller
             }
         }
         //return response()->json($datos);
-        return redirect('combos')->with('success', 'El combo se creo correctamente');
+        return redirect('combos')->with('success', 'El combo se creó correctamente');
     }
 
     /**
@@ -179,7 +179,7 @@ class ComboController extends Controller
                 $i=$i+1;
             }
         }
-        return redirect('combos')->with('success', 'El combo se modifico correctamente');;
+        return redirect('combos')->with('success', 'El combo se modificó correctamente');;
     }
 
     /**
@@ -198,7 +198,7 @@ class ComboController extends Controller
             $combo['estado']=2;
             Combo::where('id','=',$id)->update($combo->toArray());
         }
-        return redirect('combos')->with('success', 'El combo se elimino correctamente');;
+        return redirect('combos')->with('success', 'El combo se eliminó correctamente');;
         //Producto::where('combo_id', '=', $id)->delete();
         //Combo::destroy($id);
         //return redirect('combos');
@@ -214,5 +214,9 @@ class ComboController extends Controller
         }
         Combo::where('id','=',$id)->update($combo->toArray());
         return redirect('combos');
+    }
+
+    public function estado_solicitud_combos($id){
+        return view('estado-solicitud.combos', ['combo' => Combo::findOrFail($id)]);
     }
 }
