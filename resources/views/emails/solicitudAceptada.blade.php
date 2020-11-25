@@ -5,8 +5,7 @@
     <div class='right-container'>
         <div class="card-body">
             <h3>
-                Se ha realizado una preinscripción de su solicitud de ingreso al Banco de Alimentos. <br/>
-                Queda pendiente la visita para terminar el trámite. <br/>
+                {{ $notificacion->notificacion }} <br/>
             </h3>
             <p>Banco de alimentos</p>
         </div>

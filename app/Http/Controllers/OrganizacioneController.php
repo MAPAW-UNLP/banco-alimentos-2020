@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\OrganizacionDeshabilitada;
 use App\Mail\OrganizacionHabilitada;
 use App\Mail\ModificacionDeDatos;
+use App\Models\NotificacionAceptacion;
+use App\Mail\SolicitudAceptada;
 
 class OrganizacioneController extends Controller
 {
@@ -142,6 +144,10 @@ class OrganizacioneController extends Controller
         Solicitud::where('id','=',$id)->update($sol->toArray());
         $organizacion=organizacione::findOrFail($sol->organizacione->id);
         $organizacion['estado']=1;
+        $obj = new SolicitudAceptada();
+        $param['notificacion'] = NotificacionAceptacion::findOrFail(1);
+        $to = $organizacion['email'];
+        Mail::to($to)->send($obj->parametro($param));
         organizacione::where('id','=',$id)->update($organizacion->toArray());
         return redirect('solicitudes')->with('success', 'La solicitud fue aceptada correctamente');
     }
