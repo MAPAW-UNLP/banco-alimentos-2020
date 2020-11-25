@@ -15,7 +15,7 @@ use App\Http\Controllers\ModificacioneController;
 use App\Http\Controllers\NotificacionController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\MailController;
-
+use App\Http\Controllers\NotificacionAceptacionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,6 +45,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('solicitudes', 'SolicitudController');
     Route::resource('modificaciones', 'ModificacioneController');
     Route::resource('notificaciones', 'NotificacionController');
+    Route::resource('notificacionAceptacion', 'NotificacionAceptacionController');
     Route::get('/aceptarOrg/{id}', [OrganizacioneController::class, 'aceptar']);
     Route::get('/readDataOrg/{id}', [OrganizacioneController::class, 'show']);
     Route::post('/rechazar', [RechazoController::class, 'store']);
@@ -66,7 +67,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('organizacione/edit/{id}', [OrganizacioneController::class, 'edit']);
     Route::get('organizacione/edit-short/{id}', [OrganizacioneController::class, 'edit_short']);
     Route::get('organizacione/show/{id}', [OrganizacioneController::class, 'show']);
-    Route::get('/notificacionPorAceptacion', [PagesController::class, 'notificacion_por_aceptacion']);
+    Route::get('/notificacionPorAceptacion', [NotificacionAceptacionController::class, 'index']);
 });
 Route::post('/aceptarTerminos', [MailController::class, 'aceptarTerminos']);
 Route::post('/resetPass', [MailController::class, 'resetPass']);

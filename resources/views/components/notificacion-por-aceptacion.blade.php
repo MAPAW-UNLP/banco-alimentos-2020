@@ -62,12 +62,12 @@
             <div class='body'>
                 <div class='body-notificacion'>
                     <h3>Notificación por aceptación</h3>
-                    <form id="myForm" action="{{ url('/notificaciones') }}" method="post">
+                    <form id="myForm" action="{{ url('/notificacionAceptacion') }}" method="post">
                         {{csrf_field()}} 
                     <div class='ingresar-contenido'>
                         <h5>Contenido del mail que se envía a una organización</h5>
                         <div class='recuerde'>
-                            <textarea id="notificacion" name="notificacion"></textarea>
+                            <textarea id="notificacion" name="notificacion" required>{{ $notificacion->notificacion }}</textarea>
                         </div>                     
                     </div>  
                     <div class='button-section'>
