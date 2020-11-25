@@ -37,6 +37,8 @@ class CreateAuxTable extends Migration
             $table->integer('miercoles')->nullable();
             $table->integer('jueves')->nullable();
             $table->integer('viernes')->nullable();
+            $table->integer('sabado')->nullable();
+            $table->integer('domingo')->nullable();
             $table->string('rangoHorario')->nullable();
         });
     }

@@ -72,6 +72,7 @@ Route::post('/aceptarTerminos', [MailController::class, 'aceptarTerminos']);
 Route::post('/resetPass', [MailController::class, 'resetPass']);
 Route::get('/terminos', [OrganizacioneController::class, 'terminos']);
 Route::get('/registro', [OrganizacioneController::class, 'registro']);
+Route::post('/registro', [SolicitudController::class, 'store']);
 
 Auth::routes();
 

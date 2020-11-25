@@ -43,7 +43,8 @@ class OrganizacioneController extends Controller
      */
     public function store(Request $request)
     {
-        $datos=request()->except('_token');
+        $datos=request();
+        $solicitud=$datos['nombre_institucion'];
         //Organizacione::insert($datos);
         return response()->json($datos);
         //return redirect('organizaciones');

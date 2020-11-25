@@ -43,42 +43,42 @@ function desbloquear(){
 <div class='body-registro'>
   <div class='body-request'>
     <h3 class="letra"> Solicitud de ingreso </h3>
-    <form action="{{ url('/organizaciones')}}" method='post' class="was-validated" name="form">
+    <form action="{{ url('/registro')}}" method='post' class="was-validated" name="form">
       {{csrf_field()}}
       <div class="form-group row">
-        <label for="validationServer03" class="col-sm-3 col-form-label letra">*Nombre de la institución:</label>
+        <label for="nombre_institucion" class="col-sm-3 col-form-label letra">*Nombre de la institución:</label>
         <div class="col-sm-4">
-          <input type="text" class="form-control" id="nombre_institucion" required>
+          <input type="text" class="form-control" id="nombre_institucion" name="nombre_institucion" value="nombre institucion" required>
         </div>
       </div>
       <div class="form-group row">
         <label for="validationServer03" class="col-sm-3 col-form-label letra">*Nombre del referente:</label>
         <div class="col-sm-4">
-          <input type="text" class="form-control" id="referente" required>
+          <input type="text" class="form-control" id="referente" name="nombre_referente" value="nombre_referente" required>
         </div>
       </div>
       <div class="form-group row">
         <label for="validationServer03" class="col-sm-3 col-form-label letra">*Email inicio sesión:</label>
         <div class="col-sm-4">
-          <input type="email" class="form-control" id="referente" required>
+          <input type="email" class="form-control" id="referente" id="referente" value="mail@mail"  required>
         </div>
       </div>
       <div class="form-group row">
         <label for="validationServer03" class="col-sm-3 col-form-label letra">*Teléfono / Celular</label>
         <div class="col-sm-4">
-          <input type="text" class="form-control" id="inputPassword3" required>
+          <input type="text" class="form-control" id="inputPassword3" id="telefono" value="2215498512" required>
         </div>
       </div>
       <div class="form-group row">
         <label for="validationServer03" class="col-sm-3 col-form-label letra">*Domicilio (barrio):</label>
         <div class="col-sm-4">
-          <input type="text" class="form-control" id="inputPassword3" required>
+          <input type="text" class="form-control" id="inputPassword3" name="barrio" value="la loma" required>
         </div>
       </div>
       <div class="form-group row">
         <label for="validationServer03" class="col-sm-3 col-form-label letra">*Localidad:</label>
         <div class="col-sm-4">
-          <input type="text" class="form-control" id="inputPassword3" required>
+          <input type="text" class="form-control" id="inputPassword3" name="localidad"  value="la plata" required>
         </div>
       </div>
 
@@ -87,13 +87,13 @@ function desbloquear(){
           <legend class="col-form-label col-sm-2 pt-0 letra">*¿Personería jurídica?</legend>
           <div class="col-sm-10">
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" onclick="javascript:desbloquear();" value="si" required>
+              <input class="form-check-input" type="radio" name="personeria" id="gridRadios1" onclick="javascript:desbloquear();" value=1 required>
               <label class="form-check-label" for="gridRadios1">
                 Si
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" onclick="javascript:desbloquear();" value="no" required>
+              <input class="form-check-input" type="radio" name="personeria" id="gridRadios2" onclick="javascript:desbloquear();" value=0 required>
               <label class="form-check-label" for="gridRadios2">
                 No
               </label>
@@ -107,19 +107,19 @@ function desbloquear(){
         <br>
         <br>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1" name="municipio" id="municipio" disabled="true">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" name="municipio" id="municipio" value=1 disabled="true">
             <label class="form-check-label" for="gridCheck1">
               Municipio
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1" name="estados" id="estados" disabled="true"> 
+            <input class="form-check-input" type="checkbox" id="gridCheck1" name="estados" id="estados" value=2 disabled="true"> 
             <label class="form-check-label" for="gridCheck1">
               Estado ¿cuál?
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1" name="movimiento" id="movimiento" disabled="true">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" name="movimiento" id="movimiento"  value=4 disabled="true">
             <label class="form-check-label" for="gridCheck1">
               Movimiento social
             </label>
@@ -134,7 +134,7 @@ function desbloquear(){
       </div>
       <h3 class="letra">* Tipos de servicio por día:</h3>
       <h5 class="letra">¿A qué cantidad de personas se les brinda el servicio?</h5>
-      <table class="table table-bordered" style="background-color:grey;">
+      <table class="table table-bordered" style="background-color:grey;" name="cantPersonas">
       <thead>
         <tr>
           <th class='center-item' scope="col">Desayuno</th>
@@ -176,7 +176,7 @@ function desbloquear(){
     </table>
     <br>
     <h5 class="letra">Edad de los beneficiarios</h5>
-      <table class="table table-bordered" style="background-color:grey;">
+      <table class="table table-bordered" style="background-color:grey;" name="edadPersonas">
       <thead>
         <tr>
           <th class='center-item' scope="col">0-2</th>
@@ -230,7 +230,7 @@ function desbloquear(){
     </table>
     <br>
     <h5 class="letra">Raciones por día del servicio</h5>
-      <table class="table table-bordered" style="background-color:grey;">
+      <table class="table table-bordered" style="background-color:grey;" name="raciones ">
       <thead>
         <tr>
           <th class='center-item' scope="col"></th>
@@ -248,52 +248,52 @@ function desbloquear(){
       <tr>
           <td>Desayuno</td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">&nbsp;
+            <input class="form-check-input" type="checkbox" id="DL" name="DL" value=1>&nbsp;
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="DMA" name="DMA" value=1>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="DMI" name="DMI" value=1> 
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="DJ" name="DJ" value=1>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="DV" name="DV" value=1>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="DS" name="DS" value=1>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="DD" name="DD" value=1>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" >
           </div></td>
         </tr>
         <tr>
           <td>Almuerzo</td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">&nbsp;
+            <input class="form-check-input" type="checkbox" id="AL" name="AL" value=1>&nbsp;
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="AMA" name="AMA" value=1>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="AMI" name="AMI" value=1>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="AJ" name="AJ" value=1>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="AV" name="AV" value=1>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="AS" name="AS" value=1>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="AD" name="AD" value=1>
           </div></td>
           <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">
@@ -302,25 +302,25 @@ function desbloquear(){
         <tr>
           <td>Merienda</td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">&nbsp;
+            <input class="form-check-input" type="checkbox" id="ML" name="ML" value=1>&nbsp;
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="MMA" name="MMA" value=1>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="MMI" name="MMI" value=1>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="MJ" name="MJ" value=1>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="MV" name="MV" value=1>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="MS" name="MS" value=1>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="MD" name="MD" value=1>
           </div></td>
           <td class='center-item' ><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">
@@ -329,25 +329,25 @@ function desbloquear(){
         <tr>
           <td>Cena</td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">&nbsp;
+            <input class="form-check-input" type="checkbox" id="CL" name="CL" value=1>&nbsp;
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="CMA" name="CMA" value=1>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="CMI" name="CMI" value=1>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="CJ" name="CJ" value=1>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="CV" name="CV" value=1>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="CS" name="CS" value=1>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="CD" name="CD" value=1>
           </div></td>
           <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1">
@@ -362,19 +362,19 @@ function desbloquear(){
         <br>
         <div class="col-sm-10">
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" required>
+              <input class="form-check-input" type="radio" name="alimentaria" id="gridRadios1" value=1 required>
               <label class="form-check-label" for="gridRadios1">
                 Publica
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2" required>
+              <input class="form-check-input" type="radio" name="alimentaria" id="gridRadios2" value=2 required>
               <label class="form-check-label" for="gridRadios2">
                 Privada
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2" required>
+              <input class="form-check-input" type="radio" name="alimentaria" id="gridRadios2" value=3 required>
               <label class="form-check-label" for="gridRadios2">
                 No recibo ayuda
               </label>
@@ -389,19 +389,19 @@ function desbloquear(){
         <br>
         <div class="col-sm-10">
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="financiera" id="financiera" value="option1" required>
+              <input class="form-check-input" type="radio" name="financiera" id="financiera" value=1 required>
               <label class="form-check-label" for="gridRadios1">
                 Publica
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="financiera" id="financiera" value="option2" required>
+              <input class="form-check-input" type="radio" name="financiera" id="financiera" value=2 required>
               <label class="form-check-label" for="gridRadios2">
                 Privada
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="financiera" id="financiera" value="option2" required>
+              <input class="form-check-input" type="radio" name="financiera" id="financiera" value=3 required>
               <label class="form-check-label" for="gridRadios2">
                 No recibo ayuda
               </label>
