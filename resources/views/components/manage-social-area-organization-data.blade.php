@@ -56,48 +56,50 @@
             <div class='body-organization-data'>
                 <div class='header-section'>
                     <h3>Organizaciones</h3>
-                    <div class="request-section" >
-                        <input type="text"><button><a href="{{ url('/#') }}">Buscar</a></button>
+                    <div>
+                        <input style="margin-right:10px" type="text"><button><a href="{{ url('/#') }}">Buscar</a></button>
                     </div>
                 </div>
-                <div class='titles-section'>
-                    <div><p>ID</p></div> 
-                    <div><p>Nombre de la organización</p></div>
-                    <div><p>&nbsp;</p></div> 
-                    <div><p>&nbsp;</p></div> 
-                    <div><p>&nbsp;</p></div>    
-                    <div style="padding-right:0;"><p>Inactivo / Activo</p></div>            
-                </div>                
-                @foreach($organizaciones as $organizacione)
-                <div class='request-section'>
-                    <div class='request-section-item-id'>
-                        {{$organizacione->id}}
-                    </div>
-                    <div class='request-section-item'>
-                        {{$organizacione->nombre}}
-                    </div>
-                    <div class='request-section-item'>
-                        <div class='request-section-item-link'><a href="{{url('organizacione/show/'.$organizacione->id)}}">Ver más</a></div>
-                    </div>
-                    <div class='request-section-item'>
-                        <div class='request-section-item-link'><a href="{{url('organizacione/edit-short/'.$organizacione->id)}}">Modificar datos</a></div>
-                    </div>
-                    <div class='request-section-item'>
-                    <div class='request-section-item-link'><a href="">Cargar datos vista</a></div>
-                    </div>
-                    <div class='switch-section'>
-                        <label class="switch">
-                        @if(($organizacione->estado) == 1)
-                            <input type="checkbox" id="check" onclick="changeStatus('{{ url('/cambiarOrga/'.$organizacione->id) }}')" value="{{ $organizacione->estado }}" checked >
-                        @endif
-                        @if(($organizacione->estado) == 0)
-                            <input type="checkbox" id="check" onclick="changeStatus('{{ url('/cambiarOrga/'.$organizacione->id) }}')" value="{{ $organizacione->estado }}" >
-                        @endif
-                            <span class="slider round"></span>
-                        </label>                       
-                    </div>
-                </div>
-                @endforeach
+                <table class="organization-table">
+                    <thead>
+                        <tr class="color-white">
+                            <th style="width:10%;">ID</th>
+                            <th style="width:25%;">Nombre de la organización</th>
+                            <th style="width:15%;">&nbsp;</th>
+                            <th style="width:15%;">&nbsp;</th>
+                            <th style="width:15%;">&nbsp;</th>
+                            <th style="width:20%;" class="align-center">Inactivo / Activo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @if(count($organizaciones) > 0)
+                        @foreach($organizaciones as $organizacione)
+                            <tr>
+                                <td class="background-white align-center"><b>{{$organizacione->id}}</b></td>
+                                <td class="background-white"><b>{{$organizacione->nombre}}</b></td>
+                                <td class="background-white align-center"><div class='request-section-item-link'><a href="{{url('organizacione/show/'.$organizacione->id)}}">Ver más</a></div></td>
+                                <td class="background-white align-center"><div class='request-section-item-link'><a href="{{url('organizacione/edit-short/'.$organizacione->id)}}">Modificar datos</a></div></td>
+                                <td class="background-white align-center"><div class='request-section-item-link'><a href="">Cargar datos vista</a></div></td>
+                                <td>
+                                    <div class='switch-section'>
+                                        <label class="switch">
+                                        @if(($organizacione->estado) == 1)
+                                            <input type="checkbox" id="check" onclick="changeStatus('{{ url('/cambiarOrga/'.$organizacione->id) }}')" value="{{ $organizacione->estado }}" checked >
+                                        @endif
+                                        @if(($organizacione->estado) == 0)
+                                            <input type="checkbox" id="check" onclick="changeStatus('{{ url('/cambiarOrga/'.$organizacione->id) }}')" value="{{ $organizacione->estado }}" >
+                                        @endif
+                                            <span class="slider round"></span>
+                                        </label>                       
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @else
+                        <tr><td>No hay datos de organizaciones</td></tr>
+                    @endif
+                    </tbody>                    
+                </table>            
             </div>
         </div>
     </div>

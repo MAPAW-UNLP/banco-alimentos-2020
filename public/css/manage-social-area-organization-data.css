@@ -7,6 +7,7 @@
     color: white;
     align-items: center;
     justify-content: space-between;
+    padding-bottom: 15px;
 }
 
 .header-section p {
@@ -95,8 +96,34 @@ input:checked + .slider:before {
 }
 
 .request-section-item-link {
-    background-color: #f2994a;
+    background-color: #00aee8;
     border-radius: 4px;
     text-align: center;
-    padding: 5px;
+    padding: 3px;
+    min-height: 62px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background-white {
+    background-color: #ffffff;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.color-white {
+    color: white;
+}
+
+tr {
+    color: black;
+}
+
+.organization-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 15px;
 }

@@ -5,19 +5,15 @@
     min-height: 250px;
 }
 
-
-.table-sm td, .table-sm th {
-    padding: .0rem !important;
+.table-sm td,
+.table-sm th {
+    padding: 0rem !important;
 }
 
-
-
-table td, .table th {
-    
+table td,
+.table th {
     vertical-align: text-top !important;
-    
 }
-
 
 .combo-item {
     padding: 10px 0;
@@ -210,7 +206,7 @@ button {
     width: 30%;
     /* background-color: #007bff; */
     background-color: #103965 !important;
-    /* border-radius: 10px; */
+    border-radius: 4px;
     padding: 5px;
 }
 
@@ -259,7 +255,7 @@ button {
 
 .list-combo-title {
     padding: 20px 0;
-    }
+}
 
 .delete:hover {
     color: black;
