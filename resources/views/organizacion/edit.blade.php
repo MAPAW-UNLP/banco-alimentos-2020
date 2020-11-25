@@ -2,6 +2,8 @@
 <link rel="stylesheet" href="{{ url('css/top-menu.css') }}">
 <link rel="stylesheet" href="{{ url('css/manage-social-area.css') }}">
 <link rel="stylesheet" href="{{ url('css/solicitudes-organizacion.css') }}">
+<link rel="stylesheet" href="{{ url('css/regitroOrganizacion.css') }}">
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
 
 @include('main')
 @include('components.header')
@@ -29,14 +31,6 @@
             </a>
         </div>
     </div>
-
-
-
-<link rel="stylesheet" href="{{ url('css/lateral-menu.css') }}">
-<link rel="stylesheet" href="{{ url('css/top-menu.css') }}">
-<link rel="stylesheet" href="{{ url('css/regitroOrganizacion.css') }}">
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
-<br>
 
 <script>
 function calcular(){
@@ -66,8 +60,6 @@ function desbloquear(){
 
   //document.getElementsByName("total_servicio")[0].value = parseInt(uno) + parseInt(dos) + parseInt(tres) + parseInt(cuatro) + parseInt(cinco);
 }
-
-
 </script>
 
 <div class='body-registro'>
@@ -453,3 +445,4 @@ function desbloquear(){
     </form>
     </div>
 </div>
+@include('components.footer')

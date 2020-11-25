@@ -1,12 +1,7 @@
-@include('main')
-@include('components.header')
-@include('components.nav')
-
 <link rel="stylesheet" href="{{ url('css/lateral-menu.css') }}">
 <link rel="stylesheet" href="{{ url('css/top-menu.css') }}">
 <link rel="stylesheet" href="{{ url('css/regitroOrganizacion.css') }}">
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
-<br>
 
 <script>
 function calcular(){
@@ -36,9 +31,11 @@ function desbloquear(){
 
   //document.getElementsByName("total_servicio")[0].value = parseInt(uno) + parseInt(dos) + parseInt(tres) + parseInt(cuatro) + parseInt(cinco);
 }
-
-
 </script>
+
+@include('main')
+@include('components.header')
+@include('components.nav')
 
 <div class='body-registro'>
   <div class='body-request'>
@@ -60,13 +57,13 @@ function desbloquear(){
       <div class="form-group row">
         <label for="validationServer03" class="col-sm-3 col-form-label letra">*Email inicio sesión:</label>
         <div class="col-sm-4">
-          <input type="email" class="form-control" id="referente" id="referente" value="mail@mail"  required>
+          <input type="email" class="form-control" id="referente" name="referente" value="mail@mail"  required>
         </div>
       </div>
       <div class="form-group row">
         <label for="validationServer03" class="col-sm-3 col-form-label letra">*Teléfono / Celular</label>
         <div class="col-sm-4">
-          <input type="text" class="form-control" id="inputPassword3" id="telefono" value="2215498512" required>
+          <input type="text" class="form-control" id="inputPassword3" name="telefono" value="2215498512" required>
         </div>
       </div>
       <div class="form-group row">
@@ -296,7 +293,7 @@ function desbloquear(){
             <input class="form-check-input" type="checkbox" id="AD" name="AD" value=1>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" name='gridCheck1'>
           </div></td>
         </tr>
         <tr>
@@ -323,7 +320,7 @@ function desbloquear(){
             <input class="form-check-input" type="checkbox" id="MD" name="MD" value=1>
           </div></td>
           <td class='center-item' ><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="gridCheck2" name='gridCheck2'>
           </div></td>
         </tr>
         <tr>
@@ -350,7 +347,7 @@ function desbloquear(){
             <input class="form-check-input" type="checkbox" id="CD" name="CD" value=1>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="gridCheck3" name='gridCheck3'>
           </div></td>
         </tr>
       </tbody>
@@ -423,3 +420,4 @@ function desbloquear(){
     </form>
     </div>
 </div>
+@include('components.footer')
