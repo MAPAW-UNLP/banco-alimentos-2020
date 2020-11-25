@@ -47,24 +47,43 @@
                 </a>
             </div>
             <div>
-                <a href="{{ url('/modificaciones') }}" class='top-menu-item'>
-                    <p class='top-menu-text-item'>Modificaciones pendientes</p>
+                <a href="{{ url('/notificacionPorAceptacion') }}" class='top-menu-item'>
+                    <p class='top-menu-text-item'>Notificación por aceptación</p>
                 </a> 
             </div>   
         </nav> 
         <div class='body'>
             <div class='body-organization-data'>
-                <div class="request-section" style="position:absolute;left:20%"  >
-                    <input type="text"><button><a href="{{ url('/#') }}">Buscar</a></button>
-                </div>
                 <div class='header-section'>
                     <h3>Organizaciones</h3>
-                    <p>Inactivo / Activo</p>
+                    <div class="request-section" >
+                        <input type="text"><button><a href="{{ url('/#') }}">Buscar</a></button>
+                    </div>
                 </div>
+                <div class='titles-section'>
+                    <div><p>ID</p></div> 
+                    <div><p>Nombre de la organización</p></div>
+                    <div><p>&nbsp;</p></div> 
+                    <div><p>&nbsp;</p></div> 
+                    <div><p>&nbsp;</p></div>    
+                    <div style="padding-right:0;"><p>Inactivo / Activo</p></div>            
+                </div>                
                 @foreach($organizaciones as $organizacione)
                 <div class='request-section'>
-                    <div class='request-section-text'>
-                        <p><b>Nombre institución:</b> {{$organizacione->nombre}}</p>
+                    <div class='request-section-item-id'>
+                        {{$organizacione->id}}
+                    </div>
+                    <div class='request-section-item'>
+                        {{$organizacione->nombre}}
+                    </div>
+                    <div class='request-section-item'>
+                        <div class='request-section-item-link'><a href="{{url('organizacione/show/'.$organizacione->id)}}">Ver más</a></div>
+                    </div>
+                    <div class='request-section-item'>
+                        <div class='request-section-item-link'><a href="{{url('organizacione/edit-short/'.$organizacione->id)}}">Modificar datos</a></div>
+                    </div>
+                    <div class='request-section-item'>
+                    <div class='request-section-item-link'><a href="">Cargar datos vista</a></div>
                     </div>
                     <div class='switch-section'>
                         <label class="switch">

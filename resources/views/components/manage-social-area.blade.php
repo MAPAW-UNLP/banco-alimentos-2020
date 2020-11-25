@@ -54,8 +54,8 @@
                 </a>
             </div>
             <div>
-                <a href="{{ url('/modificaciones') }}" class='top-menu-item'>
-                    <p class='top-menu-text-item'>Modificaciones pendientes</p>
+                <a href="{{ url('/notificacionPorAceptacion') }}" class='top-menu-item'>
+                    <p class='top-menu-text-item'>Notificación por aceptación</p>
                 </a> 
             </div>   
         </nav> 

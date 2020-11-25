@@ -65,4 +65,8 @@ class PagesController extends Controller
     public function estado_solicitud_combos(){
         return view('estado-solicitud.combos');
     }
+
+    public function notificacion_por_aceptacion(){
+        return view('components.notificacion-por-aceptacion');
+    }
 }

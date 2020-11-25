@@ -66,6 +66,17 @@ class OrganizacioneController extends Controller
      * @param  \App\Models\Organizacione  $organizacione
      * @return \Illuminate\Http\Response
      */
+    public function edit_short($id)
+    {
+        return view('organizacion.edit-short', ['organizacione' => Organizacione::findOrFail($id)]);
+    }
+
+        /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Organizacione  $organizacione
+     * @return \Illuminate\Http\Response
+     */
     public function edit($id)
     {
         return view('organizacion.edit', ['organizacione' => Organizacione::findOrFail($id)]);

@@ -47,14 +47,20 @@
           <h3>Solicitudes de Combos</h3>
           <div class='combos-body'>
             <h4 class='font-white'>Combos</h4>
+            @if(count($pedidos) > 0)
+            @foreach($pedidos as $pedido)
             <div class='solicitudes-tabla'>
               <div class='request-section-text'>  
-                <p><b>Combo 1</b></p>
+                <p><b>{{$pedido->combo->nombre}}</b></p>
               </div> 
               <div class='buttons-section'>
-                <button type="submit" class='show-more'><a href="{{ url('/estadoSolicitud/pedidosCombos')}}">Ver mas</a></button>                     
+                <button type="submit" class='show-more'><a href="{{ url('/estadoSolicitud/solicitudCombos')}}">Ver mas</a></button>                     
               </div>
-            </div>              
+            </div>
+            @endforeach
+            @else
+              <h2> No dispone de solicitudes de combos</h2>
+            @endif              
           </div>
         </div>
       </div>

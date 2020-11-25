@@ -100,7 +100,7 @@ class PedidoController extends Controller
     }
     public function estado_solicitud_indexCombo(){
         $pedidos=pedido::where('organizacion_id','=',Auth::id())->paginate();
-        if (is_null($solicitud)){
+        if (is_null($pedidos)){
             $datos['tengoDatos']=0;
         }else{
             $datos['tengoDatos']=1;

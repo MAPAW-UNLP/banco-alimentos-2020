@@ -43,14 +43,14 @@
                 </a>
             </div>
             <div>
-                <a href="{{ url('/modificaciones') }}" class='top-menu-item-color'>
-                    <p class='top-menu-text-item'><b>Modificaciones pendientes</b></p>
+                <a href="{{ url('/notificacionPorAceptacion') }}" class='top-menu-item-color'>
+                    <p class='top-menu-text-item'><b>Notificación por aceptación</b></p>
                 </a> 
             </div>   
         </nav> 
         <div class='body'>
             <div class='body-request'>
-                <h3>Modificaciones Pendientes</h3>
+                <h3>Notificación por aceptación</h3>
                 @if(count($modificaciones) > 0)
                     @foreach($modificaciones as $modificacione)
                     <div class='request-section'>                

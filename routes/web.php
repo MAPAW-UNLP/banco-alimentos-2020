@@ -63,7 +63,10 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/estadoSolicitud/indexDatos', [SolicitudController::class, 'solicitudOrganizacion']);
     Route::get('/estadoSolicitud/solicitudDatos/', [PagesController::class, 'estado_solicitud_datos']);
     Route::get('/estadoSolicitud/solicitudCombos/', [PagesController::class, 'estado_solicitud_combos']);
-    Route::get('/edit/{id}', [OrganizacioneController::class, 'edit']);
+    Route::get('organizacione/edit/{id}', [OrganizacioneController::class, 'edit']);
+    Route::get('organizacione/edit-short/{id}', [OrganizacioneController::class, 'edit_short']);
+    Route::get('organizacione/show/{id}', [OrganizacioneController::class, 'show']);
+    Route::get('/notificacionPorAceptacion', [PagesController::class, 'notificacion_por_aceptacion']);
 });
 Route::post('/aceptarTerminos', [MailController::class, 'aceptarTerminos']);
 Route::post('/resetPass', [MailController::class, 'resetPass']);
