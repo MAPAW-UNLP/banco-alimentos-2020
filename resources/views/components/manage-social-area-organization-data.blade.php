@@ -57,7 +57,11 @@
                 <div class='header-section'>
                     <h3>Organizaciones</h3>
                     <div>
-                        <input style="margin-right:10px" type="text"><button><a href="{{ url('/#') }}">Buscar</a></button>
+                    <form id="myForm" action="{{ url('/organizacion/busqueda') }}" method="post">
+                        @csrf
+                        <input name="stringbusqueda" style="margin-right:10px" type="text"><button>Buscar</button>
+                    </form>
+                    
                     </div>
                 </div>
                 <table class="organization-table">

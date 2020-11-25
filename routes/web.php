@@ -39,6 +39,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/combos/ver/{id}', [ComboController::class, 'ver']);
     Route::get('/combos/solicitar/{userid}', [ComboController::class, 'solicitar']);
     Route::get('/combos/calendar/{idcombo}', [ComboController::class, 'calendar']);
+    Route::post('/organizacion/busqueda', [OrganizacioneController::class, 'busqueda']);
     Route::resource('organizaciones', 'OrganizacioneController');
     Route::resource('pedidos', 'PedidoController');
     Route::resource('rols', 'RolController');
