@@ -14,10 +14,10 @@ public function up()
 Schema::create('users', function (Blueprint $table) {
 $table->bigIncrements('id');
 $table->string('name');
-$table->string('apellido');
+$table->string('apellido')->nullable();
 $table->string('email')->unique();
 $table->string('dni')->nullable();
-$table->string('telefono');
+$table->string('telefono')->nullable();
 $table->string('password');
 $table->rememberToken();
 $table->timestamps();

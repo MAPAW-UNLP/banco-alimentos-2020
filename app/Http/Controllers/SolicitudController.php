@@ -8,6 +8,8 @@ use App\Models\CantPersonasServicios;
 use App\Models\CantPersonasEdads;
 use App\Models\Organizacione;
 use App\Models\CantRacionesDias;
+use App\Models\User;
+use Hash;
 
 use RechazoController;
 use Illuminate\Support\Facades\Auth;
@@ -52,6 +54,11 @@ $this->middleware('permission:solicitud-delete', ['only' => ['destroy','aceptar'
   public function store(Request $request)
   {
     $datos=request();
+    $paramUser['name'] = $datos['nombre_referente'];
+    $paramUser['password'] = Hash::make('123456');
+    $paramUser['email'] = $datos['referente'];
+    $myUser=User::insertGetId($paramUser);
+    $organizacion['user_id']=$myUser;
     $organizacion['nombre']=$datos['nombre_institucion'];
     $organizacion['telefono']=$datos['telefono'];
     $organizacion['domicilio']=$datos['barrio'];
@@ -210,8 +217,8 @@ $this->middleware('permission:solicitud-delete', ['only' => ['destroy','aceptar'
     $paramSolicitud['organizacion_id']=$id_organizacion;
     $paramSolicitud['estado']=0;
     Solicitud::insert($paramSolicitud);
-    return response()->json($datos);
-    //return redirect('organizaciones');
+    //return response()->json($datos);
+    return redirect('/');
   }
 
   /**
