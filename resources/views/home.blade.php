@@ -1,5 +1,9 @@
 @include('main')
 @include('components.header')
+@if(Auth::user()->estado==0)
+ <h1>Pagaraplata</h1>
+@else
 @include('components.nav')
 @include('components.home-body')
+@endif
 @include('components.footer')

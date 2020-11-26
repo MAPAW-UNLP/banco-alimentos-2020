@@ -19,6 +19,7 @@ $table->string('email')->unique();
 $table->string('dni')->nullable();
 $table->string('telefono')->nullable();
 $table->string('password');
+$table->integer('estado');
 $table->rememberToken();
 $table->timestamps();
 });

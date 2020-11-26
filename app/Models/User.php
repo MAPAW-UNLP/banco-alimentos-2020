@@ -12,6 +12,7 @@ use HasRoles;
 * The attributes that are mass assignable.
 *
 * @var array
+* @property Organizacione[] $organizaciones
 */
 const UPDATED_AT = null;
 const CREATED_AT = null;
@@ -34,4 +35,11 @@ protected $hidden = [
 protected $casts = [
 'email_verified_at' => 'datetime',
 ];
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function organizaciones()
+    {
+        return $this->hasMany('App\Organizacione');
+    }
 }
