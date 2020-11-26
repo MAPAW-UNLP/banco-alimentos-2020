@@ -110,6 +110,7 @@ class OrganizacioneController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
         $datos=request()->except(['_token','_method']);
         Organizacione::where('id','=',$id)->update($datos);
         #DESCOMENTAR PARA MANDAR EL MAIL CUANDO ESTE LA VISTA
@@ -118,6 +119,18 @@ class OrganizacioneController extends Controller
         #$to = 'mapaw2020@gmail.com';
         #Mail::to($to)->send($obj->parametro($param));
         return redirect('organizaciones');
+    }
+    public function updateShort(Request $request)
+    {
+        $id = $request->input('id');
+        $datos=request()->except(['_token','_method','id']);
+        Organizacione::where('id','=',$id)->update($datos);
+        #$param['id'] = $id;
+        #$obj = new ModificacionDeDatos();
+        #$to = 'mapaw2020@gmail.com';
+        #Mail::to($to)->send($obj->parametro($param));
+        return redirect('organizaciones');
+        //return response()->json($datos);
     }
 
     /**

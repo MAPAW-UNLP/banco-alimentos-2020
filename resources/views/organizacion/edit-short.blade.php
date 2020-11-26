@@ -110,12 +110,13 @@ function alerta(){
 <div class='body-registro'>
   <div class='body-request'>
     <h3 class="letra">Modificar mis datos</h3>
-    <form action="{{ url('/organizaciones')}}" method='post' class="was-validated" name="form">
+    <form action="{{ url('/editShort')}}" method='post' class="was-validated" name="form">
+    <input type="hiden" style="display:none" name="id" value={{$organizacione->id}}>
       {{csrf_field()}}
       <div class="form-group row">
         <label for="validationServer03" class="col-sm-3 col-form-label letra">*Nombre de la institución:</label>
         <div class="col-sm-4">
-          <input type="text" class="form-control" id="nombre_institucion" required value="{{$organizacione->nombre}}">
+          <input type="text" class="form-control" name="nombre" id="nombre_institucion" required value="{{$organizacione->nombre}}">
         </div>
       </div>
       <div class="form-group row">
@@ -133,19 +134,19 @@ function alerta(){
       <div class="form-group row">
         <label for="validationServer03" class="col-sm-3 col-form-label letra">*Teléfono / Celular</label>
         <div class="col-sm-4">
-          <input type="text" class="form-control" id="inputPassword3" required value="{{$organizacione->telefono}}">
+          <input type="text" class="form-control" name="telefono"  id="inputPassword3" required value="{{$organizacione->telefono}}">
         </div>
       </div>
       <div class="form-group row">
         <label for="validationServer03" class="col-sm-3 col-form-label letra">*Domicilio (barrio):</label>
         <div class="col-sm-4">
-          <input type="text" class="form-control" id="inputPassword3" required value="{{$organizacione->barrio}}">
+          <input type="text" class="form-control" name="domicilio" id="inputPassword3" required value="{{$organizacione->barrio}}">
         </div>
       </div>
       <div class="form-group row">
         <label for="validationServer03" class="col-sm-3 col-form-label letra">*Localidad:</label>
         <div class="col-sm-4">
-          <input type="text" class="form-control" id="inputPassword3" required value="{{$organizacione->localidad}}">
+          <input type="text" class="form-control" name="localidad" id="inputPassword3" required value="{{$organizacione->localidad}}">
         </div>
       </div>
 
@@ -478,7 +479,7 @@ function alerta(){
     </div>
     <div class="mb-3">
         <label for="validationTextarea" class="letra">*Breve párrafo explicativo de la tarea que realizan</label>
-        <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Agregue una explicación" required></textarea>
+        <textarea class="form-control is-invalid" name="tarea" id="validationTextarea" placeholder="Agregue una explicación" required>{{$organizacione->tarea}}</textarea>
         <div class="invalid-feedback">
         </div>
       </div>
