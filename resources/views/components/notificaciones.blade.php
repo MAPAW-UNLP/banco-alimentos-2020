@@ -24,7 +24,7 @@
         @endcan
         <div>
             <a href="{{ url('/estadoSolicitud') }}" class='lateral-menu-item'>                          
-                <p class='lateral-menu-text-item'><b>Mis solicitudes</b></p>              
+                <p class='lateral-menu-text-item'>Mis solicitudes</p>              
             </a>
         </div>
         <div>
@@ -46,7 +46,7 @@
             <a href="{{ url('/') }}" class='lateral-menu-item'>
                 <p class='lateral-menu-text-item'>Solicitar Combo</p>
             </a>
-        <div>
+        </div>
         <div>
             <a href="{{ url('/changePassword') }}" class='lateral-menu-item'>
                 <p class='lateral-menu-text-item'>Cambiar contraseña</p>

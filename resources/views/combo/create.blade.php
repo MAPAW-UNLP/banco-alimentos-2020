@@ -61,7 +61,7 @@
                 <p class='lateral-menu-text-item'>Agregar usuario</p>
             </a>
         </div>
-        @endcanc
+        @endcan
         <div>
             <a href="{{ url('/estadoSolicitud') }}" class='lateral-menu-item'>                          
                 <p class='lateral-menu-text-item'>Mis solicitudes</p>              
