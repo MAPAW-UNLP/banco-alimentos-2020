@@ -28,14 +28,15 @@
     @else
     <div class='navbar-link'>
       <a href="{{ url('/solicitudes') }}" title="Agregar usuario en el sistema">Solicitudes</a>
-      </div>
-      <div class='navbar-link'>
-        <a 
-          href="{{ url('/logout') }}" 
-          onclick="event.preventDefault();
-          document.getElementById('logout-form').submit();" title="Cerrar sesión en el sistema">Cerrar sesión
-        </a>
-      </div>
+    </div>
+    <div class='navbar-link'><a href="{{ url('/estadoSolicitud') }}" title="Registro del sistema">Ir al menú</a></div>
+    <div class='navbar-link'>
+      <a 
+        href="{{ url('/logout') }}" 
+        onclick="event.preventDefault();
+        document.getElementById('logout-form').submit();" title="Cerrar sesión en el sistema">Cerrar sesión
+      </a>
+    </div>
       <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
         {{csrf_field()}}
       </form>

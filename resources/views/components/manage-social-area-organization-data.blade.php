@@ -64,6 +64,7 @@
                     
                     </div>
                 </div>
+                @if(count($organizaciones) > 0)
                 <table class="organization-table">
                     <thead>
                         <tr class="color-white">
@@ -76,14 +77,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                    @if(count($organizaciones) > 0)
                         @foreach($organizaciones as $organizacione)
                             <tr>
                                 <td class="background-white align-center"><b>{{$organizacione->id}}</b></td>
                                 <td class="background-white"><b>{{$organizacione->nombre}}</b></td>
                                 <td class="background-white align-center"><div class='request-section-item-link'><a href="{{url('organizacione/show/'.$organizacione->id)}}">Ver más</a></div></td>
                                 <td class="background-white align-center"><div class='request-section-item-link'><a href="{{url('organizacione/edit-short/'.$organizacione->id)}}">Modificar datos</a></div></td>
-                                <td class="background-white align-center"><div class='request-section-item-link'><a href="">Cargar datos vista</a></div></td>
+                                <td class="background-white align-center"><div class='request-section-item-link' disable><a href="">Cargar datos visita</a></div></td>
                                 <td>
                                     <div class='switch-section'>
                                         <label class="switch">
@@ -99,11 +99,11 @@
                                 </td>
                             </tr>
                         @endforeach
-                    @else
-                        <tr><td>No hay datos de organizaciones</td></tr>
-                    @endif
                     </tbody>                    
-                </table>            
+                </table>
+                @else
+                    <h5>No hay datos de organizaciones</h5>
+                @endif            
             </div>
         </div>
     </div>
