@@ -62,14 +62,7 @@
             </a>
         </div>
         @endcan
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
         @can('orga-mis-solicitudes')
->>>>>>> 708d396... botones
-=======
-        @can('orga-mis-solicitudes')
->>>>>>> 708d396b949ea4a0b9b08042ea425e3c925c0f0f
         <div>
             <a href="{{ url('/estadoSolicitud') }}" class='lateral-menu-item'>                          
                 <p class='lateral-menu-text-item'>Mis solicitudes</p>              

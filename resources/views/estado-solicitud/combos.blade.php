@@ -29,6 +29,7 @@
             </a>
         </div>
         @endcan
+        @can('organizacion-list') 
         <div>
           <a href="{{ url('/solicitudes') }}" class='lateral-menu-item'>           
               <p class='lateral-menu-text-item'>Gestion área social</p>
@@ -39,6 +40,7 @@
             <p class='lateral-menu-text-item'>Combos</p>              
           </a>
         </div>
+        @endcan
         @can('orga-solicitar-combo')
         <div>
             <a href="{{ url('/') }}" class='lateral-menu-item'>
