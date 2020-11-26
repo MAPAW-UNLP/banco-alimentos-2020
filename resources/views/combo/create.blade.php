@@ -62,31 +62,48 @@
             </a>
         </div>
         @endcan
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+        @can('orga-mis-solicitudes')
+>>>>>>> 708d396... botones
+=======
+        @can('orga-mis-solicitudes')
+>>>>>>> 708d396b949ea4a0b9b08042ea425e3c925c0f0f
         <div>
             <a href="{{ url('/estadoSolicitud') }}" class='lateral-menu-item'>                          
                 <p class='lateral-menu-text-item'>Mis solicitudes</p>              
             </a>
         </div>
+        @endcan
+        @can('orga-mis-datos')
         <div>
           <a href="{{ url('/registro') }}" class='lateral-menu-item'>         
               <p class='lateral-menu-text-item'>Modificar mis datos</p>
           </a>
         </div>
+        @endcan
+        @can('organizacion-list') 
         <div>
             <a href="{{ url('/solicitudes') }}" class='lateral-menu-item'>           
                 <p class='lateral-menu-text-item'>Gestion área social</p>
             </a>
         </div>
+        @endcan
+        @can('combo-list')
         <div>
             <a href="{{ url('/combos') }}" class='lateral-menu-item-color'>                          
                 <p class='lateral-menu-text-item'><b>Combos</b></p>              
             </a>
         </div>
+        @endcan
+        @can('orga-solicitar-combo')
         <div>
             <a href="{{ url('/') }}" class='lateral-menu-item'>
                 <p class='lateral-menu-text-item'>Solicitar Combo</p>
             </a>
         </div>
+        @endcan
         <div>
             <a href="{{ url('/changePassword') }}" class='lateral-menu-item'>
                 <p class='lateral-menu-text-item'>Cambiar contraseña</p>
