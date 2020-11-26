@@ -125,10 +125,11 @@ class OrganizacioneController extends Controller
         $id = $request->input('id');
         $datos=request()->except(['_token','_method','id']);
         Organizacione::where('id','=',$id)->update($datos);
-        #$param['id'] = $id;
-        #$obj = new ModificacionDeDatos();
-        #$to = 'mapaw2020@gmail.com';
-        #Mail::to($to)->send($obj->parametro($param));
+        $param['id'] = $id;
+        return $id;
+        $obj = new ModificacionDeDatos();
+        $to = 'mapaw2020@gmail.com';
+        Mail::to($to)->send($obj->parametro($param));
         return redirect('organizaciones');
         //return response()->json($datos);
     }

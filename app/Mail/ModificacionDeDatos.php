@@ -8,7 +8,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
 
-class RestartPassword extends Mailable
+class ModificacionDeDatos extends Mailable
 {
     use Queueable, SerializesModels;
 

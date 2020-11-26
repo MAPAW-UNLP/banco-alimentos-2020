@@ -227,7 +227,7 @@ function desbloquear(){
     </table>
     <br>
     <h5 class="letra">Raciones por día del servicio</h5>
-      <table class="table table-bordered" style="background-color:grey;" name="raciones ">
+      <table class="table table-bordered" style="background-color:grey; margin-bottom:0rem;" name="raciones" >
       <thead>
         <tr>
           <th class='center-item' scope="col"></th>
@@ -265,9 +265,24 @@ function desbloquear(){
           <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="DD" name="DD" value=1>
           </div></td>
-          <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" >
-          </div></td>
+          <td class='center-item'>
+            <table class="table table-bordered" style="background-color:grey;" name="cantPersonas">
+              <thead>
+                <th class='center-item' scope="col">Desde</th>
+                <th class='center-item' scope="col">Hasta</th>
+              </thead>
+              <tbody>
+              <tr>   
+                <td class='center-item'>
+                  <input class="form-check-input" type="time" id="DD" name="DD" value=1>DESDE
+                </td>
+                <td class='center-item'>
+                  <input class="form-check-input" type="time" id="DD" name="DD" value=1>HASTA
+                </td>
+              </tr>
+              </tbody>
+            </table>
+         </td>
         </tr>
         <tr>
           <td>Almuerzo</td>
@@ -292,9 +307,24 @@ function desbloquear(){
           <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="AD" name="AD" value=1>
           </div></td>
-          <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1" name='gridCheck1'>
-          </div></td>
+          <td class='center-item'>
+            <table class="table table-bordered" style="background-color:grey;" name="cantPersonas">
+              <thead>
+                <th class='center-item' scope="col">Desde</th>
+                <th class='center-item' scope="col">Hasta</th>
+              </thead>
+              <tbody>
+              <tr>   
+                <td class='center-item'>
+                  <input class="form-check-input" type="time" id="DD" name="DD" value=1>DESDE
+                </td>
+                <td class='center-item'>
+                  <input class="form-check-input" type="time" id="DD" name="DD" value=1>HASTA
+                </td>
+              </tr>
+              </tbody>
+            </table>
+         </td>
         </tr>
         <tr>
           <td>Merienda</td>
@@ -319,9 +349,24 @@ function desbloquear(){
           <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="MD" name="MD" value=1>
           </div></td>
-          <td class='center-item' ><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck2" name='gridCheck2'>
-          </div></td>
+          <td class='center-item'>
+            <table class="table table-bordered" style="background-color:grey;" name="cantPersonas">
+              <thead>
+                <th class='center-item' scope="col">Desde</th>
+                <th class='center-item' scope="col">Hasta</th>
+              </thead>
+              <tbody>
+              <tr>   
+                <td class='center-item'>
+                  <input class="form-check-input" type="time" id="DD" name="DD" value=1>DESDE
+                </td>
+                <td class='center-item'>
+                  <input class="form-check-input" type="time" id="DD" name="DD" value=1>HASTA
+                </td>
+              </tr>
+              </tbody>
+            </table>
+         </td>
         </tr>
         <tr>
           <td>Cena</td>
@@ -346,9 +391,24 @@ function desbloquear(){
           <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="CD" name="CD" value=1>
           </div></td>
-          <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck3" name='gridCheck3'>
-          </div></td>
+          <td class='center-item'>
+            <table class="table table-bordered" style="background-color:grey;" name="cantPersonas">
+              <thead>
+                <th class='center-item' scope="col">Desde</th>
+                <th class='center-item' scope="col">Hasta</th>
+              </thead>
+              <tbody>
+              <tr>   
+                <td class='center-item'>
+                  <input class="form-check-input" type="time" id="DD" name="DD" value=1>DESDE
+                </td>
+                <td class='center-item'>
+                  <input class="form-check-input" type="time" id="DD" name="DD" value=1>HASTA
+                </td>
+              </tr>
+              </tbody>
+            </table>
+         </td>
         </tr>
       </tbody>
     </table>
