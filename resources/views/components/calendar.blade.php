@@ -63,16 +63,21 @@ $(function () {
 </script>
 <div class='general-container'>
     <div class='lateral-menu'>
-    @can('role-create')
+        @can('role-create')
         <div>
             <a href="{{ url('/addUser') }}" class='lateral-menu-item'>
                 <p class='lateral-menu-text-item'>Agregar usuario</p>
             </a>
         </div>
-    @endcan
+        @endcan
         <div>
-            <a href="{{ url('/changePassword') }}" class='lateral-menu-item'>
-                <p class='lateral-menu-text-item'>Cambiar contraseña</p>
+            <a href="{{ url('/estadoSolicitud') }}" class='lateral-menu-item'>                          
+                <p class='lateral-menu-text-item'><b>Mis solicitudes</b></p>              
+            </a>
+        </div>
+        <div>
+            <a href="{{ url('/registro') }}" class='lateral-menu-item'>         
+                <p class='lateral-menu-text-item'>Modificar mis datos</p>
             </a>
         </div>
         <div>
@@ -83,6 +88,16 @@ $(function () {
         <div>
             <a href="{{ url('/combos') }}" class='lateral-menu-item-color'>                          
                 <p class='lateral-menu-text-item'><b>Combos</b></p>              
+            </a>
+        </div>
+        <div>
+            <a href="{{ url('/') }}" class='lateral-menu-item'>
+                <p class='lateral-menu-text-item'>Solicitar Combo</p>
+            </a>
+        </div>
+        <div>
+            <a href="{{ url('/changePassword') }}" class='lateral-menu-item'>
+                <p class='lateral-menu-text-item'>Cambiar contraseña</p>
             </a>
         </div>
     </div>
