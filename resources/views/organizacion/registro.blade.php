@@ -45,7 +45,7 @@ function desbloquear(){
       <div class="form-group row">
         <label for="nombre_institucion" class="col-sm-3 col-form-label letra">*Nombre de la institución:</label>
         <div class="col-sm-4">
-          <input type="text" class="form-control" id="nombre_institucion" name="nombre_institucion" value="nombre institucion" required>
+          <input type="text" class="form-control" id="nombre_institucion" name="nombre_institucion" placeholder="nombre institucion" required>
         </div>
       </div>
       <div class="form-group row">
