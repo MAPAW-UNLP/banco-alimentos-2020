@@ -62,13 +62,13 @@
     <div>
         <nav class='top-menu'>
             <div>
-                <a href="{{ url('/solicitudes') }}" class='top-menu-item-color'>
-                    <p class='top-menu-text-item'><b>Empadronamientos</b></p>
+                <a href="{{ url('/solicitudes') }}" class='top-menu-item'>
+                    <p class='top-menu-text-item'>Empadronamientos</p>
                 </a>
             </div>
             <div>
-                <a href="{{ url('/organizaciones') }}" class='top-menu-item'>
-                    <p class='top-menu-text-item'>Datos de Organizaciones</p>
+                <a href="{{ url('/organizaciones') }}" class='top-menu-item-color'>
+                    <p class='top-menu-text-item'><b>Datos de Organizaciones</b></p>
                 </a>
             </div>
             <div>
@@ -79,8 +79,7 @@
         </nav> 
         <div class='body'>
             <div class='body-request'>
-                <h3>Solicitudes de empadronamiento</h3>
-
+                <h3>Datos de la organización</h3>
                 <div class='request-section'>
                     <div class='request-section-text'>
                     <p><b>Nombre institución:</b> {{$organizacione->nombre}}</p>
@@ -106,10 +105,6 @@
                         <p><b>¿Tiene ayuda alimentaria?:</b> {{$organizacione->ayuda_alimentaria}}</p>
                         <p><b>¿Recibe ayuda financiera?:</b> {{$organizacione->ayuda_financiera}}</p>
                         <p><b>Tarea que realizan:</b> {{$organizacione->tipo_servicio}}</p>
-                    </div>
-                    <div class='buttons-section'>
-                        <button type="cancel" class='reject-button' onclick="rechazar({{$organizacione->id}})" style="background-color: #dc3545;">Rechazar</button>
-                        <button type="submit" style="background-color: #103965"><a href="{{ url('/aceptarOrg/'.$organizacione->id) }}">Aceptar</a> </button>                        
                     </div>
                 </div>
                 </div>

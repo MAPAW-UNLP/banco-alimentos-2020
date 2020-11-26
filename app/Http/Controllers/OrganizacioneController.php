@@ -170,13 +170,15 @@ class OrganizacioneController extends Controller
         return redirect('organizaciones');
     }
 
-    public function terminos()
-    {
+    public function terminos(){
         return view('organizacion.terminos');
     }
 
-    public function registro()
-    {
+    public function registro(){
         return view('organizacion.registro');
+    }
+
+    public function show_organizacion($id){
+        return view('organizacion_show', ['organizacione' => Organizacione::findOrFail($id)]);
     }
 }

@@ -68,7 +68,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/estadoSolicitud/solicitudCombos/{id}', [ComboController::class, 'estado_solicitud_combos']);
     Route::get('organizacione/edit/{id}', [OrganizacioneController::class, 'edit']);
     Route::get('organizacione/edit-short/{id}', [OrganizacioneController::class, 'edit_short']);
-    Route::get('organizacione/show/{id}', [OrganizacioneController::class, 'show']);
+    Route::get('organizacione/show/{id}', [OrganizacioneController::class, 'show_organizacion']);
     Route::get('/notificacionPorAceptacion', [NotificacionAceptacionController::class, 'index']);
 });
 Route::post('/aceptarTerminos', [MailController::class, 'aceptarTerminos']);
