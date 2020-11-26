@@ -69,6 +69,7 @@ $this->middleware('permission:solicitud-delete', ['only' => ['destroy','aceptar'
     $organizacion['ayuda_alimentaria']=$datos['alimentaria'];
     $organizacion['ayuda_financiera']=$datos['financiera'];
     $organizacion['tarea']=$datos['nombre_institucion'];
+    $organizacion['estado']=0;
     
     $id_organizacion=Organizacione::insertGetId($organizacion);
 
