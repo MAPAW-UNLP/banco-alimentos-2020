@@ -51,31 +51,31 @@ function desbloquear(){
       <div class="form-group row">
         <label for="validationServer03" class="col-sm-3 col-form-label letra">*Nombre del referente:</label>
         <div class="col-sm-4">
-          <input type="text" class="form-control" id="referente" name="nombre_referente" value="nombre_referente" required>
+          <input type="text" class="form-control" id="referente" name="nombre_referente" placeholder="nombre_referente" required>
         </div>
       </div>
       <div class="form-group row">
         <label for="validationServer03" class="col-sm-3 col-form-label letra">*Email inicio sesión:</label>
         <div class="col-sm-4">
-          <input type="email" class="form-control" id="referente" name="referente" value="mail@mail"  required>
+          <input type="email" class="form-control" id="referente" name="referente" placeholder="mail@mail"  required>
         </div>
       </div>
       <div class="form-group row">
         <label for="validationServer03" class="col-sm-3 col-form-label letra">*Teléfono / Celular</label>
         <div class="col-sm-4">
-          <input type="text" class="form-control" id="inputPassword3" name="telefono" value="2215498512" required>
+          <input type="text" class="form-control" id="inputPassword3" name="telefono" placeholder="2215498512" required>
         </div>
       </div>
       <div class="form-group row">
         <label for="validationServer03" class="col-sm-3 col-form-label letra">*Domicilio (barrio):</label>
         <div class="col-sm-4">
-          <input type="text" class="form-control" id="inputPassword3" name="barrio" value="la loma" required>
+          <input type="text" class="form-control" id="inputPassword3" name="barrio" placeholder="La loma" required>
         </div>
       </div>
       <div class="form-group row">
         <label for="validationServer03" class="col-sm-3 col-form-label letra">*Localidad:</label>
         <div class="col-sm-4">
-          <input type="text" class="form-control" id="inputPassword3" name="localidad"  value="la plata" required>
+          <input type="text" class="form-control" id="inputPassword3" name="localidad"  placeholder="La plata" required>
         </div>
       </div>
 
