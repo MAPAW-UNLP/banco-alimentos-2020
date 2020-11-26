@@ -31,6 +31,10 @@ function desbloquear(){
 
   //document.getElementsByName("total_servicio")[0].value = parseInt(uno) + parseInt(dos) + parseInt(tres) + parseInt(cuatro) + parseInt(cinco);
 }
+
+function valor(){
+  alert(document.form.cena_desde.value);
+}
 </script>
 
 @include('main')
@@ -274,10 +278,10 @@ function desbloquear(){
               <tbody>
               <tr>   
                 <td class='center-item'>
-                  <input class="form-check-input" type="time" id="DD" name="DD" value=1>DESDE
+                  <input class="form-check-input" type="time" id="desayuno_desde" name="desayuno_desde" value=1>DESDE
                 </td>
                 <td class='center-item'>
-                  <input class="form-check-input" type="time" id="DD" name="DD" value=1>HASTA
+                  <input class="form-check-input" type="time" id="desayuno_hasta" name="desayuno_hasta" value=1>HASTA
                 </td>
               </tr>
               </tbody>
@@ -316,10 +320,10 @@ function desbloquear(){
               <tbody>
               <tr>   
                 <td class='center-item'>
-                  <input class="form-check-input" type="time" id="DD" name="DD" value=1>DESDE
+                  <input class="form-check-input" type="time" id="almuerzo_desde" name="almuerzo_desde" value=1>DESDE
                 </td>
                 <td class='center-item'>
-                  <input class="form-check-input" type="time" id="DD" name="DD" value=1>HASTA
+                  <input class="form-check-input" type="time" id="almuerzo_hasta" name="almuerzo_hasta" value=1>HASTA
                 </td>
               </tr>
               </tbody>
@@ -358,10 +362,10 @@ function desbloquear(){
               <tbody>
               <tr>   
                 <td class='center-item'>
-                  <input class="form-check-input" type="time" id="DD" name="DD" value=1>DESDE
+                  <input class="form-check-input" type="time" id="merienda_desde" name="merienda_desde" value=1>DESDE
                 </td>
                 <td class='center-item'>
-                  <input class="form-check-input" type="time" id="DD" name="DD" value=1>HASTA
+                  <input class="form-check-input" type="time" id="merienda_hasta" name="merienda_hasta" value=1>HASTA
                 </td>
               </tr>
               </tbody>
@@ -400,10 +404,10 @@ function desbloquear(){
               <tbody>
               <tr>   
                 <td class='center-item'>
-                  <input class="form-check-input" type="time" id="DD" name="DD" value=1>DESDE
+                  <input class="form-check-input" type="time" id="cena_desde" name="cena_desde" value=1>DESDE
                 </td>
                 <td class='center-item'>
-                  <input class="form-check-input" type="time" id="DD" name="DD" value=1>HASTA
+                  <input class="form-check-input" type="time" id="cena_hasta" name="cena_hasta" value=1>HASTA
                 </td>
               </tr>
               </tbody>
