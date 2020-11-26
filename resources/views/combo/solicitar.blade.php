@@ -81,7 +81,7 @@
 
     <!-- -->  
     <div class='body'>
-    <h3 style="text-align:center">Solicitar Combo</h3>
+    <h3   >Solicitar Combo</h3>
     <!-- --> 
     <div class='body-form'>
         <div class='body-form-combo'>
@@ -91,35 +91,39 @@
             {{csrf_field()}}
             <div class="container">
               <div class="row">
-                  <table style="background-color: #F2994A; border-radius:10px" class="table table-borderless table-sm" id="tablaprueba">
+              <table class="table "name="cantPersonas" style="text-align:center;">
                       <thead>
                           <tr>
                           <th>Combo</th>
                           <th>Productos</th>
                           <th>Cantidad pedidos</th>
-                          <th>Cantidad máxima de combos</th>
-                          <th></th>
-                          <th></th>
+                          <th>Cantidad máxima</th>
                           </tr>
                       </thead>
                       <tbody>
                       @foreach($combos as $combo)
                       <tr>
-                    
-                        <td style="text-align:left;font-size:10px">{{ $combo->nombre }}</td>
-                        <td style="text-align:center">
-                        @foreach($combo->productos as $producto)
-                          <p style="font-size:10px">{{$producto->producto}}</p>
-
-                        @endforeach
-                        
+                        <td   >{{ $combo->nombre }}</td>
+                        <td  >
+                          <p>
+                            <a data-toggle="collapse" href="#{{$combo->nombre}}" role="button" aria-expanded="false" aria-controls="collapseExample">
+                              Ver productos
+                            </a>
+                          </p>
+                          <div class="collapse" id="{{$combo->nombre}}">
+                            <div class="card card-body" style="width:300px;">
+                              @foreach($combo->productos as $producto) 
+                                {{$producto->producto}} - {{$producto->cantidad}}</p>
+                              @endforeach
+                            </div>
+                          </div>
                         </td>
-                        <td style="text-align:center">{{ $combo->cantOrg }}</td>
-                        <td style="text-align:center">{{ $combo->stock }}</td>
-                        <td style="text-align:center"><input type="checkbox" name="choose"></td>
-
-
-
+                        <td>  
+                          <div class="form-group col-md-2">
+                            <input type="number" style="width:60px; height:30px;" value="0"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="cuatro" name="cuatro">
+                          </div>
+                        </td>
+                        <td>{{ $combo->cantOrg }}</td>
                       </tr>
                       <br>
                       <br>
