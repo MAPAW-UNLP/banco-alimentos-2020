@@ -6,6 +6,8 @@
 @include('main')
 @include('components.header')
 @include('components.nav')
+
+{{Auth::user()}}
 <div class='general-container'>
 <div class='lateral-menu'>
         @can('role-create')
@@ -67,6 +69,11 @@ function desbloquear(){
   }
 
   //document.getElementsByName("total_servicio")[0].value = parseInt(uno) + parseInt(dos) + parseInt(tres) + parseInt(cuatro) + parseInt(cinco);
+}
+
+
+function bloquear(){
+  alert('No puede modificar este campo. Comunicarse con el banco de alimentos.');  
 }
 
 
@@ -166,7 +173,7 @@ function desbloquear(){
       </div>
       <h3 class="letra">* Tipos de servicio por día:</h3>
       <h5 class="letra">¿A qué cantidad de personas se les brinda el servicio?</h5>
-      <table class="table table-bordered" style="background-color:grey;">
+      <table class="table table-bordered" style="background-color:grey;" onclick="javascript:bloquear();">
       <thead>
         <tr>
           <th class='center-item' scope="col">Desayuno</th>
@@ -180,27 +187,27 @@ function desbloquear(){
         <tr>
           <td class='center-item'>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" value="0" class="form" min="0" pattern="^[0-9]+" id="desayuno" name="desayuno">
+              <input type="number" style="width:60px; height:30px;" value="0" class="form" min="0" pattern="^[0-9]+" id="desayuno" name="desayuno" disabled>
             </div>
           </td>
           <td class='center-item'>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" value="0" class="form"  min="0" pattern="^[0-9]+" id="almuerzo" name="almuerzo">
+              <input type="number" style="width:60px; height:30px;" value="0" class="form"  min="0" pattern="^[0-9]+" id="almuerzo" name="almuerzo" disabled>
             </div>
           </td>
           <td class='center-item'>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" value="0" class="form"  min="0" pattern="^[0-9]+" id="merienda" name="merienda">
+              <input type="number" style="width:60px; height:30px;" value="0" class="form"  min="0" pattern="^[0-9]+" id="merienda" name="merienda" disabled>
             </div>
           </td>
           <td class='center-item'>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" value="0" class="form"  min="0" pattern="^[0-9]+" id="cena" name="cena">
+              <input type="number" style="width:60px; height:30px;" value="0" class="form"  min="0" pattern="^[0-9]+" id="cena" name="cena" disabled>
             </div>
           </td>
           <td class='center-item'>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" value="0" class="form"  min="0" pattern="^[0-9]+" id="bolson" name="bolson">
+              <input type="number" style="width:60px; height:30px;" value="0" class="form"  min="0" pattern="^[0-9]+" id="bolson" name="bolson" disabled>
             </div>
           </td>
         </tr>
@@ -208,7 +215,7 @@ function desbloquear(){
     </table>
     <br>
     <h5 class="letra">Edad de los beneficiarios</h5>
-      <table class="table table-bordered" style="background-color:grey;">
+      <table class="table table-bordered" style="background-color:grey;" onclick="javascript:bloquear();">
       <thead>
         <tr>
           <th class='center-item' scope="col">0-2</th>
@@ -224,37 +231,37 @@ function desbloquear(){
       <tr>
           <td>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" value="0"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="uno" name="uno">
+              <input type="number" style="width:60px; height:30px;" value="0"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="uno" name="uno" disabled>
             </div>
           </td>
           <td>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" value="0"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="dos" name="dos">
+              <input type="number" style="width:60px; height:30px;" value="0"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="dos" name="dos" disabled>
             </div>
           </td>
           <td>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" value="0"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="tres" name="tres">
+              <input type="number" style="width:60px; height:30px;" value="0"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="tres" name="tres" disabled>
             </div>
           </td>
           <td>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" value="0"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="cuatro" name="cuatro">
+              <input type="number" style="width:60px; height:30px;" value="0"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="cuatro" name="cuatro" disabled>
             </div>
           </td>
           <td>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" value="0"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="cinco" name="cinco">
+              <input type="number" style="width:60px; height:30px;" value="0"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="cinco" name="cinco" disabled>
             </div>
           </td>
           <td>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" value="0"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="seis" name="seis">
+              <input type="number" style="width:60px; height:30px;" value="0"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="seis" name="seis" disabled>
             </div>
           </td>
           <td>
           <div class="form-group col-md-2">
-              <input type="text" style="width:60px; height:30px;" value="0" class="form" id="resultado" name="resultado" readonly="true">
+              <input type="text" style="width:60px; height:30px;" value="0" class="form" id="resultado" name="resultado" readonly="true" disabled>
           </div>
           </td>
         </tr>
@@ -262,7 +269,7 @@ function desbloquear(){
     </table>
     <br>
     <h5 class="letra">Raciones por día del servicio</h5>
-      <table class="table table-bordered" style="background-color:grey;">
+      <table class="table table-bordered" style="background-color:grey;" onclick="javascript:bloquear();" id="tablatres">
       <thead>
         <tr>
           <th class='center-item' scope="col"></th>
@@ -280,109 +287,109 @@ function desbloquear(){
       <tr>
           <td>Desayuno</td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">&nbsp;
+            <input class="form-check-input" type="checkbox" id="gridCheck1" disabled>&nbsp;
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" disabled>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" disabled>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" disabled>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" disabled>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" disabled>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" disabled>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" disabled>
           </div></td>
         </tr>
         <tr>
           <td>Almuerzo</td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">&nbsp;
+            <input class="form-check-input" type="checkbox" id="gridCheck1" disabled>&nbsp;
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" disabled>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" disabled>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" disabled>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" disabled>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" disabled> 
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" disabled>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" disabled>
           </div></td>
         </tr>
         <tr>
           <td>Merienda</td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">&nbsp;
+            <input class="form-check-input" type="checkbox" id="gridCheck1" disabled>&nbsp;
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" disabled>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" disabled>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" disabled>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" disabled>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" disabled>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" disabled>
           </div></td>
           <td class='center-item' ><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" disabled>
           </div></td>
         </tr>
         <tr>
           <td>Cena</td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">&nbsp;
+            <input class="form-check-input" type="checkbox" id="gridCheck1" disabled>&nbsp;
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" disabled>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" disabled>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" disabled>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" disabled>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" disabled>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" disabled>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" disabled>
           </div></td>
         </tr>
       </tbody>
