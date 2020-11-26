@@ -15,14 +15,14 @@ function calcular(){
 }
 
 function desbloquear(){
-  var uno = document.form.gridRadios.value;
-  if (uno == 'no'){
+  var personeria = document.form.personeria.value;
+  if (personeria == '0'){
     document.form.municipio.disabled=false;
     document.form.estados.disabled = false;
     document.form.movimiento.disabled = false;
     document.form.otro.disabled = false;
   }
-  if (uno == 'si'){
+  if (personeria == '1'){
     document.form.municipio.disabled=true;
     document.form.estados.disabled = true;
     document.form.movimiento.disabled = true;
