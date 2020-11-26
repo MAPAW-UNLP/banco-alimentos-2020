@@ -94,7 +94,7 @@ class ComboController extends Controller
     {
 
         // buscar los combos de ese usuario o todos los combos 
-        $combos = Combo::where('id','>',0)->with("productos")->get();
+        $combos = Combo::where('estado','=',1)->with("productos")->get();
         
 
         return view('combo.solicitar', ['combos' => $combos]);
