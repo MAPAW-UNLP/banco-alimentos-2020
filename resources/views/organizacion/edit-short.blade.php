@@ -75,6 +75,10 @@ function bloquear(){
   alert('No puede modificar este campo. Comunicarse con el banco de alimentos.');  
 }
 
+function alerta(){
+  alert('No se puede modificar el campo seleccionado.');
+}
+
 
 </script>
 
@@ -90,15 +94,15 @@ function bloquear(){
         </div>
       </div>
       <div class="form-group row">
-        <label for="validationServer03" class="col-sm-3 col-form-label letra">*Nombre del referente:</label>
+        <label for="validationServer03" class="col-sm-3 col-form-label letra" onclick="javascript:alerta();">*Nombre del referente:</label>
         <div class="col-sm-4">
-          <input type="text" class="form-control" id="referente" value="{{$organizacione->user->name}}" required disabled>
+          <input type="text" class="form-control" id="referente"  value="{{$organizacione->user->name}}" disabled="true">
         </div>
       </div>
       <div class="form-group row">
-        <label for="validationServer03" class="col-sm-3 col-form-label letra">*Email inicio sesión:</label>
+        <label for="validationServer03" class="col-sm-3 col-form-label letra" onclick="javascript:alerta();">*Email inicio sesión:</label>
         <div class="col-sm-4">
-          <input type="email" class="form-control" id="referente" required disabled>
+          <input type="email" class="form-control" id="referente" disabled>
         </div>
       </div>
       <div class="form-group row">
@@ -122,16 +126,16 @@ function bloquear(){
 
       <fieldset class="form-group">
         <div class="row">
-          <legend class="col-form-label col-sm-2 pt-0 letra">*¿Personería jurídica?</legend>
+          <legend class="col-form-label col-sm-2 pt-0 letra" onclick="javascript:bloquear();">*¿Personería jurídica?</legend>
           <div class="col-sm-10">
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" onclick="javascript:desbloquear();" value="si" required>
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" onclick="javascript:bloquear();" value="si" disabled>
               <label class="form-check-label" for="gridRadios1">
                 Si
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" onclick="javascript:desbloquear();" value="no" required>
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" onclick="javascript:bloquear();" value="no" disabled>
               <label class="form-check-label" for="gridRadios2">
                 No
               </label>
@@ -394,25 +398,25 @@ function bloquear(){
       </tbody>
     </table>
     <div class="form-group row">
-        <div class="col-sm-2 letra">*¿Tiene ayuda alimentaria?</div>
+        <div class="col-sm-2 letra" onclick="javascript:bloquear();">*¿Tiene ayuda alimentaria?</div>
         <div class="col-sm-10">
         <br>
         <br>
         <div class="col-sm-10">
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" required>
+              <input class="form-check-input" onclick="javascript:bloquear();" type="radio" name="gridRadios" id="gridRadios1" value="option1" required disabled>
               <label class="form-check-label" for="gridRadios1">
                 Publica
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2" required>
+              <input class="form-check-input" onclick="javascript:bloquear();" type="radio" name="gridRadios" id="gridRadios2" value="option2" required disabled>
               <label class="form-check-label" for="gridRadios2">
                 Privada
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2" required>
+              <input class="form-check-input" onclick="javascript:bloquear();" type="radio" name="gridRadios" id="gridRadios2" value="option2" required disabled>
               <label class="form-check-label" for="gridRadios2">
                 No recibo ayuda
               </label>
@@ -421,25 +425,25 @@ function bloquear(){
         </div>
     </div>
     <div class="form-group row">
-        <div class="col-sm-2 letra">*¿Recibe ayuda financiera?</div>
+        <div class="col-sm-2 letra" onclick="javascript:bloquear();">*¿Recibe ayuda financiera?</div>
         <div class="col-sm-10">
         <br>
         <br>
         <div class="col-sm-10">
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="financiera" id="financiera" value="option1" required>
+              <input class="form-check-input" onclick="javascript:bloquear();" type="radio" name="financiera" id="financiera" value="option1" required disabled>
               <label class="form-check-label" for="gridRadios1">
                 Publica
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="financiera" id="financiera" value="option2" required>
+              <input class="form-check-input" onclick="javascript:bloquear();" type="radio" name="financiera" id="financiera" value="option2" required disabled>
               <label class="form-check-label" for="gridRadios2">
                 Privada
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="financiera" id="financiera" value="option2" required>
+              <input class="form-check-input" onclick="javascript:bloquear();" type="radio" name="financiera" id="financiera" value="option2" required disabled >
               <label class="form-check-label" for="gridRadios2">
                 No recibo ayuda
               </label>
