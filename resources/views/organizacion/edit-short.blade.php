@@ -7,7 +7,6 @@
 @include('components.header')
 @include('components.nav')
 
-{{Auth::user()}}
 <div class='general-container'>
 <div class='lateral-menu'>
         @can('role-create')
@@ -93,13 +92,13 @@ function bloquear(){
       <div class="form-group row">
         <label for="validationServer03" class="col-sm-3 col-form-label letra">*Nombre del referente:</label>
         <div class="col-sm-4">
-          <input type="text" class="form-control" id="referente" value="{{$organizacione->user->name}}" required>
+          <input type="text" class="form-control" id="referente" value="{{$organizacione->user->name}}" required disabled>
         </div>
       </div>
       <div class="form-group row">
         <label for="validationServer03" class="col-sm-3 col-form-label letra">*Email inicio sesión:</label>
         <div class="col-sm-4">
-          <input type="email" class="form-control" id="referente" required>
+          <input type="email" class="form-control" id="referente" required disabled>
         </div>
       </div>
       <div class="form-group row">
