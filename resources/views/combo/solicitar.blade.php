@@ -9,75 +9,48 @@
 @include('components.nav')
 
 <div class='general-container'>
-  <div class='lateral-menu'>
-  @can('role-create')
-    <div>
-      <a href="{{ url('/addUser') }}" class='lateral-menu-item'>
-        <p class='lateral-menu-text-item'>Agregar usuario</p>
-      </a>
-    </div>
-  @endcan
-  @can('orga-mis-solicitudes')
-    <div>
-      <a href="{{ url('/estadoSolicitud') }}" class='lateral-menu-item'>                          
-          <p class='lateral-menu-text-item'>Mis solicitudes</p>              
-      </a>
-    </div>
-  @endcan
-  @can('orga-mis-datos')
-    <div>
-      <a href="{{ url('/registro') }}" class='lateral-menu-item'>         
-          <p class='lateral-menu-text-item'>Modificar mis datos</p>
-      </a>
-    </div>
-  @endcan
-  @can('organizacion-list') 
-    <div>
-      <a href="{{ url('/solicitudes') }}" class='lateral-menu-item'>           
-        <p class='lateral-menu-text-item'>Gestion área social</p>
-      </a>
-    </div>
-  @endcan
-  @can('combo-list')
-    <div>
-      <a href="{{ url('/combos') }}" class='lateral-menu-item-color'>                          
-        <p class='lateral-menu-text-item'><b>Combos</b></p>              
-      </a>
-    </div>
-  @endcan
-  @can('orga-solicitar-combo')
-    <div>
-        <a href="{{ url('/') }}" class='lateral-menu-item'>
-            <p class='lateral-menu-text-item'>Solicitar Combo</p>
+    <div class='lateral-menu'>
+      @can('role-create')
+      <div>
+          <a href="{{ url('/addUser') }}" class='lateral-menu-item'>
+              <p class='lateral-menu-text-item'>Agregar usuario</p>
+          </a>
+      </div>
+      @endcan
+      <div>
+        <a href="{{ url('/estadoSolicitud') }}" class='lateral-menu-item'>                          
+            <p class='lateral-menu-text-item'>Mis solicitudes</p>              
         </a>
       </div>
-  @endcan
-    <div>
+      <div>
+          <a href="{{ url('/registro') }}" class='lateral-menu-item'>         
+              <p class='lateral-menu-text-item'>Modificar mis datos</p>
+          </a>
+      </div>
+      @can('organizacion-list') 
+      <div>
+        <a href="{{ url('/solicitudes') }}" class='lateral-menu-item'>           
+            <p class='lateral-menu-text-item'>Gestion área social</p>
+        </a>
+      </div>      
+      <div>
+        <a href="{{ url('/combos') }}" class='lateral-menu-item'>                          
+            <p class='lateral-menu-text-item'>Combos</p>              
+        </a>
+      </div>
+      @endcan
+      <div>
+        <a href="{{ url('/') }}" class='lateral-menu-item-color'>
+            <p class='lateral-menu-text-item'><b>Solicitar Combo</b></p>
+        </a>
+      </div>
+      <div>
+          <a href="{{ url('/changePassword') }}" class='lateral-menu-item'>           
+              <p class='lateral-menu-text-item'>Cambiar contraseña</p>
+          </a>
+      </div>
+    </div>
   
-      <a href="{{ url('/changePassword') }}" class='lateral-menu-item'>         
-        <p class='lateral-menu-text-item'>Cambiar contraseña</p>
-      </a>
-    </div>
-  </div>
-  <div>
-    <nav class='top-menu'>
-      <div>
-        <a href="{{ url('/combos') }}" class='top-menu-item-color'>
-          <p class='top-menu-text-item'><b>Listado</b></p>
-        </a>
-      </div>
-      <div>
-        <a href="{{ url('/calendar') }}" class='top-menu-item'>
-          <p class='top-menu-text-item'>Calendario</p>
-        </a>
-      </div>
-      <div>
-        <a href="{{ url('/notificaciones') }}" class='top-menu-item'>
-          <p class='top-menu-text-item'>Notificaciones</p>
-        </a> 
-      </div>   
-    </nav>
-
 
     <!-- -->  
     <div class='body'>
@@ -96,8 +69,8 @@
                           <tr>
                           <th>Combo</th>
                           <th>Productos</th>
-                          <th>Cantidad pedidos</th>
                           <th>Cantidad máxima</th>
+                          <th>Cantidad pedidos</th>
                           </tr>
                       </thead>
                       <tbody>
@@ -113,17 +86,17 @@
                           <div class="collapse" id="{{$combo->nombre}}">
                             <div class="card card-body" style="width:300px;">
                               @foreach($combo->productos as $producto) 
-                                {{$producto->producto}} - {{$producto->cantidad}}</p>
+                               {{$producto->cantidad}} - {{$producto->producto}}</p>
                               @endforeach
                             </div>
                           </div>
                         </td>
+                        <td>{{ $combo->cantOrg }}</td>
                         <td>  
-                          <div class="form-group col-md-2">
-                            <input type="number" style="width:60px; height:30px;" value="0"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="cuatro" name="cuatro">
+                          <div class="form-group col-md-12">
+                            <input type="number" style="width:50px; height:30px;" value="0"  min="0" pattern="^[0-9]+" class="form" id="cantidad" name="cantidad">
                           </div>
                         </td>
-                        <td>{{ $combo->cantOrg }}</td>
                       </tr>
                       <br>
                       <br>
