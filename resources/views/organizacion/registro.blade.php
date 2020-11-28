@@ -88,16 +88,16 @@ function valor(){
           <legend class="col-form-label col-sm-2 pt-0 letra">*¿Personería jurídica?</legend>
           <div class="col-sm-10">
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="personeria" id="gridRadios1" onclick="javascript:desbloquear();" value=1 required>
-              <label class="form-check-label" for="gridRadios1">
-                Si
-              </label>
+                <input class="form-check-input" type="radio" name="personeria" id="gridRadios1" onclick="javascript:desbloquear();" value=1 required>
+                <label class="form-check-label" for="gridRadios1">
+                    <b>Si</b>
+                </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="personeria" id="gridRadios2" onclick="javascript:desbloquear();" value=0 required>
-              <label class="form-check-label" for="gridRadios2">
-                No
-              </label>
+                <input class="form-check-input" type="radio" name="personeria" id="gridRadios2" onclick="javascript:desbloquear();" value=0 required>
+                <label class="form-check-label" for="gridRadios2">
+                    <b>No</b>
+                </label>
             </div>
           </div>
         </div>
@@ -110,19 +110,19 @@ function valor(){
           <div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1" name="municipio" id="municipio" value=1 disabled="true">
             <label class="form-check-label" for="gridCheck1">
-              Municipio
+                <b>Municipio</b>
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1" name="estados" id="estados" value=2 disabled="true"> 
+            <input class="form-check-input" type="checkbox" id="gridCheck1" name="estados" id="estados" value=2 disabled="true">
             <label class="form-check-label" for="gridCheck1">
-              Estado ¿cuál?
+                <b>Estado ¿cuál?</b>
             </label>
           </div>
           <div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1" name="movimiento" id="movimiento"  value=4 disabled="true">
             <label class="form-check-label" for="gridCheck1">
-              Movimiento social
+                <b>Movimiento social</b>
             </label>
           </div>
           <div class="form-group row">
@@ -255,7 +255,7 @@ function valor(){
             <input class="form-check-input" type="checkbox" id="DMA" name="DMA" value=1>
           </div></td>
           <td class='center-item'><div class="form-check">
-            <input class="form-check-input" type="checkbox" id="DMI" name="DMI" value=1> 
+            <input class="form-check-input" type="checkbox" id="DMI" name="DMI" value=1>
           </div></td>
           <td class='center-item'><div class="form-check">
             <input class="form-check-input" type="checkbox" id="DJ" name="DJ" value=1>
@@ -276,7 +276,7 @@ function valor(){
                 <th class='center-item' scope="col">Hasta</th>
               </thead>
               <tbody>
-              <tr>   
+              <tr>
                 <td class='center-item'>
                   <input class="form-check-input" type="time" id="desayuno_desde" name="desayuno_desde" value=1>DESDE
                 </td>
@@ -318,7 +318,7 @@ function valor(){
                 <th class='center-item' scope="col">Hasta</th>
               </thead>
               <tbody>
-              <tr>   
+              <tr>
                 <td class='center-item'>
                   <input class="form-check-input" type="time" id="almuerzo_desde" name="almuerzo_desde" value=1>DESDE
                 </td>
@@ -360,7 +360,7 @@ function valor(){
                 <th class='center-item' scope="col">Hasta</th>
               </thead>
               <tbody>
-              <tr>   
+              <tr>
                 <td class='center-item'>
                   <input class="form-check-input" type="time" id="merienda_desde" name="merienda_desde" value=1>DESDE
                 </td>
@@ -402,7 +402,7 @@ function valor(){
                 <th class='center-item' scope="col">Hasta</th>
               </thead>
               <tbody>
-              <tr>   
+              <tr>
                 <td class='center-item'>
                   <input class="form-check-input" type="time" id="cena_desde" name="cena_desde" value=1>DESDE
                 </td>
@@ -425,19 +425,19 @@ function valor(){
             <div class="form-check">
               <input class="form-check-input" type="radio" name="alimentaria" id="gridRadios1" value=1 required>
               <label class="form-check-label" for="gridRadios1">
-                Publica
+                <b>Publica</b>
               </label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="alimentaria" id="gridRadios2" value=2 required>
               <label class="form-check-label" for="gridRadios2">
-                Privada
+                <b>Privada</b>
               </label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="alimentaria" id="gridRadios2" value=3 required>
               <label class="form-check-label" for="gridRadios2">
-                No recibo ayuda
+                <b>No recibo ayuda</b>
               </label>
             </div>
           </div>
@@ -452,19 +452,19 @@ function valor(){
             <div class="form-check">
               <input class="form-check-input" type="radio" name="financiera" id="financiera" value=1 required>
               <label class="form-check-label" for="gridRadios1">
-                Publica
+                <b>Publica</b>
               </label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="financiera" id="financiera" value=2 required>
               <label class="form-check-label" for="gridRadios2">
-                Privada
+                <b>Privada</b>
               </label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="financiera" id="financiera" value=3 required>
               <label class="form-check-label" for="gridRadios2">
-                No recibo ayuda
+                <b>No recibo ayuda</b>
               </label>
             </div>
           </div>
