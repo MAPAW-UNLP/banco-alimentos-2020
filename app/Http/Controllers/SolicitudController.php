@@ -110,7 +110,8 @@ $this->middleware('permission:solicitud-delete', ['only' => ['destroy','aceptar'
     $paramDesayuno['miercoles']=$datos['DMI'];
     $paramDesayuno['jueves']=$datos['DJ'];
     $paramDesayuno['viernes']=$datos['DV'];
-    $paramDesayuno['rangoHorario']='';
+    $paramDesayuno['desde']=$datos['desayuno_desde'];
+    $paramDesayuno['hasta']=$datos['desayuno_hasta'];
     CantRacionesDias::insert($paramDesayuno);
     $paramAlmuerzo['organizacion_id']=$id_organizacion;
     $paramAlmuerzo['comida']=2;
@@ -119,7 +120,8 @@ $this->middleware('permission:solicitud-delete', ['only' => ['destroy','aceptar'
     $paramAlmuerzo['miercoles']=$datos['AMI'];
     $paramAlmuerzo['jueves']=$datos['AJ'];
     $paramAlmuerzo['viernes']=$datos['AV'];
-    $paramAlmuerzo['rangoHorario']='';
+    $paramAlmuerzo['desde']=$datos['almuerzo_desde'];
+    $paramAlmuerzo['hasta']=$datos['almuerzo_hasta'];
     CantRacionesDias::insert($paramAlmuerzo);
     $paramMerienda['organizacion_id']=$id_organizacion;
     $paramMerienda['comida']=3;
@@ -128,7 +130,8 @@ $this->middleware('permission:solicitud-delete', ['only' => ['destroy','aceptar'
     $paramMerienda['miercoles']=$datos['MMI'];
     $paramMerienda['jueves']=$datos['MJ'];
     $paramMerienda['viernes']=$datos['MV'];
-    $paramMerienda['rangoHorario']='';
+    $paramMerienda['desde']=$datos['merienda_desde'];
+    $paramMerienda['hasta']=$datos['merienda_hasta'];
     CantRacionesDias::insert($paramMerienda);
     $paramCena['organizacion_id']=$id_organizacion;
     $paramCena['comida']=4;
@@ -137,7 +140,8 @@ $this->middleware('permission:solicitud-delete', ['only' => ['destroy','aceptar'
     $paramCena['miercoles']=$datos['CMI'];
     $paramCena['jueves']=$datos['CJ'];
     $paramCena['viernes']=$datos['CV'];
-    $paramCena['rangoHorario']='';
+    $paramCena['desde']=$datos['cena_desde'];
+    $paramCena['hasta']=$datos['cena_hasta'];
     CantRacionesDias::insert($paramCena);
 
     $paramSolicitud['organizacion_id']=$id_organizacion;
@@ -184,7 +188,8 @@ $this->middleware('permission:solicitud-delete', ['only' => ['destroy','aceptar'
     $paramDesayuno['miercoles']=$datos['DMI'];
     $paramDesayuno['jueves']=$datos['DJ'];
     $paramDesayuno['viernes']=$datos['DV'];
-    $paramDesayuno['rangoHorario']='';
+    $paramDesayuno['desde']=$datos['desayuno_desde'];
+    $paramDesayuno['hasta']=$datos['desayuno_hasta'];
     CantRacionesDias::insert($paramDesayuno);
     $paramAlmuerzo['organizacion_id']=$id_organizacion;
     $paramAlmuerzo['comida']=2;
@@ -193,7 +198,8 @@ $this->middleware('permission:solicitud-delete', ['only' => ['destroy','aceptar'
     $paramAlmuerzo['miercoles']=$datos['AMI'];
     $paramAlmuerzo['jueves']=$datos['AJ'];
     $paramAlmuerzo['viernes']=$datos['AV'];
-    $paramAlmuerzo['rangoHorario']='';
+    $paramAlmuerzo['desde']=$datos['almuerzo_desde'];
+    $paramAlmuerzo['hasta']=$datos['almuerzo_hasta'];
     CantRacionesDias::insert($paramAlmuerzo);
     $paramMerienda['organizacion_id']=$id_organizacion;
     $paramMerienda['comida']=3;
@@ -202,7 +208,8 @@ $this->middleware('permission:solicitud-delete', ['only' => ['destroy','aceptar'
     $paramMerienda['miercoles']=$datos['MMI'];
     $paramMerienda['jueves']=$datos['MJ'];
     $paramMerienda['viernes']=$datos['MV'];
-    $paramMerienda['rangoHorario']='';
+    $paramMerienda['desde']=$datos['merienda_desde'];
+    $paramMerienda['hasta']=$datos['merienda_hasta'];
     CantRacionesDias::insert($paramMerienda);
     $paramCena['organizacion_id']=$id_organizacion;
     $paramCena['comida']=4;
@@ -211,7 +218,8 @@ $this->middleware('permission:solicitud-delete', ['only' => ['destroy','aceptar'
     $paramCena['miercoles']=$datos['CMI'];
     $paramCena['jueves']=$datos['CJ'];
     $paramCena['viernes']=$datos['CV'];
-    $paramCena['rangoHorario']='';
+    $paramCena['desde']=$datos['cena_desde'];
+    $paramCena['hasta']=$datos['cena_hasta'];
     CantRacionesDias::insert($paramCena);
 
 
