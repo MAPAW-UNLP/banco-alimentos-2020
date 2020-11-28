@@ -2,17 +2,6 @@
 <link rel="stylesheet" href="{{ url('css/add-user.css') }}">
 <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 <script type="text/javascript">
-@if(Session::has('success'))
-    $(document).ready(function() {
-        setTimeout(function() {
-            $(".content2").fadeIn(1500);fadeIn
-        },1000);
-    
-        setTimeout(function() {
-            $(".content2").fadeOut(1500);
-        },6000);
-    });
-@endif;
 //Form Validations
 (function() {
   'use strict';
