@@ -29,12 +29,16 @@
               <h4 class='font-white'>Combos</h4>
               @foreach($pedidos as $pedido)
                 <div class='solicitudes-tabla'>
+                @foreach($pedido->combosPedidos as $comboPedido)
                   <div class='request-section-text'>  
-                    <p><b>{{$pedido->combo->nombre}}</b></p>
+                  
+                    <p><b>{{$comboPedido->combo->nombre}}</b></p>
+                  
                   </div> 
                   <div class='buttons-section'>
-                    <button type="submit" class='show-more'><a href="{{ url('/estadoSolicitud/solicitudCombos/'.$pedido->combo->id)}}">Ver mas</a></button>                     
+                    <button type="submit" class='show-more'><a href="{{ url('/estadoSolicitud/solicitudCombos/'.$comboPedido->combo->id)}}">Ver mas</a></button>                     
                   </div>
+                  @endforeach
                 </div>
               @endforeach
             @else
