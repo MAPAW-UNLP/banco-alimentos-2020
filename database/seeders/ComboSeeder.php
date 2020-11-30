@@ -14,7 +14,7 @@ class ComboSeeder extends Seeder
      */
     public function run()
     {
-        $combo = Combo::create([
+        $combo = Combo::insert([
             'id'=>1,
             'nombre'=>'Combo 1',
             'stock'=>20,
@@ -23,7 +23,7 @@ class ComboSeeder extends Seeder
             'estado'=>1
         ]);
 
-        $combo = Combo::create([
+        $combo = Combo::insert([
             'id'=>2,
             'nombre'=>'Combo 2',
             'stock'=>20,
@@ -32,7 +32,7 @@ class ComboSeeder extends Seeder
             'estado'=>1
         ]);
 
-        $combo = Combo::create([
+        $combo = Combo::insert([
             'id'=>3,
             'nombre'=>'Combo 3',
             'stock'=>20,
@@ -41,7 +41,7 @@ class ComboSeeder extends Seeder
             'estado'=>1
         ]);
 
-        $combo = Combo::create([
+        $combo = Combo::insert([
             'id'=>4,
             'nombre'=>'Combo 4',
             'stock'=>60,
@@ -50,7 +50,7 @@ class ComboSeeder extends Seeder
             'estado'=>1
         ]);
 
-        $combo = Combo::create([
+        $combo = Combo::insert([
             'id'=>5,
             'nombre'=>'Combo 5',
             'stock'=>5,

@@ -9,28 +9,7 @@
 @include('components.header')
 @include('components.nav')
 <div class='general-container'>
-    <div class='lateral-menu'>
-        <div>
-            <a href="" class='lateral-menu-item'>
-                <p class='lateral-menu-text-item'>Solicitar Combo</p>
-            </a>
-        </div>
-        <div>
-            <a href="" class='lateral-menu-item-color'>         
-                <p class='lateral-menu-text-item'>Modificar mis datos</p>
-            </a>
-        </div>
-        <div>
-            <a href="{{ url('/changePassword') }}" class='lateral-menu-item'>           
-                <p class='lateral-menu-text-item'>Cambiar contraseña</p>
-            </a>
-        </div>
-        <div>
-            <a href="{{ url('/estadoSolicitud') }}" class='lateral-menu-item'>                          
-                <p class='lateral-menu-text-item'><b>Mis solicitudes</b></p>              
-            </a>
-        </div>
-    </div>
+@include('components.barra-izquierda')
 
 <script>
 function calcular(){

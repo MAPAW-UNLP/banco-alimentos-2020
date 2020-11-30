@@ -92,12 +92,14 @@ class ComboController extends Controller
 
     public function solicitar($user)
     {
-
         // buscar los combos de ese usuario o todos los combos 
+        $hoy = getdate();
+        $myFecha = strval($hoy['year'])."-".strval($hoy['mon'])."-".strval($hoy['mday']);
         $combos = Combo::where('estado','=',1)->with("productos")->get();
-        
-
-        return view('combo.solicitar', ['combos' => $combos]);
+        $datos['combos']=$combos;
+        $datos['turnos']=Turno::where('fechaHora','>',$myFecha)->get();
+        //return response()->json($datos);
+        return view('combo.solicitar',$datos);
     }
 
 
@@ -122,9 +124,6 @@ class ComboController extends Controller
             $datos['idcombo'] = $idcombo;
             return view('combo.calendar',$datos);
         }
-
-
-
     }
 
 

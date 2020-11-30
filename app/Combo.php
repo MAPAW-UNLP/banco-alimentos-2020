@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $cantOrg
  * @property int $contribucion
  * @property int $estado
- * @property Pedido[] $pedidos
+ * @property CombosPedido[] $combosPedidos
  * @property Producto[] $productos
  */
 class Combo extends Model
@@ -21,8 +21,6 @@ class Combo extends Model
      * 
      * @var string
      */
-    const UPDATED_AT = null;
-    const CREATED_AT = null;
     protected $keyType = 'integer';
 
     /**
@@ -33,9 +31,9 @@ class Combo extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function pedidos()
+    public function combosPedidos()
     {
-        return $this->hasMany('App\Pedido');
+        return $this->hasMany('App\CombosPedido');
     }
 
     /**

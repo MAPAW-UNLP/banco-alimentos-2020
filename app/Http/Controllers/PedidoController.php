@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pedido;
+use App\Models\CombosPedido;
+use App\Models\User;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -39,9 +42,27 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
-        $datos=request()->except('_token');
-        pedido::insert($datos);
-        return redirect('pedidos');
+        $datos=request()->except('_token','_post');
+        $combos=$datos['combo'];
+        $cantidad=$datos['cantidad'];
+        $user = User::find(Auth::id());
+        $pedidoAux['organizacion_id']=$user->organizaciones[0]->id;
+        $pedidoAux['turno_id']=$datos['turno'];
+        $pedidoAux['estado']=1;
+        $pedido=pedido::insertGetId($pedidoAux);
+        $i=0;
+        foreach ($combos as &$combo) {
+            if (intval($cantidad[$i])>0){
+                $comboAux=[];
+                $comboAux['combo_id']=$combo;
+                $comboAux['pedido_id']=$pedido;
+                $comboAux['cantidad']=intval($cantidad[$i]);
+                CombosPedido::insertGetId($comboAux);
+                $i+=1;
+            }
+        }
+        return redirect('/');
+        //return response()->json($datos);
     }
 
     /**

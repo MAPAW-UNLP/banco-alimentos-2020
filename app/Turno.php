@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $cantTurnos
  * @property int $turnosDisponibles
  * @property Pedido[] $pedidos
+ * @property Horario $horario
  */
 class Turno extends Model
 {
@@ -25,7 +26,7 @@ class Turno extends Model
     /**
      * @var array
      */
-    protected $fillable = ['fechaHora', 'cantTurnos', 'turnosDisponibles'];
+    protected $fillable = ['horario_id','fechaHora', 'cantTurnos', 'turnosDisponibles'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -33,5 +34,12 @@ class Turno extends Model
     public function pedidos()
     {
         return $this->hasMany('App\Pedido');
+    }
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function horario()
+    {
+        return $this->belongsTo('App\Horario', 'horario_id');
     }
 }

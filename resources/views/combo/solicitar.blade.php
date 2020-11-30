@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="{{ url('css/top-menu.css') }}">
 <link rel="stylesheet" href="{{ url('css/combos.css') }}">
 <link rel="stylesheet" href="{{ url('css/modal.css') }}">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 @include('main')
@@ -9,59 +10,46 @@
 @include('components.nav')
 
 <div class='general-container'>
-    <div class='lateral-menu'>
-      @can('role-create')
-      <div>
-          <a href="{{ url('/addUser') }}" class='lateral-menu-item'>
-              <p class='lateral-menu-text-item'>Agregar usuario</p>
-          </a>
-      </div>
-      @endcan
-      <div>
-        <a href="{{ url('/estadoSolicitud') }}" class='lateral-menu-item'>                          
-            <p class='lateral-menu-text-item'>Mis solicitudes</p>              
-        </a>
-      </div>
-      <div>
-          <a href="{{ url('/registro') }}" class='lateral-menu-item'>         
-              <p class='lateral-menu-text-item'>Modificar mis datos</p>
-          </a>
-      </div>
-      @can('organizacion-list') 
-      <div>
-        <a href="{{ url('/solicitudes') }}" class='lateral-menu-item'>           
-            <p class='lateral-menu-text-item'>Gestion área social</p>
-        </a>
-      </div>      
-      <div>
-        <a href="{{ url('/combos') }}" class='lateral-menu-item'>                          
-            <p class='lateral-menu-text-item'>Combos</p>              
-        </a>
-      </div>
-      @endcan
-      <div>
-        <a href="{{ url('/') }}" class='lateral-menu-item-color'>
-            <p class='lateral-menu-text-item'><b>Solicitar Combo</b></p>
-        </a>
-      </div>
-      <div>
-          <a href="{{ url('/changePassword') }}" class='lateral-menu-item'>           
-              <p class='lateral-menu-text-item'>Cambiar contraseña</p>
-          </a>
-      </div>
-    </div>
+@include('components.barra-izquierda')
   
 
     <!-- -->  
     <div class='body'>
     <h3   >Solicitar Combo</h3>
+        <!-- modal -->
+        <div id="modalalerta" class="modalcss" style="display:none">
+<!-- Modal content -->
+<div class="modal-content">
+  <!-- <span class="close">&times;</span> -->
+  <div class="body-text-modal">
+      Seleccione un turno 
+    <br>
+      <select name="selectTurnos" id="selectTurnos">
+        @foreach($turnos as $turno)
+          <option value={{$turno->id}}>{{$turno->fechaHora}} - {{$turno->horario->nombre}}</option>
+        @endforeach 
+      </select>
+  </div>
+  <button id="modal-button" onclick="submitjs()" style="
+    position: relative;
+    top: 20%;
+    width: 70px;
+    left: 70%;
+    font-size: 15px" class="close-modal   btn-modal-style">Aceptar</button>
+</div>
+
+</div>
+
+
+<!-- modal -->
     <!-- --> 
     <div class='body-form'>
         <div class='body-form-combo'>
         
-        <form action="#" method="post">
-        {{method_field('PATCH')}}
+        <form action="{{url('/pedidos')}}" method="post" id="myForm">
+        {{method_field('POST')}}
             {{csrf_field()}}
+            <input type="number" id="turno" name="turno" style="display:none">
             <div class="container">
               <div class="row">
               <table class="table "name="cantPersonas" style="text-align:center;">
@@ -76,8 +64,8 @@
                       <tbody>
                       @foreach($combos as $combo)
                       <tr>
-                        <td   >{{ $combo->nombre }}</td>
-                        <td  >
+                        <td>{{ $combo->nombre }}</td>
+                        <td>
                           <p>
                             <a data-toggle="collapse" href="#{{$combo->nombre}}" role="button" aria-expanded="false" aria-controls="collapseExample">
                               Ver productos
@@ -94,8 +82,11 @@
                         <td>{{ $combo->cantOrg }}</td>
                         <td>  
                           <div class="form-group col-md-12">
-                            <input type="number" style="width:50px; height:30px;" value="0"  min="0" pattern="^[0-9]+" class="form" id="cantidad" name="cantidad">
+                            <input type="number" style="width:50px; height:30px;" value="0"  min="0" pattern="^[0-9]+" class="form" id="cantidad" name="cantidad[]">
                           </div>
+                        </td>
+                        <td style="display:none">  
+                            <input  id="combo" name="combo[]" value={{$combo->id}}>
                         </td>
                       </tr>
                       <br>
@@ -118,30 +109,7 @@
       </div>
     </div>
 
-    <!-- modal -->
-    <div id="modalalerta" class="modalcss" style="display:none">
 
-      <!-- Modal content -->
-      <div class="modal-content">
-        <!-- <span class="close">&times;</span> -->
-        <div class="body-text-modal">
-            Solicitud realizada con exito, a continuacion debe 
-            seleccionar un turno
-        </div>
-        
-        <button style="
-position: relative;
-top: 20%;
-width: 70px;
-left: 70%;
-font-size: 15px" class="close-modal   btn-modal-style">Aceptar</button>
-          
-      </div>
-
-    </div>
-
-
-    <!-- modal -->
     <script>
 
       
@@ -150,16 +118,21 @@ font-size: 15px" class="close-modal   btn-modal-style">Aceptar</button>
 
      
       button.onclick = function() {
+        var form = document.getElementById("myForm");
         var modalcss = document.getElementById("modalalerta");
+        var inputTurno = document.getElementById("turno");
+        var selectTurnos = document.getElementById("selectTurnos");
+        inputTurno.value=selectTurnos.value;
         modalcss.style.display = "none";
+        form.submit();
       }
 
       
-      window.onclick = function(event) {
-        if (event.target == modalcss) {
-          modalcss.style.display = "none";
-        }
-      }   
+      //window.onclick = function(event) {
+      //  if (event.target == modalcss) {
+      //    modalcss.style.display = "none";
+      //  }
+      //}   
 
 
       function run(){

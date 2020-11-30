@@ -54,55 +54,7 @@
 </script>
 <div class="content2" style="display:none;">"{{ Session::get('success') }}"</div>
 <div class='general-container'>
-<div class='lateral-menu'>
-        @can('role-create')
-        <div>
-            <a href="{{ url('/addUser') }}" class='lateral-menu-item-color' title="Agregar usuario">
-                <p class='lateral-menu-text-item'><b>Agregar usuario</b></p>
-            </a>
-        </div>
-        @endcan
-        @can('orga-mis-solicitudes')
-        <div>
-            <a href="{{ url('/estadoSolicitud') }}" class='lateral-menu-item'>                          
-                <p class='lateral-menu-text-item'>Mis solicitudes</p>              
-            </a>
-        </div>
-        @endcan
-        @can('orga-mis-datos')
-        <div>
-            <a href="{{ url('/registro') }}" class='lateral-menu-item'>         
-                <p class='lateral-menu-text-item'>Modificar mis datos</p>
-            </a>
-        </div>
-        @endcan
-        @can('organizacion-list') 
-        <div>
-            <a href="{{ url('/solicitudes') }}" class='lateral-menu-item' title="Gestión de área social">           
-                <p class='lateral-menu-text-item'>Gestion área social</p>
-            </a>
-        </div>
-        @endcan
-        @can('combo-list')
-        <div>
-            <a href="{{ url('/combos') }}" class='lateral-menu-item' title="Sector combos">                          
-                <p class='lateral-menu-text-item'>Combos</p>              
-            </a>
-        </div>
-        @endcan
-        @can('orga-solicitar-combo')
-        <div>
-            <a href="{{ url('/') }}" class='lateral-menu-item'>
-                <p class='lateral-menu-text-item'>Solicitar Combo</p>
-            </a>
-        </div>
-        @endcan
-        <div>
-            <a href="{{ url('/changePassword') }}" class='lateral-menu-item' title="Cambiar contraseña">         
-                <p class='lateral-menu-text-item'>Cambiar contraseña</p>
-            </a>
-        </div>
-    </div>
+@include('components.barra-izquierda')
     <div class='body'>
         <div class='add-user-body'>
             <h3>Agregar Usuario</h3>

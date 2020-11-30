@@ -7,53 +7,7 @@
 @include('components.header')
 @include('components.nav')
 <div class='general-container'>
-    <div class='lateral-menu'>
-        @can('role-create')
-        <div>
-            <a href="{{ url('/addUser') }}" class='lateral-menu-item'>
-                <p class='lateral-menu-text-item'>Agregar usuario</p>
-            </a>
-        </div>
-        @endcan
-        @can('orga-mis-solicitudes')
-        <div>
-            <a href="{{ url('/estadoSolicitud') }}" class='lateral-menu-item-color'>                          
-                <p class='lateral-menu-text-item'><b>Mis solicitudes</b></p>              
-            </a>
-        </div>
-        @endcan
-        @can('orga-modificar-datos')
-        <div>
-            <a href="{{ url('/') }}" class='lateral-menu-item'>         
-                <p class='lateral-menu-text-item'>Modificar mis datos</p>
-            </a>
-        </div>
-        @endcan
-        @can('organizacion-list') 
-        <div>
-          <a href="{{ url('/solicitudes') }}" class='lateral-menu-item'>           
-              <p class='lateral-menu-text-item'>Gestion área social</p>
-          </a>
-        </div>
-        <div>
-          <a href="{{ url('/combos') }}" class='lateral-menu-item'>                          
-            <p class='lateral-menu-text-item'>Combos</p>              
-          </a>
-        </div>
-        @endcan
-        @can('orga-solicitar-combo')
-        <div>
-            <a href="{{ url('/') }}" class='lateral-menu-item'>
-                <p class='lateral-menu-text-item'>Solicitar Combo</p>
-            </a>
-        </div>
-        @endcan
-        <div>
-            <a href="{{ url('/changePassword') }}" class='lateral-menu-item'>           
-                <p class='lateral-menu-text-item'>Cambiar contraseña</p>
-            </a>
-        </div>
-    </div>
+@include('components.barra-izquierda')
     <div class='general-body'>
       <nav class='top-menu'>
         <div>

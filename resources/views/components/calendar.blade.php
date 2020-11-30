@@ -39,7 +39,7 @@ $(function () {
     @if(isset($vAnio))
         var dia={{$vDia}};
         var date = new Date({{$vAnio}}, {{$vMes}}-1, {{$vDia}});
-        if (dia.length = 1){
+        if (dia.toString().length == 1){
             var strDat= {{$vAnio}}+"-"+{{$vMes}}+"-0"+{{$vDia}};
         }else{
             var strDat= {{$vAnio}}+"-"+{{$vMes}}+"-"+{{$vDia}};
@@ -62,45 +62,7 @@ $(function () {
 });
 </script>
 <div class='general-container'>
-    <div class='lateral-menu'>
-        @can('role-create')
-        <div>
-            <a href="{{ url('/addUser') }}" class='lateral-menu-item'>
-                <p class='lateral-menu-text-item'>Agregar usuario</p>
-            </a>
-        </div>
-        @endcan
-        <div>
-            <a href="{{ url('/estadoSolicitud') }}" class='lateral-menu-item'>                          
-                <p class='lateral-menu-text-item'>Mis solicitudes</p>              
-            </a>
-        </div>
-        <div>
-            <a href="{{ url('/registro') }}" class='lateral-menu-item'>         
-                <p class='lateral-menu-text-item'>Modificar mis datos</p>
-            </a>
-        </div>
-        <div>
-            <a href="{{ url('/solicitudes') }}" class='lateral-menu-item'>           
-                <p class='lateral-menu-text-item'>Gestion área social</p>
-            </a>
-        </div>
-        <div>
-            <a href="{{ url('/combos') }}" class='lateral-menu-item-color'>                          
-                <p class='lateral-menu-text-item'><b>Combos</b></p>              
-            </a>
-        </div>
-        <div>
-            <a href="{{ url('/') }}" class='lateral-menu-item'>
-                <p class='lateral-menu-text-item'>Solicitar Combo</p>
-            </a>
-        </div>
-        <div>
-            <a href="{{ url('/changePassword') }}" class='lateral-menu-item'>
-                <p class='lateral-menu-text-item'>Cambiar contraseña</p>
-            </a>
-        </div>
-    </div>
+@include('components.barra-izquierda')
         <div>
             <nav class='top-menu'>
                 <div>
@@ -128,7 +90,7 @@ $(function () {
                     <div class="col">
                         <h5>Seleccionar día</h5>
                         <div id="datepicker" name="datepicker" slected="1"></div>
-                        <input type="date" id="fechaHora" name="fechaHora" style='display:none'>
+                        <input type="date" id="fechaHora" name="fechaHora" >
                     </div>
                     <div class="col">
                         <h5>Seleccionar horario</h5>
