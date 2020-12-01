@@ -44,8 +44,7 @@
 <!-- modal -->
     <!-- --> 
     <div class='body-form'>
-        <div class='body-form-combo'>
-        
+        <div class='body-form-combo'>  
         <form action="{{url('/pedidos')}}" method="post" id="myForm">
         {{method_field('POST')}}
             {{csrf_field()}}
@@ -82,7 +81,7 @@
                         <td>{{ $combo->cantOrg }}</td>
                         <td>  
                           <div class="form-group col-md-12">
-                            <input type="number" style="width:50px; height:30px;" value="0"  min="0" pattern="^[0-9]+" class="form" id="cantidad" name="cantidad[]">
+                            <input type="number" style="width:50px; height:30px;" value="0" max="{{ $combo->cantOrg }}" min="0" pattern="^[0-{{ $combo->cantOrg }}]+" class="form" id="cantidad" name="cantidad[]">
                           </div>
                         </td>
                         <td style="display:none">  
@@ -111,12 +110,7 @@
 
 
     <script>
-
-      
-
       var button = document.getElementsByClassName("close-modal")[0];
-
-     
       button.onclick = function() {
         var form = document.getElementById("myForm");
         var modalcss = document.getElementById("modalalerta");
@@ -126,7 +120,10 @@
         modalcss.style.display = "none";
         form.submit();
       }
-
+      var cant = document.getElementByid("cantidad");
+      cant.onchange = function(){
+        alert("HOLIS");
+      }
       
       //window.onclick = function(event) {
       //  if (event.target == modalcss) {
@@ -136,13 +133,9 @@
 
 
       function run(){
-
         var modalcss = document.getElementById("modalalerta");
         modalcss.style.display = "block";
-
         // redireccionamiento a url 
-
-
       }
     </script>
 
