@@ -21,7 +21,8 @@ class CreateAdminUserSeeder extends Seeder
         'apellido' => 'Sanchez',
         'dni' => 12345678,
         'telefono' => 12345678,
-        'password' => bcrypt('123456')
+        'password' => bcrypt('123456'),
+        'estado' => 1
         ]);
         $userAdmin = User::create([
             'name' => 'administrador',
@@ -29,7 +30,8 @@ class CreateAdminUserSeeder extends Seeder
             'apellido' => 'admin',
             'dni' => 12345678,
             'telefono' => 12345678,
-            'password' => bcrypt('123456')
+            'password' => bcrypt('123456'),
+            'estado' => 1
         ]);
         $user2 = User::create([
         'name' => 'Ejemplo Organizacion',
@@ -37,7 +39,8 @@ class CreateAdminUserSeeder extends Seeder
         'apellido' => 'Org',
         'dni' => 31785,
         'telefono' => 31785,
-        'password' => bcrypt('123456')
+        'password' => bcrypt('123456'),
+        'estado' => 1
         ]);
         $user3 = User::create([
             'name' => 'Ejemplo Empleado',
@@ -45,15 +48,17 @@ class CreateAdminUserSeeder extends Seeder
             'apellido' => 'empleado',
             'dni' => 31785,
             'telefono' => 31785,
-            'password' => bcrypt('123456')
-        ]);  
+            'password' => bcrypt('123456'),
+            'estado' => 1
+        ]);
         $user4 = User::create([
             'name' => 'Ejemplo2 Organizacion',
             'email' => 'ejemplo3@organizacion.com',
             'apellido' => 'Org',
             'dni' => 31785,
             'telefono' => 31785,
-            'password' => bcrypt('123456')
+            'password' => bcrypt('123456'),
+            'estado' => 1
         ]);
         $role=Role::create(['name' => 'Empleado']);
         $user3->assignRole([$role->id]);

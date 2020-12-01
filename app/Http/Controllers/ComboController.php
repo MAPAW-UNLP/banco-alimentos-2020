@@ -59,10 +59,10 @@ class ComboController extends Controller
     public function store(Request $request){
         $prod=request()->input('producto');
         $cant=request()->input('cant');
-        $datos=request()->except('cant','producto','_token');    
+        $datos=request()->except('cant','producto','_token');
         $i=0;
-        if (!is_null($prod)){  
-            $combo=Combo::create($datos);          
+        if (!is_null($prod)){
+            $combo=Combo::create($datos);
             foreach ($prod as &$valor) {
                 $p=[
                     'combo_id'=>$combo->id,
@@ -90,9 +90,9 @@ class ComboController extends Controller
     }
 
 
-    public function solicitar($user)
+    public function solicitar()
     {
-        // buscar los combos de ese usuario o todos los combos 
+        // buscar los combos de ese usuario o todos los combos
         $hoy = getdate();
         $myFecha = strval($hoy['year'])."-".strval($hoy['mon'])."-".strval($hoy['mday']);
         $combos = Combo::where('estado','=',1)->with("productos")->get();
@@ -131,7 +131,7 @@ class ComboController extends Controller
     public function ver($id)
     {
         // return view('combo.show', ['combo' => Combo::findOrFail($id)]);
-       
+
         dd($id);
 
         return view('combo.edit', ['combo' => 1]);

@@ -15,11 +15,13 @@ class CreatePedidoTable extends Migration
     {
         Schema::create('pedidos', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('organizacion_id')->unsigned();            
+            $table->bigInteger('organizacion_id')->unsigned();
             $table->foreign('organizacion_id')->references('id')->on('organizaciones');
-            $table->bigInteger('turno_id')->unsigned();            
+            $table->bigInteger('turno_id')->unsigned();
             $table->foreign('turno_id')->references('id')->on('turnos');
             $table->integer('estado');
+            $table->integer('combo_id');
+            $table->integer('cantCombos');
         });
     }
 

@@ -11,9 +11,9 @@
 
 <div class='general-container'>
 @include('components.barra-izquierda')
-  
 
-    <!-- -->  
+
+    <!-- -->
     <div class='body'>
     <h3   >Solicitar Combo</h3>
         <!-- modal -->
@@ -22,12 +22,12 @@
 <div class="modal-content">
   <!-- <span class="close">&times;</span> -->
   <div class="body-text-modal">
-      Seleccione un turno 
+      Seleccione un turno
     <br>
       <select name="selectTurnos" id="selectTurnos">
         @foreach($turnos as $turno)
           <option value={{$turno->id}}>{{$turno->fechaHora}} - {{$turno->horario->nombre}}</option>
-        @endforeach 
+        @endforeach
       </select>
   </div>
   <button id="modal-button" onclick="submitjs()" style="
@@ -42,10 +42,10 @@
 
 
 <!-- modal -->
-    <!-- --> 
+    <!-- -->
     <div class='body-form'>
         <div class='body-form-combo'>
-        
+
         <form action="{{url('/pedidos')}}" method="post" id="myForm">
         {{method_field('POST')}}
             {{csrf_field()}}
@@ -67,25 +67,25 @@
                         <td>{{ $combo->nombre }}</td>
                         <td>
                           <p>
-                            <a data-toggle="collapse" href="#{{$combo->nombre}}" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            <a data-toggle="collapse" href="#a{{$combo->id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
                               Ver productos
                             </a>
                           </p>
-                          <div class="collapse" id="{{$combo->nombre}}">
+                          <div class="collapse" id="a{{$combo->id}}">
                             <div class="card card-body" style="width:300px;">
-                              @foreach($combo->productos as $producto) 
+                              @foreach($combo->productos as $producto)
                                {{$producto->cantidad}} - {{$producto->producto}}</p>
                               @endforeach
                             </div>
                           </div>
                         </td>
                         <td>{{ $combo->cantOrg }}</td>
-                        <td>  
+                        <td>
                           <div class="form-group col-md-12">
-                            <input type="number" style="width:50px; height:30px;" value="0"  min="0" pattern="^[0-9]+" class="form" id="cantidad" name="cantidad[]">
+                            <input type="number" onChange="javascript:limite({{$combo->id}});" style="width:50px; height:30px;" value="0"  min="0" max="{{$combo->cantOrg}}" pattern="^[0-9]+" class="form" id="cantidad{{$combo->id}}" name="cantidad[]">
                           </div>
                         </td>
-                        <td style="display:none">  
+                        <td style="display:none">
                             <input  id="combo" name="combo[]" value={{$combo->id}}>
                         </td>
                       </tr>
@@ -94,29 +94,39 @@
                       @endforeach
                       </tbody>
                   </table>
-                  
+
               </div>
-              </div> 
+              </div>
           </div>
           <br>
           <br>
           <div class='combo-edit-buttons-section'>
-            <input type="button" class='accept-combo  button-open-modal'  onclick="run()" value="Aceptar"> 
+            <input type="button" class='accept-combo  button-open-modal'  onclick="run()" value="Aceptar">
             <input type='button' class='cancel-combo' onclick="window.location='{{ url("combos") }}'" value="Cancelar" style="color:white; border-color:#dc3545;">
-                                            
-          </div>          
+
+          </div>
         </form>
       </div>
     </div>
 
 
     <script>
+        function limite(param){
+            $valor = "cantidad" + param;
+            $max = document.getElementById($valor).max;
+            $solicito = document.getElementById($valor).value;
+            if (int($max) < int($solicito)){
+                alert("No puede solicitar mas de " + $max + " combos");
+            }
+        }
+    </script>
+    <script>
 
-      
+
 
       var button = document.getElementsByClassName("close-modal")[0];
 
-     
+
       button.onclick = function() {
         var form = document.getElementById("myForm");
         var modalcss = document.getElementById("modalalerta");
@@ -127,12 +137,12 @@
         form.submit();
       }
 
-      
+
       //window.onclick = function(event) {
       //  if (event.target == modalcss) {
       //    modalcss.style.display = "none";
       //  }
-      //}   
+      //}
 
 
       function run(){
@@ -140,7 +150,7 @@
         var modalcss = document.getElementById("modalalerta");
         modalcss.style.display = "block";
 
-        // redireccionamiento a url 
+        // redireccionamiento a url
 
 
       }
@@ -148,8 +158,8 @@
 
 
 
-    <!-- modulo modal --> 
-    
+    <!-- modulo modal -->
+
 </div>
 
   </div>

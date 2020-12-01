@@ -20,6 +20,7 @@ class PedidoSeeder extends Seeder
             'organizacion_id'=>1,
             'turno_id'=>1,
             'cantCombos'=>5,
+            'estado' => 0
         ]);
         $pedido = Pedido::create([
             'id'=>2,
@@ -27,6 +28,7 @@ class PedidoSeeder extends Seeder
             'organizacion_id'=>2,
             'turno_id'=>2,
             'cantCombos'=>6,
+            'estado' => 0
         ]);
         $pedido = Pedido::create([
             'id'=>3,
@@ -34,6 +36,7 @@ class PedidoSeeder extends Seeder
             'organizacion_id'=>2,
             'turno_id'=>3,
             'cantCombos'=>5,
+            'estado' => 0
         ]);
     }
 }
