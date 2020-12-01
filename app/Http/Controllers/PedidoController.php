@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pedido;
+use App\Models\Turno;
+use App\Models\Combo;
 use App\Models\CombosPedido;
 use App\Models\User;
 
@@ -42,6 +44,7 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
+        $error=0;
         $datos=request()->except('_token','_post');
         $combos=$datos['combo'];
         $cantidad=$datos['cantidad'];
@@ -49,19 +52,39 @@ class PedidoController extends Controller
         $pedidoAux['organizacion_id']=$user->organizaciones[0]->id;
         $pedidoAux['turno_id']=$datos['turno'];
         $pedidoAux['estado']=1;
+        $turnoEntity=Turno::find($datos['turno']);
+        if ($turnoEntity['turnosDisponibles'] < 1 ){
+            return redirect('combos/solicitar/1')->with('error','El turno no esta disponible');
+            $error=1;
+        }
+        $turnoEntityAux['turnosDisponibles']=$turnoEntity['turnosDisponibles']-1;
+        Turno::where('id','=',$datos['turno'])->update($turnoEntityAux);
         $pedido=pedido::insertGetId($pedidoAux);
         $i=0;
+        $combosAgregados=[];
         foreach ($combos as &$combo) {
             if (intval($cantidad[$i])>0){
                 $comboAux=[];
                 $comboAux['combo_id']=$combo;
                 $comboAux['pedido_id']=$pedido;
                 $comboAux['cantidad']=intval($cantidad[$i]);
-                CombosPedido::insertGetId($comboAux);
-                $i+=1;
+                $comboEntity=Combo::find($combo);
+                if ($comboEntity['stock']-$comboAux['cantidad'] < 0 or $comboEntity['cantOrg'] < $comboAux['cantidad'] ){
+                    foreach ($combosAgregados as &$ca) {
+                        CombosPedido::destroy($ca);
+                        pedido::destroy($pedido);
+                    }
+                    $turnoEntityAux['turnosDisponibles']=$turnoEntityAux['turnosDisponibles']+1;
+                    Turno::where('id','=',$datos['turno'])->update($turnoEntityAux);
+                    return redirect('combos/solicitar/1')->with('error',"El combo ".$comboEntity['nombre']." no tiene el stock solicitado"); 
+                }
+                $comboEntityAux['stock']=$comboEntity['stock']-$comboAux['cantidad'];
+                Combo::where('id','=',$combo)->update($comboEntityAux);
+                $combosAgregados[$i]=CombosPedido::insertGetId($comboAux);
             }
+            $i+=1;
         }
-        return redirect('/');
+        return redirect('estadoSolicitud');
         //return response()->json($datos);
     }
 

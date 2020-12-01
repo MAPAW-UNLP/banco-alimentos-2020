@@ -95,9 +95,9 @@ class ComboController extends Controller
         // buscar los combos de ese usuario o todos los combos
         $hoy = getdate();
         $myFecha = strval($hoy['year'])."-".strval($hoy['mon'])."-".strval($hoy['mday']);
-        $combos = Combo::where('estado','=',1)->with("productos")->get();
+        $combos = Combo::where('estado','=',1)->where('stock','>',0)->with("productos")->get();
         $datos['combos']=$combos;
-        $datos['turnos']=Turno::where('fechaHora','>',$myFecha)->get();
+        $datos['turnos']=Turno::where('fechaHora','>',$myFecha)->where('turnosDisponibles','>',0)->get();
         //return response()->json($datos);
         return view('combo.solicitar',$datos);
     }

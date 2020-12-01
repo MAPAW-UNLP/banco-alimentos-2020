@@ -21,6 +21,8 @@ class Combo extends Model
      * 
      * @var string
      */
+    const UPDATED_AT = null;
+    const CREATED_AT = null;
     protected $keyType = 'integer';
 
     /**
