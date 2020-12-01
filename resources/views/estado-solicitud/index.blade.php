@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="{{ url('css/solicitudes-organizacion.css') }}">
 <link rel="stylesheet" href="{{ url('css/estado-solicitud.css') }}">
 
+
 @include('main')
 @include('components.header')
 @include('components.nav')
@@ -31,29 +32,42 @@
                     <tr>
                         <th>Turno</th>
                         <th>Combos</th>
-                        <th>estado</th>
+                        <th>Contribución</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($pedidos as $pedido)
                     <tr>
-                        <td>{{$pedido->turno->fechaHora}} - {{$pedido->turno->horario->nombre }}</td>
+                        <td>
+                        <?php $fecha = date('d-m-Y', strtotime($pedido->turno->fechaHora));?>
+                            <b>Fecha: {{ $fecha }}</b>
+                            <br>
+                            <b>Horario: {{$pedido->turno->horario->nombre }}</b>
+                        </td>
                         <td>
                             <p>
                             <a data-toggle="collapse" href="#a{{$pedido->id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
-                              Ver productos
+                              Ver combos
                             </a>
                             </p>
                             <div class="collapse" id="a{{$pedido->id}}">
                                 <div class="card card-body">
                                     @foreach($pedido->combosPedidos as $comboPedido)
-                                        {{$comboPedido->combo->nombre}}
+                                        {{$comboPedido->cantidad}} - {{$comboPedido->combo->nombre}}
                                         <br>
                                     @endforeach
                                 </div>
                             </div>
                         </td>
-                        <td>{{$pedido->estado}}</td>
+                        <td>
+                            <?php $total = 0; ?>
+                            @foreach($pedido->combosPedidos as $comboPedido)
+                                @php
+                                    $total = $total + $comboPedido->combo->contribucion;
+                                @endphp
+                            @endforeach
+                            <b>${{$total}}</b>
+                        </td>
                     </tr>
                     @endforeach
             </table>
@@ -65,3 +79,5 @@
   </div>
 </div>
 @include('components.footer')
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
