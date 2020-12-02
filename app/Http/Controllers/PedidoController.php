@@ -18,11 +18,26 @@ class PedidoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $datos['pedidos']=Pedido::paginate();
-        return view('pedido_index',$datos);
+        //$aux=pedido::paginate(5);
+        //$datos['pedidos']= collect($aux)->sortBy('turno.fechaHora')->reverse()->toArray();
+        $datos['pedidos'] = pedido::join('turnos', 'pedidos.turno_id', '=', 'turnos.id')->orderBy('turnos.fechaHora', 'desc')->select('pedidos.*')->paginate(10);
+        $page=$request->input('page', 1);
+        if ($page==1){
+            $ant=1;
+        }else{
+            $ant=$page-1;
+        }
+        $datos['ant']=$ant;
+        $datos['page']=$page;
+        $datos['sig']=$page+1;
+        //foreach ($datos['pedidos'] as &$pedido) {
+        //    $pedido = pedido::find($pedido['id']);
+        //}
+        return view('pedido.index',$datos);
+        //return response()->json($page);
 
     }
 
@@ -139,7 +154,7 @@ class PedidoController extends Controller
 
     public function pedidosEmpresa($id)
     {
-        $datos['pedidos']=pedido::where('organizacion_id','=',$id)->paginate();
+        $datos['pedidos']=pedido::where('organizacion_id','=',$id)->orderByRaw('fecha DESC')->paginate();
         return redirect('pedidos');
     }
     public function estado_solicitud_indexCombo(){
@@ -152,4 +167,5 @@ class PedidoController extends Controller
         }
         return view('estado-solicitud.index',$datos);
     }
+    
 }
