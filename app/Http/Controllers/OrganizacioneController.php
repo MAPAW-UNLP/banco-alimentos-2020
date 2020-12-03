@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Organizacione;
+use App\Models\User;
 use App\Models\Solicitud;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -30,13 +31,13 @@ class OrganizacioneController extends Controller
 
     public function busqueda(Request $request){
         $stringbusqueda = $request->get('stringbusqueda');
-    
+
         // busca si ese string es un id y si existe en la base de datos
         // busca si ese string es un nombre y si existe en la base de datos
         $datos['organizaciones']=Organizacione::where('estado','<>',2)->where('id','=',intval($stringbusqueda))->orWhere('nombre','LIKE',"%{$stringbusqueda}%")->paginate(5);
-        
+
         return view('main-manage-social-area-organization-data',$datos);
-    
+
 
     }
 
@@ -76,7 +77,8 @@ class OrganizacioneController extends Controller
      */
     public function show($id)
     {
-        return view('organizacione_show', ['organizacione' => Organizacione::findOrFail($id)]);
+        $organizacione = Organizacione::findOrFail($id);
+        return view('organizacione_show', ['organizacione' => Organizacione::findOrFail($id) , 'user' => User::findOrFail($organizacione->user_id)]);
     }
 
     /**
@@ -110,7 +112,7 @@ class OrganizacioneController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+
         $datos=request()->except(['_token','_method']);
         Organizacione::where('id','=',$id)->update($datos);
         #DESCOMENTAR PARA MANDAR EL MAIL CUANDO ESTE LA VISTA
