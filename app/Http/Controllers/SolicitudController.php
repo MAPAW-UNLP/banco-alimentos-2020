@@ -22,7 +22,7 @@ $this->middleware('permission:solicitud-create', ['only' => ['create','store','a
 $this->middleware('permission:solicitud-edit', ['only' => ['edit','update','aceptar','rechazar']]);
 $this->middleware('permission:solicitud-delete', ['only' => ['destroy','aceptar','rechazar']]);
 }*/
-    
+
     /**
    * Display a listing of the resource.
    *
@@ -71,7 +71,7 @@ $this->middleware('permission:solicitud-delete', ['only' => ['destroy','aceptar'
     $organizacion['ayuda_financiera']=$datos['financiera'];
     $organizacion['tarea']=$datos['nombre_institucion'];
     $organizacion['estado']=0;
-    
+
     $id_organizacion=Organizacione::insertGetId($organizacion);
 
     //ACA ME ENCARGO DE LA CANTIDAD DE PERSONAS
@@ -149,7 +149,7 @@ $this->middleware('permission:solicitud-delete', ['only' => ['destroy','aceptar'
     $paramSolicitud['estado']=0;
     Solicitud::insert($paramSolicitud);
     $organizacion['tarea']=$datos['nombre_institucion'];
-    
+
 
     //ACA ME ENCARGO DE LA CANTIDAD DE PERSONAS
     $cantPersonas[1]=$datos['desayuno'];
@@ -225,7 +225,7 @@ $this->middleware('permission:solicitud-delete', ['only' => ['destroy','aceptar'
 
     $paramSolicitud['organizacion_id']=$id_organizacion;
     $paramSolicitud['estado']=0;
-    Solicitud::insert($paramSolicitud);
+    //Solicitud::insert($paramSolicitud);
     //return response()->json($datos);
     return redirect('/');
   }
