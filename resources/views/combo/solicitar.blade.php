@@ -44,12 +44,8 @@
 <!-- modal -->
     <!-- -->
     <div class='body-form'>
-<<<<<<< HEAD
         <div class='body-form-combo'>
 
-=======
-        <div class='body-form-combo'>
->>>>>>> cf5a61d891b6d5bb657836081139332b0453a261
         <form action="{{url('/pedidos')}}" method="post" id="myForm">
         {{method_field('POST')}}
             {{csrf_field()}}

@@ -57,6 +57,7 @@ $this->middleware('permission:solicitud-delete', ['only' => ['destroy','aceptar'
     $paramUser['name'] = $datos['nombre_referente'];
     $paramUser['password'] = Hash::make('123456');
     $paramUser['email'] = $datos['referente'];
+    $paramUser['estado'] = 0;
     $myUser=User::insertGetId($paramUser);
     $organizacion['user_id']=$myUser;
     $organizacion['nombre']=$datos['nombre_institucion'];
@@ -149,7 +150,6 @@ $this->middleware('permission:solicitud-delete', ['only' => ['destroy','aceptar'
     Solicitud::insert($paramSolicitud);
     $organizacion['tarea']=$datos['nombre_institucion'];
     
-    $id_organizacion=Organizacione::insertGetId($organizacion);
 
     //ACA ME ENCARGO DE LA CANTIDAD DE PERSONAS
     $cantPersonas[1]=$datos['desayuno'];

@@ -40,12 +40,16 @@ public function create(){
 * @return \Illuminate\Http\Response
 */
 public function store(Request $request){
-    $this->validate($request, [
-        'name' => 'required',
-        'email' => 'required|email|unique:users,email'
+    //$request->validateWithBag('post', [
+    //    'name' => 'required',
+    //    'email' => 'required|email|unique:users,email'
         //'password' => 'required|same:confirm-password',
         //'roles' => 'required'
-    ]);
+    //]);
+    $hayUser=User::where('email','=',$request->input('email'))->get();
+    if (!$hayUser->isEmpty()){
+        return redirect('addUser')->with('error', 'El mail ya esta registrado');
+    }
     $input = $request->except('_token','_method','rol_id');
     //$input['password'] = Hash::make($input['password']);
     $input['password'] = Hash::make('123456789');
@@ -57,6 +61,7 @@ public function store(Request $request){
     $param['pass'] = '123456789';
     $param['email'] = $user->email;
     Mail::to($user->email)->send($obj->parametro($param));
+    //return response()->json($algo);
     return redirect('addUser')->with('success', 'El usuario se creo correctamente');
 }
 /**
@@ -124,7 +129,7 @@ public function updatePassword(Request $request){
     $input = $request->all();
     $oldPassword=User::find(Auth::id())->password;
     $pass=Hash::make($input['password']);
-    if ($pass=$oldPassword){
+    if (Hash::check($input['password'], $oldPassword)) {
         $nPass=$input['newPassword'];
         if(strlen($nPass)>5){
             if($input['newPassword'] = $input['repeatNewPassword']){
