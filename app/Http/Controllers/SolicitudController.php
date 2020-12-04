@@ -31,7 +31,7 @@ $this->middleware('permission:solicitud-delete', ['only' => ['destroy','aceptar'
    */
   public function index()
   {
-      $datos['solicitudes']=Solicitud::where('estado','=',0)->paginate(80);
+      $datos['solicitudes']=Solicitud::where('estado','=',0)->paginate(20);
       return view('main-manage-social-area',$datos);
   }
 
