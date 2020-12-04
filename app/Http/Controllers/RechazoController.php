@@ -44,7 +44,8 @@ class RechazoController extends Controller
         $orga=Organizacione::findOrFail($datos['organizacion_id']);
         $orga['estado']=2;
         Organizacione::where('id','=',$datos['organizacion_id'])->update($orga->toArray());
-        $sol = Solicitud::findOrFail($orga['id']);
+        $organizacion_solicitud = Solicitud::where('organizacion_id','=',$orga['id'])->first();
+        $sol = Solicitud::findOrFail($organizacion_solicitud->id);
         $sol['estado']=2;
         Solicitud::where('id','=',$sol['id'])->update($sol->toArray());
 
