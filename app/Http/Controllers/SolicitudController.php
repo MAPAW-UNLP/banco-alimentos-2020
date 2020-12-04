@@ -79,6 +79,7 @@ $this->middleware('permission:solicitud-delete', ['only' => ['destroy','aceptar'
     $cantPersonas[2]=$datos['almuerzo'];
     $cantPersonas[3]=$datos['merienda'];
     $cantPersonas[4]=$datos['cena'];
+    $cantPersonas[5]=$datos['bolson'];
     foreach($cantPersonas as $key=>$value) {
         $paramCantPersonas=[];
         $paramCantPersonas['organizacion_id'] = $id_organizacion;
