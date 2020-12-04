@@ -1,9 +1,4 @@
 <div class='lateral-menu'>
-    @if (Request::is('combos'))
-        BIEN
-    @else
-        MAL
-    @endif
     @can('role-create')
         <div>
         @if (Request::is('addUser'))

@@ -26,11 +26,6 @@
     <div class='navbar-link'><a href="{{ url('/terminos') }}" title="Registro del sistema">Unirse al banco</a></div>
     <div class='navbar-link'><a href="{{ url('/login') }}" title="Inciar sesión en el sistema">Iniciar sesión</a></div>
     @else
-    @can('organizacion-list') 
-    <div class='navbar-link'>
-      <a href="{{ url('/solicitudes') }}" title="Agregar usuario en el sistema">Solicitudes</a>
-    </div>
-    @endcan
     <div class='navbar-link'><a href="{{ url('/estadoSolicitud') }}" title="Registro del sistema">Ir al menú</a></div>
     <div class='navbar-link'>
       <a 

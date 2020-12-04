@@ -99,7 +99,7 @@ class PedidoController extends Controller
             }
             $i+=1;
         }
-        return redirect('estadoSolicitud');
+        return redirect('estadoSolicitud')->with('success', 'El pedido se realizo correctamente');;
         //return response()->json($datos);
     }
 
