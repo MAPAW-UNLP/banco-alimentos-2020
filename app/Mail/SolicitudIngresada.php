@@ -28,7 +28,7 @@ class SolicitudIngresada extends Mailable
      * @return $this
      */
     public function build()
-    {  
+    {
     }
 
     public function parametro(){

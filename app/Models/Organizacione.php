@@ -31,7 +31,7 @@ class Organizacione extends Model
 {
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     const UPDATED_AT = null;
@@ -56,7 +56,7 @@ class Organizacione extends Model
      */
     public function cantPersonasEdads()
     {
-        return $this->hasMany('App\CantPersonasEdad', 'organizacion_id');
+        return $this->hasMany('App\CantPersonasEdads', 'organizacion_id');
     }
 
     /**
@@ -64,7 +64,7 @@ class Organizacione extends Model
      */
     public function cantPersonasServicios()
     {
-        return $this->hasMany('App\CantPersonasServicio', 'organizacion_id');
+        return $this->hasMany('App\CantPersonasServicios', 'organizacion_id');
     }
 
     /**
@@ -72,7 +72,7 @@ class Organizacione extends Model
      */
     public function cantRacionesDias()
     {
-        return $this->hasMany('App\CantRacionesDia', 'organizacion_id');
+        return $this->hasMany('App\CantRacionesDias', 'organizacion_id');
     }
 
     /**

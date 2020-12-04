@@ -155,14 +155,15 @@ class OrganizacioneController extends Controller
      */
     public function aceptar($id)
     {
-        $sol=Solicitud::findOrFail($id);
-        $sol['estado']=1;
-        Solicitud::where('id','=',$id)->update($sol->toArray());
-        $organizacion=organizacione::findOrFail($sol->organizacione->id);
+        $sol['datos'] = Solicitud::where('organizacion_id','=', $id)->first();
+        $sol['datos']->estado=1;
+        Solicitud::where('id','=',$sol['datos']->id)->update($sol['datos']->toArray());
+        $organizacion=organizacione::findOrFail($sol['datos']->organizacion_id);
         $organizacion['estado']=1;
         $obj = new SolicitudAceptada();
         $param['notificacion'] = NotificacionAceptacion::findOrFail(1);
-        $to = $organizacion['email'];
+        $usuario= User::findOrFail($organizacion['user_id']);
+        $to = $usuario->email;
         Mail::to($to)->send($obj->parametro($param));
         organizacione::where('id','=',$id)->update($organizacion->toArray());
         return redirect('solicitudes')->with('success', 'La solicitud fue aceptada correctamente');
