@@ -72,7 +72,7 @@ class Organizacione extends Model
      */
     public function cantRacionesDias()
     {
-        return $this->hasMany('App\CantRacionesDia', 'organizacion_id');
+        return $this->hasMany('App\CantRacionesDias', 'organizacion_id');
     }
 
     /**
