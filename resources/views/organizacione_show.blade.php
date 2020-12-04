@@ -17,10 +17,6 @@
             document.getElementById("myForm").submit();
             }
     }
-
-    function aceptar($id) {
-        document.getElementById("myFormAceptar").submit();
-    }
 </script>
 
 <div class='general-container'>
@@ -625,8 +621,6 @@ function valor(){
 
     <div class='buttons-section-bottom'>
                         <button type="cancel" class='reject-button' onclick="rechazar({{$organizacione->id}})" style="background-color: #dc3545;">Rechazar</button>
-                        <button type="cancel" class='reject-button' onclick="aceptar({{$organizacione->id}})" style="background-color: #dc3545;">Aceptar</button>
-
                         <button type="submit" style="background-color: #103965"><a href="{{ url('/aceptarOrg/'.$organizacione->id) }}">Aceptar</a> </button>
                     </div>
                 </div>
@@ -638,13 +632,7 @@ function valor(){
             <input type="hidden" id="motivo" name="motivo">
             <input type="hidden" id="organizacion_id" name="organizacion_id">
         </form>
-        <form id="myFormAceptar" action="{{ url('/aceptarOrg/'.$organizacione->id) }}" method="post">
-            {{csrf_field()}}
-            <input type="hidden" id="motivo" name="motivo">
-            <input type="hidden" id="organizacion_id" name="organizacion_id">
-        </form>
     </div>
-
 </div>
 @include('components.footer')
 

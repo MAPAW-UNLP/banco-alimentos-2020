@@ -31,9 +31,8 @@ $this->middleware('permission:solicitud-delete', ['only' => ['destroy','aceptar'
    */
   public function index()
   {
-      $datos['solicitudes']=Solicitud::where('estado','=',0)->paginate();
+      $datos['solicitudes']=Solicitud::where('estado','=',0)->paginate(80);
       return view('main-manage-social-area',$datos);
-
   }
 
   /**
@@ -228,12 +227,7 @@ $this->middleware('permission:solicitud-delete', ['only' => ['destroy','aceptar'
 
     $paramSolicitud['organizacion_id']=$id_organizacion;
     $paramSolicitud['estado']=0;
-    //Solicitud::insert($paramSolicitud);
-    //return response()->json($datos);
-    #$obj = new SolicitudIngresada();
-    #Mail::to($to)->send($obj);
-    #return ('hola');
-    return redirect('/')->with('success', 'Se registro su solicitud. El Banco Alimentario se estara comunicando.');
+    return redirect('/')->with('success', 'Se registro su solicitud. El Banco Alimentario se estara comunicando');
   }
 
   /**
