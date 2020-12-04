@@ -38,7 +38,7 @@
         @else
         @can('organizacion-list')
         @endcan
-        <div class='navbar-link'><a href="{{ url('/solicitudes') }}" title="Registro del sistema">Ir al menú</a></div>
+        <div class='navbar-link'><a href="{{ url('/estadoSolicitud') }}" title="Registro del sistema">Ir al menú</a></div>
             <div class='navbar-link'>
                 <a
                 href="{{ url('/logout') }}"

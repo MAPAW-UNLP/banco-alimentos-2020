@@ -67,6 +67,7 @@ class PedidoController extends Controller
         $pedidoAux['organizacion_id']=$user->organizaciones[0]->id;
         $pedidoAux['turno_id']=$datos['turno'];
         $pedidoAux['estado']=1;
+
         $turnoEntity=Turno::find($datos['turno']);
         if ($turnoEntity['turnosDisponibles'] < 1 ){
             return redirect('combos/solicitar/1')->with('error','El turno no esta disponible');
@@ -91,7 +92,7 @@ class PedidoController extends Controller
                     }
                     $turnoEntityAux['turnosDisponibles']=$turnoEntityAux['turnosDisponibles']+1;
                     Turno::where('id','=',$datos['turno'])->update($turnoEntityAux);
-                    return redirect('combos/solicitar/1')->with('error',"El combo ".$comboEntity['nombre']." no tiene el stock solicitado"); 
+                    return redirect('combos/solicitar/1')->with('error',"El combo ".$comboEntity['nombre']." no tiene el stock solicitado");
                 }
                 $comboEntityAux['stock']=$comboEntity['stock']-$comboAux['cantidad'];
                 Combo::where('id','=',$combo)->update($comboEntityAux);
@@ -167,5 +168,5 @@ class PedidoController extends Controller
         }
         return view('estado-solicitud.index',$datos);
     }
-    
+
 }
