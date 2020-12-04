@@ -186,27 +186,27 @@ function valor(){
         <tr>
           <td class='center-item'>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" value="0" class="form" min="0" pattern="^[0-9]+" id="desayuno" name="desayuno">
+              <input type="number" style="width:60px; height:30px;" disabled value="{{$organizacione->cantPersonasServicios[1]->cant}}" class="form" min="0" pattern="^[0-9]+" id="desayuno" name="desayuno">
             </div>
           </td>
           <td class='center-item'>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" value="0" class="form"  min="0" pattern="^[0-9]+" id="almuerzo" name="almuerzo">
+              <input type="number" style="width:60px; height:30px;" disabled value="{{$organizacione->cantPersonasServicios[2]->cant}}" class="form"  min="0" pattern="^[0-9]+" id="almuerzo" name="almuerzo">
             </div>
           </td>
           <td class='center-item'>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" value="0" class="form"  min="0" pattern="^[0-9]+" id="merienda" name="merienda">
+              <input type="number" style="width:60px; height:30px;" disabled value="{{$organizacione->cantPersonasServicios[3]->cant}}" class="form"  min="0" pattern="^[0-9]+" id="merienda" name="merienda">
             </div>
           </td>
           <td class='center-item'>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" value="0" class="form"  min="0" pattern="^[0-9]+" id="cena" name="cena">
+              <input type="number" style="width:60px; height:30px;" disabled value="{{$organizacione->cantPersonasServicios[4]->cant}}" class="form"  min="0" pattern="^[0-9]+" id="cena" name="cena">
             </div>
           </td>
           <td class='center-item'>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" value="0" class="form"  min="0" pattern="^[0-9]+" id="bolson" name="bolson">
+              <input type="number" style="width:60px; height:30px;" disabled value="{{$organizacione->cantPersonasServicios[5]->cant}}" class="form"  min="0" pattern="^[0-9]+" id="bolson" name="bolson">
             </div>
           </td>
         </tr>
@@ -230,37 +230,37 @@ function valor(){
       <tr>
           <td>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" value="0"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="uno" name="uno">
+              <input type="number" style="width:60px; height:30px;" disabled value="{{$organizacione->cantPersonasEdads[1]->cant}}"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="uno" name="uno">
             </div>
           </td>
           <td>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" value="0"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="dos" name="dos">
+              <input type="number" style="width:60px; height:30px;" disabled value="{{$organizacione->cantPersonasEdads[2]->cant}}"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="dos" name="dos">
             </div>
           </td>
           <td>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" value="0"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="tres" name="tres">
+              <input type="number" style="width:60px; height:30px;" disabled value="{{$organizacione->cantPersonasEdads[3]->cant}}"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="tres" name="tres">
             </div>
           </td>
           <td>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" value="0"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="cuatro" name="cuatro">
+              <input type="number" style="width:60px; height:30px;" disabled value="{{$organizacione->cantPersonasEdads[4]->cant}}"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="cuatro" name="cuatro">
             </div>
           </td>
           <td>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" value="0"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="cinco" name="cinco">
+              <input type="number" style="width:60px; height:30px;" disabled value="{{$organizacione->cantPersonasEdads[5]->cant}}"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="cinco" name="cinco">
             </div>
           </td>
           <td>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" value="0"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="seis" name="seis">
+              <input type="number" style="width:60px; height:30px;" disabled value="{{$organizacione->cantPersonasEdads[6]->cant}}"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="seis" name="seis">
             </div>
           </td>
           <td>
           <div class="form-group col-md-2">
-              <input type="text" style="width:60px; height:30px;" value="0" class="form" id="resultado" name="resultado" readonly="true">
+              <input type="text" style="width:60px; height:30px;" disabled value="{{$organizacione->cantPersonasEdads[7]->cant}}" class="form" id="resultado" name="resultado" readonly="true">
           </div>
           </td>
         </tr>
