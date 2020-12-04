@@ -10,7 +10,8 @@ use App\Models\Organizacione;
 use App\Models\CantRacionesDias;
 use App\Models\User;
 use Hash;
-
+use App\Mail\SolicitudIngresada;
+use Illuminate\Support\Facades\Mail;
 use RechazoController;
 use Illuminate\Support\Facades\Auth;
 class SolicitudController extends Controller
@@ -57,6 +58,7 @@ $this->middleware('permission:solicitud-delete', ['only' => ['destroy','aceptar'
     $paramUser['name'] = $datos['nombre_referente'];
     $paramUser['password'] = Hash::make('123456');
     $paramUser['email'] = $datos['referente'];
+    $to = $paramUser['email'];
     $paramUser['estado'] = 0;
     $myUser=User::insertGetId($paramUser);
     $organizacion['user_id']=$myUser;
@@ -227,7 +229,10 @@ $this->middleware('permission:solicitud-delete', ['only' => ['destroy','aceptar'
     $paramSolicitud['estado']=0;
     //Solicitud::insert($paramSolicitud);
     //return response()->json($datos);
-    return redirect('/');
+    #$obj = new SolicitudIngresada();
+    #Mail::to($to)->send($obj);
+    #return ('hola');
+    return redirect('/')->with('success', 'Se registro su solicitud. El Banco Alimentario se estara comunicando.');
   }
 
   /**

@@ -5,10 +5,10 @@
     <div class='right-container'>
         <div class="card-body">
             <h3>
-                Se ha realizado una preinscripción de su solicitud de ingreso al Banco de Alimentos. <br/>
+                Se ha realizado una preinscripción de su solicitud de ingreso al Banco Alimentario. <br/>
                 Queda pendiente la visita para terminar el trámite. <br/>
             </h3>
-            <p>Banco de alimentos</p>
+            <p>Banco Alimentario</p>
         </div>
     </div>
 </div>
