@@ -1,9 +1,11 @@
 <link rel="stylesheet" href="{{ url('css/lateral-menu.css') }}">
 <link rel="stylesheet" href="{{ url('css/add-user.css') }}">
 <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
 <script type="text/javascript">
 //Form Validations
-(function() {
+/*(function() {
   'use strict';
   window.addEventListener('load', function() {
     // Fetch all the forms we want to apply custom Bootstrap validation styles to
@@ -21,12 +23,12 @@
             event.stopPropagation();
             form.name.classList.add('is-invalid')
         }
-        /*var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        /var mailformat = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
         if(form.email.value.match(mailformat)){
             event.preventDefault();
             event.stopPropagation();
             form.email.classList.add('is-invalid')
-        }*/
+        }
 
         var numberformat = /^[0-9]*$/;
         if (!numberformat.test(form.telefono.value)) {
@@ -50,15 +52,83 @@
     });
   }, false);
 })();
+*/
 
 </script>
+
+<script>
+
+
+$(document).ready(function() {
+  $("#basic-form").validate({
+    rules: {
+        apellido : {
+        required: true,
+        minlength: 3
+      },
+      name : {
+        required: true,
+        minlength: 3
+      },
+      dni: {
+        required: true,
+        number: true,
+        min: 99999
+      },
+      telefono: {
+        required: true,
+        number: true,
+        minlength: 8
+      },
+      email: {
+        required: true,
+        email: true
+      },
+      weight: {
+        required: {
+          depends: function(elem) {
+            return $("#age").val() > 50
+          }
+        },
+        number: true,
+        min: 0
+      }
+    },
+    messages : {
+    name: {required: "Debe completar su nombre",
+        minlength: "Su nombre debe ser de al menos 3 caracteres"
+      },
+      apellido: {required: "Debe completar su apellido",
+        minlength: "Su apellido debe ser de al menos 3 caracteres"
+      },
+      dni: {
+        required: "Debe completar su DNI",
+        number: "Este campo solo debe ser completado con numeros",
+        min: "El valor ingresado es demasiado corto"
+      },
+      email: {
+        required: "Debe completar su email",
+        email: "El formato del mail es el siguiente usuario@mail.com"
+      },
+      telefono: {
+        required: "Debe completar su telefono",
+        number: "Este campo solo debe ser completado con numeros",
+        minlength: "Su numero ingresado es demasiado corto"
+      }
+    }
+  });
+});
+
+</script>
+
+
 <div class="content2" style="display:none;">"{{ Session::get('success') }}"</div>
 <div class='general-container'>
 @include('components.barra-izquierda')
     <div class='body'>
         <div class='add-user-body'>
             <h3>Agregar Usuario</h3>
-            <form action="{{url('/users')}}" method="post" class="needs-validation" novalidate name='form'>
+            <form action="{{url('/users')}}" id="basic-form" method="post" class="needs-validation" novalidate name='form'>
             {{method_field('POST')}}
             {{csrf_field()}}
                 <div>
@@ -72,7 +142,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-3 col-form-label" title="Apellido del usuario">Apellido*</label>
+                        <label class="col-sm-3 col-form-label" title="Email del usuario">Apellido*</label>
                         <div class="col-sm-7">
                             <input pattern="[A-Za-z]{3,20}" class="form-control" type="text" id="validationCustom02"  name ="apellido" placeholder="García" required title="Apellido del usuario">
                             <div class="font-white invalid-feedback">
@@ -90,9 +160,9 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-3 col-form-label" title="DNI del usuario">DNI*</label>
+                        <label class="col-sm-3 col-form-label" title="Dni del usuario">DNI*</label>
                         <div class="col-sm-7">
-                            <input minlength="8" maxlength="8"  class="form-control" type="text" id="validationCustom04" name="dni" placeholder="14589657" required title="Dni del usuario">
+                            <input  class="form-control" id="dni" name="dni" placeholder="14589657" required title="Dni del usuario">
                             <div class="font-white invalid-feedback">
                                 Complete este campo con 8 números
                             </div>

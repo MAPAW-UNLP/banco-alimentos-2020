@@ -34,6 +34,7 @@ Route::get('/recover', [PagesController::class, 'recover_password']);
 Route::get('/combos/solicitar', [ComboController::class, 'solicitar']);
 Route::get('/encuestaOrganizacion', [PagesController::class, 'encuesta_organizacion']);
 Route::group(['middleware' => ['auth']], function() {
+    Route::get('/pdf', [PedidoController::class, 'pdf']);
     Route::get('/aceptarOrg/{id}', [OrganizacioneController::class, 'aceptar']);
     Route::get('/combos/solicitar', [ComboController::class, 'solicitar']);
     Route::resource('roles','RoleController');
@@ -84,3 +85,5 @@ Route::post('/registro', [SolicitudController::class, 'store']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
