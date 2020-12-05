@@ -48,7 +48,7 @@ $(function () {
     @else
         var date = new Date();
     @endif
-    
+
     $.datepicker.setDefaults($.datepicker.regional["es"]);
         $("#datepicker").datepicker({
             defaultDate: date,
@@ -78,8 +78,8 @@ $(function () {
                 <div>
                     <a href="{{ url('/notificaciones') }}" class='top-menu-item'>
                     <p class='top-menu-text-item'>Notificaciones</p>
-                    </a> 
-                </div>   
+                    </a>
+                </div>
             </nav>
             <form action="{{url('/turnos')}}" method="POST">
             {{method_field('POST')}}
@@ -90,7 +90,7 @@ $(function () {
                     <div class="col">
                         <h5>Seleccionar día</h5>
                         <div id="datepicker" name="datepicker" slected="1"></div>
-                        <input type="date" id="fechaHora" name="fechaHora" >
+                        <input type="date" id="fechaHora" name="fechaHora" style="display:none;">
                     </div>
                     <div class="col">
                         <h5>Seleccionar horario</h5>
@@ -123,7 +123,7 @@ $(function () {
 
                                               <input type="checkbox" name="check[]" value="{{$horario->id}}" id="defaultCheck{{$horario->id}}" onclick="myFunction({{$horario->id}})" checked>
                                               <label class="form-check-label" for="defaultCheck1">
-                                                  <b>{{$horario->nombre}}</b> 
+                                                  <b>{{$horario->nombre}}</b>
                                               </label>
                                               <br>
                                       </td>
@@ -144,7 +144,7 @@ $(function () {
                                       <td scope="row" style=" text-align:left;">
                                               <input type="checkbox" name="check[]" value="{{$horario->id}}" id="defaultCheck{{$horario->id}}" onclick="myFunction({{$horario->id}})">
                                               <label class="form-check-label" for="defaultCheck1">
-                                                  <b>{{$horario->nombre}}</b> 
+                                                  <b>{{$horario->nombre}}</b>
                                               </label>
                                               <br>
                                       </td>
@@ -166,9 +166,9 @@ $(function () {
 <br>
                         <div class='calendar-buttons-section'>
                             <button class='cancel' type="reset">Cancelar</button>
-                            <button class='accept'>Guardar</button>                                 
+                            <button class='accept'>Guardar</button>
                             </div>
-                    </div>                   
+                    </div>
                 </div>
             </form>
             </div>

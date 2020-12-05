@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property integer $id
+ * @property integer $organizacion_id
  * @property integer $user_id
  * @property string $nombre
  * @property string $telefono
@@ -41,7 +42,7 @@ class Organizacione extends Model
     /**
      * @var array
      */
-    protected $fillable = ['user_id', 'nombre', 'telefono', 'domicilio', 'localidad', 'personeria_juridica', 'aval', 'cantPers', 'edad', 'ayuda_alimentaria', 'ayuda_financiera', 'tarea'];
+    protected $fillable = ['user_id', 'organizacion_id', 'nombre', 'telefono', 'domicilio', 'localidad', 'personeria_juridica', 'aval', 'cantPers', 'edad', 'ayuda_alimentaria', 'ayuda_financiera', 'tarea'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

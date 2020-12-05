@@ -199,4 +199,28 @@ class OrganizacioneController extends Controller
         $organizacione = Organizacione::findOrFail($id);
         return view('organizacion_show', ['organizacione' => Organizacione::findOrFail($id) , 'user' => User::findOrFail($organizacione->user_id)]);
     }
+
+    public function asignarId(Request $request){
+        $datos=request()->except('_token');
+        #return response()->json($datos);
+        $orga=Organizacione::findOrFail($datos['organizacion_id']);
+        $orga['organizacion_id']=$datos['motivo'];
+        Organizacione::where('id','=',$datos['organizacion_id'])->update($orga->toArray());
+        return redirect('organizaciones')->with('success', 'Se asigno correctamente el ID organización');;
+    }
 }
+
+
+#public function store(Request $request){
+ #   $datos=request()->except('_token');
+ #   Rechazo::insert($datos);
+ #   $orga=Organizacione::findOrFail($datos['organizacion_id']);
+ #   $orga['estado']=2;
+ #   Organizacione::where('id','=',$datos['organizacion_id'])->update($orga->toArray());
+ #   $organizacion_solicitud = Solicitud::where('organizacion_id','=',$orga['id'])->first();
+ #   $sol = Solicitud::findOrFail($organizacion_solicitud->id);
+ #   $sol['estado']=2;
+ #   Solicitud::where('id','=',$sol['id'])->update($sol->toArray());
+
+ #   return redirect('solicitudes')->with('success', 'La solicitud fue rechazada correctamente');;
+#}

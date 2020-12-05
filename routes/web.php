@@ -52,6 +52,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('notificaciones', 'NotificacionController');
     Route::resource('notificacionAceptacion', 'NotificacionAceptacionController');
     Route::get('/readDataOrg/{id}', [OrganizacioneController::class, 'show']);
+    Route::post('/asignarId', [OrganizacioneController::class, 'asignarId']);
     Route::post('/rechazar', [RechazoController::class, 'store']);
     Route::get('/activarCombo/{id}', [ComboController::class, 'activar']);
     Route::get('/desactivarCombo/{id}', [ComboController::class, 'desactivar']);
