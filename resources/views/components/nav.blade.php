@@ -42,9 +42,10 @@
     </div>
     @endguest
   </nav>
+  </div>
   <div id="panelsucces">{{ session('success') }}</div>
   <div id="panelerror">{{ session('error') }}</div>
-</div>
+
 <script>
 @if(Session::has('success'))
     $("#panelsucces").show(1000).delay(3000);
