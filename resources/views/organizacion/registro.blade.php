@@ -472,7 +472,7 @@ function valor(){
     </div>
     <div class="mb-3">
         <label for="validationTextarea" class="letra">*Breve párrafo explicativo de la tarea que realizan</label>
-        <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Agregue una explicación" required></textarea>
+        <textarea class="form-control is-invalid" id="validationTextarea" text="tarea" placeholder="Agregue una explicación" required></textarea>
         <div class="invalid-feedback">
         </div>
       </div>

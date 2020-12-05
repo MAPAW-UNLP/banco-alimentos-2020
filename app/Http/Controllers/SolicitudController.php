@@ -70,7 +70,7 @@ $this->middleware('permission:solicitud-delete', ['only' => ['destroy','aceptar'
     $organizacion['aval']=1;
     $organizacion['ayuda_alimentaria']=$datos['alimentaria'];
     $organizacion['ayuda_financiera']=$datos['financiera'];
-    $organizacion['tarea']=$datos['nombre_institucion'];
+    $organizacion['tarea']=$datos['tarea'];
     $organizacion['estado']=0;
 
     $id_organizacion=Organizacione::insertGetId($organizacion);
