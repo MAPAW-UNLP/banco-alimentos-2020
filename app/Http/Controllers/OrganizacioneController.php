@@ -23,7 +23,7 @@ class OrganizacioneController extends Controller
     public function index()
     {
         //
-        $datos['organizaciones']=Organizacione::where('estado','<>',2)->paginate(5);
+        $datos['organizaciones']=Organizacione::where('estado','<>',2)->paginate();
         return view('main-manage-social-area-organization-data',$datos);
 
     }
@@ -196,6 +196,7 @@ class OrganizacioneController extends Controller
     }
 
     public function show_organizacion($id){
-        return view('organizacion_show', ['organizacione' => Organizacione::findOrFail($id)]);
+        $organizacione = Organizacione::findOrFail($id);
+        return view('organizacion_show', ['organizacione' => Organizacione::findOrFail($id) , 'user' => User::findOrFail($organizacione->user_id)]);
     }
 }
