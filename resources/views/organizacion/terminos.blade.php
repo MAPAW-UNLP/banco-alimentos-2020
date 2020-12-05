@@ -19,13 +19,13 @@
 <br>
 <div class='body-terminos'>
     <div class='body-request'>
-        <h3 aling="center">Solicitud de ingreso</h3>
-        <h6>
+        <h3 aling="center" title="Solicitud de ingreso">Solicitud de ingreso</h3>
+        <h6 title="IMPORTANTE: DECLARO QUE LOS DATOS INGRESADOS A CONTINUACIÓN CONSTITUYEN INFORMACIÓN VERDADERA Y COMPLETA, Y TIENEN CARÁCTER DE DECLARACIÓN JURADA">
              IMPORTANTE: DECLARO QUE LOS DATOS INGRESADOS A
             CONTINUACIÓN CONSTITUYEN INFORMACIÓN VERDADERA Y COMPLETA, Y TIENEN CARÁCTER DE DECLARACIÓN JURADA
         </h6>
         <div>
-        <input id="terminos" type="checkbox"> <b>HE LEIDO Y ACEPTO LOS TERMINOS Y CONDICIONES</b>
+        <input id="terminos" type="checkbox" title="Seleccionar"> <b title="HE LEIDO Y ACEPTO LOS TERMINOS Y CONDICIONES">HE LEIDO Y ACEPTO LOS TERMINOS Y CONDICIONES</b>
         </div>
         <div class='request-section'>
             <form id="myForm" action="{{ url('/registro')}}" method="GET">

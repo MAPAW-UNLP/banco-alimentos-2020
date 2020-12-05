@@ -62,7 +62,7 @@
             {{method_field('POST')}}
             {{csrf_field()}}
                 <div>
-                    <div class="form-group row">                       
+                    <div class="form-group row">
                         <label class="col-sm-3 col-form-label" title="Nombre de usuario">Nombre*</label>
                         <div class="col-sm-7">
                             <input pattern="[A-Za-z]{3,20}" class="form-control" id="validationCustom01" type="text" name="name" placeholder="Juan Carlos" required title="Nombre de usuario">
@@ -71,8 +71,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group row"> 
-                        <label class="col-sm-3 col-form-label" title="Email del usuario">Apellido*</label>
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label" title="Apellido del usuario">Apellido*</label>
                         <div class="col-sm-7">
                             <input pattern="[A-Za-z]{3,20}" class="form-control" type="text" id="validationCustom02"  name ="apellido" placeholder="García" required title="Apellido del usuario">
                             <div class="font-white invalid-feedback">
@@ -80,7 +80,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group row"> 
+                    <div class="form-group row">
                         <label class="col-sm-3 col-form-label" title="Email del usuario">Email*</label>
                         <div class="col-sm-7">
                             <input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" class="form-control" type="email" id="validationCustom03" name ="email" placeholder="mail@mail.com" required title="Email del usuario">
@@ -89,8 +89,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group row"> 
-                        <label class="col-sm-3 col-form-label" title="Dni del usuario">DNI*</label>
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label" title="DNI del usuario">DNI*</label>
                         <div class="col-sm-7">
                             <input minlength="8" maxlength="8"  class="form-control" type="text" id="validationCustom04" name="dni" placeholder="14589657" required title="Dni del usuario">
                             <div class="font-white invalid-feedback">
@@ -98,7 +98,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group row"> 
+                    <div class="form-group row">
                         <label type='text' class="col-sm-3 col-form-label" title="Teléfono del usuario" name='telefono'>Teléfono*</label>
                         <div class="col-sm-7">
                             <input class="form-control" type="text" id="validationCustom05" name="telefono" placeholder="221 578 9696 " required title="Teléfono del usuario">
@@ -107,10 +107,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group row"> 
+                    <div class="form-group row">
                         <label class="col-sm-3 col-form-label" title="Rol del usuario">Seleccione un rol</label>
                         <div class="col-sm-7">
-                            <select class="custom-select" required id="rol_id" name="rol_id" title="Rol del usuario">                            
+                            <select class="custom-select" required id="rol_id" name="rol_id" title="Rol del usuario">
                                 <option value='1'>Empleado</option>
                                 <option value='2'>Organizacion</option>
                                 <option value='3'>Administrador</option>
@@ -119,9 +119,9 @@
                     </div>
                     <div class='buttons-section'>
                         <button type="reset" class='cancel' title="Cancelar registro">Cancelar</button>
-                        <button type="submit" class='accept' title="Aceptar registro">Aceptar</button>                        
-                    </div>  
-                </div>                                                                       
+                        <button type="submit" class='accept' title="Aceptar registro">Aceptar</button>
+                    </div>
+                </div>
             </form>
         </div>
     </div>

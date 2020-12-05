@@ -33,12 +33,12 @@
     <nav class='nav-bar'>
         <div class='navbar-link'><a href="{{ url('/') }}" title="Inicio del sistema">Home</a></div>
         @guest
-        <div class='navbar-link'><a href="{{ url('/terminos') }}" title="Registro del sistema">Unirse al banco</a></div>
+        <div class='navbar-link'><a href="{{ url('/terminos') }}" title="Unirse al banco">Unirse al banco</a></div>
         <div class='navbar-link'><a href="{{ url('/login') }}" title="Inciar sesión en el sistema">Iniciar sesión</a></div>
         @else
         @can('organizacion-list')
         @endcan
-        <div class='navbar-link'><a href="{{ url('/estadoSolicitud') }}" title="Registro del sistema">Ir al menú</a></div>
+        <div class='navbar-link'><a href="{{ url('/estadoSolicitud') }}" title="Ir al menú">Ir al menú</a></div>
             <div class='navbar-link'>
                 <a
                 href="{{ url('/logout') }}"
