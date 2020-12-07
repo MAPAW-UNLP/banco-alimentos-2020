@@ -15,6 +15,10 @@ use App\Mail\SolicitudAceptada;
 
 class OrganizacioneController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:organizacion-list', ['only' => ['index','store','create','store','aceptar','rechazar']]);
+    }
     /**
      * Display a listing of the resource.
      *

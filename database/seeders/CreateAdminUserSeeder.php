@@ -61,8 +61,14 @@ class CreateAdminUserSeeder extends Seeder
             'estado' => 1
         ]);
         $role=Role::create(['name' => 'Empleado']);
+        $role->syncPermissions([8,9,10,11,12]);
+        $role=Role::create(['name' => 'Voluntario gestión social']);
+        $role->syncPermissions([8,10]);
+        $role=Role::create(['name' => 'Voluntario almacén']);
+        $role->syncPermissions([9,11,12]);
         $user3->assignRole([$role->id]);
         $role=Role::create(['name' => 'Organizacion']);
+        $role->syncPermissions([1,2,3]);
         $user2->assignRole([$role->id]);
         $user4->assignRole([$role->id]);
         $role = Role::create(['name' => 'Admin']);

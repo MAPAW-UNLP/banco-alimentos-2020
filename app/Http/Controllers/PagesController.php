@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
+    function __construct()
+    {
+    $this->middleware('permission:role-list', ['only' => ['add_user']]);
+    }
     public function inicio(){
         return view('home');
     }

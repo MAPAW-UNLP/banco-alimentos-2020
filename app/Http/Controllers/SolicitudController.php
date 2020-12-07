@@ -16,13 +16,10 @@ use RechazoController;
 use Illuminate\Support\Facades\Auth;
 class SolicitudController extends Controller
 {
- /*   function __construct()
+    function __construct()
 {
-$this->middleware('permission:solicitud-list|solicitud-create|solicitud-edit|solicitud-delete', ['only' => ['index','store']]);
-$this->middleware('permission:solicitud-create', ['only' => ['create','store','aceptar','rechazar']]);
-$this->middleware('permission:solicitud-edit', ['only' => ['edit','update','aceptar','rechazar']]);
-$this->middleware('permission:solicitud-delete', ['only' => ['destroy','aceptar','rechazar']]);
-}*/
+$this->middleware('permission:solicitud-list', ['only' => ['index','store','create','store','aceptar','rechazar']]);
+}
 
     /**
    * Display a listing of the resource.
