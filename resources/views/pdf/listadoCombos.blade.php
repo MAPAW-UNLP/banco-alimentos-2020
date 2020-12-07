@@ -1,36 +1,35 @@
-holitas soy un combo
-@foreach($datos as $combos)
-{{$combos->id}}
-@endforeach
-
-
-<table class="table">
+<table class="table" style="text-align:center; width:100%; border:1px;" border="1">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Id Organización</th>
+      <th scope="col">Fecha</th>
+      <th scope="col">Hora</th>
+      <th scope="col">Combos</th>
+      <th scope="col">Contribución</th>
     </tr>
   </thead>
   <tbody>
+    @foreach($datos as $pedido)
+        <?php $fecha = date('d-m-Y', strtotime($pedido->turno->fechaHora));?>
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <th scope="row">{{$pedido->organizacione->organizacion_id}}</th>
+        <td>{{ $fecha}}</td>
+        <td>{{$pedido->turno->horario->nombre }}</td>
+        <td>
+            @foreach($pedido->combosPedidos as $comboPedido)
+                {{$comboPedido->cantidad}} - {{$comboPedido->combo->nombre}}
+                <br>
+            @endforeach
+        </td>
+        <td><?php $total = 0; ?>
+            @foreach($pedido->combosPedidos as $comboPedido)
+                @php
+                    $total = $total + $comboPedido->combo->contribucion;
+                @endphp
+            @endforeach
+            <b>${{$total}}</b>
+        </td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
+    @endforeach
   </tbody>
 </table>

@@ -169,10 +169,10 @@ class PedidoController extends Controller
         return view('estado-solicitud.index',$datos);
     }
 
-    public function pdf(){
-
+    public function pdf()
+    {
         $dompdf = new Dompdf();
-        $dompdf->loadHtml(view('pdf.listadoCombos',[ 'datos' => Pedido::paginate()]));
+        $dompdf->loadHtml(view('pdf.listadoCombos', ['datos' => pedido::join('turnos', 'pedidos.turno_id', '=', 'turnos.id')->orderBy('turnos.fechaHora', 'desc')->select('pedidos.*')->paginate(10)]));
 
         // (Optional) Setup the paper size and orientation
         $dompdf->setPaper('A4', 'landscape');

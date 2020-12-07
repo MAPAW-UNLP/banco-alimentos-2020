@@ -13,6 +13,9 @@
       <div class='body'>
         <div class='body-request'>
           <h3>Pedidos</h3>
+          <div>
+            <button><a href="{{ ('/pdf')}}"> Exportar PDF </a></button>
+          </div>
           <div class='combos-body'>
             @if(count($pedidos) > 0)
             <table class="table" name="cantPersonas" style="text-align:center;">
@@ -28,6 +31,8 @@
                     <tr>
                         <td>
                         <?php $fecha = date('d-m-Y', strtotime($pedido->turno->fechaHora));?>
+                            <b>Organización: {{ $pedido->organizacione->organizacion_id }}</b>
+                            <br>
                             <b>Fecha: {{ $fecha }}</b>
                             <br>
                             <b>Horario: {{$pedido->turno->horario->nombre }}</b>
@@ -61,7 +66,7 @@
             </table>
             @endif
           </div>
-          <a href="pedidos?page={{$ant}}">anterior</a> {{$page}}<a href="pedidos?page={{$sig}}">siguiente</a> 
+          <a href="pedidos?page={{$ant}}">anterior</a> {{$page}}<a href="pedidos?page={{$sig}}">siguiente</a>
         </div>
       </div>
     </div>
