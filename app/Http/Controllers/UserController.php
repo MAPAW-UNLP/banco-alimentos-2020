@@ -14,6 +14,10 @@ use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Mail;
 class UserController extends Controller
 {
+    function __construct()
+    {
+    $this->middleware('permission:role-list', ['only' => ['index','store']]);
+    }
 /**
 * Display a listing of the resource.
 *
