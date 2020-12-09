@@ -1,3 +1,5 @@
+<h4><b>Listado de pedidos</b></h4>
+<br>
 <table class="table" style="text-align:center; width:100%; border:1px;" border="1">
   <thead>
     <tr>

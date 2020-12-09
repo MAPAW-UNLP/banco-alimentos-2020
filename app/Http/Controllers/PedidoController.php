@@ -159,7 +159,8 @@ class PedidoController extends Controller
         return redirect('pedidos');
     }
     public function estado_solicitud_indexCombo(){
-        $pedidos=pedido::where('organizacion_id','=',Auth::id())->paginate();
+        $user=user::find(Auth::id());
+        $pedidos=pedido::where('organizacion_id','=',$user->organizaciones[0]->id)->paginate();
         if (is_null($pedidos)){
             $datos['tengoDatos']=0;
         }else{
