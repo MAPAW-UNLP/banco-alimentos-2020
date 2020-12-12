@@ -16,10 +16,6 @@ use RechazoController;
 use Illuminate\Support\Facades\Auth;
 class SolicitudController extends Controller
 {
-    function __construct()
-{
-$this->middleware('permission:solicitud-list', ['only' => ['index','store','create','store','aceptar','rechazar']]);
-}
 
     /**
    * Display a listing of the resource.

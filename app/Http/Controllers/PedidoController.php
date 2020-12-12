@@ -13,10 +13,6 @@ use Illuminate\Support\Facades\Auth;
 
 class PedidoController extends Controller
 {
-    function __construct()
-{
-$this->middleware('permission:pedido-list', ['only' => ['index','store','create','store','aceptar','rechazar']]);
-}
       /**
      * Display a listing of the resource.
      *

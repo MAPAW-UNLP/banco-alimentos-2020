@@ -1,6 +1,6 @@
 <div class='lateral-menu'>
     @if (Request::is('combos'))
-        BIEN
+
     @else
         <!--MAL -->
     @endif
