@@ -25,6 +25,9 @@
       <div class='body'>
         <div class='body-request'>
           <h3>Solicitudes de Combos</h3>
+          @if($sinOrga ?? '' == 1)
+            No cuenta con una organizacion asociada a su usuario.
+          @else
           <div class='combos-body'>
             @if(count($pedidos) > 0)
             <table class="table" name="cantPersonas" style="text-align:center;">
@@ -73,6 +76,7 @@
             </table>
             @endif
           </div>
+          @endif
         </div>
       </div>
     </div>
