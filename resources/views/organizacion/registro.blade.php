@@ -20,13 +20,11 @@ function desbloquear(){
   var personeria = document.form.personeria.value;
   if (personeria == '0'){
     document.form.municipio.disabled=false;
-    document.form.estados.disabled = false;
     document.form.movimiento.disabled = false;
     document.form.otro.disabled = false;
   }
   if (personeria == '1'){
     document.form.municipio.disabled=true;
-    document.form.estados.disabled = true;
     document.form.movimiento.disabled = true;
     document.form.otro.disabled = true;
   }
@@ -69,19 +67,19 @@ function valor(){
       <div class="form-group row">
         <label for="validationServer03" class="col-sm-3 col-form-label letra" title="Teléfono / Celular">*Teléfono / Celular</label>
         <div class="col-sm-4">
-          <input type="text" class="form-control" id="inputPassword3" name="telefono" title="Teléfono/Celular" placeholder="2215498512" required>
+          <input type="text" class="form-control" id="inputPassword3" name="telefono" title="Teléfono/Celular" placeholder="Teléfono/Celular" required>
         </div>
       </div>
       <div class="form-group row">
         <label for="validationServer03" class="col-sm-3 col-form-label letra" title="Domicilio (barrio)">*Domicilio (barrio):</label>
         <div class="col-sm-4">
-          <input type="text" class="form-control" id="inputPassword3" name="barrio" title="Domicilio" placeholder="La Loma" required>
+          <input type="text" class="form-control" id="inputPassword3" name="barrio" title="Domicilio" placeholder="Domicilio" required>
         </div>
       </div>
       <div class="form-group row">
         <label for="validationServer03" class="col-sm-3 col-form-label letra" title="Localidad">*Localidad:</label>
         <div class="col-sm-4">
-          <input type="text" class="form-control" id="inputPassword3" name="localidad" title="Localidad" placeholder="La Plata" required>
+          <input type="text" class="form-control" id="inputPassword3" name="localidad" title="Localidad" placeholder="Localidad" required>
         </div>
       </div>
 
@@ -116,12 +114,6 @@ function valor(){
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1" title="Estado ¿cuál?" name="estados" id="estados" value=2 disabled="true">
-            <label class="form-check-label" for="gridCheck1" title="Estado ¿cuál?">
-                <b>Estado ¿cuál?</b>
-            </label>
-          </div>
-          <div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck1" name="movimiento" id="movimiento" title="Movimiento social"  value=4 disabled="true">
             <label class="form-check-label" for="gridCheck1" title="Movimiento social">
                 <b>Movimiento social</b>
@@ -130,7 +122,7 @@ function valor(){
           <div class="form-group row">
             <label for="inputEmail3" class="col-sm-1 col-form-label" title="Otro">*Otro:</label>
             <div class="col-sm-5">
-              <input type="text" class="form-control" id="nombre_institucion" title="Otro" required name="otro" id="otro" disabled="true">
+              <input type="text" class="form-control" id="nombre_institucion" title="Otro" name="otro" id="otro" disabled="true">
             </div>
           </div>
         </div>
@@ -418,6 +410,38 @@ function valor(){
         </tr>
       </tbody>
     </table>
+    <div class="form-group row">
+        <div class="col-sm-2 letra" title="En caso negativo, ¿tiene algún aval?">* En caso negativo, ¿tiene algún aval?</div>
+        <div class="col-sm-10">
+        <br>
+        <br>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" name="municipio" id="municipio" title="Municipio" value=1>
+            <label class="form-check-label" for="gridCheck1" title="Municipio">
+                <b>Pública</b>
+            </label>
+            <input type="text" class="form-control" id="nombre_institucion" title="Otro" name="otro" id="otro" disabled="true">
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" name="movimiento" id="movimiento" title="Movimiento social"  value=4 >
+            <label class="form-check-label" for="gridCheck1" title="Movimiento social">
+                <b>Privada</b>
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" name="movimiento" id="movimiento" title="Movimiento social"  value=4>
+            <label class="form-check-label" for="gridCheck1" title="Movimiento social">
+                <b>No recibo ayuda</b>
+            </label>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-1 col-form-label" title="Otro">*Otro:</label>
+            <div class="col-sm-5">
+              <input type="text" class="form-control" id="nombre_institucion" title="Otro" name="otro" id="otro" disabled="true">
+            </div>
+          </div>
+        </div>
+      </div>
     <div class="form-group row">
         <div class="col-sm-2 letra" title="¿Tiene ayuda alimentaria?">*¿Tiene ayuda alimentaria?</div>
         <div class="col-sm-10">
