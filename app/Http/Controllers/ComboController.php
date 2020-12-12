@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Combo;
+use App\Models\User;
 use App\Models\Pedido;
 use App\Models\Producto;
 use App\Models\Turno;
@@ -93,12 +94,18 @@ $this->middleware('permission:combo-list', ['only' => ['index','store','create',
     public function solicitar()
     {
         // buscar los combos de ese usuario o todos los combos
-        $hoy = getdate();
-        $myFecha = strval($hoy['year'])."-".strval($hoy['mon'])."-".strval($hoy['mday']);
-        $combos = Combo::where('estado','=',1)->where('stock','>',0)->with("productos")->get();
-        $datos['combos']=$combos;
-        $datos['turnos']=Turno::where('fechaHora','>',$myFecha)->where('turnosDisponibles','>',0)->get();
-        //return response()->json($datos);
+        $user=user::find(Auth::id());
+        $cant=count($user->organizaciones);
+        if ($cant > 0){
+            $hoy = getdate();
+            $myFecha = strval($hoy['year'])."-".strval($hoy['mon'])."-".strval($hoy['mday']);
+            $combos = Combo::where('estado','=',1)->where('stock','>',0)->with("productos")->get();
+            $datos['combos']=$combos;
+            $datos['turnos']=Turno::where('fechaHora','>',$myFecha)->where('turnosDisponibles','>',0)->get();
+            //return response()->json($datos);
+        }else{
+            $datos['sinOrga']=1;
+        }
         return view('combo.solicitar',$datos);
     }
 

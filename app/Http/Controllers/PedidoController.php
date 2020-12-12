@@ -160,13 +160,20 @@ class PedidoController extends Controller
     }
     public function estado_solicitud_indexCombo(){
         $user=user::find(Auth::id());
-        $pedidos=pedido::where('organizacion_id','=',$user->organizaciones[0]->id)->paginate();
-        if (is_null($pedidos)){
-            $datos['tengoDatos']=0;
+        $cant=count($user->organizaciones);
+        if ($cant > 0){
+            $pedidos=pedido::where('organizacion_id','=',$user->organizaciones[0]->id)->paginate();
+            if (is_null($pedidos)){
+                $datos['tengoDatos']=0;
+            }else{
+                $datos['tengoDatos']=1;
+                $datos['pedidos']=$pedidos;
+            }
+
         }else{
-            $datos['tengoDatos']=1;
-            $datos['pedidos']=$pedidos;
+            $datos['sinOrga']=1;
         }
+        //return response()->json($datos);
         return view('estado-solicitud.index',$datos);
     }
 

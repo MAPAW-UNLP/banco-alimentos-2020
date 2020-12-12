@@ -16,6 +16,7 @@
     <!-- -->
     <div class='body'>
     <h3   >Solicitar Combo</h3>
+
         <!-- modal -->
         <div id="modalalerta" class="modalcss" style="display:none">
 <!-- Modal content -->
@@ -25,9 +26,11 @@
       Seleccione un turno
     <br>
       <select name="selectTurnos" id="selectTurnos">
+      @if (@isset($var))
         @foreach($turnos as $turno)
           <option value={{$turno->id}}>{{$turno->fechaHora}} - {{$turno->horario->nombre}}</option>
         @endforeach
+      @endif
       </select>
   </div>
   <button id="modal-button" onclick="submitjs()" style="
@@ -44,6 +47,9 @@
 <!-- modal -->
     <!-- -->
     <div class='body-form'>
+    @if($sinOrga ?? '' == 1)
+      No cuenta con una organizacion asociada a su usuario.
+    @else
         <div class='body-form-combo'>
 
         <form action="{{url('/pedidos')}}" method="post" id="myForm">
@@ -158,7 +164,7 @@
 
 
     <!-- modulo modal -->
-
+    @endif
 </div>
 
   </div>
