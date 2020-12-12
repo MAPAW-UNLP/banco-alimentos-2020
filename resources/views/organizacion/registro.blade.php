@@ -2,6 +2,8 @@
 <link rel="stylesheet" href="{{ url('css/top-menu.css') }}">
 <link rel="stylesheet" href="{{ url('css/regitroOrganizacion.css') }}">
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
 
 
@@ -35,6 +37,26 @@ function desbloquear(){
 function valor(){
   alert(document.form.cena_desde.value);
 }
+
+  function showDivAlimentaria() {
+    $("#checkboxPublic").click(function () {
+      if ($(this).is(":checked")) {
+          $("#dvPublic").show();
+      } else {
+          $("#dvPublic").hide();
+      }
+    });
+  }
+
+  function showDivFinanciera() {
+    $("#financiera").click(function () {
+      if ($(this).is(":checked")) {
+          $("#dvPublicFinanciera").show();
+      } else {
+          $("#dvPublicFinanciera").hide();
+      }
+    });
+  }
 </script>
 
 @include('main')
@@ -449,19 +471,22 @@ function valor(){
         <br>
         <div class="col-sm-10">
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="alimentaria" id="gridRadios1" value=1 required>
+              <input class="form-check-input" type="checkbox" name="alimentaria" id="checkboxPublic" value=1 required onclick="javascript:showDivAlimentaria();">
               <label class="form-check-label" for="gridRadios3">
                 <b title="Publica">Pública</b>
               </label>
+              <div id="dvPublic" style="display: none">
+                <input type="text" id="txtDvPublic" />
+              </div>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="alimentaria" id="gridRadios2" value=2 required>
+              <input class="form-check-input" type="checkbox" name="alimentaria" id="gridRadios2" value=2 required>
               <label class="form-check-label" for="gridRadios4">
                 <b title="Privada">Privada</b>
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="alimentaria" id="gridRadios2" value=3 required>
+              <input class="form-check-input" type="checkbox" name="alimentaria" id="gridRadios2" value=3 required>
               <label class="form-check-label" for="gridRadios5">
                 <b title="No recibo ayuda">No recibo ayuda</b>
               </label>
@@ -476,19 +501,22 @@ function valor(){
         <br>
         <div class="col-sm-10">
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="financiera" id="financiera" value=1 required>
+              <input class="form-check-input" type="checkbox" name="financiera" id="financiera" required onclick="javascript:showDivFinanciera();">
               <label class="form-check-label" for="gridRadios6">
                 <b title="Publica">Pública</b>
               </label>
+              <div id="dvPublicFinanciera" style="display: none">
+                <input type="text" id="dvPublicFinanciera" />
+              </div>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="financiera" id="financiera" value=2 required>
+              <input class="form-check-input" type="checkbox" name="financiera" id="financiera" value=2 required>
               <label class="form-check-label" for="gridRadios7">
                 <b title="Privada">Privada</b>
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="financiera" id="financiera" value=3 required>
+              <input class="form-check-input" type="checkbox" name="financiera" id="financiera" value=3 required>
               <label class="form-check-label" for="gridRadios8">
                 <b title="No recibo ayuda">No recibo ayuda</b>
               </label>

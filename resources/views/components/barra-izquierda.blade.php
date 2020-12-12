@@ -55,7 +55,7 @@
         @else
             <a href="{{ url('/combos') }}" class='lateral-menu-item'>
         @endif
-                <p class='lateral-menu-text-item'><b>Combos</b></p>
+                <p class='lateral-menu-text-item'>Combos</p>
             </a>
         </div>
         @endcan
@@ -66,7 +66,7 @@
         @else
             <a href="{{ url('/pedidos') }}" class='lateral-menu-item'>
         @endif
-                <p class='lateral-menu-text-item'><b>Pedidos</b></p>
+                <p class='lateral-menu-text-item'>Pedidos</p>
             </a>
         </div>
         @endcan
