@@ -39,7 +39,7 @@ function valor(){
 }
 
   function showDivAlimentaria() {
-    $("#checkboxPublic").click(function () {
+    $("#checkboxPublic").change(function () {
       if ($(this).is(":checked")) {
           $("#dvPublic").show();
       } else {
@@ -472,7 +472,7 @@ function valor(){
         <div class="col-sm-10">
             <div class="form-check">
               <input class="form-check-input" type="checkbox" name="alimentaria" id="checkboxPublic" value=1 required onclick="javascript:showDivAlimentaria();">
-              <label class="form-check-label" for="gridRadios3">
+              <label class="form-check-label">
                 <b title="Publica">Pública</b>
               </label>
               <div id="dvPublic" style="display: none">
