@@ -24,10 +24,15 @@ class CreateOrganizacionTable extends Migration
             $table->string('localidad')->nullable();
             $table->string('personeria_juridica')->nullable();
             $table->string('aval')->nullable();
+            $table->string('txt_aval')->nullable();
             $table->integer('cantPers')->nullable();
             $table->integer('edad')->nullable();
             $table->integer('ayuda_alimentaria')->nullable();
+            $table->text('txt_alimentaria')->nullable();
+            $table->text('txt_otra_alimentaria')->nullable();
             $table->integer('ayuda_financiera')->nullable();
+            $table->text('txt_financiera')->nullable();
+            $table->text('txt_otra_financiera')->nullable();
             $table->text('tarea')->nullable();
             $table->integer('estado')->nullable();
         });

@@ -41,18 +41,36 @@ function valor(){
   function showDivAlimentaria() {
     $("#checkboxPublic").change(function () {
       if ($(this).is(":checked")) {
+          document.getElementById("checkboxOtherAlimentaria").checked=false;
+          document.getElementById("checkboxOtherAlimentaria").disabled=true;
+          document.getElementById("alimentariaPrivada").checked=false;
+          document.getElementById("alimentariaPrivada").disabled=true;
           $("#dvPublic").show();
       } else {
+          document.getElementById("checkboxOtherAlimentaria").checked=false;
+          document.getElementById("checkboxOtherAlimentaria").disabled=false;
+          document.getElementById("alimentariaPrivada").checked=false;
+          document.getElementById("alimentariaPrivada").disabled=false;
+          $("#txtDvPublic").val="";
           $("#dvPublic").hide();
       }
     });
   }
 
   function showDivFinanciera() {
-    $("#financiera").change(function () {
+    $("#financieraPublic").change(function () {
       if ($(this).is(":checked")) {
+          document.getElementById("financieraPrivada").checked=false;
+          document.getElementById("financieraPrivada").disabled=true;
+          document.getElementById("checkboxOtherFinanciera").checked=false;
+          document.getElementById("checkboxOtherFinanciera").disabled=true;
           $("#dvPublicFinanciera").show();
       } else {
+          document.getElementById("financieraPrivada").checked=false;
+          document.getElementById("financieraPrivada").disabled=false;
+          document.getElementById("checkboxOtherFinanciera").checked=false;
+          document.getElementById("checkboxOtherFinanciera").disabled=false;
+          $("#TextPublicFinanciera").val="";
           $("#dvPublicFinanciera").hide();
       }
     });
@@ -74,6 +92,34 @@ function valor(){
           $("#dvOtherAlimentaria").hide();
           document.getElementById("checkboxPublic").disabled=false;
           document.getElementById("alimentariaPrivada").disabled=false;
+          $("#TextOtherAlimentaria").val="";
+      }
+    });
+  }
+  function clickPrivadaAlimentaria()
+{  $("#alimentariaPrivada").change(function () {
+      if ($(this).is(":checked")) {
+          document.getElementById("checkboxPublic").checked=false;
+          document.getElementById("checkboxPublic").disabled=true;
+          document.getElementById("checkboxOtherAlimentaria").checked=false;
+          document.getElementById("checkboxOtherAlimentaria").disabled=true;
+      } else {
+          document.getElementById("checkboxPublic").disabled=false;
+          document.getElementById("checkboxOtherAlimentaria").disabled=false;
+      }
+    });
+  }
+
+  function clickPrivadaFinanciera()
+{  $("#financieraPrivada").change(function () {
+      if ($(this).is(":checked")) {
+          document.getElementById("financieraPublic").checked=false;
+          document.getElementById("financieraPublic").disabled=true;
+          document.getElementById("checkboxOtherFinanciera").checked=false;
+          document.getElementById("checkboxOtherFinanciera").disabled=true;
+      } else {
+          document.getElementById("financieraPublic").disabled=false;
+          document.getElementById("checkboxOtherFinanciera").disabled=false;
       }
     });
   }
@@ -81,8 +127,16 @@ function valor(){
   function showDivOtherFinanciera() {
     $("#checkboxOtherFinanciera").change(function () {
       if ($(this).is(":checked")) {
+          document.getElementById("financieraPrivada").checked=false;
+          document.getElementById("financieraPrivada").disabled=true;
+          document.getElementById("financieraPublic").checked=false;
+          document.getElementById("financieraPublic").disabled=true;
           $("#dvOtherFinanciera").show();
       } else {
+          document.getElementById("financieraPrivada").checked=false;
+          document.getElementById("financieraPrivada").disabled=false;
+          document.getElementById("financieraPublic").checked=false;
+          document.getElementById("financieraPublic").disabled=false;
           $("#dvOtherFinanciera").hide();
       }
     });
@@ -473,24 +527,24 @@ function valor(){
                 <b title="Publica">Pública</b>
               </label>
               <div id="dvPublic" style="display: none">
-                <input type="text" id="txtDvPublic" />
+                <input type="text" id="txtDvPublic" name="txtAyudaAlimentaria" />
               </div>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="alimentaria" id="alimentariaPrivada" value=2 required>
+              <input class="form-check-input" type="checkbox" name="alimentaria" id="alimentariaPrivada" value=2 onclick="javascript:clickPrivadaAlimentaria();" >
               <label class="form-check-label" for="gridRadios4">
                 <b title="Privada">Privada</b>
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="alimentaria" id="checkboxOtherAlimentaria" value=3 required onclick="javascript:showDivOtherAlimentaria();">
+              <input class="form-check-input" type="checkbox" name="alimentaria" id="checkboxOtherAlimentaria" value=3  onclick="javascript:showDivOtherAlimentaria();">
               <label class="form-check-label" for="gridRadios5">
                 <b title="No recibo ayuda">No recibo ayuda</b>
               </label>
               <div id="dvOtherAlimentaria" style="display: none">
                 <label class="form-check-label letra" for="gridRadios5">
                   Otro:
-                <input type="text" id="TextOtherAlimentaria" />
+                <input type="text" id="TextOtherAlimentaria" name="TextOtherAlimentaria"/>
                 </label>
               </div>
             </div>
@@ -500,29 +554,29 @@ function valor(){
           <p class="letra" title="¿Recibe ayuda financiera?"><b>*¿Recibe ayuda financiera?</b></p>
           <div class="col-sm-6">
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="financiera" id="financiera" required onclick="javascript:showDivFinanciera();">
+              <input class="form-check-input" type="checkbox" name="financiera" id="financieraPublic" value=1 required onclick="javascript:showDivFinanciera();">
               <label class="form-check-label" for="gridRadios6">
                 <b title="Publica">Pública</b>
               </label>
               <div id="dvPublicFinanciera" style="display: none">
-                <input type="text" id="TextPublicFinanciera" />
+                <input type="text" id="TextPublicFinanciera" name="txtAyudaFinanciera" />
               </div>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="financiera" id="financiera" value=2 required>
+              <input class="form-check-input" type="checkbox" name="financiera" id="financieraPrivada" value=2 onclick="javascript:clickPrivadaFinanciera();">
               <label class="form-check-label" for="gridRadios7">
                 <b title="Privada">Privada</b>
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="financiera" id="checkboxOtherFinanciera" value=3 required onclick="javascript:showDivOtherFinanciera();">
+              <input class="form-check-input" type="checkbox" name="financiera" id="checkboxOtherFinanciera" value=3 onclick="javascript:showDivOtherFinanciera();">
               <label class="form-check-label" for="gridRadios8">
                 <b title="No recibo ayuda">No recibo ayuda</b>
               </label>
               <div id="dvOtherFinanciera" style="display: none">
                 <label class="form-check-label letra" for="gridRadios5">
                   Otro:
-                <input type="text" id="TextOtherFinanciera" />
+                <input type="text" id="TextOtherFinanciera" name="TextOtherFinanciera" />
                 </label>
               </div>
             </div>

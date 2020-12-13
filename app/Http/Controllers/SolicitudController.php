@@ -47,6 +47,7 @@ class SolicitudController extends Controller
   public function store(Request $request)
   {
     $datos=request();
+    //return response()->json($datos);
     $paramUser['name'] = $datos['nombre_referente'];
     $paramUser['password'] = Hash::make('123456');
     $paramUser['email'] = $datos['referente'];
@@ -61,8 +62,13 @@ class SolicitudController extends Controller
     $organizacion['personeria_juridica']=$datos['personeria'];
     $paramAval=intval($datos['municipio'])+intval($datos['estados'])+intval($datos['movimiento']);
     $organizacion['aval']=1;
+    $organizacion['txt_aval']=$datos['otro'];
     $organizacion['ayuda_alimentaria']=$datos['alimentaria'];
+    $organizacion['txt_alimentaria']=$datos['txtAyudaAlimentaria'];
     $organizacion['ayuda_financiera']=$datos['financiera'];
+    $organizacion['txt_financiera']=$datos['txtAyudaFinanciera'];
+    $organizacion['txt_otra_financiera']=$datos['TextOtherFinanciera'];
+    $organizacion['txt_otra_alimentaria']=$datos['TextOtherAlimentaria'];
     $organizacion['tarea']=$datos['tarea'];
     $organizacion['estado']=0;
 
