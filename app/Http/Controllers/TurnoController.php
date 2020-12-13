@@ -133,4 +133,10 @@ class TurnoController extends Controller
     {
         return view('turno_show', ['turno' => Turno::where('fechaHora','=',$fecha)->first()]);
     }
+
+    public function horarios($fecha)
+    {   
+        $datos=Turno::where('fechaHora', '=', $fecha)->with("horario")->get();
+        return response()->json($datos);
+    }
 }

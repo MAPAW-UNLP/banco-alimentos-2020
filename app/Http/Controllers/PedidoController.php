@@ -61,6 +61,7 @@ class PedidoController extends Controller
     {
         $error=0;
         $datos=request()->except('_token','_post');
+        //return response()->json($datos);
         $combos=$datos['combo'];
         $cantidad=$datos['cantidad'];
         $user = User::find(Auth::id());

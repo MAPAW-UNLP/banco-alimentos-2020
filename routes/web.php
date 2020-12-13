@@ -75,6 +75,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('organizacione/show/{id}', [OrganizacioneController::class, 'show_organizacion']);
     Route::get('/notificacionPorAceptacion', [NotificacionAceptacionController::class, 'index']);
     Route::post('/editShort', [OrganizacioneController::class, 'updateShort']);
+    Route::get('/getmsg/{fecha}', [TurnoController::class, 'horarios']);
 });
 Route::post('/aceptarTerminos', [MailController::class, 'aceptarTerminos']);
 Route::post('/resetPass', [MailController::class, 'resetPass']);

@@ -10,6 +10,7 @@ use App\Models\Turno;
 use App\Models\Horario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 
 class ComboController extends Controller
@@ -101,11 +102,16 @@ $this->middleware('permission:combo-list', ['only' => ['index','store','create',
             $myFecha = strval($hoy['year'])."-".strval($hoy['mon'])."-".strval($hoy['mday']);
             $combos = Combo::where('estado','=',1)->where('stock','>',0)->with("productos")->get();
             $datos['combos']=$combos;
-            $datos['turnos']=Turno::where('fechaHora','>',$myFecha)->where('turnosDisponibles','>',0)->get();
+            //=Turno::where('fechaHora','>',$myFecha)->where('turnosDisponibles','>',0)->get();
+            $datos['turnos']=DB::table('turnos')->select('fechaHora')
+                ->where('fechaHora','>',$myFecha)->where('turnosDisponibles','>',0)
+                ->groupBy('fechaHora')
+                ->get();
             //return response()->json($datos);
         }else{
             $datos['sinOrga']=1;
         }
+        //return response()->json($datos);
         return view('combo.solicitar',$datos);
     }
 

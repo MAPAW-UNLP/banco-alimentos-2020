@@ -5,6 +5,25 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+<script>
+function getHorarios(){
+  $fecha=$("#selectTurnos").val();
+  $URL='/getmsg/' + $fecha;
+  $.ajax({
+    type:'GET',
+    url:$URL,
+    success: function(data){
+      var $select = $('#selectTurnoshorarios');
+      $select.find('option').remove();
+      data.forEach(obj => {
+        console.log(Object.values(obj.horario)[1]);
+        $select.append('<option value=' + obj.id + '>' + Object.values(obj.horario)[1] + '</option>');
+        console.log('-------------------');
+    });    
+    }
+  });
+}
+</script>
 @include('main')
 @include('components.header')
 @include('components.nav')
@@ -25,12 +44,15 @@
   <div class="body-text-modal">
       Seleccione un turno
     <br>
-      <select name="selectTurnos" id="selectTurnos">
-      @if (@isset($var))
+      <select onchange="getHorarios()" name="selectTurnos" id="selectTurnos">
+      @if (@isset($turnos))
+        <option value=0>Seleccione una fecha</option>
         @foreach($turnos as $turno)
-          <option value={{$turno->id}}>{{$turno->fechaHora}} - {{$turno->horario->nombre}}</option>
+          <option value={{$turno->fechaHora}}  >{{$turno->fechaHora}}</option>
         @endforeach
       @endif
+      </select>
+      <select name="selectTurnoshorarios" id="selectTurnoshorarios">
       </select>
   </div>
   <button id="modal-button" onclick="submitjs()" style="
@@ -63,7 +85,8 @@
                           <tr>
                           <th>Combo</th>
                           <th>Productos</th>
-                          <th>Cantidad máxima</th>
+                          <th>Contribucion</th>
+                          <th>Cantidad disponible</th>
                           <th>Cantidad pedidos</th>
                           </tr>
                       </thead>
@@ -85,10 +108,20 @@
                             </div>
                           </div>
                         </td>
-                        <td>{{ $combo->cantOrg }}</td>
+                        <td>{{ $combo->contribucion }}</td>
+                        @if ($combo->stock > $combo->cantOrg)
+                          <td>{{ $combo->cantOrg }}</td>
+                        @else
+                          <td>{{ $combo->stock }}</td>
+                        @endif
                         <td>
                           <div class="form-group col-md-12">
-                            <input type="number" onChange="javascript:limite({{$combo->id}});" style="width:50px; height:30px;" value="0"  min="0" max="{{$combo->cantOrg}}" pattern="^[0-9]+" class="form" id="cantidad{{$combo->id}}" name="cantidad[]">
+                          @if ($combo->stock > $combo->cantOrg)
+                            <input type="number" onChange="javascript:limite({{$combo->id}});" style="width:50px; height:30px;" value="0"  min="0" max="{{$combo->cantOrg}}" pattern="^[0-9]+" class="form" id="cantidad{{$combo->id}}" name="cantidad[]">  
+                          @else
+                            <input type="number" onChange="javascript:limite({{$combo->id}});" style="width:50px; height:30px;" value="0"  min="0" max="{{$combo->stock}}" pattern="^[0-9]+" class="form" id="cantidad{{$combo->id}}" name="cantidad[]">
+                          @endif
+
                           </div>
                         </td>
                         <td style="display:none">
@@ -121,9 +154,10 @@
             $valor = "cantidad" + param;
             $max = document.getElementById($valor).max;
             $solicito = document.getElementById($valor).value;
-            if (int($max) < int($solicito)){
+            if (parseInt($max) < parseInt($solicito)){
                 alert("No puede solicitar mas de " + $max + " combos");
             }
+            document.getElementById($valor).value=document.getElementById($valor).max;
         }
     </script>
     <script>
@@ -137,7 +171,7 @@
         var form = document.getElementById("myForm");
         var modalcss = document.getElementById("modalalerta");
         var inputTurno = document.getElementById("turno");
-        var selectTurnos = document.getElementById("selectTurnos");
+        var selectTurnos = document.getElementById("selectTurnoshorarios");
         inputTurno.value=selectTurnos.value;
         modalcss.style.display = "none";
         form.submit();
