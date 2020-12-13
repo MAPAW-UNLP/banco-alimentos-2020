@@ -49,11 +49,41 @@ function valor(){
   }
 
   function showDivFinanciera() {
-    $("#financiera").click(function () {
+    $("#financiera").change(function () {
       if ($(this).is(":checked")) {
           $("#dvPublicFinanciera").show();
       } else {
           $("#dvPublicFinanciera").hide();
+      }
+    });
+  }
+
+  function showDivOtherAlimentaria() {
+    $("#checkboxOtherAlimentaria").change(function () {
+      if ($(this).is(":checked")) {
+          $("#dvOtherAlimentaria").show();
+          document.getElementById("checkboxPublic").checked=false;
+          document.getElementById("checkboxPublic").disabled=true;
+          document.getElementById("alimentariaPrivada").checked=false;
+          document.getElementById("alimentariaPrivada").disabled=true;
+          $("#dvPublic").hide();
+          var node = document.getElementById("dvPublic");
+          var textContext = node.textContent;
+          console.log(textContext) 
+      } else {
+          $("#dvOtherAlimentaria").hide();
+          document.getElementById("checkboxPublic").disabled=false;
+          document.getElementById("alimentariaPrivada").disabled=false;
+      }
+    });
+  }
+
+  function showDivOtherFinanciera() {
+    $("#checkboxOtherFinanciera").change(function () {
+      if ($(this).is(":checked")) {
+          $("#dvOtherFinanciera").show();
+      } else {
+          $("#dvOtherFinanciera").hide();
       }
     });
   }
@@ -432,44 +462,11 @@ function valor(){
         </tr>
       </tbody>
     </table>
+    <br>
     <div class="form-group row">
-        <div class="col-sm-2 letra" title="En caso negativo, ¿tiene algún aval?">* En caso negativo, ¿tiene algún aval?</div>
-        <div class="col-sm-10">
-        <br>
-        <br>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1" name="municipio" id="municipio" title="Municipio" value=1>
-            <label class="form-check-label" for="gridCheck1" title="Municipio">
-                <b>Pública</b>
-            </label>
-            <input type="text" class="form-control" id="nombre_institucion" title="Otro" name="otro" id="otro" disabled="true">
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1" name="movimiento" id="movimiento" title="Movimiento social"  value=4 >
-            <label class="form-check-label" for="gridCheck1" title="Movimiento social">
-                <b>Privada</b>
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1" name="movimiento" id="movimiento" title="Movimiento social"  value=4>
-            <label class="form-check-label" for="gridCheck1" title="Movimiento social">
-                <b>No recibo ayuda</b>
-            </label>
-          </div>
-          <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-1 col-form-label" title="Otro">*Otro:</label>
-            <div class="col-sm-5">
-              <input type="text" class="form-control" id="nombre_institucion" title="Otro" name="otro" id="otro" disabled="true">
-            </div>
-          </div>
-        </div>
-      </div>
-    <div class="form-group row">
-        <div class="col-sm-2 letra" title="¿Tiene ayuda alimentaria?">*¿Tiene ayuda alimentaria?</div>
-        <div class="col-sm-10">
-        <br>
-        <br>
-        <div class="col-sm-10">
+        <div class="col-sm-6">
+          <p class="letra" title="¿Tiene ayuda alimentaria?"><b>*¿Tiene ayuda alimentaria?</b></p>
+          <div class="col-sm-6">
             <div class="form-check">
               <input class="form-check-input" type="checkbox" name="alimentaria" id="checkboxPublic" value=1 required onclick="javascript:showDivAlimentaria();">
               <label class="form-check-label">
@@ -480,33 +477,35 @@ function valor(){
               </div>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="alimentaria" id="gridRadios2" value=2 required>
+              <input class="form-check-input" type="checkbox" name="alimentaria" id="alimentariaPrivada" value=2 required>
               <label class="form-check-label" for="gridRadios4">
                 <b title="Privada">Privada</b>
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="alimentaria" id="gridRadios2" value=3 required>
+              <input class="form-check-input" type="checkbox" name="alimentaria" id="checkboxOtherAlimentaria" value=3 required onclick="javascript:showDivOtherAlimentaria();">
               <label class="form-check-label" for="gridRadios5">
                 <b title="No recibo ayuda">No recibo ayuda</b>
               </label>
+              <div id="dvOtherAlimentaria" style="display: none">
+                <label class="form-check-label letra" for="gridRadios5">
+                  Otro:
+                <input type="text" id="TextOtherAlimentaria" />
+                </label>
+              </div>
             </div>
-          </div>
+         </div>
         </div>
-    </div>
-    <div class="form-group row">
-        <div class="col-sm-2 letra" title="¿Recibe ayuda financiera?">*¿Recibe ayuda financiera?</div>
-        <div class="col-sm-10">
-        <br>
-        <br>
-        <div class="col-sm-10">
+        <div class="col-sm-6">
+          <p class="letra" title="¿Recibe ayuda financiera?"><b>*¿Recibe ayuda financiera?</b></p>
+          <div class="col-sm-6">
             <div class="form-check">
               <input class="form-check-input" type="checkbox" name="financiera" id="financiera" required onclick="javascript:showDivFinanciera();">
               <label class="form-check-label" for="gridRadios6">
                 <b title="Publica">Pública</b>
               </label>
               <div id="dvPublicFinanciera" style="display: none">
-                <input type="text" id="dvPublicFinanciera" />
+                <input type="text" id="TextPublicFinanciera" />
               </div>
             </div>
             <div class="form-check">
@@ -516,18 +515,25 @@ function valor(){
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="financiera" id="financiera" value=3 required>
+              <input class="form-check-input" type="checkbox" name="financiera" id="checkboxOtherFinanciera" value=3 required onclick="javascript:showDivOtherFinanciera();">
               <label class="form-check-label" for="gridRadios8">
                 <b title="No recibo ayuda">No recibo ayuda</b>
               </label>
+              <div id="dvOtherFinanciera" style="display: none">
+                <label class="form-check-label letra" for="gridRadios5">
+                  Otro:
+                <input type="text" id="TextOtherFinanciera" />
+                </label>
+              </div>
             </div>
           </div>
         </div>
-    </div>
-    <div class="mb-3">
-        <label for="validationTextarea" class="letra" title="Breve párrafo explicativo de la tarea que realizan">*Breve párrafo explicativo de la tarea que realizan</label>
-        <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Agregue una explicación" title="Agregue una explicación" required></textarea>
-        <div class="invalid-feedback">
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-12">
+          <label for="validationTextarea" class="letra" title="Breve párrafo explicativo de la tarea que realizan"><b>*Breve párrafo explicativo de la tarea que realizan</b></label>
+          <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Agregue una explicación" title="Agregue una explicación" required></textarea>
+          <div class="invalid-feedback"></div>
         </div>
       </div>
       <div class="form-group row">
