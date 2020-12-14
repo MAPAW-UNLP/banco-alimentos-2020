@@ -15,3 +15,12 @@
 .center-item {
     text-align: center;
 }
+
+.body-registro {
+    margin: 20px auto;
+}
+
+.fromTo {
+    margin-top: -5px !important;
+    margin-left: -15px !important;
+}
