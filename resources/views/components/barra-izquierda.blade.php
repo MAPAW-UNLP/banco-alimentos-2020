@@ -72,7 +72,7 @@
         @endcan
         @can('orga-solicitar-combo')
         <div>
-        @if (Request::is('/combos/solicitarcombo'))
+        @if (Request::is('combos/solicitar/1'))
             <a href="{{ url('/combos/solicitar/1') }}" class='lateral-menu-item-color'>
         @else
             <a href="{{ url('/combos/solicitar/1') }}" class='lateral-menu-item'>
