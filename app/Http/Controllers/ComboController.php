@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Pedido;
 use App\Models\Producto;
 use App\Models\Turno;
+use App\Models\CombosPedido;
 use App\Models\Horario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -202,8 +203,8 @@ $this->middleware('permission:combo-list', ['only' => ['index','store','create',
      */
     public function destroy($id)
     {
-        $pedido=Pedido::where('combo_id', '=', 1)->first();
-        if (is_null($pedido)){
+        $pedidos=CombosPedido::where('combo_id', '=', 1)->first();
+        if (is_null($pedidos)){
             Combo::destroy($id);
         }else{
             $combo=Combo::findOrFail($id);

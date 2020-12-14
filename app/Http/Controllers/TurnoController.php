@@ -136,7 +136,7 @@ class TurnoController extends Controller
 
     public function horarios($fecha)
     {   
-        $datos=Turno::where('fechaHora', '=', $fecha)->with("horario")->get();
+        $datos=Turno::where('fechaHora', '=', $fecha)->where('turnosDisponibles', '>', 0)->with("horario")->get();
         return response()->json($datos);
     }
 }
