@@ -2,11 +2,12 @@
 <link rel="stylesheet" href="{{ url('css/top-menu.css') }}">
 <link rel="stylesheet" href="{{ url('css/manage-social-area.css') }}">
 <link rel="stylesheet" href="{{ url('css/solicitudes-organizacion.css') }}">
+<link rel="stylesheet" href="{{ url('css/edit-short.css') }}">
 
 @include('main')
 @include('components.header')
 @include('components.nav')
-
+<div style='display:flex; flex-direction:column'>
 <div class='general-container'>
 <div class='lateral-menu'>
         @can('role-create')
@@ -107,7 +108,7 @@ function alerta(){
 
 </script>
 
-<div class='body-registro'>
+<div class='body-modificar-datos'>
   <div class='body-request'>
     <h3 class="letra">Modificar mis datos</h3>
     <form action="{{ url('/editShort')}}" method='post' class="was-validated" name="form">
@@ -490,4 +491,9 @@ function alerta(){
       </div>
     </form>
     </div>
+</div>
+</div>
+  <div>
+    @include('components.footer')
+  </div>
 </div>

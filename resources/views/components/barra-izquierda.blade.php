@@ -39,7 +39,7 @@
         @endcan
     @can('organizacion-list')
         <div>
-        @if (Request::is('solicitudes'))
+        @if (Request::is('solicitudes') or Request::is('organizaciones') or Request::is('notificacionPorAceptacion'))
             <a href="{{ url('/solicitudes') }}" class='lateral-menu-item-color'>
         @else
             <a href="{{ url('/solicitudes') }}" class='lateral-menu-item'>

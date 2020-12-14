@@ -72,10 +72,10 @@
                             <tr>
                                 <td class="background-white align-center"><b>{{$organizacione->organizacion_id}}</b></td>
                                 <td class="background-white"><b>{{$organizacione->nombre}}</b></td>
-                                <td class="background-white align-center"><div style="background-color:#f2994a" class='request-section-item-link'><a href="{{url('organizacione/show/'.$organizacione->id)}}" style="background-color:#f2994a;">Ver más</a></div></td>
-                                <td class="background-white align-center"><div class='request-section-item-link'><a href="{{url('organizacione/edit-short/'.$organizacione->id)}}">Modificar datos</a></div></td>
+                                <td class="align-center"><div style="background-color:#f2994a" class='request-section-item-link'><a href="{{url('organizacione/show/'.$organizacione->id)}}" style="background-color:#f2994a;">Ver más</a></div></td>
+                                <td class="align-center"><div class='request-section-item-link'><a href="{{url('organizacione/edit-short/'.$organizacione->id)}}">Modificar datos</a></div></td>
                                 @if ($organizacione->organizacion_id == null)
-                                    <td><button type="cancel" class='reject-button' onclick="asignarId({{$organizacione->id}})" style="background-color: #dc3545;">Asginar ID</button></div></td>
+                                    <td><button type="cancel" class='reject-button' onclick="asignarId({{$organizacione->id}})" style="background-color: #dc3545;">Asignar ID</button></div></td>
                                 @else
                                     <td></td>
                                 @endif
