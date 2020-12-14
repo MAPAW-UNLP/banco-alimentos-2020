@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $cantCombos
  * @property int $estado
  * @property Organizacione $organizacione
- * @property Turno $turno
+ * @property $turno
  * @property CombosPedido[] $combosPedidos
  */
 class Pedido extends Model

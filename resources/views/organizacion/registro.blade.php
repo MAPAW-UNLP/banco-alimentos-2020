@@ -226,7 +226,7 @@ function valor(){
             </label>
           </div>
           <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-1 col-form-label" title="Otro">*Otro:</label>
+            <label for="inputEmail3" class="col-sm-1 col-form-label" title="Otro">Otro:</label>
             <div class="col-sm-5">
               <input type="text" class="form-control" id="nombre_institucion" title="Otro" name="otro" id="otro" disabled="true">
             </div>
