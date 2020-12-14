@@ -112,6 +112,8 @@ class SolicitudController extends Controller
     $paramDesayuno['miercoles']=$datos['DMI'];
     $paramDesayuno['jueves']=$datos['DJ'];
     $paramDesayuno['viernes']=$datos['DV'];
+    $paramDesayuno['sabado']=$datos['DS'];
+    $paramDesayuno['domingo']=$datos['DD'];
     $paramDesayuno['desde']=$datos['desayuno_desde'];
     $paramDesayuno['hasta']=$datos['desayuno_hasta'];
     CantRacionesDias::insert($paramDesayuno);
@@ -122,6 +124,8 @@ class SolicitudController extends Controller
     $paramAlmuerzo['miercoles']=$datos['AMI'];
     $paramAlmuerzo['jueves']=$datos['AJ'];
     $paramAlmuerzo['viernes']=$datos['AV'];
+    $paramAlmuerzo['sabado']=$datos['AS'];
+    $paramAlmuerzo['domingo']=$datos['AD'];
     $paramAlmuerzo['desde']=$datos['almuerzo_desde'];
     $paramAlmuerzo['hasta']=$datos['almuerzo_hasta'];
     CantRacionesDias::insert($paramAlmuerzo);
@@ -132,6 +136,8 @@ class SolicitudController extends Controller
     $paramMerienda['miercoles']=$datos['MMI'];
     $paramMerienda['jueves']=$datos['MJ'];
     $paramMerienda['viernes']=$datos['MV'];
+    $paramMerienda['sabado']=$datos['MS'];
+    $paramMerienda['domingo']=$datos['MD'];
     $paramMerienda['desde']=$datos['merienda_desde'];
     $paramMerienda['hasta']=$datos['merienda_hasta'];
     CantRacionesDias::insert($paramMerienda);
@@ -142,6 +148,8 @@ class SolicitudController extends Controller
     $paramCena['miercoles']=$datos['CMI'];
     $paramCena['jueves']=$datos['CJ'];
     $paramCena['viernes']=$datos['CV'];
+    $paramCena['sabado']=$datos['CS'];
+    $paramCena['domingo']=$datos['CD'];
     $paramCena['desde']=$datos['cena_desde'];
     $paramCena['hasta']=$datos['cena_hasta'];
     CantRacionesDias::insert($paramCena);

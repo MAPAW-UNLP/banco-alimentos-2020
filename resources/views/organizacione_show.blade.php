@@ -143,19 +143,13 @@ function valor(){
         <br>
         <br>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1" name="municipio" id="municipio" value=1 disabled="true">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" name="municipio" id="municipio" value=1 disabled="true" @if($organizacione->personeria_juridica == 1) checked @endif>
             <label class="form-check-label" for="gridCheck1">
                 <b>Municipio</b>
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1" name="estados" id="estados" value=2 disabled="true">
-            <label class="form-check-label" for="gridCheck1">
-                <b>Estado ¿cuál?</b>
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1" name="movimiento" id="movimiento"  value=4 disabled="true">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" name="movimiento" id="movimiento"  value=4 disabled="true"@if($organizacione->personeria_juridica == 2) checked @endif>
             <label class="form-check-label" for="gridCheck1">
                 <b>Movimiento social</b>
             </label>
@@ -163,7 +157,7 @@ function valor(){
           <div class="form-group row">
             <label for="inputEmail3" class="col-sm-1 col-form-label">*Otro:</label>
             <div class="col-sm-5">
-              <input type="text" class="form-control" id="nombre_institucion" required name="otro" id="otro" disabled="true">
+              <input type="text" class="form-control" id="nombre_institucion" required name="otro" id="otro" disabled="true" value="{{$organizacione->txt_aval}}">
             </div>
           </div>
         </div>
@@ -185,27 +179,27 @@ function valor(){
         <tr>
           <td class='center-item'>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" disabled value="{{$organizacione->cantPersonasServicios[1]->cant}}" class="form" min="0" pattern="^[0-9]+" id="desayuno" name="desayuno">
+              <input type="number" style="width:60px; height:30px;" disabled value="{{$organizacione->cantPersonasServicios[0]->cant}}" class="form" min="0" pattern="^[0-9]+" id="desayuno" name="desayuno">
             </div>
           </td>
           <td class='center-item'>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" disabled value="{{$organizacione->cantPersonasServicios[2]->cant}}" class="form"  min="0" pattern="^[0-9]+" id="almuerzo" name="almuerzo">
+              <input type="number" style="width:60px; height:30px;" disabled value="{{$organizacione->cantPersonasServicios[1]->cant}}" class="form"  min="0" pattern="^[0-9]+" id="almuerzo" name="almuerzo">
             </div>
           </td>
           <td class='center-item'>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" disabled value="{{$organizacione->cantPersonasServicios[3]->cant}}" class="form"  min="0" pattern="^[0-9]+" id="merienda" name="merienda">
+              <input type="number" style="width:60px; height:30px;" disabled value="{{$organizacione->cantPersonasServicios[2]->cant}}" class="form"  min="0" pattern="^[0-9]+" id="merienda" name="merienda">
             </div>
           </td>
           <td class='center-item'>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" disabled value="{{$organizacione->cantPersonasServicios[4]->cant}}" class="form"  min="0" pattern="^[0-9]+" id="cena" name="cena">
+              <input type="number" style="width:60px; height:30px;" disabled value="{{$organizacione->cantPersonasServicios[3]->cant}}" class="form"  min="0" pattern="^[0-9]+" id="cena" name="cena">
             </div>
           </td>
           <td class='center-item'>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" disabled value="{{$organizacione->cantPersonasServicios[5]->cant}}" class="form"  min="0" pattern="^[0-9]+" id="bolson" name="bolson">
+              <input type="number" style="width:60px; height:30px;" disabled value="{{$organizacione->cantPersonasServicios[4]->cant}}" class="form"  min="0" pattern="^[0-9]+" id="bolson" name="bolson">
             </div>
           </td>
         </tr>
@@ -229,37 +223,37 @@ function valor(){
       <tr>
           <td>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" disabled value="{{$organizacione->cantPersonasEdads[1]->cant}}"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="uno" name="uno">
+              <input type="number" style="width:60px; height:30px;" disabled value="{{$organizacione->cantPersonasEdads[0]->cant}}"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="uno" name="uno">
             </div>
           </td>
           <td>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" disabled value="{{$organizacione->cantPersonasEdads[2]->cant}}"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="dos" name="dos">
+              <input type="number" style="width:60px; height:30px;" disabled value="{{$organizacione->cantPersonasEdads[1]->cant}}"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="dos" name="dos">
             </div>
           </td>
           <td>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" disabled value="{{$organizacione->cantPersonasEdads[3]->cant}}"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="tres" name="tres">
+              <input type="number" style="width:60px; height:30px;" disabled value="{{$organizacione->cantPersonasEdads[2]->cant}}"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="tres" name="tres">
             </div>
           </td>
           <td>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" disabled value="{{$organizacione->cantPersonasEdads[4]->cant}}"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="cuatro" name="cuatro">
+              <input type="number" style="width:60px; height:30px;" disabled value="{{$organizacione->cantPersonasEdads[3]->cant}}"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="cuatro" name="cuatro">
             </div>
           </td>
           <td>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" disabled value="{{$organizacione->cantPersonasEdads[5]->cant}}"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="cinco" name="cinco">
+              <input type="number" style="width:60px; height:30px;" disabled value="{{$organizacione->cantPersonasEdads[4]->cant}}"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="cinco" name="cinco">
             </div>
           </td>
           <td>
             <div class="form-group col-md-2">
-              <input type="number" style="width:60px; height:30px;" disabled value="{{$organizacione->cantPersonasEdads[6]->cant}}"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="seis" name="seis">
+              <input type="number" style="width:60px; height:30px;" disabled value="{{$organizacione->cantPersonasEdads[5]->cant}}"  min="0" pattern="^[0-9]+" class="form" onchange="javascript:calcular();" id="seis" name="seis">
             </div>
           </td>
           <td>
           <div class="form-group col-md-2">
-              <input type="text" style="width:60px; height:30px;" disabled value="{{$organizacione->cantPersonasEdads[7]->cant}}" class="form" id="resultado" name="resultado" readonly="true">
+              <input type="text" style="width:60px; height:30px;" disabled value="{{$organizacione->cantPersonasEdads[6]->cant}}" class="form" id="resultado" name="resultado" readonly="true">
           </div>
           </td>
         </tr>
@@ -285,56 +279,130 @@ function valor(){
       <tr>
           <td>Desayuno</td>
           <td class='center-item'><div class="form-check">
-            @if($organizacione->cantRacionesDias[1]->lunes)
+            @if($organizacione->cantRacionesDias[0]->lunes)
                 <input class="form-check-input" type="checkbox" id="DL" name="DL" value=1 checked disabled>&nbsp;
             @else
                 <input class="form-check-input" type="checkbox" id="DL" name="DL" value=1 disabled >&nbsp;
             @endif
           </div></td>
           <td class='center-item'><div class="form-check">
-            @if($organizacione->cantRacionesDias[1]->martes)
+            @if($organizacione->cantRacionesDias[0]->martes)
                 <input class="form-check-input" type="checkbox" id="DMA" name="DMA" value=1 disabled checked>
             @else
                 <input class="form-check-input" type="checkbox" id="DMA" name="DMA" value=1 disabled>
             @endif
           </div></td>
           <td class='center-item'><div class="form-check">
-            @if($organizacione->cantRacionesDias[1]->martes)
+            @if($organizacione->cantRacionesDias[0]->miercoles)
                 <input class="form-check-input" type="checkbox" id="DMI" name="DMI" value=1 disabled checked>
             @else
                 <input class="form-check-input" type="checkbox" id="DMI" name="DMI" value=1 disabled>
             @endif
           </div></td>
           <td class='center-item'><div class="form-check">
-            @if($organizacione->cantRacionesDias[1]->miercoles)
+            @if($organizacione->cantRacionesDias[0]->jueves)
                 <input class="form-check-input" type="checkbox" id="DJ" name="DJ" value=1 disabled checked>
             @else
                 <input class="form-check-input" type="checkbox" id="DJ" name="DJ" value=1 disabled>
             @endif
           </div></td>
           <td class='center-item'><div class="form-check">
-            @if($organizacione->cantRacionesDias[1]->jueves)
+            @if($organizacione->cantRacionesDias[0]->viernes)
                 <input class="form-check-input" type="checkbox" id="DV" name="DV" value=1 disabled checked>
             @else
                 <input class="form-check-input" type="checkbox" id="DV" name="DV" value=1 disabled>
             @endif
           </div></td>
           <td class='center-item'><div class="form-check">
-            @if($organizacione->cantRacionesDias[1]->viernes)
+            @if($organizacione->cantRacionesDias[0]->sabado)
                 <input class="form-check-input" type="checkbox" id="DS" name="DS" value=1 disabled checked>
             @else
                 <input class="form-check-input" type="checkbox" id="DS" name="DS" value=1 disabled>
             @endif
-          </div></td>
-          <td class='center-item'><div class="form-check">
-            @if($organizacione->cantRacionesDias[1]->viernes)
+          </div>
+          </td>
+          <td class='center-item'>
+          <div class="form-check">
+            @if($organizacione->cantRacionesDias[0]->domingo)
                 <input class="form-check-input" type="checkbox" id="DD" name="DD" value=1 disabled checked>
             @else
                 <input class="form-check-input" type="checkbox" id="DD" name="DD" value=1 disabled>
             @endif
-          </div></td>
+          </div>
+          </td>
+          
           <td class='center-item'>
             <table class="table table-bordered" style="background-color:grey; width:0%" name="cantPersonas">
+              <thead>
+                <th class='center-item' scope="col">Desde</th>
+                <th class='center-item' scope="col">Hasta</th>
+              </thead>
+              <tbody>
+              <tr>
+                <td class='center-item'>
+                    {{$organizacione->cantRacionesDias[0]->desde}}
+                </td>
+                <td class='center-item'>
+                    {{$organizacione->cantRacionesDias[0]->hasta}}
+                </td>
+              </tr>
+              </tbody>
+            </table>
+         </td>
+        </tr>
+        <tr>
+          <td>Almuerzo</td>
+          <td class='center-item'><div class="form-check">
+            @if($organizacione->cantRacionesDias[1]->lunes)
+                <input class="form-check-input" type="checkbox" id="AL" name="AL" value=1 checked disabled>&nbsp;
+            @else
+                <input class="form-check-input" type="checkbox" id="AL" name="AL" value=1 disabled>&nbsp;
+            @endif
+          </div></td>
+          <td class='center-item'><div class="form-check">
+            @if($organizacione->cantRacionesDias[1]->martes)
+                <input class="form-check-input" type="checkbox" id="AMA" name="AMA" value=1 checked disabled>
+            @else
+                <input class="form-check-input" type="checkbox" id="AMA" name="AMA" value=1 disabled>
+            @endif
+          </div></td>
+          <td class='center-item'><div class="form-check">
+            @if($organizacione->cantRacionesDias[1]->miercoles)
+                <input class="form-check-input" type="checkbox" id="AMI" name="AMI" value=1 checked disabled>
+            @else
+                <input class="form-check-input" type="checkbox" id="AMI" name="AMI" value=1 disabled>
+            @endif
+          </div></td>
+          <td class='center-item'><div class="form-check">
+            @if($organizacione->cantRacionesDias[1]->jueves)
+                <input class="form-check-input" type="checkbox" id="AJ" name="AJ" value=1 checked disabled>
+            @else
+                <input class="form-check-input" type="checkbox" id="AJ" name="AJ" value=1 disabled>
+            @endif
+          </div></td>
+          <td class='center-item'><div class="form-check">
+            @if($organizacione->cantRacionesDias[1]->viernes)
+                <input class="form-check-input" type="checkbox" id="AV" name="AV" value=1 checked disabled>
+            @else
+                <input class="form-check-input" type="checkbox" id="AV" name="AV" value=1 disabled>
+            @endif
+          </div></td>
+          <td class='center-item'><div class="form-check">
+            @if($organizacione->cantRacionesDias[1]->sabado)
+                <input class="form-check-input" type="checkbox" id="AS" name="AS" value=1 checked disabled>
+            @else
+                <input class="form-check-input" type="checkbox" id="AS" name="AS" value=1 disabled>
+            @endif
+          </div></td>
+          <td class='center-item'><div class="form-check">
+            @if($organizacione->cantRacionesDias[1]->domingo)
+                <input class="form-check-input" type="checkbox" id="AD" name="AD" value=1 checked disabled>
+            @else
+                <input class="form-check-input" type="checkbox" id="AD" name="AD" value=1 disabled>
+            @endif
+          </div></td>
+          <td class='center-item'>
+            <table class="table table-bordered" style="background-color:grey;" name="cantPersonas">
               <thead>
                 <th class='center-item' scope="col">Desde</th>
                 <th class='center-item' scope="col">Hasta</th>
@@ -353,86 +421,16 @@ function valor(){
          </td>
         </tr>
         <tr>
-          <td>Almuerzo</td>
-          <td class='center-item'><div class="form-check">
-            @if($organizacione->cantRacionesDias[2]->lunes)
-                <input class="form-check-input" type="checkbox" id="AL" name="AL" value=1 checked disabled>&nbsp;
-            @else
-                <input class="form-check-input" type="checkbox" id="AL" name="AL" value=1 disabled>&nbsp;
-            @endif
-          </div></td>
-          <td class='center-item'><div class="form-check">
-            @if($organizacione->cantRacionesDias[2]->martes)
-                <input class="form-check-input" type="checkbox" id="AMA" name="AMA" value=1 checked disabled>
-            @else
-                <input class="form-check-input" type="checkbox" id="AMA" name="AMA" value=1 disabled>
-            @endif
-          </div></td>
-          <td class='center-item'><div class="form-check">
-            @if($organizacione->cantRacionesDias[2]->miercoles)
-                <input class="form-check-input" type="checkbox" id="AMI" name="AMI" value=1 checked disabled>
-            @else
-                <input class="form-check-input" type="checkbox" id="AMI" name="AMI" value=1 disabled>
-            @endif
-          </div></td>
-          <td class='center-item'><div class="form-check">
-            @if($organizacione->cantRacionesDias[2]->jueves)
-                <input class="form-check-input" type="checkbox" id="AJ" name="AJ" value=1 checked disabled>
-            @else
-                <input class="form-check-input" type="checkbox" id="AJ" name="AJ" value=1 disabled>
-            @endif
-          </div></td>
-          <td class='center-item'><div class="form-check">
-            @if($organizacione->cantRacionesDias[2]->viernes)
-                <input class="form-check-input" type="checkbox" id="AV" name="AV" value=1 checked disabled>
-            @else
-                <input class="form-check-input" type="checkbox" id="AV" name="AV" value=1 disabled>
-            @endif
-          </div></td>
-          <td class='center-item'><div class="form-check">
-            @if($organizacione->cantRacionesDias[2]->sabado)
-                <input class="form-check-input" type="checkbox" id="AS" name="AS" value=1 checked disabled>
-            @else
-                <input class="form-check-input" type="checkbox" id="AS" name="AS" value=1 disabled>
-            @endif
-          </div></td>
-          <td class='center-item'><div class="form-check">
-            @if($organizacione->cantRacionesDias[2]->domingo)
-                <input class="form-check-input" type="checkbox" id="AD" name="AD" value=1 checked disabled>
-            @else
-                <input class="form-check-input" type="checkbox" id="AD" name="AD" value=1 disabled>
-            @endif
-          </div></td>
-          <td class='center-item'>
-            <table class="table table-bordered" style="background-color:grey;" name="cantPersonas">
-              <thead>
-                <th class='center-item' scope="col">Desde</th>
-                <th class='center-item' scope="col">Hasta</th>
-              </thead>
-              <tbody>
-              <tr>
-                <td class='center-item'>
-                    {{$organizacione->cantRacionesDias[2]->desde}}
-                </td>
-                <td class='center-item'>
-                    {{$organizacione->cantRacionesDias[2]->hasta}}
-                </td>
-              </tr>
-              </tbody>
-            </table>
-         </td>
-        </tr>
-        <tr>
           <td>Merienda</td>
           <td class='center-item'><div class="form-check">
-            @if($organizacione->cantRacionesDias[3]->lunes)
+            @if($organizacione->cantRacionesDias[2]->lunes)
                 <input class="form-check-input" type="checkbox" id="ML" name="ML" value=1 disabled checked>&nbsp;
             @else
                 <input class="form-check-input" type="checkbox" id="ML" name="ML" value=1 disabled>&nbsp;
             @endif
           </div></td>
           <td class='center-item'><div class="form-check">
-            @if($organizacione->cantRacionesDias[3]->martes)
+            @if($organizacione->cantRacionesDias[2]->martes)
                 <input class="form-check-input" type="checkbox" id="MMA" name="MMA" value=1 checked disabled>
             @else
                 <input class="form-check-input" type="checkbox" id="MMA" name="MMA" value=1 disabled>
@@ -440,35 +438,35 @@ function valor(){
 
           </div></td>
           <td class='center-item'><div class="form-check">
-            @if($organizacione->cantRacionesDias[3]->miercoles)
+            @if($organizacione->cantRacionesDias[2]->miercoles)
                 <input class="form-check-input" type="checkbox" id="MMI" name="MMI" value=1 checked disabled>
             @else
                 <input class="form-check-input" type="checkbox" id="MMI" name="MMI" value=1 disabled>
             @endif
           </div></td>
           <td class='center-item'><div class="form-check">
-            @if($organizacione->cantRacionesDias[3]->jueves)
+            @if($organizacione->cantRacionesDias[2]->jueves)
                 <input class="form-check-input" type="checkbox" id="MJ" name="MJ" value=1 checked disabled>
             @else
                 <input class="form-check-input" type="checkbox" id="MJ" name="MJ" value=1 disabled>
             @endif
           </div></td>
           <td class='center-item'><div class="form-check">
-            @if($organizacione->cantRacionesDias[3]->viernes)
+            @if($organizacione->cantRacionesDias[2]->viernes)
                 <input class="form-check-input" type="checkbox" id="MV" name="MV" value=1 checked disabled>
             @else
                 <input class="form-check-input" type="checkbox" id="MV" name="MV" value=1 disabled>
             @endif
           </div></td>
           <td class='center-item'><div class="form-check">
-            @if($organizacione->cantRacionesDias[3]->sabado)
+            @if($organizacione->cantRacionesDias[2]->sabado)
                 <input class="form-check-input" type="checkbox" id="MS" name="MS" value=1 checked disabled>
             @else
                 <input class="form-check-input" type="checkbox" id="MS" name="MS" value=1 disabled>
             @endif
           </div></td>
           <td class='center-item'><div class="form-check">
-            @if($organizacione->cantRacionesDias[3]->domingo)
+            @if($organizacione->cantRacionesDias[2]->domingo)
                 <input class="form-check-input" type="checkbox" id="MD" name="MD" value=1 checked disabled>
             @else
                 <input class="form-check-input" type="checkbox" id="MD" name="MD" value=1 disabled>
@@ -483,10 +481,10 @@ function valor(){
               <tbody>
               <tr>
                 <td class='center-item'>
-                    {{$organizacione->cantRacionesDias[3]->desde}}
+                    {{$organizacione->cantRacionesDias[2]->desde}}
                 </td>
                 <td class='center-item'>
-                    {{$organizacione->cantRacionesDias[3]->desde}}
+                    {{$organizacione->cantRacionesDias[2]->desde}}
                 </td>
               </tr>
               </tbody>
@@ -496,49 +494,49 @@ function valor(){
         <tr>
           <td>Cena</td>
           <td class='center-item'><div class="form-check">
-            @if($organizacione->cantRacionesDias[4]->lunes)
+            @if($organizacione->cantRacionesDias[3]->lunes)
                 <input class="form-check-input" type="checkbox" id="CL" name="CL" value=1 disabled checked>&nbsp;
             @else
-                <input class="form-check-input" type="checkbox" id="CL" name="CL" value=1>&nbsp;
+                <input class="form-check-input" type="checkbox" id="CL" name="CL" value=1 disabled>&nbsp;
             @endif
           </div></td>
           <td class='center-item'><div class="form-check">
-            @if($organizacione->cantRacionesDias[4]->martes)
+            @if($organizacione->cantRacionesDias[3]->martes)
                 <input class="form-check-input" type="checkbox" id="CMA" name="CMA" value=1 disabled checked>
             @else
                 <input class="form-check-input" type="checkbox" id="CMA" name="CMA" value=1 disabled>
             @endif
           </div></td>
           <td class='center-item'><div class="form-check">
-            @if($organizacione->cantRacionesDias[4]->miercoles)
+            @if($organizacione->cantRacionesDias[3]->miercoles)
                 <input class="form-check-input" type="checkbox" id="CMI" name="CMI" value=1 disabled checked>
             @else
                 <input class="form-check-input" type="checkbox" id="CMI" name="CMI" value=1 disabled>
             @endif
           </div></td>
           <td class='center-item'><div class="form-check">
-            @if($organizacione->cantRacionesDias[4]->jueves)
+            @if($organizacione->cantRacionesDias[3]->jueves)
                 <input class="form-check-input" type="checkbox" id="CJ" name="CJ" value=1 disabled checked>
             @else
                 <input class="form-check-input" type="checkbox" id="CJ" name="CJ" value=1 disabled>
             @endif
           </div></td>
           <td class='center-item'><div class="form-check">
-            @if($organizacione->cantRacionesDias[4]->viernes)
+            @if($organizacione->cantRacionesDias[3]->viernes)
                 <input class="form-check-input" type="checkbox" id="CV" name="CV" value=1 disabled checked>
             @else
                 <input class="form-check-input" type="checkbox" id="CV" name="CV" value=1 disabled>
             @endif
           </div></td>
           <td class='center-item'><div class="form-check">
-            @if($organizacione->cantRacionesDias[4]->sabado)
+            @if($organizacione->cantRacionesDias[3]->sabado)
                 <input class="form-check-input" type="checkbox" id="CS" name="CS" value=1 disabled checked>
             @else
                 <input class="form-check-input" type="checkbox" id="CS" name="CS" value=1 disabled>
             @endif
           </div></td>
           <td class='center-item'><div class="form-check">
-            @if($organizacione->cantRacionesDias[4]->domingo)
+            @if($organizacione->cantRacionesDias[3]->domingo)
                 <input class="form-check-input" type="checkbox" id="CD" name="CD" value=1 disabled checked>
             @else
                 <input class="form-check-input" type="checkbox" id="CS" name="CS" value=1 disabled>
@@ -553,10 +551,10 @@ function valor(){
               <tbody>
               <tr>
                 <td class='center-item'>
-                    {{$organizacione->cantRacionesDias[4]->desde}}
+                    {{$organizacione->cantRacionesDias[3]->desde}}
                 </td>
                 <td class='center-item'>
-                    {{$organizacione->cantRacionesDias[4]->desde}}
+                    {{$organizacione->cantRacionesDias[3]->hasta}}
                 </td>
               </tr>
               </tbody>
@@ -613,7 +611,7 @@ function valor(){
     </div>
     <div class="mb-3">
         <label for="validationTextarea" class="letra">*Breve párrafo explicativo de la tarea que realizan</label>
-        <textarea class="form-control" id="validationTextarea" placeholder="Agregue una explicación" disabled>{{ $organizacione->tarea }}</textarea>
+        <textarea class="form-control" id="validationTextarea" placeholder="Agregue una explicación" disabled>{{$organizacione->tarea}}</textarea>
         <div class="invalid-feedback">
         </div>
       </div>
