@@ -6,6 +6,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script>
+  function close(){
+    alert("entra");
+    //var modalcss = document.getElementById("modalalerta");
+    //modalcss.style.display = "none";
+  }
 function getHorarios(){
   $fecha=$("#selectTurnos").val();
   $URL='/getmsg/' + $fecha;
@@ -24,6 +29,17 @@ function getHorarios(){
   });
 }
 </script>
+<script>
+function submitjs(){
+      var form = document.getElementById("myForm");
+      var modalcss = document.getElementById("modalalerta");
+      var inputTurno = document.getElementById("turno");
+      var selectTurnos = document.getElementById("selectTurnoshorarios");
+      inputTurno.value=selectTurnos.value;
+      modalcss.style.display = "none";
+      form.submit();
+    }
+    </script>
 @include('main')
 @include('components.header')
 @include('components.nav')
@@ -36,8 +52,8 @@ function getHorarios(){
     <div class='body'>
     <h3   >Solicitar Combo</h3>
 
-        <!-- modal -->
-        <div id="modalalerta" class="modalcss" style="display:none">
+<!-- modal -->
+<div id="modalalerta" class="modalcss" style="display:none">
 <!-- Modal content -->
 <div class="modal-content">
   <!-- <span class="close">&times;</span> -->
@@ -55,12 +71,10 @@ function getHorarios(){
       <select name="selectTurnoshorarios" id="selectTurnoshorarios">
       </select>
   </div>
-  <button id="modal-button" onclick="submitjs()" style="
-    position: relative;
-    top: 20%;
-    width: 70px;
-    left: 70%;
-    font-size: 15px" class="close-modal   btn-modal-style">Aceptar</button>
+  <div class="buttons-section">
+    <button id="cancel" class="cancel" onclick='$("#modalalerta").css( "display", "none" );' >Cerrar</button>
+    <button id="modal-button" onclick="submitjs()"  class="accept">Aceptar</button>
+  </div>
 </div>
 
 </div>
@@ -156,27 +170,17 @@ function getHorarios(){
             $solicito = document.getElementById($valor).value;
             if (parseInt($max) < parseInt($solicito)){
                 alert("No puede solicitar mas de " + $max + " combos");
+                document.getElementById($valor).value=document.getElementById($valor).max;
             }
-            document.getElementById($valor).value=document.getElementById($valor).max;
+            
         }
     </script>
     <script>
 
 
 
-      var button = document.getElementsByClassName("close-modal")[0];
-
-
-      button.onclick = function() {
-        var form = document.getElementById("myForm");
-        var modalcss = document.getElementById("modalalerta");
-        var inputTurno = document.getElementById("turno");
-        var selectTurnos = document.getElementById("selectTurnoshorarios");
-        inputTurno.value=selectTurnos.value;
-        modalcss.style.display = "none";
-        form.submit();
-      }
-
+    </script>
+    <script>
 
       //window.onclick = function(event) {
       //  if (event.target == modalcss) {
@@ -193,6 +197,8 @@ function getHorarios(){
 
 
       }
+
+
     </script>
 
 
