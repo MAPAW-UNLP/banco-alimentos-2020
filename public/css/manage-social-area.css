@@ -56,7 +56,7 @@ button {
     max-width: 50%;
 }
 
-.buttons-section-bottom{
+.buttons-section-bottom {
     text-align: right;
     flex-basis: 0;
     flex-grow: 1;

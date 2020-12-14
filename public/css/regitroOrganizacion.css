@@ -1,11 +1,8 @@
-.body-registro {
-    padding: 20px;
-}
 .body-request {
     padding: 20px;
     max-width: 1156px;
     margin: 0 auto;
-    background-color: #CDC6C2;
+    background-color: #cdc6c2;
 }
 .letra {
     color: white;
@@ -17,4 +14,13 @@
 
 .center-item {
     text-align: center;
+}
+
+.body-registro {
+    margin: 20px auto;
+}
+
+.fromTo {
+    margin-top: -5px !important;
+    margin-left: -15px !important;
 }

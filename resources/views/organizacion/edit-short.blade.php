@@ -485,7 +485,7 @@ function alerta(){
       </div>
       <div class="form-group row">
         <div class="col-sm-12 text-right">
-          <button type="submit" class="btn btn-primary">Enviar</button>
+          <button type="submit" class="accept">Enviar</button>
         </div>
       </div>
     </form>

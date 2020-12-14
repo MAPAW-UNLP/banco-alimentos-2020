@@ -154,9 +154,8 @@ function submitjs(){
           <br>
           <br>
           <div class='combo-edit-buttons-section'>
-            <input type="button" class='accept-combo  button-open-modal'  onclick="run()" value="Aceptar">
-            <input type='button' class='cancel-combo' onclick="window.location='{{ url("combos") }}'" value="Cancelar" style="color:white; border-color:#dc3545;">
-
+            <input type='button' class='cancel' onclick="window.location='{{ url("combos") }}'" value="Cancelar">
+            <input type="button" class='accept button-open-modal'  onclick="run()" value="Aceptar">
           </div>
         </form>
       </div>
