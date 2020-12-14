@@ -55,3 +55,14 @@
     background-color: white;
     padding: 20px;
 }
+
+.accept {
+    background-color: #103965 !important;
+    border: none;
+    border-radius: 0.25rem;
+    color: #ffffff !important;
+}
+
+.accept:hover {
+    color: black !important;
+}

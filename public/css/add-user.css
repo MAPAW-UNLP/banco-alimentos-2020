@@ -1,9 +1,11 @@
 .add-user-body {
     padding: 30px;
+    height: 100%;
 }
 
 h3 {
     color: #ffffff;
+    padding-bottom: 20px;
 }
 
 label {
@@ -49,6 +51,8 @@ button {
 
 .buttons-section {
     text-align: right;
+    flex-basis: 0;
+    flex-grow: 1;
 }
 
 .cancel {
@@ -70,4 +74,20 @@ button:hover {
 
 .font-white {
     color: #ffffff !important;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.form-inputs {
+    flex-basis: 0;
+    flex-grow: 2;
+}
+
+.form-inputs {
+    flex-basis: 0;
+    flex-grow: 6;
 }

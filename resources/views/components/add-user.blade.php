@@ -131,67 +131,61 @@ $(document).ready(function() {
             <form action="{{url('/users')}}" id="basic-form" method="post" class="needs-validation" novalidate name='form'>
             {{method_field('POST')}}
             {{csrf_field()}}
-                <div>
-                    <div class="form-group row">
-                        <label class="col-sm-3 col-form-label" title="Nombre de usuario">Nombre*</label>
-                        <div class="col-sm-7">
-                            <input pattern="[A-Za-z]{3,20}" class="form-control" id="validationCustom01" type="text" name="name" placeholder="Juan Carlos" required title="Nombre de usuario">
-                            <div class="font-white invalid-feedback">
-                                Ingrese al menos 3 letras
-                            </div>
-                        </div>
+                <div class='form-inputs'>
+                  <div class="form-group row">
+                    <div class="col-sm-6">
+                      <label title="Nombre de usuario">Nombre*</label>                        
+                      <input pattern="[A-Za-z]{3,20}" class="form-control" id="validationCustom01" type="text" name="name" placeholder="Juan Carlos" required title="Nombre de usuario">
+                      <div class="font-white invalid-feedback">
+                        Ingrese al menos 3 letras
+                      </div>
                     </div>
-                    <div class="form-group row">
-                        <label class="col-sm-3 col-form-label" title="Email del usuario">Apellido*</label>
-                        <div class="col-sm-7">
-                            <input pattern="[A-Za-z]{3,20}" class="form-control" type="text" id="validationCustom02"  name ="apellido" placeholder="García" required title="Apellido del usuario">
-                            <div class="font-white invalid-feedback">
-                                Ingrese al menos 3 letras
-                            </div>
-                        </div>
+                    <div class="col-sm-6">
+                      <label title="Email del usuario">Apellido*</label>
+                      <input pattern="[A-Za-z]{3,20}" class="form-control" type="text" id="validationCustom02"  name ="apellido" placeholder="García" required title="Apellido del usuario">
+                      <div class="font-white invalid-feedback">
+                        Ingrese al menos 3 letras
+                      </div>
                     </div>
-                    <div class="form-group row">
-                        <label class="col-sm-3 col-form-label" title="Email del usuario">Email*</label>
-                        <div class="col-sm-7">
-                            <input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" class="form-control" type="email" id="validationCustom03" name ="email" placeholder="mail@mail.com" required title="Email del usuario">
-                            <div class="font-white invalid-feedback">
-                                Complete este campo ejemplo: juanperez@dominio.com
-                            </div>
-                        </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-sm-6">
+                      <label title="Email del usuario">Email*</label>
+                      <input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" class="form-control" type="email" id="validationCustom03" name ="email" placeholder="mail@mail.com" required title="Email del usuario">
+                      <div class="font-white invalid-feedback">
+                        Complete este campo ejemplo: juanperez@dominio.com
+                      </div>
                     </div>
-                    <div class="form-group row">
-                        <label class="col-sm-3 col-form-label" title="Dni del usuario">DNI*</label>
-                        <div class="col-sm-7">
-                            <input  class="form-control" id="dni" name="dni" placeholder="14589657" required title="Dni del usuario">
-                            <div class="font-white invalid-feedback">
-                                Complete este campo con 8 números
-                            </div>
-                        </div>
+                    <div class="col-sm-6">
+                      <label title="Dni del usuario">DNI*</label>
+                      <input class="form-control" id="dni" name="dni" placeholder="14589657" required title="Dni del usuario">
+                      <div class="font-white invalid-feedback">
+                        Complete este campo con 8 números
+                      </div>
                     </div>
-                    <div class="form-group row">
-                        <label type='text' class="col-sm-3 col-form-label" title="Teléfono del usuario" name='telefono'>Teléfono*</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" type="text" id="validationCustom05" name="telefono" placeholder="221 578 9696 " required title="Teléfono del usuario">
-                            <div class="font-white invalid-feedback">
-                                Complete este campo solo con números
-                            </div>
-                        </div>
+                  </div>
+                  <div class="form-group row">
+                  <div class="col-sm-6">
+                    <label type="text" title="Teléfono del usuario" name='telefono'>Teléfono*</label>
+                    <input class="form-control" type="text" id="validationCustom05" name="telefono" placeholder="221 578 9696 " required title="Teléfono del usuario">
+                    <div class="font-white invalid-feedback">
+                      Complete este campo solo con números
                     </div>
-                    <div class="form-group row">
-                        <label class="col-sm-3 col-form-label" title="Rol del usuario">Seleccione un rol</label>
-                        <div class="col-sm-7">
-                            <select class="custom-select" required id="rol_id" name="rol_id" title="Rol del usuario">
-                                <option value='1'>Empleado</option>
-                                <option value='2'>Organizacion</option>
-                                <option value='3'>Administrador</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class='buttons-section'>
-                        <button type="reset" class='cancel' title="Cancelar registro">Cancelar</button>
-                        <button type="submit" class='accept' title="Aceptar registro">Aceptar</button>
-                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <label title="Rol del usuario">Seleccione un rol</label>                  
+                    <select class="custom-select" required id="rol_id" name="rol_id" title="Rol del usuario">
+                      <option value='1'>Empleado</option>
+                      <option value='2'>Organizacion</option>
+                      <option value='3'>Administrador</option>
+                    </select>
+                  </div>
                 </div>
+              </div>
+              <div class='buttons-section'>
+                <button type="reset" class='cancel' title="Cancelar registro">Cancelar</button>
+                <button type="submit" class='accept' title="Aceptar registro">Aceptar</button>
+              </div>
             </form>
         </div>
     </div>

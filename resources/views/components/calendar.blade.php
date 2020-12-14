@@ -1,10 +1,7 @@
 <link rel="stylesheet" href="{{ url('css/lateral-menu.css') }}">
-<link rel="stylesheet" href="{{ url('css/combos.css') }}">
-<link rel="stylesheet" href="{{ url('css/manage-social-area-organization-data.css') }}">
 <link rel="stylesheet" href="{{ url('css/top-menu.css') }}">
 <link rel="stylesheet" href="{{ url('css/calendar.css') }}">
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
-<link rel="stylesheet" href="{{ url('css/calendar.css') }}">
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
 <script src="jquery.ui.datepicker-es.js"></script>
@@ -84,9 +81,9 @@ $(function () {
             <form action="{{url('/turnos')}}" method="POST">
             {{method_field('POST')}}
             {{csrf_field()}}
-            <div class='conteiner body body-calendar'>
-                <div class="row" allign="center">
-                    <h3>Calendario</h3>
+            <div class='body body-calendar'>
+            <h3>Calendario</h3>
+                <div class="row" allign="center">                    
                     <div class="col">
                         <h5>Seleccionar día</h5>
                         <div id="datepicker" name="datepicker" slected="1"></div>
@@ -164,11 +161,12 @@ $(function () {
 </div>
 <br>
 <br>
-                        <div class='calendar-buttons-section'>
-                            <button class='cancel' type="reset">Cancelar</button>
-                            <button class='accept'>Guardar</button>
-                            </div>
+                       
                     </div>
+                </div>
+                <div class='calendar-buttons-section'>
+                    <button class='cancel' type="reset">Cancelar</button>
+                    <button class='accept'>Guardar</button>
                 </div>
             </form>
             </div>
@@ -189,7 +187,7 @@ $(function () {
 <style>
 .my-custom-scrollbar {
 position: relative;
-height: 200px;
+height: 400px;
 overflow: auto;
 }
 .table-wrapper-scroll-y {

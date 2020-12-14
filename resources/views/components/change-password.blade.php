@@ -63,10 +63,7 @@
                                 Debe ser igual a la nueva contraseña
                             </div>
                     </div>                    
-                    <div class='buttons-section'>
-                        <button type="reset" class='cancel-button'>Cancelar</button>
-                        <button class='accept' type="submit" class='accept'>Guardar</button>                        
-                    </div>
+                    
                     <script>
                         function checking(){
                             var password = document.getElementById("validationCustom03").value;
@@ -88,7 +85,11 @@
                     </script>
 
 
-                </div>                                                                    
+                </div>
+                <div class='buttons-section'>
+                        <button type="reset" class='cancel-button'>Cancelar</button>
+                        <button class='accept' type="submit" class='accept'>Guardar</button>                        
+                    </div>                                                                    
             </form>
         </div>
     </div>

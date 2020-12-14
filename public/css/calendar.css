@@ -10,26 +10,35 @@ h5 {
     color: #ffffff;
 }
 
-.accept {
-    background-color: #103965 !important;
-}
-
-.accept:hover {
-    color: black;
-}
-
-.cancel {
-    margin-right: 10px;
-}
-
-.cancel:hover {
-    color: black;
-}
-
 h5 {
     padding: 20px 0;
 }
 
 .calendar-buttons-section {
     text-align: right;
+}
+
+.cancel {
+    margin-right: 10px;
+    background-color: #dc3545 !important;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.375rem 0.75rem;
+    color: #ffffff;
+}
+
+.cancel:hover {
+    color: black !important;
+}
+
+.accept {
+    background-color: #103965 !important;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.375rem 0.75rem;
+    color: #ffffff;
+}
+
+.accept:hover {
+    color: black !important;
 }
