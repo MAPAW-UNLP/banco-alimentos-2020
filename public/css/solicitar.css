@@ -1,0 +1,53 @@
+button {
+    border-style: none !important;
+    color: #fff !important;
+    background-color: transparent !important;
+    padding: 0.375rem 0.75rem !important;
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+    border-radius: 0.25rem !important;
+}
+
+.buttons-section {
+    text-align: right !important;
+}
+
+.cancel-button {
+    color: #fff !important;
+    margin-right: 10px !important;
+    background-color: #dc3545 !important;
+    border: none;
+    border-radius: 0.25rem !important;
+    padding: 0.375rem 0.75rem;
+}
+
+.cancel-button:hover {
+    color: black !important;
+}
+
+.accept {
+    color: #fff !important;
+    background-color: #103965 !important;
+    border: none;
+    border-radius: 0.25rem !important;
+    padding: 0.375rem 0.75rem;
+}
+
+.accept:hover {
+    color: black !important;
+}
+
+.modal-content {
+    position: absolute !important;
+    background-color: #333 !important;
+    margin: auto !important;
+    padding: 0 !important;
+    border: 1px solid #888 !important;
+    width: 450px !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+    animation-name: animatetop;
+    animation-duration: 0.4s !important;
+    height: 170px !important;
+    color: white !important;
+    bottom: 100px !important;
+}

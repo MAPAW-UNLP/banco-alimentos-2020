@@ -86,11 +86,6 @@ button {
     padding-right: 10px;
 }
 
-.cancel-button {
-    border: 0;
-    margin-right: 10px;
-}
-
 .delete-button {
     margin-right: 10px;
     background-color: #dc3545;
@@ -272,10 +267,6 @@ button {
     color: black;
 }
 
-.cancel:hover {
-    color: black;
-}
-
 .accept {
     background-color: #103965 !important;
 }
@@ -291,9 +282,13 @@ button {
     height: 36px !important;
 }
 
-
 .cancel {
+    margin-right: 10px;
     background-color: #dc3545 !important;
+}
+
+.cancel:hover {
+    color: black;
 }
 
 /**  estilos creados por lucas **/

@@ -92,8 +92,7 @@ $(function () {
                         <h5>Seleccionar día</h5>
                         <div style="position:absolute;" id="datepicker" name="datepicker" slected="1"></div>
                         <input type="date" id="fechaHora" name="fechaHora" style='display:none'>
-                        <div style="position: relative;
-left: 50%;">
+                        <div style="position: relative;left: 50%;">
                         <h5>Seleccionar horario</h5>
                         <div class="table-wrapper-scroll-y my-custom-scrollbar">
                         <table class="table table-bordered table-striped mb-0" style="background-color: #FFFFFF;">

@@ -4,17 +4,6 @@
     @else
         <!--MAL -->
     @endif
-    @can('role-create')
-        <div>
-        @if (Request::is('addUser'))
-            <a href="{{ url('/addUser') }}" class='lateral-menu-item-color'>
-        @else
-            <a href="{{ url('/addUser') }}" class='lateral-menu-item'>
-        @endif
-                <p class='lateral-menu-text-item'>Agregar usuario</p>
-            </a>
-        </div>
-    @endcan
     @can('orga-mis-solicitudes')
         <div>
         @if (Request::is('estadoSolicitud'))
@@ -26,6 +15,17 @@
             </a>
         </div>
         @endcan
+    @can('role-create')
+        <div>
+        @if (Request::is('addUser'))
+            <a href="{{ url('/addUser') }}" class='lateral-menu-item-color'>
+        @else
+            <a href="{{ url('/addUser') }}" class='lateral-menu-item'>
+        @endif
+                <p class='lateral-menu-text-item'>Agregar usuario</p>
+            </a>
+        </div>
+    @endcan
     @can('orga-mis-datos')
         <div>
         @if (Request::is('registro'))
