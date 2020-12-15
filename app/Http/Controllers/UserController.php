@@ -57,8 +57,10 @@ public function store(Request $request){
     $input = $request->except('_token','_method','rol_id');
     //$input['password'] = Hash::make($input['password']);
     $input['password'] = Hash::make('123456789');
+    $input['estado'] = 1;
     //echo response()->json($input);
-    $user = User::create($input);
+    $userId = User::insertGetId($input);
+    $user = User::find($userId);
     $user->assignRole($request->input('rol_id'));
     $obj = new NuevoUsuario();
     $param['name'] = $user->name;

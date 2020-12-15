@@ -189,8 +189,19 @@ function submitjs(){
 
 
       function run(){
-        var modalcss = document.getElementById("modalalerta");
-        modalcss.style.display = "block";
+        var totalPoints = 0;
+        $('.body-form-combo').each(function(){
+          
+          $(this).find('.form').each(function(){
+            totalPoints += parseInt($(this).val()); //<==== a catch  in here !! read below
+          });
+        });
+        if (totalPoints > 0){
+          var modalcss = document.getElementById("modalalerta");
+          modalcss.style.display = "block";}
+        else{
+          alert("Debe seleccionar al menos un combo");
+        }
 
         // redireccionamiento a url
 
