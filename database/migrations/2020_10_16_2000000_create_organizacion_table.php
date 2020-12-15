@@ -31,6 +31,7 @@ class CreateOrganizacionTable extends Migration
             $table->text('txt_alimentaria')->nullable();
             $table->text('txt_otra_alimentaria')->nullable();
             $table->integer('ayuda_financiera')->nullable();
+            $table->integer('organization_id')->nullable();
             $table->text('txt_financiera')->nullable();
             $table->text('txt_otra_financiera')->nullable();
             $table->text('tarea')->nullable();

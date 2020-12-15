@@ -201,7 +201,7 @@ class OrganizacioneController extends Controller
 
     public function show_organizacion($id){
         $organizacione = Organizacione::findOrFail($id);
-        return view('organizacion_show', ['organizacione' => Organizacione::findOrFail($id) , 'user' => User::findOrFail($organizacione->user_id)]);
+        return view('organizacione_show', ['organizacione' => Organizacione::findOrFail($id) , 'user' => User::findOrFail($organizacione->user_id)]);
     }
 
     public function asignarId(Request $request){

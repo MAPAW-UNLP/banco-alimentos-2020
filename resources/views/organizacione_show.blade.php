@@ -574,12 +574,16 @@ function valor(){
               <label class="form-check-label" for="gridRadios1">
                 @if($organizacione->ayuda_alimentaria == 1 )
                     <b>Publica</b>
+                    <br>
+                    <input type="text" value="{{$organizacione->txt_alimentaria}}" disabled />
                 @endif
                 @if($organizacione->ayuda_alimentaria == 3 )
-                    <b>Privada</b>
+                    <b>no tiene</b>
                 @endif
                 @if($organizacione->ayuda_alimentaria == 2 )
                     <b>Privada</b>
+                    <br>
+                    <input type="text" value="{{$organizacione->txt_otra_alimentaria}}" disabled/>
                 @endif
               </label>
             </div>
@@ -595,14 +599,18 @@ function valor(){
             <div class="form-check">
               <input class="form-check-input" type="radio" name="financiera" id="financiera" value=1 disabled checked>
               <label class="form-check-label" for="gridRadios2">
-                @if($organizacione->ayuda_alimentaria == 1 )
+                @if($organizacione->ayuda_financiera == 1 )
                     <b>Publica</b>
+                    <br>
+                    <input type="text" value="{{$organizacione->txt_otra_financiera}}" disabled/>
                 @endif
-                @if($organizacione->ayuda_alimentaria == 3 )
-                    <b>Privada</b>
+                @if($organizacione->ayuda_financiera == 3 )
+                    <b>No tiene</b>
                 @endif
-                @if($organizacione->ayuda_alimentaria == 2 )
+                @if($organizacione->ayuda_financiera == 2 )
                     <b>Privada</b>
+                    <br>
+                    <input type="text" value="{{$organizacione->txt_otra_financiera}}" disabled/>
                 @endif
               </label>
             </div>
