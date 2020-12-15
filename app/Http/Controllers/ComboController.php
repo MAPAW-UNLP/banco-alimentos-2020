@@ -18,7 +18,7 @@ class ComboController extends Controller
 {
     function __construct()
 {
-$this->middleware('permission:combo-list', ['only' => ['index','store','create','store','aceptar','rechazar']]);
+    $this->middleware('permission:combo-list', ['only' => ['index','store','create','store','aceptar','rechazar']]);
 }
     /**
      * Display a listing of the resource.

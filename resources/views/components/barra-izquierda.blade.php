@@ -50,7 +50,7 @@
         @endcan
         @can('combo-list')
         <div>
-        @if (Request::is('combos') or Request::is('calendar') or Request::is('combos/create') or Request::is('notificaciones'))
+        @if (Request::is('combos') or Request::is('calendar') or Request::is('combos/create') or Request::is('notificaciones') or Request::is('turnos/ver/*')) 
             <a href="{{ url('/combos') }}" class='lateral-menu-item-color'>
         @else
             <a href="{{ url('/combos') }}" class='lateral-menu-item'>

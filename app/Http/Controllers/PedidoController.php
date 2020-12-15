@@ -13,7 +13,12 @@ use Illuminate\Support\Facades\Auth;
 
 class PedidoController extends Controller
 {
-      /**
+    function __construct()
+    {
+        $this->middleware('permission:pedido-list', ['only' => ['index','store','create','pedidosEmpresa','destroy','edit','show','update']]);
+        $this->middleware('permission:orga-solicitar-combo', ['only' => ['store','create']]);
+    }
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
