@@ -43,15 +43,13 @@ function valor(){
       if ($(this).is(":checked")) {
           document.getElementById("checkboxOtherAlimentaria").checked=false;
           document.getElementById("checkboxOtherAlimentaria").disabled=true;
-          document.getElementById("alimentariaPrivada").checked=false;
-          document.getElementById("alimentariaPrivada").disabled=true;
           $("#dvPublic").show();
       } else {
-          document.getElementById("checkboxOtherAlimentaria").checked=false;
-          document.getElementById("checkboxOtherAlimentaria").disabled=false;
-          document.getElementById("alimentariaPrivada").checked=false;
-          document.getElementById("alimentariaPrivada").disabled=false;
-          $("#txtDvPublic").val="";
+        if ( $("#alimentariaPrivada").is(":checked") == false){
+            document.getElementById("checkboxOtherAlimentaria").checked=false;
+            document.getElementById("checkboxOtherAlimentaria").disabled=false;
+          }
+          $("#txtDvPublic").val("");
           $("#dvPublic").hide();
       }
     });
@@ -60,17 +58,15 @@ function valor(){
   function showDivFinanciera() {
     $("#financieraPublic").change(function () {
       if ($(this).is(":checked")) {
-          document.getElementById("financieraPrivada").checked=false;
-          document.getElementById("financieraPrivada").disabled=true;
           document.getElementById("checkboxOtherFinanciera").checked=false;
           document.getElementById("checkboxOtherFinanciera").disabled=true;
           $("#dvPublicFinanciera").show();
       } else {
-          document.getElementById("financieraPrivada").checked=false;
-          document.getElementById("financieraPrivada").disabled=false;
+        if ( $("#financieraPrivada").is(":checked") == false){
           document.getElementById("checkboxOtherFinanciera").checked=false;
           document.getElementById("checkboxOtherFinanciera").disabled=false;
-          $("#TextPublicFinanciera").val="";
+        }
+          $("#TextPublicFinanciera").val("");
           $("#dvPublicFinanciera").hide();
       }
     });
@@ -79,17 +75,14 @@ function valor(){
   function showDivOtherAlimentaria() {
     $("#checkboxOtherAlimentaria").change(function () {
       if ($(this).is(":checked")) {
-          $("#dvOtherAlimentaria").show();
           document.getElementById("checkboxPublic").checked=false;
           document.getElementById("checkboxPublic").disabled=true;
           document.getElementById("alimentariaPrivada").checked=false;
           document.getElementById("alimentariaPrivada").disabled=true;
-          $("#dvPublic").hide();
           var node = document.getElementById("dvPublic");
           var textContext = node.textContent;
           console.log(textContext) 
       } else {
-          $("#dvOtherAlimentaria").hide();
           document.getElementById("checkboxPublic").disabled=false;
           document.getElementById("alimentariaPrivada").disabled=false;
           $("#TextOtherAlimentaria").val="";
@@ -99,13 +92,15 @@ function valor(){
   function clickPrivadaAlimentaria()
 {  $("#alimentariaPrivada").change(function () {
       if ($(this).is(":checked")) {
-          document.getElementById("checkboxPublic").checked=false;
-          document.getElementById("checkboxPublic").disabled=true;
+        $("#dvOtherAlimentaria").show();
           document.getElementById("checkboxOtherAlimentaria").checked=false;
           document.getElementById("checkboxOtherAlimentaria").disabled=true;
       } else {
-          document.getElementById("checkboxPublic").disabled=false;
+        if ($("#checkboxPublic").is(":checked")==false){
           document.getElementById("checkboxOtherAlimentaria").disabled=false;
+        }
+        $("#TextOtherAlimentaria").val("");
+        $("#dvOtherAlimentaria").hide();
       }
     });
   }
@@ -113,13 +108,16 @@ function valor(){
   function clickPrivadaFinanciera()
 {  $("#financieraPrivada").change(function () {
       if ($(this).is(":checked")) {
-          document.getElementById("financieraPublic").checked=false;
-          document.getElementById("financieraPublic").disabled=true;
           document.getElementById("checkboxOtherFinanciera").checked=false;
           document.getElementById("checkboxOtherFinanciera").disabled=true;
+          $("#dvOtherFinanciera").show();
       } else {
+        if ($("#checkboxPublic").is(":checked")==false){
           document.getElementById("financieraPublic").disabled=false;
           document.getElementById("checkboxOtherFinanciera").disabled=false;
+        }
+        $("#TextOtherFinanciera").val("");
+        $("#dvOtherFinanciera").hide();
       }
     });
   }
@@ -131,13 +129,11 @@ function valor(){
           document.getElementById("financieraPrivada").disabled=true;
           document.getElementById("financieraPublic").checked=false;
           document.getElementById("financieraPublic").disabled=true;
-          $("#dvOtherFinanciera").show();
       } else {
           document.getElementById("financieraPrivada").checked=false;
           document.getElementById("financieraPrivada").disabled=false;
           document.getElementById("financieraPublic").checked=false;
           document.getElementById("financieraPublic").disabled=false;
-          $("#dvOtherFinanciera").hide();
       }
     });
   }
@@ -535,6 +531,11 @@ function valor(){
               <label class="form-check-label" for="gridRadios4">
                 <b title="Privada">Privada</b>
               </label>
+              <div id="dvOtherAlimentaria" style="display: none">
+                <label class="form-check-label letra" for="gridRadios5">
+                <input type="text" id="TextOtherAlimentaria" name="TextOtherAlimentaria"/>
+                </label>
+              </div>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="checkbox" name="alimentaria" id="checkboxOtherAlimentaria" value=3  onclick="javascript:showDivOtherAlimentaria();">
@@ -543,7 +544,6 @@ function valor(){
               </label>
               <div id="dvOtherAlimentaria" style="display: none">
                 <label class="form-check-label letra" for="gridRadios5">
-                  Otro:
                 <input type="text" id="TextOtherAlimentaria" name="TextOtherAlimentaria"/>
                 </label>
               </div>
@@ -567,18 +567,17 @@ function valor(){
               <label class="form-check-label" for="gridRadios7">
                 <b title="Privada">Privada</b>
               </label>
+              <div id="dvOtherFinanciera" style="display: none">
+                <label class="form-check-label letra" for="gridRadios5">
+                <input type="text" id="TextOtherFinanciera" name="TextOtherFinanciera" />
+                </label>
+              </div>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="checkbox" name="financiera" id="checkboxOtherFinanciera" value=3 onclick="javascript:showDivOtherFinanciera();">
               <label class="form-check-label" for="gridRadios8">
                 <b title="No recibo ayuda">No recibo ayuda</b>
               </label>
-              <div id="dvOtherFinanciera" style="display: none">
-                <label class="form-check-label letra" for="gridRadios5">
-                  Otro:
-                <input type="text" id="TextOtherFinanciera" name="TextOtherFinanciera" />
-                </label>
-              </div>
             </div>
           </div>
         </div>
