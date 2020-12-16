@@ -18,7 +18,7 @@
 @include('components.nav')
 <div class='general-container'>
 @include('components.barra-izquierda')
-    </div>
+    <div>
         <div>
             <nav class='top-menu'>
                 <div>
@@ -42,20 +42,20 @@
                     <h3>Notificación por aceptación</h3>
                     <form id="myForm" action="{{ url('/notificacionAceptacion') }}" method="post">
                         {{csrf_field()}} 
-                    <div class='ingresar-contenido'>
-                        <h5>Contenido del mail que se envía a una organización</h5>
-                        <div class='recuerde'>
-                            <textarea id="notificacion" name="notificacion" required>{{ $notificacion->notificacion }}</textarea>
-                        </div>                     
-                    </div>  
-                    <div class='button-section'>
-                        <button class="create-save" type="submit" >Guardar</button>   
-                    </div>   
+                        <div class='ingresar-contenido'>
+                            <h5>Contenido del mail que se envía a una organización</h5>
+                            <div class='recuerde'>
+                                <textarea id="notificacion" name="notificacion" required>{{ $notificacion->notificacion }}</textarea>
+                            </div>                     
+                        </div>  
+                        <div class='button-section'>
+                            <button class="create-save" type="submit" >Guardar</button>   
+                        </div>   
                     </form>
-                    </div>
-                </div>               
-            </div>
+                </div>
+            </div>               
         </div>
     </div>
+</div>
 </div>
 @include('components.footer')

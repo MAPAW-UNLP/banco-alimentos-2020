@@ -50,7 +50,7 @@
         @endcan
         @can('combo-list')
         <div>
-        @if (Request::is('combos') or Request::is('calendar') or Request::is('combos/create') or Request::is('notificaciones') or Request::is('turnos/ver/*')) 
+        @if (Request::is('combos') or Request::is('calendar') or Request::is('combos/create') or Request::is('notificaciones') or Request::is('turnos/ver/*') or Request::is('combos/*') or Request::is('notificaciones')) 
             <a href="{{ url('/combos') }}" class='lateral-menu-item-color'>
         @else
             <a href="{{ url('/combos') }}" class='lateral-menu-item'>
@@ -83,7 +83,7 @@
     @endcan
 
         <div>
-        @if (Request::is('/combos/solicitarcombo'))
+        @if (Request::is('/combos/solicitarcombo') or Request::is('changePassword'))
             <a href="{{ url('/changePassword') }}" class='lateral-menu-item-color'>
         @else
             <a href="{{ url('/changePassword') }}" class='lateral-menu-item'>
@@ -92,3 +92,4 @@
             </a>
         </div>
     </div>
+    
