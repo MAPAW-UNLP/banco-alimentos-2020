@@ -21,6 +21,12 @@ class ProductoSeeder extends Seeder
             'cantidad'=>1000,
         ]);
         $producto = Producto::create([
+            'id'=>4,
+            'combo_id'=>1,
+            'producto'=>'Mayonesa',
+            'cantidad'=>20,
+        ]);
+        $producto = Producto::create([
             'id'=>2,
             'combo_id'=>2,
             'producto'=>'Fideos',

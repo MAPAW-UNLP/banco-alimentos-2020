@@ -25,24 +25,6 @@ class SolicitudSeeder extends Seeder
             'organizacion_id'=>2,
             'fecha'=>date('2020-10-03'),
             'estado'=>0
-        ]);
-        $solicitud = Solicitud :: create([
-            'id'=>3,
-            'organizacion_id'=>1,
-            'fecha'=>date('2020-10-05'),
-            'estado'=>0
-        ]);
-        $solicitud = Solicitud :: create([
-            'id'=>5,
-            'organizacion_id'=>2,
-            'fecha'=>date('2020-10-03'),
-            'estado'=>0
-        ]);  
-        $solicitud = Solicitud :: create([
-            'id'=>6,
-            'organizacion_id'=>2,
-            'fecha'=>date('2020-10-03'),
-            'estado'=>0
-        ]);           
+        ]);       
     }
 }

@@ -18,7 +18,7 @@ class ComboSeeder extends Seeder
             'id'=>1,
             'nombre'=>'Combo 1',
             'stock'=>20,
-            'cantOrg'=>2,
+            'cantOrg'=>4,
             'contribucion'=>100,
             'estado'=>1
         ]);
@@ -27,7 +27,7 @@ class ComboSeeder extends Seeder
             'id'=>2,
             'nombre'=>'Combo 2',
             'stock'=>20,
-            'cantOrg'=>2,
+            'cantOrg'=>4,
             'contribucion'=>100,
             'estado'=>1
         ]);
@@ -36,7 +36,7 @@ class ComboSeeder extends Seeder
             'id'=>3,
             'nombre'=>'Combo 3',
             'stock'=>20,
-            'cantOrg'=>2,
+            'cantOrg'=>4,
             'contribucion'=>100,
             'estado'=>1
         ]);
@@ -45,7 +45,7 @@ class ComboSeeder extends Seeder
             'id'=>4,
             'nombre'=>'Combo 4',
             'stock'=>60,
-            'cantOrg'=>2,
+            'cantOrg'=>4,
             'contribucion'=>100,
             'estado'=>1
         ]);
@@ -54,7 +54,7 @@ class ComboSeeder extends Seeder
             'id'=>5,
             'nombre'=>'Combo 5',
             'stock'=>5,
-            'cantOrg'=>3,
+            'cantOrg'=>5,
             'contribucion'=>500,
             'estado'=>0
         ]);

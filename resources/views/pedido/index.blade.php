@@ -66,7 +66,17 @@
             </table>
             @endif
           </div>
-          <a href="pedidos?page={{$ant}}">anterior</a> {{$page}}<a href="pedidos?page={{$sig}}">siguiente</a>
+          <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <li class="page-item"><a class="page-link" href="pedidos?page={{$ant}}">Previous</a></li>
+              <li class="page-item"><a class="page-link">{{$page}}</a></li>
+              <li class="page-item"><a class="page-link" href="pedidos?page={{$sig}}">Next</a></li>
+            </ul>
+          </nav>
+          <button>
+          <a href="pedidos?page={{$ant}}">anterior</a>
+          </button> {{$page}}
+          <button><a href="pedidos?page={{$sig}}">siguiente</a></button>
         </div>
       </div>
     </div>
