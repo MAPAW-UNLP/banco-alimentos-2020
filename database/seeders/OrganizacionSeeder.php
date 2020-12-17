@@ -69,9 +69,9 @@ class OrganizacionSeeder extends Seeder
                 'cant'=>5]
         );
         $cantPersEdad=CantPersonasEdads::insert(
-            [   'id'=>6,
+            [   'id'=>14,
                 'organizacion_id'=>1,
-                'rango'=>6,
+                'rango'=>7,
                 'cant'=>5]
         );
         $cantPerServ=CantPersonasServicios::insert(
@@ -219,6 +219,12 @@ class OrganizacionSeeder extends Seeder
         [   'id'=>12,
             'organizacion_id'=>2,
             'rango'=>6,
+            'cant'=>5]
+    );
+    $cantPersEdad=CantPersonasEdads::insert(
+        [   'id'=>13,
+            'organizacion_id'=>2,
+            'rango'=>7,
             'cant'=>5]
     );
     $cantPerServ=CantPersonasServicios::insert(

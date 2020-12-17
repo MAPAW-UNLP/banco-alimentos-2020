@@ -4,7 +4,19 @@
 <link rel="stylesheet" href="{{ url('css/lateral-menu.css') }}">
 <link rel="stylesheet" href="{{ url('css/top-menu.css') }}">
 <link rel="stylesheet" href="{{ url('css/manage-social-area.css') }}">
-
+<style>
+input[type=checkbox][disabled]{
+  border: 1px solid #333;
+  content: "\00a0";
+  display: inline-block;
+  font: 16px/1em sans-serif;
+  height: 16px;
+  margin: 0 .25em 0 0;
+  padding: 0;
+  vertical-align: top;
+  width: 16px;
+}
+</style>
 <script>
     function rechazar($id) {
         var txt;
@@ -122,12 +134,12 @@ function valor(){
           <div class="col-sm-10">
             <div class="form-check">
                 @if($organizacione->personeria_juridica == 1)
-                <input class="form-check-input" type="radio" name="personeria" id="gridRadios1" onclick="javascript:desbloquear();" value=1 checked>
+                <input class="form-check-input" type="radio" name="personeria" id="gridRadios1" onclick="javascript:desbloquear();" value=1 checked disabled>
                 <label class="form-check-label" for="gridRadios3">
                     <b>Si</b>
                 </label>
                 @else
-                <input class="form-check-input" type="radio" name="personeria" id="gridRadios2" onclick="javascript:desbloquear();" value=0 checked>
+                <input class="form-check-input" type="radio" name="personeria" id="gridRadios2" onclick="javascript:desbloquear();" value=0 checked disabled>
                 <label class="form-check-label" for="gridRadios2">
                     <b>No</b>
                 </label>
@@ -484,7 +496,7 @@ function valor(){
                     {{$organizacione->cantRacionesDias[2]->desde}}
                 </td>
                 <td class='center-item'>
-                    {{$organizacione->cantRacionesDias[2]->desde}}
+                    {{$organizacione->cantRacionesDias[2]->hasta}}
                 </td>
               </tr>
               </tbody>
@@ -570,7 +582,7 @@ function valor(){
         <br>
         <div class="col-sm-10">
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="alimentaria" id="gridRadios1" value=1 disabled checked>
+            <input class="form-check-input" type="checkbox" name="personeria" id="gridRadios1"  value=1 checked disabled>
               <label class="form-check-label" for="gridRadios1">
                 @if($organizacione->ayuda_alimentaria == 1 )
                     <b>Publica</b>
@@ -597,12 +609,12 @@ function valor(){
         <br>
         <div class="col-sm-10">
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="financiera" id="financiera" value=1 disabled checked>
+            <input class="form-check-input" type="checkbox" name="personeria" id="gridRadios2"  value=1 checked disabled>
               <label class="form-check-label" for="gridRadios2">
                 @if($organizacione->ayuda_financiera == 1 )
                     <b>Publica</b>
                     <br>
-                    <input type="text" value="{{$organizacione->txt_otra_financiera}}" disabled/>
+                    <input type="text" value="{{$organizacione->txt_financiera}}" disabled/>
                 @endif
                 @if($organizacione->ayuda_financiera == 3 )
                     <b>No tiene</b>

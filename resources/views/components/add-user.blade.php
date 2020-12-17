@@ -175,9 +175,11 @@ $(document).ready(function() {
                   <div class="col-sm-6">
                     <label title="Rol del usuario">Seleccione un rol</label>                  
                     <select class="custom-select" required id="rol_id" name="rol_id" title="Rol del usuario">
-                      <option value='1'>Empleado</option>
+                      <option value='1'>Administrador</option>
                       <option value='2'>Organizacion</option>
-                      <option value='3'>Administrador</option>
+                      <option value='3'>Voluntario almacén</option>
+                      <option value='4'>Voluntario gestión social</option>
+                      <option value='5'>Empleado</option>
                     </select>
                   </div>
                 </div>
