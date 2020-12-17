@@ -132,7 +132,7 @@ class OrganizacioneController extends Controller
         $datos=request()->except(['_token','_method','id']);
         Organizacione::where('id','=',$id)->update($datos);
         $param['id'] = $id;
-        return $id;
+        //return $id;
         $obj = new ModificacionDeDatos();
         $to = 'mapaw2020@gmail.com';
         Mail::to($to)->send($obj->parametro($param));
@@ -207,8 +207,12 @@ class OrganizacioneController extends Controller
     public function asignarId(Request $request){
         $datos=request()->except('_token');
         #return response()->json($datos);
+        $existeId=Organizacione::where('organization_id','=',$datos['motivo'])->get();
+        if (!$existeId->isEmpty()){
+            return redirect('organizaciones')->with('error', 'Ya esta registrada una organizacion con este ID '.$datos['motivo']);
+        }
         $orga=Organizacione::findOrFail($datos['organizacion_id']);
-        $orga['organizacion_id']=$datos['motivo'];
+        $orga['organization_id']=$datos['motivo'];
         Organizacione::where('id','=',$datos['organizacion_id'])->update($orga->toArray());
         return redirect('organizaciones')->with('success', 'Se asigno correctamente el ID organización');;
     }

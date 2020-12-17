@@ -4,19 +4,6 @@
 <link rel="stylesheet" href="{{ url('css/lateral-menu.css') }}">
 <link rel="stylesheet" href="{{ url('css/top-menu.css') }}">
 <link rel="stylesheet" href="{{ url('css/manage-social-area.css') }}">
-<style>
-input[type=checkbox][disabled]{
-  border: 1px solid #333;
-  content: "\00a0";
-  display: inline-block;
-  font: 16px/1em sans-serif;
-  height: 16px;
-  margin: 0 .25em 0 0;
-  padding: 0;
-  vertical-align: top;
-  width: 16px;
-}
-</style>
 <script>
     function rechazar($id) {
         var txt;
@@ -127,7 +114,6 @@ function valor(){
           <input type="text" class="form-control" id="inputPassword3" name="localidad" disabled placeholder="La plata" value="{{$organizacione->localidad}}">
         </div>
       </div>
-
       <fieldset class="form-group">
         <div class="row">
           <legend class="col-form-label col-sm-2 pt-0 letra">*¿Personería jurídica?</legend>

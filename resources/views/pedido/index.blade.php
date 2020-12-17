@@ -68,15 +68,11 @@
           </div>
           <nav aria-label="Page navigation example">
             <ul class="pagination">
-              <li class="page-item"><a class="page-link" href="pedidos?page={{$ant}}">Previous</a></li>
+              <li class="page-item"><a class="page-link" href="pedidos?page={{$ant}}">Anterior</a></li>
               <li class="page-item"><a class="page-link">{{$page}}</a></li>
-              <li class="page-item"><a class="page-link" href="pedidos?page={{$sig}}">Next</a></li>
+              <li class="page-item"><a class="page-link" href="pedidos?page={{$sig}}">Siguiente</a></li>
             </ul>
           </nav>
-          <button>
-          <a href="pedidos?page={{$ant}}">anterior</a>
-          </button> {{$page}}
-          <button><a href="pedidos?page={{$sig}}">siguiente</a></button>
         </div>
       </div>
     </div>
