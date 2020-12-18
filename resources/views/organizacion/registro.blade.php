@@ -391,20 +391,20 @@ function valor(){
               </thead>
               <tbody>
               <tr>
-                <td><select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                    <option selected>Seleccionar</option>
-                    @for($i=8; $i < 16; $i++)
-                    <option value="1">{{$i}}:00</option>
-                    <option value="1">{{$i}}:30</option>
+                <td><select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="desayuno_desde">
+                    <option value="00:00" selected >Seleccionar</option>
+                    @for($i=7; $i < 13; $i++)
+                    <option value="{{$i}}:00">{{$i}}:00</option>
+                    <option value="{{$i}}:00">{{$i}}:30</option>
 
                     @endfor
                     </select>
                 </td>
-                <td><select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                    <option selected>Seleccionar</option>
-                    @for($i=8; $i < 16; $i++)
-                        <option value="1">{{$i}}:00</option>
-                        <option value="1">{{$i}}:30</option>
+                <td><select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="desayuno_hasta">
+                    <option value="00:00" selected >Seleccionar</option>
+                    @for($i=7; $i < 13; $i++)
+                        <option value="{{$i}}:00">{{$i}}:00</option>
+                        <option value="{{$i}}:30">{{$i}}:30</option>
                     @endfor
                     </select>
                 </td>
@@ -444,20 +444,20 @@ function valor(){
               </thead>
               <tbody>
               <tr>
-                <td><select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                    <option selected>Seleccionar</option>
-                    @for($i=8; $i < 16; $i++)
-                    <option value="1">{{$i}}:00</option>
-                    <option value="1">{{$i}}:30</option>
+                <td><select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="almuerzo_desde">
+                    <option value="00:00" selected >Seleccionar</option>
+                    @for($i=11; $i < 16; $i++)
+                    <option value="{{$i}}:00">{{$i}}:00</option>
+                    <option value="{{$i}}:30">{{$i}}:30</option>
 
                     @endfor
                     </select>
                 </td>
-                <td><select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                    <option selected>Seleccionar</option>
-                    @for($i=8; $i < 16; $i++)
-                        <option value="1">{{$i}}:00</option>
-                        <option value="1">{{$i}}:30</option>
+                <td><select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="almuerzo_hasta">
+                    <option value="00:00" selected >Seleccionar</option>
+                    @for($i=11; $i < 16; $i++)
+                        <option value="{{$i}}:00">{{$i}}:00</option>
+                        <option value="{{$i}}:30">{{$i}}:30</option>
                     @endfor
                     </select>
                 </td>
@@ -497,20 +497,20 @@ function valor(){
               </thead>
               <tbody>
               <tr>
-                <td><select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                    <option selected>Seleccionar</option>
-                    @for($i=8; $i < 16; $i++)
-                    <option value="1">{{$i}}:00</option>
-                    <option value="1">{{$i}}:30</option>
+                <td><select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="merienda_desde">
+                    <option value="00:00" selected >Seleccionar</option>
+                    @for($i=16; $i < 19; $i++)
+                    <option value="{{$i}}:00">{{$i}}:00</option>
+                    <option value="{{$i}}:30">{{$i}}:30</option>
 
                     @endfor
                     </select>
                 </td>
-                <td><select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                    <option selected>Seleccionar</option>
-                    @for($i=8; $i < 16; $i++)
-                        <option value="1">{{$i}}:00</option>
-                        <option value="1">{{$i}}:30</option>
+                <td><select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="merienda_hasta">
+                    <option value="00:00" selected >Seleccionar</option>
+                    @for($i=16; $i < 19; $i++)
+                        <option value="{{$i}}:00">{{$i}}:00</option>
+                        <option value="{{$i}}:30">{{$i}}:30</option>
                     @endfor
                     </select>
                 </td>
@@ -550,20 +550,20 @@ function valor(){
               </thead>
               <tbody>
               <tr>
-                <td><select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                    <option selected>Seleccionar</option>
-                    @for($i=8; $i < 16; $i++)
-                    <option value="1">{{$i}}:00</option>
-                    <option value="1">{{$i}}:30</option>
+                <td><select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="cena_desde">
+                    <option value="00:00" selected>Seleccionar</option>
+                    @for($i=19; $i < 23; $i++)
+                    <option value="{{$i}}:00">{{$i}}:00</option>
+                    <option value="{{$i}}:30">{{$i}}:30</option>
 
                     @endfor
                     </select>
                 </td>
-                <td><select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                    <option selected>Seleccionar</option>
-                    @for($i=8; $i < 16; $i++)
-                        <option value="1">{{$i}}:00</option>
-                        <option value="1">{{$i}}:30</option>
+                <td><select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="cena_hasta">
+                    <option value="00:00" selected>Seleccionar</option>
+                    @for($i=19; $i < 23; $i++)
+                        <option value="{{$i}}:00">{{$i}}:00</option>
+                        <option value="{{$i}}:30">{{$i}}:30</option>
                     @endfor
                     </select>
                 </td>

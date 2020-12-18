@@ -189,7 +189,7 @@ class SolicitudController extends Controller
     }
 
     //Raciones días
-
+/*
     $paramDesayuno['organizacion_id']=$id_organizacion;
     $paramDesayuno['comida']=1;
     $paramDesayuno['lunes']=$datos['DL'];
@@ -230,7 +230,7 @@ class SolicitudController extends Controller
     $paramCena['desde']=$datos['cena_desde'];
     $paramCena['hasta']=$datos['cena_hasta'];
     CantRacionesDias::insert($paramCena);
-
+*/
 
     $paramSolicitud['organizacion_id']=$id_organizacion;
     $paramSolicitud['estado']=0;
