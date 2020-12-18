@@ -203,15 +203,16 @@ class ComboController extends Controller
      */
     public function destroy($id)
     {
-        $pedidos=CombosPedido::where('combo_id', '=', 1)->first();
+        $pedidos=CombosPedido::where('combo_id', '=', $id)->first();
         if (is_null($pedidos)){
+            Producto::where('combo_id', '=', $id)->delete();
             Combo::destroy($id);
         }else{
             $combo=Combo::findOrFail($id);
             $combo['estado']=2;
             Combo::where('id','=',$id)->update($combo->toArray());
         }
-        return redirect('combos')->with('success', 'El combo se eliminó correctamente');;
+        return redirect('combos')->with('success', 'El combo se eliminó correctamente');
         //Producto::where('combo_id', '=', $id)->delete();
         //Combo::destroy($id);
         //return redirect('combos');

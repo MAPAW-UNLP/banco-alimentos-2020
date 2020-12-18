@@ -70,7 +70,7 @@
                     <tbody>
                         @foreach($organizaciones as $organizacione)
                             <tr>
-                                <td class="background-white align-center"><b>{{$organizacione->organizacion_id}}</b></td>
+                                <td class="background-white align-center"><b>{{$organizacione->organization_id}}</b></td>
                                 <td class="background-white"><b>{{$organizacione->nombre}}</b></td>
                                 <td class="align-center"><div style="background-color:#f2994a" class='request-section-item-link'><a href="{{url('organizacione/show/'.$organizacione->id)}}" style="background-color:#f2994a;">Ver más</a></div></td>
                                 <td class="align-center"><div class='request-section-item-link'><a href="{{url('organizacione/edit-short/'.$organizacione->id)}}">Modificar datos</a></div></td>
