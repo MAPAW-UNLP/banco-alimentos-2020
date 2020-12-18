@@ -391,13 +391,11 @@ function valor(){
               </thead>
               <tbody>
               <tr>
-                <td class='center-item'>
-                <span id="time2"></span>
-                <input id='time2_hide' type="hidden" value="" />
-                  DESDE
+              <td class='center-item'>
+                  <input class="form-check-input fromTo" type="time" id="desayuno_desde" name="desayuno_desde" value='17:00'>DESDE
                 </td>
                 <td class='center-item'>
-                  <input class="form-check-input fromTo" type="time" id="desayuno_hasta" name="desayuno_hasta" value='09:00' step=600 >HASTA
+                  <input class="form-check-input fromTo" type="time" id="desayuno_hasta" name="desayuno_hasta" value='09:00' >HASTA
                 </td>
               </tr>
               </tbody>
