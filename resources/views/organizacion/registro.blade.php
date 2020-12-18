@@ -391,13 +391,22 @@ function valor(){
               </thead>
               <tbody>
               <tr>
-                <td class='center-item'>
-                <span id="time2"></span>
-                <input id='time2_hide' type="hidden" value="" />
-                  DESDE
+                <td><select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                    <option selected>Seleccionar</option>
+                    @for($i=8; $i < 16; $i++)
+                    <option value="1">{{$i}}:00</option>
+                    <option value="1">{{$i}}:30</option>
+
+                    @endfor
+                    </select>
                 </td>
-                <td class='center-item'>
-                  <input class="form-check-input fromTo" type="time" id="desayuno_hasta" name="desayuno_hasta" value='09:00' step=600 >HASTA
+                <td><select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                    <option selected>Seleccionar</option>
+                    @for($i=8; $i < 16; $i++)
+                        <option value="1">{{$i}}:00</option>
+                        <option value="1">{{$i}}:30</option>
+                    @endfor
+                    </select>
                 </td>
               </tr>
               </tbody>
@@ -435,11 +444,22 @@ function valor(){
               </thead>
               <tbody>
               <tr>
-                <td class='center-item'>
-                  <input class="form-check-input fromTo" type="time" id="almuerzo_desde" name="almuerzo_desde" value='12:00'>DESDE
+                <td><select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                    <option selected>Seleccionar</option>
+                    @for($i=8; $i < 16; $i++)
+                    <option value="1">{{$i}}:00</option>
+                    <option value="1">{{$i}}:30</option>
+
+                    @endfor
+                    </select>
                 </td>
-                <td class='center-item'>
-                  <input class="form-check-input fromTo" type="time" id="almuerzo_hasta" name="almuerzo_hasta" value='14:00'>HASTA
+                <td><select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                    <option selected>Seleccionar</option>
+                    @for($i=8; $i < 16; $i++)
+                        <option value="1">{{$i}}:00</option>
+                        <option value="1">{{$i}}:30</option>
+                    @endfor
+                    </select>
                 </td>
               </tr>
               </tbody>
@@ -477,11 +497,22 @@ function valor(){
               </thead>
               <tbody>
               <tr>
-                <td class='center-item'>
-                  <input class="form-check-input fromTo" type="time" id="merienda_desde" name="merienda_desde" value='17:00'>DESDE
+                <td><select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                    <option selected>Seleccionar</option>
+                    @for($i=8; $i < 16; $i++)
+                    <option value="1">{{$i}}:00</option>
+                    <option value="1">{{$i}}:30</option>
+
+                    @endfor
+                    </select>
                 </td>
-                <td class='center-item'>
-                  <input class="form-check-input fromTo" type="time" id="merienda_hasta" name="merienda_hasta" value='19:00'>HASTA
+                <td><select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                    <option selected>Seleccionar</option>
+                    @for($i=8; $i < 16; $i++)
+                        <option value="1">{{$i}}:00</option>
+                        <option value="1">{{$i}}:30</option>
+                    @endfor
+                    </select>
                 </td>
               </tr>
               </tbody>
@@ -519,11 +550,22 @@ function valor(){
               </thead>
               <tbody>
               <tr>
-                <td class='center-item'>
-                  <input class="form-check-input fromTo" type="time" id="cena_desde" name="cena_desde" value='20:00' >DESDE
+                <td><select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                    <option selected>Seleccionar</option>
+                    @for($i=8; $i < 16; $i++)
+                    <option value="1">{{$i}}:00</option>
+                    <option value="1">{{$i}}:30</option>
+
+                    @endfor
+                    </select>
                 </td>
-                <td class='center-item'>
-                  <input class="form-check-input fromTo" type="time" id="cena_hasta" name="cena_hasta" value='22:00'>HASTA
+                <td><select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                    <option selected>Seleccionar</option>
+                    @for($i=8; $i < 16; $i++)
+                        <option value="1">{{$i}}:00</option>
+                        <option value="1">{{$i}}:30</option>
+                    @endfor
+                    </select>
                 </td>
               </tr>
               </tbody>
