@@ -114,8 +114,8 @@ class SolicitudController extends Controller
     $paramDesayuno['viernes']=$datos['DV'];
     $paramDesayuno['sabado']=$datos['DS'];
     $paramDesayuno['domingo']=$datos['DD'];
-    $paramDesayuno['desde']=$datos['desayuno_desde'];
-    $paramDesayuno['hasta']=$datos['desayuno_hasta'];
+    $paramDesayuno['desde']=strval($datos['desayuno_desde']);
+    $paramDesayuno['hasta']=strval($datos['desayuno_hasta']);
     CantRacionesDias::insert($paramDesayuno);
     $paramAlmuerzo['organizacion_id']=$id_organizacion;
     $paramAlmuerzo['comida']=2;
