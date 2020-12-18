@@ -5,6 +5,8 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
+
+
 <script>
 function calcular(){
   var uno = document.getElementsByName("uno")[0].value;
@@ -137,26 +139,6 @@ function valor(){
   }
 </script>
 
-<script src="js/jquery.simpletimepicker.js"><script>
-        <script>
-            $().ready(function(){
-
-                $("#time2").simpleTimePicker({
-                    output:'#time2_hide',
-                    text: {
-                        hour:'Hour',
-                        minute:'Minute'
-                    },
-                    format:12,
-                    interval: 5,
-                    time: {
-                        selected:'now'
-                    },
-                    css:'form-control'
-                });
-
-            });
-</script>
 @include('main')
 @include('components.header')
 @include('components.nav')
@@ -392,12 +374,10 @@ function valor(){
               <tbody>
               <tr>
                 <td class='center-item'>
-                <span id="time2"></span>
-                <input id='time2_hide' type="hidden" value="" />
-                  DESDE
+                  <input class="form-check-input fromTo" type="text" size=5 id="desayuno_desde" name="desayuno_desde" value='07:00'>DESDE
                 </td>
                 <td class='center-item'>
-                  <input class="form-check-input fromTo" type="time" id="desayuno_hasta" name="desayuno_hasta" value='09:00' step=600 >HASTA
+                  <input class="form-check-input fromTo" type="text" size=5 id="desayuno_hasta" name="desayuno_hasta" value='09:00'>HASTA
                 </td>
               </tr>
               </tbody>
@@ -436,10 +416,10 @@ function valor(){
               <tbody>
               <tr>
                 <td class='center-item'>
-                  <input class="form-check-input fromTo" type="time" id="almuerzo_desde" name="almuerzo_desde" value='12:00'>DESDE
+                  <input class="form-check-input fromTo" type="text" size=5 id="almuerzo_desde" name="almuerzo_desde" value='12:00'>DESDE
                 </td>
                 <td class='center-item'>
-                  <input class="form-check-input fromTo" type="time" id="almuerzo_hasta" name="almuerzo_hasta" value='14:00'>HASTA
+                  <input class="form-check-input fromTo" type="text" size=5 id="almuerzo_hasta" name="almuerzo_hasta" value='14:00'>HASTA
                 </td>
               </tr>
               </tbody>
@@ -478,10 +458,10 @@ function valor(){
               <tbody>
               <tr>
                 <td class='center-item'>
-                  <input class="form-check-input fromTo" type="time" id="merienda_desde" name="merienda_desde" value='17:00'>DESDE
+                  <input class="form-check-input fromTo" type="text" size=5 id="merienda_desde" name="merienda_desde" value='16:00'>DESDE
                 </td>
                 <td class='center-item'>
-                  <input class="form-check-input fromTo" type="time" id="merienda_hasta" name="merienda_hasta" value='19:00'>HASTA
+                  <input class="form-check-input fromTo" type="text" size=5 id="merienda_hasta" name="merienda_hasta" value='18:00'>HASTA
                 </td>
               </tr>
               </tbody>
@@ -520,10 +500,10 @@ function valor(){
               <tbody>
               <tr>
                 <td class='center-item'>
-                  <input class="form-check-input fromTo" type="time" id="cena_desde" name="cena_desde" value='20:00' >DESDE
+                  <input class="form-check-input fromTo" type="text" size=5 id="cena_desde" name="cena_desde" value='19:00' >DESDE
                 </td>
                 <td class='center-item'>
-                  <input class="form-check-input fromTo" type="time" id="cena_hasta" name="cena_hasta" value='22:00'>HASTA
+                  <input class="form-check-input fromTo" type="text" size=5 id="cena_hasta" name="cena_hasta" value='21:00'>HASTA
                 </td>
               </tr>
               </tbody>
