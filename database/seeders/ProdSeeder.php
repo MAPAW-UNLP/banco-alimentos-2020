@@ -99,9 +99,9 @@ class ProdSeeder extends Seeder
             ]); 
 
             $user1 = User::create([
-                'name' => 'Sebastian',
-                'email' => 'sebastianesg@gmail.com',
-                'apellido' => 'Sanchez',
+                'name' => 'admin',
+                'email' => 'admin@gmail.com',
+                'apellido' => 'admin',
                 'dni' => 12345678,
                 'telefono' => 12345678,
                 'password' => bcrypt('123456'),
